@@ -1,47 +1,77 @@
 ## Diagrama de Enfoque Arquitectónico · MVC con Servicios (Alcance Completo)
-
 ```mermaid
 flowchart TD
+    %% Actores principales arriba
     subgraph ACTORES ["ACTORES Y ROLES"]
-        Personal["Personal administrativo<br/><i>Administrador y asistente</i>"] ~~~ Ciudadano["Ciudadano<br/><i>Solicitudes, seguimiento, descarga y consulta por QR</i>"]
+        direction LR
+        Personal["Personal administrativo<br/><i>Administrador y asistente</i>"]
+        Ciudadano["Ciudadano<br/><i>Solicitudes, seguimiento, descarga y consulta por QR</i>"]
     end
 
-    subgraph MVC ["ENFOQUE MVC CON SERVICIOS"]
-        subgraph VISTA_CTRL ["Capa de Presentación y Control"]
-            Vista["VISTA · Blade + Bootstrap<br/>Actual: login, actas, usuarios y reportes<br/>Previsto: portal, solicitudes, entrega y QR"] <-->|"Petición / Respuesta"| Controlador["CONTROLADOR · Laravel<br/>Actual: Auth, Acta, Usuario, Auditoría y Reporte<br/>Previsto: Solicitud, Firma, Entrega y Validación"]
+    %% Fila central: MVC + Paneles laterales a la misma altura
+    subgraph CONTENEDOR_CENTRAL [" "]
+        direction LR
+        
+        subgraph CONTROLES ["CONTROLES TRANSVERSALES"]
+            Transversales["Middleware: autenticación<br/>Form Requests: validación<br/>Policies: autorización<br/>Auditoría: trazabilidad"]
         end
 
-        subgraph SERVICIOS ["SERVICIOS Y POLÍTICAS · apoyo a los controladores"]
-            GestionActas["Gestión de actas<br/>Registro, numeración y PDF"] ~~~ AuthAuditoria["Autenticación y auditoría<br/>Usuarios, permisos y operaciones"] ~~~ ReportesServ["Reportes<br/>Actas y sobres; reportes de solicitudes previstos"]
-            SolicitudEntrega["Solicitud y entrega<br/>Pendiente → revisión → atención"] ~~~ FirmaQR["Firma digital y QR<br/>Solo encargado autorizado; validación criptográfica"] ~~~ Notificaciones["Notificaciones<br/>Correo y WhatsApp al ciudadano"]
+        subgraph MVC ["ENFOQUE MVC CON SERVICIOS"]
+            direction TD
+            subgraph VISTA_CTRL ["Capa de Presentación y Control"]
+                Vista["VISTA · Blade + Bootstrap<br/>Actual: login, actas, usuarios y reportes<br/>Previsto: portal, solicitudes, entrega y QR"] <-->|"Petición / Respuesta"| Controlador["CONTROLADOR · Laravel<br/>Actual: Auth, Acta, Usuario, Auditoría y Reporte<br/>Previsto: Solicitud, Firma, Entrega y Validación"]
+            end
+
+            subgraph SERVICIOS ["SERVICIOS Y POLÍTICAS · apoyo a los controladores"]
+                direction TD
+                subgraph SERV_LINEA1 [" "]
+                    direction LR
+                    GestionActas["Gestión de actas<br/>Registro, numeración y PDF"]
+                    AuthAuditoria["Autenticación y auditoría<br/>Usuarios, permisos y operaciones"]
+                    ReportesServ["Reportes<br/>Actas y sobres"]
+                end
+                subgraph SERV_LINEA2 [" "]
+                    direction LR
+                    SolicitudEntrega["Solicitud y entrega<br/>Pendiente → revisión → atención"]
+                    FirmaQR["Firma digital y QR<br/>Solo encargado autorizado"]
+                    Notificaciones["Notificaciones<br/>Correo y WhatsApp"]
+                end
+            end
+
+            subgraph MODELO ["MODELO · Eloquent"]
+                Eloquent["MODELO · Eloquent<br/>Actual: User, Acta, Nacimiento, Matrimonio, Defunción y Auditoria<br/>Previsto: Solicitud, FirmaDigital, Validación, Entrega y Notificación"]
+            end
+
+            VISTA_CTRL --> SERVICIOS
+            SERVICIOS --> MODELO
         end
 
-        subgraph MODELO ["MODELO · Eloquent"]
-            Eloquent["MODELO · Eloquent<br/>Actual: User, Acta, Nacimiento, Matrimonio, Defunción y Auditoria<br/>Previsto: Solicitud, FirmaDigital, Validación, Entrega y Notificación"]
+        subgraph EXTERNOS ["SERVICIOS EXTERNOS"]
+            direction TD
+            DNIe["DNIe + lector<br/>Adaptador de firma compatible"]
+            Comunicacion["Servicios de comunicación<br/>SMTP, WhatsApp y avisos"]
         end
-
-        Controlador --> SERVICIOS
-        SERVICIOS --> MODELO
     end
 
     subgraph PERSISTENCIA ["DATOS Y PERSISTENCIA"]
-        MySQL[("MySQL<br/>Persistencia y consulta de los registros")] ~~~ Storage[("Storage privado<br/>PDF originales y documentos firmados previstos")]
+        direction LR
+        MySQL[("MySQL<br/>Persistencia y consulta")]
+        Storage[("Storage privado<br/>PDF originales y firmados")]
     end
 
-    subgraph EXTERNOS ["SERVICIOS EXTERNOS"]
-        DNIe["DNIe + lector<br/>Adaptador de firma compatible, certificados y verificación"] ~~~ Comunicacion["Servicios de comunicación<br/>SMTP: recuperación disponible; WhatsApp y avisos previstos"]
-    end
-
-    subgraph TRANSVERSAL ["CONTROLES TRANSVERSALES"]
-        Transversales["Middleware: autenticación<br/>Form Requests: validación<br/>Policies: autorización<br/>Auditoría: trazabilidad"]
-    end
-
+    %% Conexiones
     Personal --> Vista
     Ciudadano --> Vista
-    MODELO --> PERSISTENCIA
+    Controlador --> SERVICIOS
     SERVICIOS --> EXTERNOS
+    MODELO --> PERSISTENCIA
 
-    %% Estilos oscuros para subgrafos
+    %% Ocultar bordes de subgrafos invisibles
+    style CONTENEDOR_CENTRAL fill:none,stroke:none
+    style SERV_LINEA1 fill:none,stroke:none
+    style SERV_LINEA2 fill:none,stroke:none
+
+    %% Estilos oscuros
     style ACTORES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
     style MVC fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
     style VISTA_CTRL fill:#222,stroke:#fff,stroke-width:1px,color:#fff
@@ -49,9 +79,8 @@ flowchart TD
     style MODELO fill:#222,stroke:#fff,stroke-width:1px,color:#fff
     style PERSISTENCIA fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
     style EXTERNOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style TRANSVERSAL fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
+    style CONTROLES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
 
-    %% Estilos oscuros para nodos
     style Personal fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
     style Ciudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
     style Vista fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
