@@ -12,47 +12,83 @@ Las dependencias internas mediante MVC con Servicios / Monolito Organizado por C
 
 
 ## Diagrama de Arquitectura · Monolito por Capas (Alcance Completo)
+## Diagrama de Arquitectura · Monolito por Capas (Alcance Completo)
 
 ```mermaid
 flowchart TD
+    %% Actores alineados horizontalmente arriba
     subgraph ACTORES ["ACTORES / ROLES"]
-        Admin["Administrador<br/><i>Usuarios, atención y firma autorizada</i>"] ~~~ Asistente["Asistente<br/><i>Registro y atención de solicitudes</i>"] ~~~ Ciudadano["Ciudadano<br/><i>Solicita, consulta estado y descarga</i>"]
+        direction LR
+        Admin["Administrador<br/><i>Usuarios, atención y firma autorizada</i>"]
+        Asistente["Asistente<br/><i>Registro y atención de solicitudes</i>"]
+        Ciudadano["Ciudadano<br/><i>Solicita, consulta estado y descarga</i>"]
     end
 
-    subgraph MONOLITO ["UNA APLICACIÓN LARAVEL / UN DESPLIEGUE"]
-        subgraph VISTAS ["Vistas / Interfaz"]
-            PanelAdmin["Panel administrativo<br/>Blade + Bootstrap · Registro, usuarios y reportes"] ~~~ PortalCiudadano["Portal ciudadano<br/>Blade + Bootstrap · Solicitudes y entrega digital"]
+    %% Bloque Central (Aplicación + Sistemas Externos alineados a la derecha)
+    subgraph CONTENEDOR_CENTRAL [" "]
+        direction LR
+
+        subgraph MONOLITO ["UNA APLICACIÓN LARAVEL / UN DESPLIEGUE"]
+            direction TD
+            
+            subgraph VISTAS ["Vistas / Interfaz"]
+                direction LR
+                PanelAdmin["Panel administrativo<br/>Blade + Bootstrap · Registro, usuarios y reportes"]
+                PortalCiudadano["Portal ciudadano<br/>Blade + Bootstrap · Solicitudes y entrega digital"]
+            end
+
+            subgraph CONTROL ["Capa de Control"]
+                Controladores["CONTROL: controladores + middleware + Form Requests<br/>Autenticación, validación de entradas y permisos por rol"]
+            end
+
+            subgraph APLICACION ["Capa de Aplicación: servicios, políticas y reglas de negocio"]
+                direction TD
+                subgraph APP_FILA1 [" "]
+                    direction LR
+                    Actas["Actas y documentos<br/>Nacimiento, matrimonio y defunción"]
+                    UsuariosAuditoria["Usuarios y auditoría<br/>Acceso, acciones y trazabilidad"]
+                    Reportes["Reportes<br/>Actas y sobres"]
+                end
+                subgraph APP_FILA2 [" "]
+                    direction LR
+                    Solicitudes["Solicitudes y entrega<br/>Estados, atención y descargas"]
+                    Firma["Firma digital y validación<br/>DNIe, integridad y código / QR"]
+                    Notificaciones["Notificaciones<br/>Avisos y seguimiento de envíos"]
+                end
+            end
+
+            subgraph PERSISTENCIA ["Capa de Persistencia"]
+                EloquentStorage["PERSISTENCIA: modelos Eloquent + Laravel Storage<br/>Actual: usuarios, actas y auditoría · Previsto: solicitudes, firmas, validaciones y notificaciones"]
+            end
+
+            VISTAS --> CONTROL
+            CONTROL --> APLICACION
+            APLICACION --> PERSISTENCIA
         end
 
-        subgraph CONTROL ["Capa de Control"]
-            Controladores["CONTROL: controladores + middleware + Form Requests<br/>Autenticación, validación de entradas y permisos por rol"]
+        subgraph EXTERNOS ["SERVICIOS EXTERNOS / INTEGRACIONES"]
+            direction TD
+            SMTP["Correo SMTP<br/>Recuperación administrativa, avisos ciudadanos previstos"]
+            DNIe["DNIe + lector<br/>Solución de firma compatible, Integración externa"]
+            WhatsApp["API WhatsApp<br/>Notificaciones al ciudadano, Integración externa"]
         end
-
-        subgraph APLICACION ["Capa de Aplicación: servicios, políticas y reglas de negocio"]
-            Actas["Actas y documentos<br/>Nacimiento, matrimonio y defunción"] ~~~ UsuariosAuditoria["Usuarios y auditoría<br/>Acceso, acciones y trazabilidad"] ~~~ Reportes["Reportes<br/>Actas y sobres; solicitudes previstas"]
-            Solicitudes["Solicitudes y entrega<br/>Estados, atención y descargas"] ~~~ Firma["Firma digital y validación<br/>DNIe, integridad y código / QR"] ~~~ Notificaciones["Notificaciones<br/>Avisos y seguimiento de envíos"]
-        end
-
-        subgraph PERSISTENCIA ["Capa de Persistencia"]
-            EloquentStorage["PERSISTENCIA: modelos Eloquent + Laravel Storage<br/>Actual: usuarios, actas y auditoría · Previsto: solicitudes, firmas, validaciones y notificaciones"]
-        end
-
-        VISTAS --> CONTROL
-        CONTROL --> APLICACION
-        APLICACION --> PERSISTENCIA
     end
 
     subgraph ALMACENAMIENTO ["ALMACENAMIENTO Y DATOS"]
-        MySQL[("MySQL<br/>Datos actuales y tablas previstas del proyecto")] ~~~ StoragePrivate[("Almacenamiento privado<br/>PDF originales y versiones firmadas previstas")]
+        direction LR
+        MySQL[("MySQL<br/>Datos actuales y tablas previstas del proyecto")]
+        StoragePrivate[("Almacenamiento privado<br/>PDF originales y versiones firmadas previstas")]
     end
 
-    subgraph EXTERNOS ["SERVICIOS EXTERNOS / INTEGRACIONES"]
-        SMTP["Correo SMTP<br/>Recuperación administrativa, avisos ciudadanos previstos"] ~~~ DNIe["DNIe + lector<br/>Solución de firma compatible, Integración externa"] ~~~ WhatsApp["API WhatsApp<br/>Notificaciones al ciudadano, Integración externa"]
-    end
-
+    %% Conexiones principales
     ACTORES --> MONOLITO
     PERSISTENCIA --> ALMACENAMIENTO
     APLICACION --> EXTERNOS
+
+    %% Ocultar bordes de subgrafos auxiliares
+    style CONTENEDOR_CENTRAL fill:none,stroke:none
+    style APP_FILA1 fill:none,stroke:none
+    style APP_FILA2 fill:none,stroke:none
 
     %% Estilos oscuros para subgrafos
     style ACTORES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
@@ -64,7 +100,7 @@ flowchart TD
     style ALMACENAMIENTO fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
     style EXTERNOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
 
-    %% Estilos oscuros para nodos individuales
+    %% Estilos oscuros para nodos
     style Admin fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
     style Asistente fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
     style Ciudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
