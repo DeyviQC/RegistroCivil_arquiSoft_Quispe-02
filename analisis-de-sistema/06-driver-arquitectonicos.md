@@ -1,13 +1,15 @@
-# Drivers Arquitectónicos
+# Drivers arquitectónicos
 
-## Identificar drivers arquitectónicos
-**Objetivo:** integrar los elementos identificados anteriormente y determinar cuáles tienen una influencia significativa en las decisiones de arquitectura.
+Los drivers relacionan requisitos, calidad y restricciones con las decisiones arquitectónicas. La prioridad indica su influencia en el diseño; las ampliaciones pendientes no se presentan como implementadas.
 
 | ID | Driver arquitectónico | Origen | ¿Por qué influye en la arquitectura? |
-| :--- | :--- | :--- | :--- |
-| **DA01** | El sistema debe permitir incrementar progresivamente la cantidad de usuarios y documentos sin degradar su funcionamiento. | AC03 – Escalabilidad | Puede influir en la estrategia de almacenamiento privado de PDFs y optimización de consultas en MySQL. |
-| **DA02** | Las operaciones habituales de consulta deben responder en un tiempo adecuado y rápido. | AC01 – Rendimiento | Influye en el diseño de las consultas a la base de datos y la estructuración del almacenamiento de actas digitalizadas. |
-| **DA03** | Las actas electrónicas deben verificarse mediante firma digital con DNIe e incluir código QR. | AC05 – Integridad | Influye en la integración con lectores de tarjetas inteligentes, generación de hash criptográfico y empaquetado PDF/A. |
-| **DA04** | El sistema debe proteger las cuentas de usuarios, accesos por roles y repositorios documentales. | AC04 – Seguridad | Influye en la implementación de autenticación segura (Laravel Auth), control de accesos RBAC y repositorios privados no públicos. |
-| **DA05** | El sistema debe integrarse con el servicio de WhatsApp para notificar el estado de las solicitudes. | RC05 – Servicio de notificaciones | Condiciona la forma de comunicación e integración asíncrona mediante APIs web externas. |
-| **DA06** | El backend debe desarrollarse en Laravel y el frontend en Blade con Bootstrap sobre MySQL. | RC03 – Stack tecnológico | Limita la tecnología base y define la arquitectura del sistema bajo el patrón MVC del framework. |
+| --- | --- | --- | --- |
+| DA01 | Crecimiento de usuarios y archivo documental | AC03, RC09 | Medir capacidad y optimizar consultas y almacenamiento dentro del monolito antes de justificar otro despliegue. |
+| DA02 | Consulta y reportes con tiempos medibles | AC01, RF12, RF13 | Aplicar filtros, paginación e índices adecuados; verificar tiempos con datos y carga definidos. |
+| DA03 | Conservar originales y prever firma verificable | AC05, RF05, RF08, RF09, RC04, RC10 | Separar PDF original de la futura versión firmada; la firma requiere componente compatible y evidencia. No se impone PDF/A sin requisito acordado. |
+| DA04 | Acceso mínimo y privacidad del trámite | AC04, RF01, RF06, RC02 | Middleware, políticas, PDF privados, datos cifrados y seguimiento autorizado mediante código; credenciales solo en configuración del servidor. |
+| DA05 | Comunicaciones con fallos controlados | AC02, RF10, RC05 | Separar envío de correo de la atención; prever colas y reintentos sin afirmar que existen. WhatsApp permanece pospuesto. |
+| DA06 | Mantener Laravel MVC con servicios | RC03, AC07 | Un despliegue con Blade, controladores, servicios, Eloquent y MySQL; responsabilidades transversales de validación, autorización y auditoría. |
+| DA07 | Consistencia, fidelidad y trazabilidad | AC05, AC06, RF02–RF05, RF11, RF15, RF17 | Transacciones, unicidad, hash, historial de filiación y control de versión para evitar sobrescrituras y preservar el archivo. |
+| DA08 | Pagos Izipay y contraste con proveedores | RF06, RF16, RC06, RC08 | Encapsular la integración del proveedor, verificar TLS y respuestas y prevenir doble procesamiento. El navegador no confirma pagos. Izipay requiere diseño e implementación según la modalidad seleccionada; no se presume HMAC ni un contrato específico. |
+| DA09 | Recuperación y configuración por entorno | AC08, RC02, RC09 | Respaldar de forma conjunta base, PDF y claves; separar configuración y datos de desarrollo de una futura operación publicada. |

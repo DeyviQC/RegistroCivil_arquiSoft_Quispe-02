@@ -1,24 +1,44 @@
-# Registro de Decisiones Arquitectónicas (ADR)
+# Registro de decisiones arquitectónicas (ADR)
 
-| ID | Decisión arquitectónica | Driver relacionado | Justificación | Resultado y estado |
-|---|---|---|---|---|
-| **ADR-001** | Aplicación monolítica organizada por responsabilidades con Laravel | Mantenibilidad y despliegue | Mantener una aplicación centralizada que permita incorporar nuevas funcionalidades progresivamente. | **Implementado:** controladores, servicios, modelos, validaciones y políticas. |
-| **ADR-002** | Interfaz con Blade y Bootstrap | Usabilidad y compatibilidad | Facilitar el acceso desde computadoras y dispositivos móviles. | **Implementado:** formularios por tipo de acta y menú adaptable. |
-| **ADR-003** | Base de datos relacional MySQL | Integridad y consistencia | Relacionar usuarios, actas y datos específicos de cada registro. | **Implementado:** tablas de actas, nacimiento, matrimonio, defunción, usuarios y auditoría. |
-| **ADR-004** | Almacenamiento privado de PDF originales | Seguridad documental | Conservar los documentos y permitir su acceso únicamente a usuarios autorizados. | **Implementado:** PDF en almacenamiento privado; ruta, tamaño y hash en MySQL. |
-| **ADR-005** | Registrar actas existentes sin emitir nuevos documentos oficiales | Fidelidad documental y alcance | Respetar el proceso acordado con el encargado: registrar los datos y adjuntar el acta original. | **Implementado:** registro, consulta e impresión del PDF adjunto. |
-| **ADR-006** | Autenticación y autorización por roles | Seguridad y control de acceso | Diferenciar las funciones del administrador y del asistente. | **Implementado:** middleware y políticas de acceso.<br>**Pendiente:** incorporar el rol Ciudadano. |
-| **ADR-007** | Guardado transaccional y control de duplicados | Integridad | Evitar registros parciales y duplicación de actas o documentos. | **Implementado:** transacciones, restricciones de unicidad y comprobación de hash. |
-| **ADR-008** | Numeración independiente por tipo y referencia física | Organización y trazabilidad | Mantener el orden general y la ubicación de cada acta. | **Implementado:** orden, sobre y correlativo automáticos; conservación de numeración histórica. |
-| **ADR-009** | Auditoría de operaciones | Trazabilidad | Identificar quién realizó cada acción y cuándo ocurrió. | **Implementado:** auditoría administrativa.<br>**Pendiente:** registrar solicitudes, firmas, validaciones y entregas. |
-| **ADR-010** | Reportes con filtros específicos | Calidad de información | Producir resultados consistentes según el propósito del reporte. | **Implementado:** reportes de actas, periodos, pendientes y sobres, con Excel y PDF.<br>**Pendiente:** reportes de solicitudes. |
-| **ADR-011** | Recuperación de contraseña por correo para administradores | Seguridad y recuperación de acceso | Restablecer el acceso mediante enlaces temporales. | **Implementado:** enlaces de un solo uso, vencimiento y envío SMTP con TLS. |
-| **ADR-012** | Ausencia de DNI/CUI registrada explícitamente | Fidelidad de los datos | Diferenciar un dato no consignado en el documento de una omisión del operador. | **Implementado:** excepción explícita en nacimiento y defunción, sin números ficticios. |
-| **ADR-013** | Portal ciudadano para solicitar actas | Accesibilidad y atención ciudadana | Permitir solicitudes virtuales sin conceder acceso al panel administrativo. | **Propuesto, pendiente:** registro e inicio de sesión ciudadano, formulario de solicitud y consulta exclusiva de sus propias solicitudes. |
-| **ADR-014** | Solicitudes con estados y transiciones controladas | Consistencia y trazabilidad | Evitar cambios de estado arbitrarios y comunicar el avance de la atención. | **Propuesto, pendiente:** estados pendiente, en revisión, atendida y rechazada; responsables, fechas y motivo de rechazo. |
-| **ADR-015** | Firma digital mediante un componente especializado compatible con DNIe | Autenticidad e integridad | Incorporar firma criptográfica y restringirla al encargado autorizado. Una imagen de firma o un hash por sí solos no cumplen esa función. | **Propuesto, pendiente:** seleccionar la solución de firma, integrar DNIe y lector, conservar el original y almacenar una versión firmada con su evidencia de validación. |
-| **ADR-016** | Validación mediante código único y QR | Verificabilidad y privacidad | Facilitar la comprobación del documento sin publicar los datos personales completos. | **Propuesto, pendiente:** código de verificación, QR y consulta controlada del estado del registro, firma e integridad. |
-| **ADR-017** | Entrega digital vinculada a una solicitud autorizada | Seguridad y atención ciudadana | Permitir la descarga únicamente al solicitante autorizado y dejar constancia de la entrega. | **Propuesto, pendiente:** descarga protegida, documento entregado y registro de fecha, hora y responsable. |
-| **ADR-018** | Notificaciones mediante servicios externos y tareas en cola | Integración y disponibilidad | Enviar avisos sin bloquear la atención y permitir reintentos cuando falle el proveedor. | **Propuesto, pendiente:** integración con WhatsApp y correo, seguimiento de envíos y avisos de cambios de estado. |
-| **ADR-019** | Respaldo conjunto de MySQL y documentos privados | Recuperabilidad | Recuperar los registros y sus PDF asociados ante una pérdida de información. | **Propuesto, pendiente de operación:** copias programadas, almacenamiento separado, política de conservación y pruebas de restauración. |
-| **ADR-020** | Despliegue con HTTPS y configuración por entorno | Seguridad y operación | Separar las credenciales y ajustes locales de los utilizados por el cliente. | **Preparado parcialmente, pendiente de despliegue:** dominio real, HTTPS, correo institucional, certificados del servidor y verificación del funcionamiento en producción. |
+Estado contrastado con el código y documentación de la copia de desarrollo al 15 de octubre de 2026. «Implementado localmente» no afirma despliegue ni validación de proveedores. Se mantienen los identificadores y se actualizan sus resultados.
+
+| ID | Decisión arquitectónica | Driver relacionado | Justificación | Resultado |
+| --- | --- | --- | --- | --- |
+| ADR-001 | Aplicación monolítica Laravel con MVC y servicios | DA06 | Un despliegue y separación de responsabilidades; servicios y modelos siguen dependiendo del framework. | Implementado localmente. |
+| ADR-002 | Interfaz Blade y Bootstrap | DA06 | Renderizar páginas desde Laravel y mantener una interfaz común para panel y trámite. | Implementado localmente. |
+| ADR-003 | MySQL y modelos Eloquent | DA06, DA07 | Persistencia relacional y transacciones; requiere verificar migraciones y comportamiento en el entorno objetivo. | Implementado localmente; las pruebas automatizadas usan SQLite. |
+| ADR-004 | PDF originales en almacenamiento privado | DA03, DA04 | Guardar ruta, tamaño y hash en MySQL; servir archivos con autorización y preservar el original. | Implementado localmente. |
+| ADR-005 | Registrar actas existentes | DA03, DA07 | Asociar datos al PDF original sin emitir una nueva acta oficial ni alterar el registro de otra institución. | Implementado; firma y emisión de copia digital autorizada pendientes. |
+| ADR-006 | Autenticación y autorización según rol | DA04 | Reservar archivo y atención al personal y gestión de usuarios al administrador. | Implementado; cuentas ciudadanas históricas conservadas. El nuevo trámite no crea cuentas. |
+| ADR-007 | Transacciones y control de duplicados | DA07 | Evitar registros parciales y duplicados por número/año/tipo o hash; coordinar compensación del archivo ante fallo de persistencia. | Implementado localmente. |
+| ADR-008 | Numeración por tipo y ubicación física | DA07 | Mantener orden, sobre y correlativo y conservar numeración histórica; no sustituir el número oficial. | Implementado localmente. |
+| ADR-009 | Auditoría e historial específico | DA07 | Registrar operaciones, eventos del trámite y revisiones de filiación. Exige control de acceso; no acredita bitácora criptográficamente inmutable. | Implementado para operaciones actuales; firma y entrega pendientes. |
+| ADR-010 | Reportes con filtros por propósito | DA02, DA04 | Separar consultas de archivo, resúmenes, pendientes, sobres y actividad; esta última requiere permisos de auditoría. | Implementado con exportaciones; reportes de solicitudes pendientes. |
+| ADR-011 | Recuperación por correo de administradores activos | DA04, DA05 | Enlaces temporales y de un uso, auditoría e invalidación de sesiones de base de datos. El envío depende del correo configurado. | Implementado; no se presume SMTP operativo en el entorno local. |
+| ADR-012 | Ausencia de DNI/CUI explícita | DA07 | Representar datos no consignados sin números ficticios. | Implementado en nacimiento y defunción; filiación tiene estados propios. |
+| ADR-013 | Trámite público sin crear cuentas | DA04, DA06 | Separar atención pública del archivo privado; usar correo y código para seguimiento. Mantener el flujo antiguo por compatibilidad histórica. | Implementado en `/tramite`; registro ciudadano anterior redirige al flujo actual. |
+| ADR-014 | Estados y decisiones con control de versión | DA07, DA08 | Distinguir pago de atención; impedir decisiones concurrentes desactualizadas y exigir respuesta y revisión de vínculo cuando corresponda. | Implementado: pendiente de pago, pendiente, en revisión, observada, aprobada y rechazada. Aprobar no firma ni entrega; subsanación pública pendiente. |
+| ADR-015 | Firma mediante solución compatible con DNIe | DA03 | Conservar original, versión firmada y evidencia; restringir firma al encargado. Requiere selección e integración del componente. | Propuesto, pendiente. |
+| ADR-016 | Código y QR de autenticidad | DA03, DA04 | Consultar resultado de validación sin exponer documentos completos. Se distingue del QR de pago. | Propuesto, pendiente. |
+| ADR-017 | Entrega privada autorizada | DA03, DA04 | Vincular descarga a trámite, versión firmada y permiso de entrega; dejar constancia. | Propuesto, pendiente. |
+| ADR-018 | Correo actual y notificaciones futuras | DA05 | Códigos y recuperación usan correo; con `log` no hay envío real. Colas y reintentos requieren desarrollo adicional. | Correo implementado localmente; avisos de entrega pendientes y WhatsApp pospuesto. |
+| ADR-019 | Respaldo conjunto y restauración | DA09 | Recuperar MySQL, PDF y claves necesarias; una copia parcial no recupera todo el sistema. | Pendiente de procedimiento operativo y prueba de restauración. |
+| ADR-020 | Configuración por entorno y HTTPS | DA04, DA09 | Mantener secretos fuera del repositorio y verificar TLS de proveedores. HTTPS público requiere despliegue y certificados. | Configuración local existente; publicación, separación nube/municipalidad y sincronización pendientes. |
+| ADR-021 | Contraste de datos mediante APIsPerú | DA04, DA08 | Encapsular llamadas en `ApisPeruService`; el contraste de DNI y nombres no prueba identidad ni parentesco. | Conector existente, sin prueba real con credenciales; no es acceso directo a RENIEC. |
+| ADR-022 | Pago mediante Izipay | DA08 | Usar el proveedor seleccionado para el trámite; definir importe en servidor, confirmación verificable y prevención de doble procesamiento según su modalidad de integración. No confiar en el retorno del navegador. | Decisión actualizada: Izipay seleccionado, integración y validación pendientes. TAYPI descartado; su conector local no constituye implementación de Izipay. |
+| ADR-023 | Filiación revisable con historial | DA03, DA07 | Modificar solo campos autorizados de padres; guardar valores anteriores/nuevos, operador y hash del PDF, con bloqueo y versión. | Implementado; conserva acta central, numeración y original. El cruce apoya revisión humana sin autorizar entrega. |
+
+## Evidencia de implementación
+
+Las rutas siguientes pertenecen al proyecto Laravel de desarrollo, no a carpetas de este repositorio documental:
+
+| Decisiones | Evidencia principal |
+|---|---|
+| ADR-001–ADR-008, ADR-012 | `routes/web.php`, `app/Http/Controllers/ActaController.php`, `app/Services/ActaService.php`, `app/Services/PdfValidationService.php`, `app/Services/PdfStorageService.php`, `app/Policies/ActaPolicy.php`, modelos y migraciones. |
+| ADR-009–ADR-011, ADR-018 | `app/Services/AuditoriaService.php`, `app/Http/Controllers/ReporteController.php`, `app/Http/Controllers/PasswordResetController.php`, `app/Services/CodigoTramiteService.php`. |
+| ADR-013–ADR-014 | `app/Http/Controllers/PortalPublicoController.php`, `app/Http/Controllers/AtencionPublicaController.php`, `app/Models/TramitePublico.php`; `Solicitud` conserva el flujo anterior. |
+| ADR-020–ADR-023 | `config/portal.php`, `app/Services/PortalHttpOptions.php`, `app/Services/ApisPeruService.php`, `app/Http/Controllers/FiliacionController.php`, `app/Services/CruceParentescoService.php`. |
+
+La evidencia indica ubicación del comportamiento, no resultados de ejecución. No se incorporan datos personales, credenciales ni documentos reales al material académico.
+
+La selección de Izipay reemplaza TAYPI. El código local conserva el conector anterior, que queda fuera de la solución elegida; su sustitución no se ha realizado en esta actualización documental. Los detalles de Izipay deberán definirse según la modalidad contratada, sin trasladar automáticamente firmas, endpoints, QR ni tarifas del proveedor descartado.
