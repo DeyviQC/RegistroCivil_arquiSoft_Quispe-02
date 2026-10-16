@@ -1,32 +1,55 @@
-# Requisitos Funcionales
+# Requisitos funcionales
 
-## Lista de Requisitos Funcionales
+## Requisitos y estado
+
+El estado corresponde al código de desarrollo revisado el 15 de octubre de 2026, sin afirmar funcionamiento en producción. Se conservan RF01–RF12 y se precisan funciones actuales.
 
 | ID | Requisito funcional |
-| :--- | :--- |
-| **RF01** | El sistema deberá permitir registrar y administrar usuarios con roles de Administrador/Encargado y Asistente, permitiendo gestionar permisos y controlar accesos según el rol. |
-| **RF02** | El sistema deberá permitir registrar nuevas actas de nacimiento almacenando datos del recién nacido y progenitores, generando un identificador único y asociando su respaldo físico. |
-| **RF03** | El sistema deberá permitir registrar nuevas actas de matrimonio con la información de los contrayentes, generando un identificador único y asociando el documento digitalizado del acta física. |
-| **RF04** | El sistema deberá permitir registrar nuevas actas de defunción con los datos de la persona fallecida y del fallecimiento, generando un identificador único y registrando la ubicación del documento físico. |
-| **RF05** | El sistema deberá almacenar digitalmente las actas registradas, asociar archivos PDF o documentos digitalizados, mantener la ubicación del físico y conservar un historial de modificaciones. |
-| **RF06** | El sistema deberá permitir al ciudadano solicitar virtualmente actas de nacimiento, matrimonio o defunción, registrando la solicitud, validando datos y permitiendo consultar su estado. |
-| **RF07** | El sistema deberá permitir entregar el acta digital al ciudadano mediante la plataforma web, enviando una notificación por WhatsApp y registrando la fecha y hora de entrega. |
-| **RF08** | El sistema deberá permitir que el único Administrador/Encargado autorizado firme digitalmente las actas mediante DNI electrónico y lector compatible, asociando la firma y permitiendo verificar autenticidad e integridad. |
-| **RF09** | El sistema deberá permitir verificar un acta mediante un código único o QR, comprobando que no haya sido alterada tras la firma y mostrando información básica sin exponer datos personales innecesarios. |
-| **RF10** | El sistema deberá enviar notificaciones sobre el estado de las solicitudes y la disponibilidad del acta mediante WhatsApp y dentro de la plataforma. |
-| **RF11** | El sistema deberá registrar en una bitácora de auditoría las operaciones realizadas por los usuarios administrativos (usuario, operación, fecha, hora y documento afectado) y permitir consultar el historial. |
-| **RF12** | El sistema deberá generar reportes de actas registradas, estadísticas por tipo de acta y reportes de solicitudes atendidas, pendientes y rechazadas. |
+| --- | --- |
+| RF01 | Administrar usuarios y roles; restringir la gestión de cuentas al administrador y las operaciones del archivo al personal autorizado. |
+| RF02 | Registrar actas de nacimiento existentes con datos del titular, datos de padres, PDF obligatorio y referencia física, sin inventar documentos de identidad ausentes. |
+| RF03 | Registrar actas de matrimonio existentes con datos de contrayentes, PDF obligatorio y referencia física. |
+| RF04 | Registrar actas de defunción existentes con sus datos, PDF obligatorio y referencia física. |
+| RF05 | Conservar PDF originales en almacenamiento privado y metadatos en MySQL; impedir duplicados por número, año y tipo y por hash del PDF. Proteger el acta central y su numeración frente a edición y eliminación ordinarias. |
+| RF06 | Permitir un trámite público sin cuenta, con términos versionados, búsqueda de coincidencia única con PDF, datos del solicitante y vínculo, verificación de correo y seguimiento privado. |
+| RF07 | Entregar una versión autorizada y firmada mediante descarga protegida y registrar documento, responsable y fecha de entrega. |
+| RF08 | Permitir firma criptográfica mediante una solución compatible con DNIe, restringida al encargado autorizado, conservando el PDF original y la evidencia de la versión firmada. |
+| RF09 | Verificar el documento mediante código o QR de autenticidad y resultado de comprobación de firma e integridad, con exposición mínima de datos. |
+| RF10 | Comunicar el seguimiento en la plataforma y enviar códigos por correo. Incorporar avisos de entrega y WhatsApp cuando estén integrados. |
+| RF11 | Registrar y consultar operaciones administrativas y de atención con responsable, fecha, acción y registro afectado; registrar revisiones de filiación con valores anteriores, nuevos y hash de referencia. |
+| RF12 | Generar reportes filtrados de actas, resúmenes por periodo, pendientes documentales, sobres y actividad; permitir exportaciones. |
+| RF13 | Buscar y consultar actas por criterios habilitados, visualizar e imprimir el PDF mediante rutas autorizadas. |
+| RF14 | Restablecer la contraseña de administradores activos mediante enlace temporal y de un solo uso, con auditoría e invalidación de sesiones de base de datos. |
+| RF15 | Completar o revisar nombres y DNI de padres con estados explícitos, control de versión e historial; conservar intactos el acta central, su numeración y PDF. |
+| RF16 | Procesar pagos mediante Izipay con importe definido en servidor y prevención de doble procesamiento; confirmar el resultado mediante un mecanismo verificado del proveedor y validar referencia, moneda e importe. No confiar en la redirección del navegador como prueba de pago. |
+| RF17 | Atender trámites pagados con transiciones y versión controladas, respuesta obligatoria y revisión humana del vínculo cuando corresponda. |
 
-## Relación entre Historias de Usuario (HU) y Requisitos Funcionales (RF)
+## Reglas del trámite público
 
-| Historia de usuario | Requisitos funcionales relacionados |
-| :--- | :--- |
-| **HU01** Solicitar acta virtual | RF06, RF07 |
-| **HU02** Consultar estado de solicitud | RF06 |
-| **HU03** Recibir notificaciones por WhatsApp | RF07, RF10 |
-| **HU04** Validar acta vía código QR | RF09 |
-| **HU05** Registrar nuevas actas | RF02, RF03, RF04, RF05 |
-| **HU06** Atender solicitudes de actas | RF05, RF06, RF07 |
-| **HU07** Firmar digitalmente actas con DNIe | RF08, RF09 |
-| **HU08** Gestionar usuarios y permisos | RF01 |
-| **HU09** Consultar auditoría e historial | RF11, RF12 |
+- La búsqueda no expone el archivo municipal. Una ausencia de coincidencia digital no prueba inexistencia del acta física.
+- El código de correo tiene seis dígitos, vence en diez minutos, admite cinco intentos y exige un minuto entre reenvíos. Se conserva su hash.
+- El flujo distingue `PENDIENTE_PAGO`, `PENDIENTE`, `EN_REVISION`, `OBSERVADA`, `APROBADA` y `RECHAZADA`. El paso de pago a atención deberá habilitarse únicamente con confirmación verificada de Izipay; esta integración está pendiente.
+- Desde `PENDIENTE` se pasa a `EN_REVISION`; desde revisión se puede observar, aprobar o rechazar. Una observada puede volver a revisión administrativa. La subsanación pública está pendiente.
+- `APROBADA` significa pendiente de firma, sin descarga disponible. Pago, contraste de DNI o coincidencia de parentesco no autorizan automáticamente la entrega.
+- El flujo anterior con cuentas usa `Solicitud` y sus propios estados; se conserva por compatibilidad histórica y no debe confundirse con `TramitePublico`.
+
+## Trazabilidad HU–RF
+
+| Historia | Requisitos |
+|---|---|
+| HU01 | RF06, RF16 |
+| HU02 | RF06, RF10 |
+| HU03 | RF10 |
+| HU04 | RF09 |
+| HU05 | RF02, RF03, RF04, RF05 |
+| HU06 | RF11, RF17 |
+| HU07 | RF08 |
+| HU08 | RF01 |
+| HU09 | RF11 |
+| HU10 | RF05, RF13 |
+| HU11 | RF12 |
+| HU12 | RF14 |
+| HU13 | RF02, RF11, RF15 |
+| HU14 | RF07 |
+
+RF07, RF08, RF09 y RF16 están pendientes de implementación. RF10 combina seguimiento y códigos locales con avisos futuros; WhatsApp está pospuesto. RF12 cubre actualmente archivo y actividad, con reportes de solicitudes pendientes. El flujo público de RF06 requiere integrar Izipay y validar el contraste externo; aprobar no firma ni entrega. La recuperación RF14 depende del correo configurado.

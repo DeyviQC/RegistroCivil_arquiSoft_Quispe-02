@@ -1,17 +1,24 @@
-# Historias de Usuario
+# Historias de usuario
 
-**Formato:** *Como [actor], quiero [acción], para [beneficio].*
-
-## Lista de Historias de Usuario
+Las historias describen el desarrollo actual y las funciones previstas. Los conectores existentes no se consideran operativos hasta validar su funcionamiento externo. Se mantienen los identificadores originales.
 
 | ID | Historia de usuario |
-| :--- | :--- |
-| **HU01** | Como ciudadano, quiero solicitar un acta de nacimiento, matrimonio o defunción desde la página web, para obtener mi documento sin acudir presencialmente a la municipalidad. |
-| **HU02** | Como ciudadano, quiero consultar el estado de mi solicitud en la plataforma web, para conocer la etapa de procesamiento de mi trámite. |
-| **HU03** | Como ciudadano, quiero recibir notificaciones por WhatsApp cuando mi acta esté lista, para enterarme al instante y acceder al enlace de descarga. |
-| **HU04** | Como ciudadano, quiero escanear el código QR o código de validación de un acta, para comprobar que el documento sea válido y no haya sido alterado. |
-| **HU05** | Como asistente, quiero registrar nuevas actas de nacimiento, matrimonio y defunción asociando el documento físico, para mantener la base de datos actualizada y dejar el acta lista para firma. |
-| **HU06** | Como asistente, quiero consultar actas y atender solicitudes ingresadas por los ciudadanos, para verificar los datos y procesar la emisión de la copia digital. |
-| **HU07** | Como administrador, quiero firmar digitalmente las actas utilizando mi DNI electrónico y lector compatible, para otorgar validez legal e inalterabilidad a los documentos digitales. |
-| **HU08** | Como administrador, quiero gestionar los usuarios, asignar roles y configurar permisos de la plataforma, para controlar el acceso seguro del personal administrativo. |
-| **HU09** | Como administrador, quiero consultar el módulo de auditoría e historial de operaciones, para tener trazabilidad de qué usuario realizó cada acción en el sistema. |
+| --- | --- |
+| HU01 | Como ciudadano, quiero solicitar un acta desde la web para iniciar el trámite sin acudir presencialmente. |
+| HU02 | Como ciudadano, quiero consultar mi trámite para conocer su avance. |
+| HU03 | Como ciudadano, quiero recibir un aviso por WhatsApp cuando el documento esté disponible para conocer su entrega. |
+| HU04 | Como ciudadano, quiero consultar el código o QR del documento para verificar su autenticidad. |
+| HU05 | Como asistente, quiero registrar actas existentes con su PDF para organizar el archivo municipal. |
+| HU06 | Como asistente, quiero revisar trámites para decidir su atención con sustento. |
+| HU07 | Como encargado autorizado, quiero firmar el documento mediante DNIe para incorporar una firma criptográfica verificable. |
+| HU08 | Como administrador, quiero gestionar cuentas y roles para controlar el acceso del personal. |
+| HU09 | Como administrador, quiero consultar la auditoría para identificar quién realizó cada operación. |
+| HU10 | Como personal autorizado, quiero buscar, visualizar e imprimir actas para atender consultas del archivo. |
+| HU11 | Como personal autorizado, quiero consultar y exportar reportes para revisar el registro documental. |
+| HU12 | Como administrador activo, quiero recuperar mi contraseña por correo para restablecer el acceso. |
+| HU13 | Como personal autorizado, quiero revisar los datos de padres para conservar una transcripción fiel del nacimiento. |
+| HU14 | Como ciudadano autorizado, quiero descargar el documento aprobado y firmado para recibirlo de forma privada. |
+
+Las historias de seguridad, fidelidad del archivo y atención actual tienen prioridad sobre las ampliaciones de firma, entrega y avisos. Las prioridades de estas ampliaciones deberán acordarse antes de implementarlas.
+
+HU03 está pospuesta. HU04, HU07 y HU14 están pendientes. HU01 y HU06 dependen de la integración de pago Izipay pendiente; APIsPerú aún requiere validación externa. Las demás historias describen funciones locales existentes; el envío real de correo depende de su configuración.

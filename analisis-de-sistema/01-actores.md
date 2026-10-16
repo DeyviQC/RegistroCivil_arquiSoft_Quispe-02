@@ -1,12 +1,26 @@
-# 01. Actores del Sistema
+# 01. Actores del sistema
 
-## Identificar actores
-**Objetivo:** determinar quiénes interactúan con el sistema.
+## Alcance y estado
+
+Esta documentación describe el proyecto Registro Civil en su copia de desarrollo, revisada el 15 de octubre de 2026. «Implementado» significa que existe en el código local; no implica publicación ni validación operativa con proveedores. La aplicación conserva Laravel, MVC con servicios, Blade, Bootstrap y MySQL.
+
+## Personas
 
 | Actor | ¿Qué necesita realizar? |
-| :--- | :--- |
-| **Ciudadano** | Solicitar actas (nacimiento, matrimonio, defunción), consultar el estado de su solicitud, recibir notificaciones por WhatsApp, descargar el acta digital firmada y verificar la autenticidad del documento mediante código QR. |
-| **Asistente** | Registrar actas (nacimiento, matrimonio, defunción), consultar actas, atender solicitudes ciudadanas, digitalizar documentos y preparar los expedientes en estado "PENDIENTE DE FIRMA". |
-| **Administrador / Encargado** | Administrar la plataforma, gestionar usuarios y permisos, configurar el sistema, revisar y atender solicitudes, firmar digitalmente las actas mediante DNI electrónico (DNIe) y consultar reportes y registros de auditoría. |
-| **Lector DNIe** | Proveer la interfaz de hardware y autenticación criptográfica para la lectura del DNI electrónico del Administrador durante el proceso de firma digital. |
-| **Servicio de Notificaciones (WhatsApp)** | Enviar notificaciones automáticas al ciudadano sobre el estado de sus solicitudes, confirmaciones y disponibilidad de entrega del acta. |
+| --- | --- |
+| Ciudadano / solicitante | Iniciar un trámite en `/tramite` sin crear cuenta, buscar una coincidencia de acta, declarar datos y vínculo, verificar correo mediante código y consultar el seguimiento. Se prevén firma, descarga autorizada y verificación de autenticidad; el pago Izipay está pendiente de integración. |
+| Asistente | Registrar actas existentes con PDF, buscar, consultar e imprimir documentos, revisar filiación, consultar reportes permitidos y atender trámites con decisiones auditadas. |
+| Administrador / encargado | Realizar las tareas administrativas, gestionar usuarios, consultar auditoría y reportes de actividad y recuperar su contraseña por correo cuando el envío esté configurado. |
+
+El flujo anterior con cuentas de rol ciudadano y solicitudes se conserva para datos históricos. El acceso público vigente no exige crear esas cuentas. Aprobar un trámite no firma ni entrega el documento.
+
+## Sistemas externos y dispositivos
+
+| Elemento | Tipo | Interacción y estado |
+|---|---|---|
+| Servicio de correo | Sistema externo | Envío de códigos y recuperación administrativa. En desarrollo, `log` registra mensajes sin enviarlos; SMTP depende de configuración. |
+| APIsPerú | Sistema externo | Conector para contrastar DNI y nombres. Pendiente de prueba real con credenciales; no es una integración directa con RENIEC. |
+| Izipay | Sistema externo seleccionado | Pasarela elegida para los pagos del trámite. Integración y validación pendientes; modalidad, credenciales y mecanismo de confirmación por definir. |
+| Solución de firma compatible con DNIe | Componente externo previsto | Firma criptográfica y validación de evidencia; selección e integración pendientes. |
+| DNIe y lector compatible | Credencial y dispositivo | Apoyarán la firma del encargado; el lector no decide ni autoriza trámites. |
+| Servicio de WhatsApp | Sistema externo previsto | Integración pospuesta. Informar un número opcional no produce notificaciones. |
