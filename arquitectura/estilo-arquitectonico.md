@@ -1,121 +1,76 @@
-# PASO 5: DEFINIR PATRONES O ENFOQUE ARQUITECTÓNICO
+# Estilo arquitectónico del Registro Civil
 
-Las dependencias internas mediante MVC con Servicios / Monolito Organizado por Capas (Clean Architecture simplificada)[cite: 10, 11].
+## Estilo y enfoque interno
 
-| Elemento | Descripción aplicada al Registro Civil Municipal |
+El sistema adopta un **estilo monolítico**, organizado por responsabilidades dentro de una aplicación Laravel. Su enfoque interno es **MVC con servicios**, con controles transversales de validación, autorización y auditoría.
+
+| Aspecto | Aplicación en Registro Civil |
 |---|---|
-| **Patrón / enfoque arquitectónico** | Monolito por Capas (MVC con Servicios y Políticas)|
-| **Objetivo** | Separar las responsabilidades del sistema (presentación, lógica de negocio y persistencia) dentro de un único despliegue centralizado, facilitando la atención administrativa y el portal ciudadano. |
-| **¿Qué problema resuelve?** | Evita el acoplamiento directo entre la interfaz web en Blade/Bootstrap, los controladores de Laravel, los modelos Eloquent y los servicios externos (como correo SMTP, lector DNIe y API WhatsApp). |
-| **Capas definidas** | • **Presentación / Vistas:** Panel administrativo y Portal ciudadano (Blade + Bootstrap).<br>• **Control:** Controladores, Middleware y Form Requests.<br>• **Aplicación:** Servicios, Políticas y reglas del negocio (gestión de actas, firmas, notificaciones y reportes).<br>• **Persistencia / Datos:** Modelos Eloquent, MySQL y almacenamiento privado. |
-| **Beneficios** | • **Facilita el mantenimiento y las auditorías:** Permite registrar y trazar todas las operaciones sobre actas de nacimiento, matrimonio y defunción sin dispersar la lógica.<br>• **Permite escalar progresivamente:** Habilita la incorporación de nuevas funcionalidades (como el Portal Ciudadano, firma con DNIe y WhatsApp) sin modificar innecesariamente la estructura central.<br>• **Mejora la seguridad y organización:** Aísla el acceso al almacenamiento privado de los documentos PDF y aplica controles transversales de autorización por rol. |
+| Unidad de despliegue | Una aplicación Laravel contiene panel administrativo y trámite público. MySQL y almacenamiento privado respaldan la persistencia. |
+| Presentación | Vistas Blade, Bootstrap y JavaScript; Laravel produce el HTML. |
+| Control | Rutas, controladores y middleware coordinan peticiones; Form Requests y políticas apoyan validación y autorización. |
+| Negocio y servicios | Servicios de registro, PDF, códigos, búsqueda, auditoría y proveedores, junto con reglas existentes en controladores y modelos. |
+| Persistencia | Modelos Eloquent, MySQL y Laravel Storage. Los archivos privados se consultan mediante rutas autorizadas. |
+| Integraciones | Correo y conectores HTTP desde el servidor. APIsPerú requiere validación externa; Izipay está seleccionado y pendiente de integración. |
+| Consecuencias | Un despliegue facilita operación y mantenimiento iniciales; los cambios comparten aplicación y base y requieren comprobar regresiones. Los servicios dependen de Laravel y Eloquent. |
 
+La organización por responsabilidades ayuda a mantener el sistema, pero no supone independencia completa entre capas ni demuestra por sí sola capacidad o disponibilidad. Las metas se verifican según los [atributos de calidad](../analisis-de-sistema/04-atributos-de-calidad.md).
 
-## Diagrama de Arquitectura · Monolito por Capas (Alcance Completo)
-## Diagrama de Arquitectura · Monolito por Capas (Alcance Completo)
+## Diagrama del estilo
 
 ```mermaid
 flowchart TD
-    %% Actores alineados horizontalmente arriba
-    subgraph ACTORES ["ACTORES / ROLES"]
-        direction LR
-        Admin["Administrador<br/><i>Usuarios, atención y firma autorizada</i>"]
-        Asistente["Asistente<br/><i>Registro y atención de solicitudes</i>"]
-        Ciudadano["Ciudadano<br/><i>Solicita, consulta estado y descarga</i>"]
-    end
-
-    %% Bloque Central (Aplicación + Sistemas Externos alineados a la derecha)
-    subgraph CONTENEDOR_CENTRAL [" "]
-        direction LR
-
-        subgraph MONOLITO ["UNA APLICACIÓN LARAVEL / UN DESPLIEGUE"]
-            direction TD
-            
-            subgraph VISTAS ["Vistas / Interfaz"]
-                direction LR
-                PanelAdmin["Panel administrativo<br/>Blade + Bootstrap · Registro, usuarios y reportes"]
-                PortalCiudadano["Portal ciudadano<br/>Blade + Bootstrap · Solicitudes y entrega digital"]
-            end
-
-            subgraph CONTROL ["Capa de Control"]
-                Controladores["CONTROL: controladores + middleware + Form Requests<br/>Autenticación, validación de entradas y permisos por rol"]
-            end
-
-            subgraph APLICACION ["Capa de Aplicación: servicios, políticas y reglas de negocio"]
-                direction TD
-                subgraph APP_FILA1 [" "]
-                    direction LR
-                    Actas["Actas y documentos<br/>Nacimiento, matrimonio y defunción"]
-                    UsuariosAuditoria["Usuarios y auditoría<br/>Acceso, acciones y trazabilidad"]
-                    Reportes["Reportes<br/>Actas y sobres"]
-                end
-                subgraph APP_FILA2 [" "]
-                    direction LR
-                    Solicitudes["Solicitudes y entrega<br/>Estados, atención y descargas"]
-                    Firma["Firma digital y validación<br/>DNIe, integridad y código / QR"]
-                    Notificaciones["Notificaciones<br/>Avisos y seguimiento de envíos"]
-                end
-            end
-
-            subgraph PERSISTENCIA ["Capa de Persistencia"]
-                EloquentStorage["PERSISTENCIA: modelos Eloquent + Laravel Storage<br/>Actual: usuarios, actas y auditoría · Previsto: solicitudes, firmas, validaciones y notificaciones"]
-            end
-
-            VISTAS --> CONTROL
-            CONTROL --> APLICACION
-            APLICACION --> PERSISTENCIA
+    Personal["Personal administrativo"]
+    Ciudadano["Solicitante sin cuenta"]
+    subgraph Monolito["Una aplicación Laravel / un despliegue local"]
+        subgraph Presentacion["Presentación"]
+            Panel["Panel Blade + Bootstrap"]
+            Portal["Trámite público Blade + Bootstrap"]
         end
-
-        subgraph EXTERNOS ["SERVICIOS EXTERNOS / INTEGRACIONES"]
-            direction TD
-            SMTP["Correo SMTP<br/>Recuperación administrativa, avisos ciudadanos previstos"]
-            DNIe["DNIe + lector<br/>Solución de firma compatible, Integración externa"]
-            WhatsApp["API WhatsApp<br/>Notificaciones al ciudadano, Integración externa"]
+        subgraph Control["Control y controles transversales"]
+            HTTP["Rutas, controladores y middleware"]
+            ReglasAcceso["Validaciones, políticas y límites de intentos"]
         end
+        subgraph Negocio["Responsabilidades de negocio"]
+            Actual["Archivo, usuarios, filiación, auditoría y reportes"]
+            Tramite["Trámite, códigos, seguimiento y atención"]
+            Integracion["Conectores de proveedores"]
+            Previsto["Pendiente: firma, entrega y QR de autenticidad"]
+        end
+        Datos["Eloquent y servicios de archivos / Storage"]
+        Panel --> HTTP
+        Portal --> HTTP
+        HTTP --> ReglasAcceso
+        HTTP --> Actual
+        HTTP --> Tramite
+        Actual --> Datos
+        Tramite --> Datos
+        Tramite --> Integracion
+        Tramite -.-> Previsto
     end
+    Personal --> Panel
+    Ciudadano --> Portal
+    Datos --> BD[("MySQL")]
+    Datos --> PDF[("PDF originales privados")]
+    Integracion --> Externos["APIsPerú: validación externa pendiente"]
+    Integracion -.-> Izipay["Izipay: integración pendiente"]
+    Tramite --> Correo["Correo configurable; log local sin envío"]
+    Previsto -.-> Firma["Solución DNIe y lector: pendiente"]
+    Previsto -.-> Avisos["WhatsApp: pospuesto"]
+```
 
-    subgraph ALMACENAMIENTO ["ALMACENAMIENTO Y DATOS"]
-        direction LR
-        MySQL[("MySQL<br/>Datos actuales y tablas previstas del proyecto")]
-        StoragePrivate[("Almacenamiento privado<br/>PDF originales y versiones firmadas previstas")]
-    end
+Las líneas discontinuas indican funciones futuras. Los bloques agrupan responsabilidades: no representan aplicaciones separadas ni implican una clase o servicio independiente para cada bloque.
 
-    %% Conexiones principales
-    ACTORES --> MONOLITO
-    PERSISTENCIA --> ALMACENAMIENTO
-    APLICACION --> EXTERNOS
+## Correspondencia con las decisiones
 
-    %% Ocultar bordes de subgrafos auxiliares
-    style CONTENEDOR_CENTRAL fill:none,stroke:none
-    style APP_FILA1 fill:none,stroke:none
-    style APP_FILA2 fill:none,stroke:none
+- ADR-001 a ADR-004 sustentan aplicación Laravel, interfaz, datos relacionales y almacenamiento privado.
+- ADR-013 y ADR-014 describen el trámite actual sin cuentas y la atención con transiciones y versión controladas. Las cuentas y solicitudes anteriores se conservan por compatibilidad histórica.
+- ADR-021 describe el conector APIsPerú pendiente de validación externa; ADR-022 registra la selección de Izipay, cuya integración está pendiente.
+- ADR-023 permite revisar filiación con historial sin modificar el acta central, su numeración ni el PDF original.
+- ADR-015 a ADR-019 mantienen como pendientes firma, autenticidad, entrega, notificaciones futuras y respaldo operativo; WhatsApp permanece pospuesto.
 
-    %% Estilos oscuros para subgrafos
-    style ACTORES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style MONOLITO fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style VISTAS fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style CONTROL fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style APLICACION fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style PERSISTENCIA fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style ALMACENAMIENTO fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style EXTERNOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
+## Evolución prevista
 
-    %% Estilos oscuros para nodos
-    style Admin fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Asistente fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Ciudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style PanelAdmin fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style PortalCiudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Controladores fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Actas fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style UsuariosAuditoria fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Reportes fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Solicitudes fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Firma fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Notificaciones fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style EloquentStorage fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style MySQL fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style StoragePrivate fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style SMTP fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style DNIe fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style WhatsApp fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
+La separación nube/municipalidad y la sincronización aún no existen y no se incorporan a la vista actual como infraestructura operativa. El futuro diseño de firma y entrega deberá preservar originales y definir autorización y evidencia. La aprobación administrativa actual no genera documentos firmados ni habilita descargas.
+
+Véanse el [enfoque MVC con servicios](enfoque-arquitectonico.md) y el [registro de decisiones](../analisis-de-sistema/07-decisiones-arquitectonicas.md).

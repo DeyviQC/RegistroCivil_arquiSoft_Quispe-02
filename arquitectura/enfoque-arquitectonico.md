@@ -1,99 +1,59 @@
-## Diagrama de Enfoque Arquitectónico · MVC con Servicios (Alcance Completo)
+# Enfoque arquitectónico: MVC con servicios
+
+## Objetivo y aplicación
+
+Registro Civil usa MVC de Laravel con servicios de apoyo para organizar presentación, control, reglas y persistencia. Blade y Bootstrap generan la interfaz desde la misma aplicación. Los servicios colaboran con Eloquent, Laravel Storage, correo y clientes HTTP; no se presupone un dominio independiente del framework.
+
+| Elemento | Responsabilidad | Ejemplos del desarrollo |
+|---|---|---|
+| Vista | Mostrar datos y formularios y presentar respuestas sin exponer el archivo al público. | `resources/views/actas`, `portal`, `reportes`, `auth`. |
+| Controlador | Recibir peticiones, coordinar validación y autorización y devolver vistas o archivos. | `ActaController`, `PortalPublicoController`, `AtencionPublicaController`, `FiliacionController`, `ReporteController`. |
+| Servicio | Reunir operaciones reutilizables y coordinar tareas del negocio o integraciones. | `ActaService`, `PdfValidationService`, `PdfStorageService`, `AuditoriaService`, `CodigoTramiteService`, `CruceParentescoService`. |
+| Modelo | Representar datos, relaciones y reglas asociadas al registro persistido. | `Acta`, `ActaNacimiento`, `ActaMatrimonio`, `ActaDefuncion`, `TramitePublico`, `PagoTramite`, `TramiteEvento`, `User`. |
+| Controles transversales | Autenticar, validar entrada, limitar intentos, autorizar y registrar acciones. | Middleware, Form Requests, políticas y auditoría. |
+| Persistencia e integración | Guardar datos y documentos y comunicarse con proveedores desde el servidor. | Eloquent/MySQL, Laravel Storage, correo, `ApisPeruService`, `PortalHttpOptions`; el componente Izipay está pendiente. |
+
+`Solicitud` y `SolicitudEvento` conservan el flujo anterior con cuentas; el trámite público actual se representa mediante `TramitePublico`. No son nombres intercambiables para el mismo proceso.
+
+## Diagrama de colaboración
+
 ```mermaid
 flowchart TD
-    %% Actores principales arriba
-    subgraph ACTORES ["ACTORES Y ROLES"]
-        direction LR
-        Personal["Personal administrativo<br/><i>Administrador y asistente</i>"]
-        Ciudadano["Ciudadano<br/><i>Solicitudes, seguimiento, descarga y consulta por QR</i>"]
-    end
+    Navegador["Navegador del personal o solicitante"]
+    Rutas["Rutas y middleware"]
+    Controlador["Controladores Laravel"]
+    Validacion["Form Requests / validación"]
+    Politicas["Policies / autorización"]
+    Vistas["Vistas Blade + Bootstrap"]
+    Servicios["Servicios de actas, PDF, códigos, parentesco y auditoría"]
+    Modelos["Modelos Eloquent"]
+    Storage["Laravel Storage"]
+    Proveedores["Correo y conectores HTTP"]
+    Futuro["Firma, entrega y QR: pendientes"]
+    Navegador -->|"Petición HTTP"| Rutas
+    Rutas --> Controlador
+    Controlador --> Validacion
+    Controlador --> Politicas
+    Controlador --> Servicios
+    Controlador --> Modelos
+    Controlador -->|"Datos de respuesta"| Vistas
+    Vistas -->|"HTML"| Navegador
+    Servicios --> Modelos
+    Servicios --> Storage
+    Servicios --> Proveedores
+    Modelos --> MySQL[("MySQL")]
+    Storage --> PDF[("PDF privados")]
+    Controlador -.-> Futuro
+```
 
-    %% Fila central: MVC + Paneles laterales a la misma altura
-    subgraph CONTENEDOR_CENTRAL [" "]
-        direction LR
-        
-        subgraph CONTROLES ["CONTROLES TRANSVERSALES"]
-            Transversales["Middleware: autenticación<br/>Form Requests: validación<br/>Policies: autorización<br/>Auditoría: trazabilidad"]
-        end
+Las conexiones representan colaboraciones y acceso a datos; no afirman que toda consulta pasa por un servicio. La auditoría se invoca desde los responsables de cada operación, no desde la interfaz pública.
 
-        subgraph MVC ["ENFOQUE MVC CON SERVICIOS"]
-            direction TD
-            subgraph VISTA_CTRL ["Capa de Presentación y Control"]
-                Vista["VISTA · Blade + Bootstrap<br/>Actual: login, actas, usuarios y reportes<br/>Previsto: portal, solicitudes, entrega y QR"] <-->|"Petición / Respuesta"| Controlador["CONTROLADOR · Laravel<br/>Actual: Auth, Acta, Usuario, Auditoría y Reporte<br/>Previsto: Solicitud, Firma, Entrega y Validación"]
-            end
+## Flujos representativos
 
-            subgraph SERVICIOS ["SERVICIOS Y POLÍTICAS · apoyo a los controladores"]
-                direction TD
-                subgraph SERV_LINEA1 [" "]
-                    direction LR
-                    GestionActas["Gestión de actas<br/>Registro, numeración y PDF"]
-                    AuthAuditoria["Autenticación y auditoría<br/>Usuarios, permisos y operaciones"]
-                    ReportesServ["Reportes<br/>Actas y sobres"]
-                end
-                subgraph SERV_LINEA2 [" "]
-                    direction LR
-                    SolicitudEntrega["Solicitud y entrega<br/>Pendiente → revisión → atención"]
-                    FirmaQR["Firma digital y QR<br/>Solo encargado autorizado"]
-                    Notificaciones["Notificaciones<br/>Correo y WhatsApp"]
-                end
-            end
+1. **Registro de acta:** el controlador autoriza y valida la entrada; `ActaService` coordina validación del PDF, hash, duplicados, almacenamiento privado, persistencia transaccional y auditoría. Ante un fallo de persistencia se compensa el archivo guardado. El proceso registra un documento existente.
+2. **Trámite público:** la búsqueda permite continuar solo con una coincidencia única y PDF disponible. Se guardan términos y datos, se verifica el correo con código. El paso de pago deberá integrarse con Izipay y confirmar su resultado mediante un mecanismo verificado del proveedor; permanece pendiente. La atención valida transición, versión y sustento cuando corresponde. Ninguna aprobación ejecuta firma ni entrega.
+3. **Filiación:** el controlador valida y autoriza la revisión, bloquea el detalle de nacimiento, verifica versión y guarda los campos de padres con historial y hash del original. El cruce de parentesco es apoyo para la revisión humana.
 
-            subgraph MODELO ["MODELO · Eloquent"]
-                Eloquent["MODELO · Eloquent<br/>Actual: User, Acta, Nacimiento, Matrimonio, Defunción y Auditoria<br/>Previsto: Solicitud, FirmaDigital, Validación, Entrega y Notificación"]
-            end
+## Estado y límites
 
-            VISTA_CTRL --> SERVICIOS
-            SERVICIOS --> MODELO
-        end
-
-        subgraph EXTERNOS ["SERVICIOS EXTERNOS"]
-            direction TD
-            DNIe["DNIe + lector<br/>Adaptador de firma compatible"]
-            Comunicacion["Servicios de comunicación<br/>SMTP, WhatsApp y avisos"]
-        end
-    end
-
-    subgraph PERSISTENCIA ["DATOS Y PERSISTENCIA"]
-        direction LR
-        MySQL[("MySQL<br/>Persistencia y consulta")]
-        Storage[("Storage privado<br/>PDF originales y firmados")]
-    end
-
-    %% Conexiones
-    Personal --> Vista
-    Ciudadano --> Vista
-    Controlador --> SERVICIOS
-    SERVICIOS --> EXTERNOS
-    MODELO --> PERSISTENCIA
-
-    %% Ocultar bordes de subgrafos invisibles
-    style CONTENEDOR_CENTRAL fill:none,stroke:none
-    style SERV_LINEA1 fill:none,stroke:none
-    style SERV_LINEA2 fill:none,stroke:none
-
-    %% Estilos oscuros
-    style ACTORES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style MVC fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style VISTA_CTRL fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style SERVICIOS fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style MODELO fill:#222,stroke:#fff,stroke-width:1px,color:#fff
-    style PERSISTENCIA fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style EXTERNOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style CONTROLES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-
-    style Personal fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Ciudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Vista fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Controlador fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style GestionActas fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style AuthAuditoria fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style ReportesServ fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style SolicitudEntrega fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style FirmaQR fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Notificaciones fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Eloquent fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style MySQL fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Storage fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style DNIe fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Comunicacion fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Transversales fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
+El conector de APIsPerú existe, pero faltan pruebas reales con credenciales. El conector de Izipay aún debe implementarse. Correo `log` no envía mensajes. Firma DNIe, descarga protegida, QR de autenticidad, subsanación pública y colas/reintentos están pendientes; WhatsApp está pospuesto. Su incorporación deberá respetar MVC con servicios y la conservación del original.

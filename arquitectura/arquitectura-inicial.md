@@ -1,64 +1,58 @@
 # Arquitectura inicial del sistema
 
+## Alcance de la vista
+
+Vista general actualizada del proyecto Registro Civil en desarrollo al 15 de octubre de 2026. La aplicación es un monolito Laravel con MVC y servicios, interfaz Blade y Bootstrap, MySQL y archivos privados. El panel y el trámite público forman parte del mismo despliegue local.
+
+Las líneas continuas muestran relaciones actuales; las discontinuas indican funciones futuras. El conector de APIsPerú existe, pendiente de validación externa. Izipay es el proveedor de pagos seleccionado y su integración está pendiente.
+
 ## Diagrama de arquitectura
 
 ```mermaid
 flowchart TD
-    subgraph ACTORES ["ACTORES"]
-        Ciudadano["Ciudadano"] ~~~ Asistente["Asistente"] ~~~ Admin["Administrador"]
+    Personal["Administrador y asistente"]
+    Ciudadano["Ciudadano / solicitante"]
+    subgraph Laravel["Aplicación Laravel: un despliegue"]
+        Panel["Panel administrativo - Blade y Bootstrap"]
+        Portal["Trámite público sin cuenta - Blade y Bootstrap"]
+        Control["Rutas, controladores, middleware, validaciones y políticas"]
+        Archivo["Actas, usuarios, filiación, auditoría y reportes"]
+        Tramites["Trámites: códigos, seguimiento y revisión humana"]
+        Conectores["Conectores de proveedores - validación externa pendiente"]
+        Modelos["Modelos Eloquent"]
+        Archivos["Servicios de PDF / Laravel Storage"]
+        Futuro["Pendiente: firma, entrega y QR de autenticidad"]
+        Panel --> Control
+        Portal --> Control
+        Control --> Archivo
+        Control --> Tramites
+        Tramites --> Conectores
+        Archivo --> Modelos
+        Tramites --> Modelos
+        Archivo --> Archivos
+        Archivo -.-> Futuro
+        Tramites -.-> Futuro
     end
-
-    subgraph PRESENTACION ["PRESENTACIÓN"]
-        Web["Aplicación Web (Blade + Bootstrap)"]
-    end
-
-    subgraph NEGOCIO ["LÓGICA DE NEGOCIO"]
-        Usuarios["Usuarios"] ~~~ Actas["Registro de Actas"] ~~~ Solicitudes["Solicitudes"] ~~~ Firma["Firma Digital"] ~~~ Auditoria["Auditoría y Reportes"]
-    end
-
-    subgraph DATOS ["DATOS"]
-        BD["Base de datos (MySQL)"]
-    end
-
-    subgraph EXTERNOS ["SISTEMAS EXTERNOS"]
-        DNIe["Lector DNIe"] ~~~ WhatsApp["Servicio de WhatsApp"] ~~~ RENIEC["API RENIEC"]
-    end
-
-    ACTORES --> PRESENTACION
-    PRESENTACION --> NEGOCIO
-    NEGOCIO --> DATOS
-    DATOS -->|"integraciones"| EXTERNOS
-
-    style ACTORES fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style PRESENTACION fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style NEGOCIO fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style DATOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-    style EXTERNOS fill:#1a1a1a,stroke:#fff,stroke-width:1px,color:#fff
-
-    style Ciudadano fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Asistente fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Admin fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Web fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Usuarios fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Actas fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Solicitudes fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Firma fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style Auditoria fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style BD fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style DNIe fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style WhatsApp fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff
-    style RENIEC fill:#2a2a2a,stroke:#fff,stroke-width:1px,color:#fff 
+    Personal --> Panel
+    Ciudadano --> Portal
+    Modelos --> MySQL[("MySQL")]
+    Archivos --> Privado[("PDF originales privados")]
+    Tramites --> Correo["Correo: códigos; log local sin envío real"]
+    Conectores --> APIs["APIsPerú: contraste DNI y nombres"]
+    Conectores -.-> Izipay["Izipay: integración de pago pendiente"]
+    Futuro -.-> DNIe["Solución compatible con DNIe y lector"]
+    Futuro -.-> WhatsApp["WhatsApp: pospuesto"]
 ```
 
+## Responsabilidades
 
+- **Presentación:** vistas Blade con Bootstrap para el personal y el trámite público. El flujo actual de `/tramite` no crea usuarios; el flujo anterior con cuentas se conserva por compatibilidad histórica.
+- **Control y negocio:** rutas y controladores reciben peticiones; middleware, Form Requests y políticas aplican controles. Los servicios coordinan operaciones como registro, validación de PDF, búsqueda pública, códigos, auditoría y conectores. Algunas consultas y decisiones permanecen en controladores y modelos: la vista expresa responsabilidades, no una separación rígida de todas las clases.
+- **Persistencia:** Eloquent accede a MySQL. Los servicios de archivos usan Laravel Storage para PDF privados. La base conserva metadatos y hashes, no el binario de las actas.
+- **Integraciones:** parten de los componentes responsables de la aplicación. APIsPerú no se presenta como API directa de RENIEC. Izipay requiere integración y validación; el navegador no debe confirmar pagos por sí solo.
 
-## Descripción
+## Límites actuales
 
-La arquitectura inicial se organiza en tres capas principales:
+La aprobación administrativa deja el trámite pendiente de firma. No existe entrega ciudadana, firma DNIe ni QR de autenticidad operativo. Un eventual QR de pago no valida un acta; no se presupone que la modalidad de Izipay elegida utilice QR. WhatsApp está pospuesto; colas y reintentos, respaldo operativo, publicación y sincronización nube/municipalidad siguen pendientes.
 
-- **Presentación:** Permite la interacción de los usuarios (Ciudadano, Asistente y Administrador) con el sistema mediante la aplicación web desarrollada en Blade y Bootstrap.
-- **Lógica de negocio:** Contiene los principales módulos responsables de las funcionalidades del sistema: usuarios, registro de actas (nacimiento, matrimonio, defunción), solicitudes, firma digital con DNIe, y auditoría con reportes.
-- **Datos:** Permite almacenar y consultar la información mediante una base de datos MySQL y el repositorio de almacenamiento de archivos.
-
-- **Sistemas externos:** Además, el sistema se integra con componentes externos como el Lector DNIe para la firma digital, el servicio de 
-      notificaciones por WhatsApp y la API de RENIEC para la consulta y validación de datos.
+La revisión de filiación conserva el acta central, su numeración y PDF; registra cambios únicamente en campos de padres con historial y control de versión. No constituye una rectificación oficial ni acredita automáticamente parentesco.
