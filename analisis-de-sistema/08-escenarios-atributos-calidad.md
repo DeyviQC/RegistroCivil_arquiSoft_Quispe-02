@@ -20,13 +20,13 @@ Los escenarios concretan los [atributos de calidad](04-atributos-de-calidad.md).
 | Elemento | Descripción |
 |---|---|
 | Atributo de calidad | AC02 — Disponibilidad. |
-| Fuente | Proveedor de correo, contraste de datos o futura pasarela Izipay. |
+| Fuente | Proveedor de correo, contraste de datos o pasarela Izipay en modo de prueba. |
 | Estímulo | El proveedor no responde o devuelve un error. |
 | Condición | El solicitante está realizando una operación que depende del proveedor. |
 | Respuesta esperada | Se informa el fallo de forma controlada, sin confirmar pagos, aprobar trámites ni entregar documentos por ese error. |
 | Medida | Ninguno de los fallos simulados de la prueba debe confirmar un pago o habilitar una entrega. Horario de servicio y disponibilidad mensual objetivo por acordar. |
 | Verificación | Simular errores y tiempos de espera; comprobar respuesta y estados persistidos. |
-| Estado | Pendiente de ejecución; Izipay todavía requiere integración. |
+| Estado | Pendiente de ejecución de este escenario; la integración Izipay TEST existe y requiere validar una operación interactiva completa. |
 
 ## EQ-03. Escalabilidad: crecimiento del archivo
 
@@ -47,7 +47,7 @@ Los escenarios concretan los [atributos de calidad](04-atributos-de-calidad.md).
 |---|---|
 | Atributo de calidad | AC04 — Seguridad y privacidad. |
 | Fuente | Solicitante público, usuario sin sesión o personal sin permisos suficientes. |
-| Estímulo | Intenta consultar un PDF privado, gestionar usuarios o acceder a un seguimiento ajeno. |
+| Estímulo | Intenta consultar un PDF privado o firmado, gestionar usuarios o acceder a un seguimiento ajeno. La descarga propia debe requerir LISTA, pago confirmado y sesión de correo vigente. |
 | Condición | Pruebas de rutas públicas y protegidas con usuarios de cada rol. |
 | Respuesta esperada | Se rechaza el acceso y no se muestran documentos, códigos ni datos privados. |
 | Medida | Rechazar el 100 % de los casos no autorizados definidos en la matriz de pruebas, sin exposición de información en las respuestas revisadas. |
