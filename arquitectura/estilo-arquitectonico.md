@@ -11,7 +11,7 @@ El sistema adopta un **estilo monolítico**, organizado por responsabilidades de
 | Control | Rutas, controladores y middleware coordinan peticiones; Form Requests y políticas apoyan validación y autorización. |
 | Negocio y servicios | Servicios de registro, PDF, códigos, búsqueda, auditoría y proveedores, junto con reglas existentes en controladores y modelos. |
 | Persistencia | Modelos Eloquent, MySQL y Laravel Storage. Los archivos privados se consultan mediante rutas autorizadas. |
-| Integraciones | Correo y conectores HTTP desde el servidor. APIsPerú requiere validación externa; Izipay está seleccionado y pendiente de integración. |
+| Integraciones | Correo y conectores HTTP desde el servidor. APIsPerú requiere validación externa; Izipay Mi Cuenta Web TEST, correo y entrega manual están implementados; Firma Perú web sin activación ni validación institucional. |
 | Consecuencias | Un despliegue facilita operación y mantenimiento iniciales; los cambios comparten aplicación y base y requieren comprobar regresiones. Los servicios dependen de Laravel y Eloquent. |
 
 La organización por responsabilidades ayuda a mantener el sistema, pero no supone independencia completa entre capas ni demuestra por sí sola capacidad o disponibilidad. Las metas se verifican según los [atributos de calidad](../analisis-de-sistema/04-atributos-de-calidad.md).
@@ -32,10 +32,10 @@ flowchart TD
             ReglasAcceso["Validaciones, políticas y límites de intentos"]
         end
         subgraph Negocio["Responsabilidades de negocio"]
-            Actual["Archivo, usuarios, filiación, auditoría y reportes"]
+            Actual["Archivo, usuarios/perfil, incidencias, filiación, auditoría y reportes"]
             Tramite["Trámite, códigos, seguimiento y atención"]
             Integracion["Conectores de proveedores"]
-            Previsto["Pendiente: firma, entrega y QR de autenticidad"]
+            Previsto["Carga y entrega manual implementadas; QR pendiente"]
         end
         Datos["Eloquent y servicios de archivos / Storage"]
         Panel --> HTTP
@@ -46,31 +46,31 @@ flowchart TD
         Actual --> Datos
         Tramite --> Datos
         Tramite --> Integracion
-        Tramite -.-> Previsto
+        Tramite --> Previsto
     end
     Personal --> Panel
     Ciudadano --> Portal
     Datos --> BD[("MySQL")]
-    Datos --> PDF[("PDF originales privados")]
+    Datos --> PDF[("PDF originales y firmados privados")]
     Integracion --> Externos["APIsPerú: validación externa pendiente"]
-    Integracion -.-> Izipay["Izipay: integración pendiente"]
+    Integracion --> Izipay["Izipay Mi Cuenta Web: TEST"]
     Tramite --> Correo["Correo configurable; log local sin envío"]
-    Previsto -.-> Firma["Solución DNIe y lector: pendiente"]
-    Previsto -.-> Avisos["WhatsApp: pospuesto"]
+    Previsto --> Firma["Firma Perú manual; web sin activar"]
+    Previsto --> Avisos["WhatsApp manual; sin API"]
 ```
 
-Las líneas discontinuas indican funciones futuras. Los bloques agrupan responsabilidades: no representan aplicaciones separadas ni implican una clase o servicio independiente para cada bloque.
+Las etiquetas distinguen implementación local, QR pendiente y firma web sin activar. Los bloques agrupan responsabilidades: no representan aplicaciones separadas ni implican una clase o servicio independiente para cada bloque.
 
 ## Correspondencia con las decisiones
 
 - ADR-001 a ADR-004 sustentan aplicación Laravel, interfaz, datos relacionales y almacenamiento privado.
 - ADR-013 y ADR-014 describen el trámite actual sin cuentas y la atención con transiciones y versión controladas. Las cuentas y solicitudes anteriores se conservan por compatibilidad histórica.
-- ADR-021 describe el conector APIsPerú pendiente de validación externa; ADR-022 registra la selección de Izipay, cuya integración está pendiente.
+- ADR-021 describe el conector APIsPerú pendiente de validación externa; ADR-022 registra la selección de Izipay, integrado en Mi Cuenta Web TEST con validación interactiva pendiente.
 - ADR-023 permite revisar filiación con historial sin modificar el acta central, su numeración ni el PDF original.
-- ADR-015 a ADR-019 mantienen como pendientes firma, autenticidad, entrega, notificaciones futuras y respaldo operativo; WhatsApp permanece pospuesto.
+- ADR-015 a ADR-019 distinguen firma manual, publicación, descarga y canales implementados de firma web sin activar, QR de autenticidad, automatización WhatsApp y respaldo operativo pendientes.
 
 ## Evolución prevista
 
-La separación nube/municipalidad y la sincronización aún no existen y no se incorporan a la vista actual como infraestructura operativa. El futuro diseño de firma y entrega deberá preservar originales y definir autorización y evidencia. La aprobación administrativa actual no genera documentos firmados ni habilita descargas.
+La separación nube/municipalidad y la sincronización aún no existen y no se incorporan a la vista actual como infraestructura operativa. La firma manual y entrega preservan originales y registran revisión antes de publicar; las rutas actuales admiten ambos roles internos. La aprobación sola no habilita descarga: se exige LISTA, pago, sesión vigente y hash válido. El adaptador web requiere credenciales institucionales y validación completa.
 
 Véanse el [enfoque MVC con servicios](enfoque-arquitectonico.md) y el [registro de decisiones](../analisis-de-sistema/07-decisiones-arquitectonicas.md).
