@@ -1,6 +1,6 @@
 # Nivel 1 · Diagrama de contexto del sistema
 
-> Proyecto: Registro Civil · Modelo: C4 · Nivel 1 de 4 · Versión: 1.0.
+> Proyecto: Registro Civil · Modelo: C4 · Nivel 1 de 4 · Versión: 1.1.
 
 ## 1. Objetivo
 
@@ -22,56 +22,56 @@ flowchart LR
     Administrador["Administrador / encargado"] -->|"Gestiona usuarios, archivo, auditoría y atención"| RC
     RC -->|"Códigos y recuperación según configuración"| Correo["Servicio de correo"]
     RC -->|"Contraste de datos: conector sin validación externa"| Datos["APIsPerú"]
-    RC -.->|"Pago: integración pendiente"| Izipay["Izipay"]
-    RC -.->|"Firma: pendiente"| Firma["Solución compatible con DNIe"]
-    RC -.->|"Avisos: pospuestos"| WhatsApp["Servicio WhatsApp"]
+    RC -->|"Mi Cuenta Web TEST; validación interactiva pendiente"| Izipay["Izipay"]
+    RC -->|"Firma manual externa; adaptador web sin activar"| Firma["Solución compatible con DNIe"]
+    RC -->|"Enlaces y envío manual; sin API"| WhatsApp["Servicio WhatsApp"]
 ```
 
-Las líneas discontinuas representan relaciones futuras. El lector DNIe es un dispositivo de apoyo de la solución de firma y no una persona usuaria. El correo `log` local no comunica con un proveedor externo.
+Las relaciones incluyen funciones locales implementadas; la firma web requiere activación y validación institucional y los pagos están limitados a pruebas. El lector DNIe es un dispositivo de apoyo de la solución de firma y no una persona usuaria. El correo `log` local no comunica con un proveedor externo.
 
 ## 3. Personas (usuarios)
 
 | Persona | Descripción | Qué hace en el sistema |
 |---|---|---|
-| Ciudadano / solicitante | Persona que inicia una solicitud de copia. | Inicia trámite sin crear cuenta, declara datos y vínculo y consulta seguimiento con código. Descarga y validación de autenticidad pendientes. |
-| Asistente | Personal municipal autorizado. | Registra actas existentes, revisa filiación, consulta archivo y reportes permitidos y atiende trámites. |
-| Administrador / encargado | Responsable administrativo. | Gestiona cuentas y consulta auditoría, además de funciones del archivo. Firma DNIe pendiente. |
+| Ciudadano / solicitante | Persona que inicia una solicitud de copia. | Inicia trámite sin cuenta, declara datos y vínculo y consulta solicitudes con DNI, correo y código. Elige canales y descarga el firmado publicado como LISTA; QR público pendiente. |
+| Asistente | Personal municipal autorizado. | Registra actas existentes, revisa filiación, consulta archivo y reportes permitidos y atiende trámites; consulta incidencias y gestiona perfil. Puede cargar y publicar documentos firmados según las rutas internas actuales. |
+| Administrador / encargado | Responsable administrativo. | Gestiona cuentas y consulta auditoría, además de funciones del archivo. Puede cargar y publicar PDF firmados externamente. Firma Perú web requiere activación y validación institucional. |
 
 ## 4. Sistemas
 
 | Sistema | Tipo | Responsabilidad | Quién lo construye |
 |---|---|---|---|
 | Registro Civil | Sistema en alcance | Archivo documental y atención del trámite público. | Equipo del proyecto. |
-| Servicio de correo | Externo | Transportar códigos y enlaces de recuperación cuando se configure envío real. | Proveedor seleccionado para correo. |
+| Servicio de correo | Externo | Transportar códigos, enlaces de recuperación y PDF firmado adjunto cuando el envío esté configurado y la entrega publicada. | Proveedor seleccionado para correo. |
 | APIsPerú | Externo | Contraste de DNI y nombres; no acredita identidad ni parentesco. | Proveedor externo. |
-| Izipay | Externo seleccionado | Procesamiento de pagos, pendiente de integración. | Proveedor de pagos. |
-| Solución DNIe | Componente externo previsto | Firma y validación criptográfica, pendiente de seleccionar e integrar. | Proveedor por definir. |
-| Servicio WhatsApp | Externo previsto | Notificaciones; integración pospuesta. | Proveedor por definir. |
+| Izipay | Externo seleccionado | Mi Cuenta Web REST V4 en TEST, con formulario embebido y confirmación verificada; producción bloqueada. | Proveedor de pagos. |
+| Firma Perú / DNIe | Componente externo | Firma manual y carga verificada localmente; adaptador web sin activar ni validar de extremo a extremo. | Firma Perú; credenciales web institucionales requeridas. |
+| WhatsApp manual | Externo | Consultas y envío manual del documento mediante enlaces; sin API ni envío automático. | Servicio WhatsApp. |
 
 ## 5. Relaciones
 
 | Origen | Destino | Descripción | Protocolo |
 |---|---|---|---|
-| Ciudadano | Registro Civil | Trámite y seguimiento. | — |
+| Ciudadano | Registro Civil | Trámite, seguimiento por DNI y correo, selección de solicitudes, canales y descarga del documento publicado. | — |
 | Asistente y administrador | Registro Civil | Operaciones autorizadas del archivo y atención. | — |
-| Registro Civil | Correo | Códigos y recuperación. | Transporte configurable; SMTP para envío real. |
+| Registro Civil | Correo | Códigos, recuperación y PDF firmado adjunto según preferencias. | Transporte configurable; SMTP para envío real. |
 | Registro Civil | APIsPerú | Contraste de datos. | HTTPS. |
-| Registro Civil | Izipay | Pago y confirmación verificada previstos. | Contrato técnico por definir según modalidad elegida. |
-| Registro Civil | Solución DNIe | Firma y evidencia previstas. | Por definir. |
-| Registro Civil | WhatsApp | Avisos futuros. | Por definir; pospuesto. |
+| Registro Civil | Izipay | Pago Mi Cuenta Web TEST; retorno e IPN verificados. | HTTPS / REST V4 y formulario embebido. |
+| Registro Civil | Firma Perú / DNIe | Firma manual externa y carga posterior; web sin activar. | Intercambio manual de PDF; adaptador web existente, sujeto a credenciales. |
+| Registro Civil | WhatsApp | Consulta y entrega manual. | Enlaces HTTPS wa.me; envío efectuado por la persona. |
 
 ## 6. Decisiones y supuestos
 
 | # | Decisión o supuesto | Motivo |
 |---|---|---|
 | 1 | El solicitante no accede al archivo administrativo. | Privacidad y autorización de documentos. |
-| 2 | Pago, contraste y parentesco no autorizan por sí solos una entrega. | Se requiere decisión humana y proceso de entrega aún pendiente. |
+| 2 | Pago, contraste y parentesco no autorizan por sí solos una entrega. | Se requiere aprobación, firma verificada, revisión expresa y publicación; LISTA no acredita descarga o recepción. |
 | 3 | La aprobación no equivale a firma ni descarga. | Reflejar el alcance actual del desarrollo. |
 
 ### Pendientes por definir
 
 | Tema | Detalle |
 |---|---|
-| Izipay | Modalidad, credenciales, contrato de confirmación y validación en pruebas. |
-| Firma y entrega | Solución compatible, autorización, evidencia y descarga privada. |
+| Izipay | Completar operación interactiva Mi Cuenta Web TEST, comprobar medios habilitados e IPN accesible; producción bloqueada. |
+| Firma y entrega | Validar operación institucional y firma web con credenciales; el flujo manual y descarga existen. Confianza, revocación y facultades requieren revisión humana; rutas actuales admiten ambos roles internos. |
 | Operación | Reglas municipales, correo real, publicación y respaldo operativo. |
