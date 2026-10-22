@@ -28,12 +28,12 @@ flowchart TD
     Tramites --> Codigos
     Codigos --> Correo["Servicio de correo configurable"]
     Tramites --> API["Conector APIsPerú: validación externa pendiente"]
-    Tramites -.-> Pago["Izipay: integración pendiente"]
-    Tramites -.-> Futuro["Firma DNIe, entrega y QR: pendientes"]
+    Tramites --> Pago["Izipay Mi Cuenta Web: TEST"]
+    Tramites --> Futuro["Firma manual y entrega; QR pendiente"]
     Modelos --> BD[("MySQL")]
     PDF --> Disco[("Almacenamiento privado")]
 ```
 
-Las líneas discontinuas indican componentes pendientes. Con correo `log` no se envían mensajes. La integración anterior de pagos queda descartada: no se representa como implementación de Izipay. La aprobación actual no firma ni entrega documentos. WhatsApp está pospuesto.
+El componente de entrega incluye carga y verificación CMS, revisión y publicación como LISTA, descarga protegida y correo adjunto según preferencia. WhatsApp usa enlaces manuales, sin API. QR de autenticidad y firma web activada siguen pendientes; con correo log no hay envío real. Izipay Mi Cuenta Web TEST existe; TAYPI conserva código y rutas residuales fuera del proveedor elegido. Perfil/foto e incidencias se atienden desde los controladores internos existentes; ambos roles internos pueden acceder a las rutas de carga y publicación.
 
 El detalle de responsabilidades, carpetas y relaciones se encuentra en el [nivel 3 de C4](../modelo-c4/Nivel3-Diagrama-de-Componentes.md). Las decisiones se mantienen en el [registro ADR](../analisis-de-sistema/07-decisiones-arquitectonicas.md).
