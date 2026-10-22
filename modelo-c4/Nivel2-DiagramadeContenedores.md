@@ -1,6 +1,6 @@
 # Nivel 2 · Diagrama de contenedores
 
-> Proyecto: Registro Civil · Modelo: C4 · Nivel 2 de 4 · Versión: 1.0.
+> Proyecto: Registro Civil · Modelo: C4 · Nivel 2 de 4 · Versión: 1.1.
 
 ## 1. Objetivo
 
@@ -29,8 +29,8 @@ flowchart LR
     Usuario -->|"HTTP local / HTTPS previsto para publicación"| App
     App -->|"Transporte de correo configurable"| Correo["Correo; log local sin envío"]
     App -->|"HTTPS; validación externa pendiente"| API["APIsPerú"]
-    App -.->|"Integración pendiente"| Izipay["Izipay"]
-    App -.->|"Integración pendiente"| Firma["Solución DNIe"]
+    App -->|"REST V4 y retorno/IPN verificados en TEST"| Izipay["Izipay"]
+    App -->|"Firma manual externa; web sin activar"| Firma["Solución DNIe"]
 ```
 
 ## 3. Contenedores
@@ -38,8 +38,8 @@ flowchart LR
 | Contenedor | Tecnología | Responsabilidad | Datos que maneja |
 |---|---|---|---|
 | Aplicación Registro Civil | PHP y Laravel, Blade y Bootstrap | Renderizar panel y portal, coordinar reglas, controles e integraciones. | Sesión y datos de petición; persiste mediante MySQL y Storage. |
-| Base de datos | MySQL | Conservar registros relacionales y sus restricciones. | Usuarios, actas y detalles, auditoría, filiación, trámites, pagos y eventos; solicitudes anteriores. |
-| Almacenamiento privado | Sistema de archivos mediante Laravel Storage | Conservar PDF fuera del acceso público directo. | Documentos originales; versiones firmadas todavía pendientes. |
+| Base de datos | MySQL | Conservar registros relacionales y sus restricciones. | Usuarios y foto, actas y detalles, auditoría, filiación, trámites, pagos y eventos; solicitudes anteriores y metadata de entrega/canales dentro de datos cifrados. |
+| Almacenamiento privado | Sistema de archivos mediante Laravel Storage | Conservar PDF fuera del acceso público directo. | Documentos originales, versiones firmadas privadas y fotos de perfil; metadata de entrega en datos cifrados del trámite. |
 
 El almacenamiento de archivos se representa como almacén lógico, no como servidor adicional. Blade forma parte de Laravel; no hay SPA ni API separada obligatoria, caché Redis o microservicios en esta vista. Las pruebas SQLite no sustituyen a MySQL como persistencia del sistema.
 
@@ -50,10 +50,10 @@ El almacenamiento de archivos se representa como almacén lógico, no como servi
 | Navegador | Aplicación | Formularios, consultas y respuestas HTML. | HTTP local; HTTPS requerido al publicar. |
 | Aplicación | MySQL | Lectura, escritura y transacciones. | SQL mediante conexión configurada. |
 | Aplicación | Almacenamiento privado | Guardar y servir PDF con autorización. | Operaciones de archivos mediante Storage. |
-| Aplicación | Correo | Códigos y recuperación. | Transporte configurable; `log` no envía. |
+| Aplicación | Correo | Códigos, recuperación y PDF firmado adjunto según preferencias. | Transporte configurable; `log` no envía. |
 | Aplicación | APIsPerú | Contraste desde servidor. | HTTPS. |
-| Aplicación | Izipay | Pagos previstos. | Modalidad y contrato pendientes. |
-| Aplicación | Solución DNIe | Firma prevista. | Integración por definir. |
+| Aplicación | Izipay | Pagos TEST con formToken y confirmación verificada. | HTTPS / Mi Cuenta Web REST V4. |
+| Aplicación | Firma Perú / DNIe | Firma manual externa; adaptador web sin activar. | PDF manual; protocolo web existente pendiente de activación institucional. |
 
 ## 5. Decisiones arquitectónicas reflejadas
 
@@ -71,6 +71,6 @@ El almacenamiento de archivos se representa como almacén lógico, no como servi
 | Navegador → aplicación | Sesión y autorización del servidor; CSRF en formularios y límites de intentos según ruta. HTTPS público pendiente de despliegue. |
 | Aplicación → MySQL | Credenciales por entorno y datos del trámite cifrados por la aplicación. |
 | Aplicación → archivos | PDF privados entregados por rutas autorizadas. |
-| Aplicación → proveedores | Secretos en servidor, TLS verificado y validación de respuestas. Izipay aún no está integrado. |
+| Aplicación → proveedores | Secretos en servidor, TLS verificado y validación de respuestas. Izipay TEST verifica retorno e IPN; producción y operación interactiva completa pendientes. El adaptador web de firma utiliza capacidades limitadas por intento y vencimiento. |
 
 La separación nube/municipalidad y sincronización permanecen pendientes y no se representan como contenedores operativos.
