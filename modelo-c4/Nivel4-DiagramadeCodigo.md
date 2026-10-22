@@ -1,6 +1,6 @@
 # Nivel 4 · Diagrama de código
 
-> Proyecto: Registro Civil · Módulo detallado: Actas y PDF · Modelo: C4 · Nivel 4 de 4 · Notación: UML · Versión: 1.0.
+> Proyecto: Registro Civil · Módulo detallado: Actas y PDF · Modelo: C4 · Nivel 4 de 4 · Notación: UML · Versión: 1.1.
 
 ## 1. Objetivo
 
@@ -88,7 +88,7 @@ Se muestran miembros relevantes, no todas las firmas ni propiedades. Solo el det
 
 | Clase | Tipo | Capa | Responsabilidad |
 |---|---|---|---|
-| ActaController | Controlador | Control | Recibir y coordinar registro y consulta. |
+| ActaController | Controlador | Control | Recibir y coordinar registro y consulta; el listado actual incorpora incidencias documentales sin cambiar el flujo de registro representado. |
 | StoreActaRequest y Requests por tipo | Validación | Control | Validar reglas generales y específicas. |
 | ActaPolicy | Política | Autorización | Controlar operaciones del personal. |
 | ActaService | Servicio | Servicios | Coordinar duplicados, PDF, transacción y detalle. |
