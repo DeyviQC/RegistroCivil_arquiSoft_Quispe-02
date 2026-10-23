@@ -163,7 +163,7 @@ sequenceDiagram
             end
         end
     end
-    Note over C,Personal: En éxito se redirige a ficha; los errores de validación vuelven al formulario
+    Note over C,Personal: En éxito se redirige a ficha.<br/>Los errores de validación vuelven al formulario.
 ```
 
 | Paso | Origen → destino | Acción |
