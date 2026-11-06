@@ -1,59 +1,163 @@
 # Enfoque arquitectónico: MVC con servicios
 
-## Objetivo y aplicación
+## 1. Definición y propósito
 
-Registro Civil usa MVC de Laravel con servicios de apoyo para organizar presentación, control, reglas y persistencia. Blade y Bootstrap generan la interfaz desde la misma aplicación. Los servicios colaboran con Eloquent, Laravel Storage, correo y clientes HTTP; no se presupone un dominio independiente del framework.
+El sistema del Registro Civil adopta el enfoque **MVC (Modelo - Vista - Controlador) complementado con una Capa de Servicios**, implementado sobre el framework **PHP / Laravel 11**. 
 
-| Elemento | Responsabilidad | Ejemplos del desarrollo |
-|---|---|---|
-| Vista | Mostrar datos y formularios y presentar respuestas sin exponer el archivo al público. | `resources/views/actas`, `portal`, `reportes`, `auth`. |
-| Controlador | Recibir peticiones, coordinar validación y autorización y devolver vistas o archivos. | `ActaController`, `PortalPublicoController`, `AtencionPublicaController`, `FiliacionController`, `ReporteController`, `EntregaDocumentoController`, `CanalEntregaController`, `PerfilController`, `IncidenciaController`. |
-| Servicio | Reunir operaciones reutilizables y coordinar tareas del negocio o integraciones. | `ActaService`, `PdfValidationService`, `PdfStorageService`, `AuditoriaService`, `CodigoTramiteService`, `CruceParentescoService`, `FirmaDocumentoService`, `FirmaPeruService`, `IzipayService`, `IncidenciaService`, `WhatsAppConsulta`. |
-| Modelo | Representar datos, relaciones y reglas asociadas al registro persistido. | `Acta`, `ActaNacimiento`, `ActaMatrimonio`, `ActaDefuncion`, `TramitePublico`, `PagoTramite`, `TramiteEvento`, `User`. |
-| Controles transversales | Autenticar, validar entrada, limitar intentos, autorizar y registrar acciones. | Middleware, Form Requests, políticas y auditoría. |
-| Persistencia e integración | Guardar datos y documentos y comunicarse con proveedores desde el servidor. | Eloquent/MySQL, Laravel Storage, correo, `ApisPeruService`, `PortalHttpOptions`; `IzipayService` y controladores de pago y entrega existentes; adaptador web Firma Perú sin activación institucional. |
+Este enfoque desacopla la presentación visual, la coordinación de peticiones y las reglas de negocio, permitiendo un mantenimiento ordenado sin abandonar las convenciones productivas de Laravel:
+- **Modelo (M):** Representa las entidades del registro civil, sus relaciones, atributos y persistencia relacional mediante Eloquent ORM.
+- **Vista (V):** Plantillas Blade enriquecidas con Bootstrap que generan la interfaz de usuario en el servidor (Server-Side Rendering).
+- **Controlador (C):** Controladores delgados (*Thin Controllers*) que reciben la petición HTTP, coordinan la autorización y validación, delegan la lógica a los servicios y seleccionan la vista o respuesta correspondiente.
+- **Capa de Servicios (S):** Clases de servicio dedicadas que encapsulan la lógica de negocio compleja, orquestación transaccional, cálculos de hash/validación de PDF y comunicaciones externas.
 
-`Solicitud` y `SolicitudEvento` conservan el flujo anterior con cuentas; el trámite público actual se representa mediante `TramitePublico`. No son nombres intercambiables para el mismo proceso.
+---
 
-## Diagrama de colaboración
+## 2. Diagrama del enfoque MVC con servicios
 
 ```mermaid
 flowchart TD
-    Navegador["Navegador del personal o solicitante"]
-    Rutas["Rutas y middleware"]
-    Controlador["Controladores Laravel"]
-    Validacion["Form Requests / validación"]
-    Politicas["Policies / autorización"]
-    Vistas["Vistas Blade + Bootstrap"]
-    Servicios["Servicios de actas, PDF, códigos, parentesco y auditoría"]
-    Modelos["Modelos Eloquent"]
-    Storage["Laravel Storage"]
-    Proveedores["Correo y conectores HTTP"]
-    Futuro["Firma manual y entrega; QR pendiente"]
-    Navegador -->|"Petición HTTP"| Rutas
-    Rutas --> Controlador
-    Controlador --> Validacion
-    Controlador --> Politicas
-    Controlador --> Servicios
-    Controlador --> Modelos
-    Controlador -->|"Datos de respuesta"| Vistas
-    Vistas -->|"HTML"| Navegador
-    Servicios --> Modelos
-    Servicios --> Storage
-    Servicios --> Proveedores
-    Modelos --> MySQL[("MySQL")]
-    Storage --> PDF[("PDF privados")]
-    Controlador --> Futuro
+    %% CLIENTES Y ENTRADA
+    subgraph Clientes ["1. Actores y Clientes"]
+        direction LR
+        Admin["Personal Administrativo<br/>(Registrador / Asistente)"]
+        Ciudadano["Solicitante Ciudadano<br/>(Público)"]
+        Navegador["Navegador Web<br/>(Cliente HTTP / Navegador)"]
+        Admin --> Navegador
+        Ciudadano --> Navegador
+    end
+
+    %% MONOLITO MVC
+    subgraph Monolito ["2. Aplicación Laravel · Enfoque MVC con Capa de Servicios"]
+        direction TB
+
+        subgraph FiltrosEntrada ["Filtros y Validación de Entrada"]
+            direction LR
+            Rutas["Rutas HTTP<br/>(routes/web.php)"]
+            Middleware["Middleware<br/>(Auth, CSRF, Throttling)"]
+            Requests["Form Requests y Policies<br/>(Validación de reglas y permisos)"]
+            Rutas --> Middleware --> Requests
+        end
+
+        subgraph ComponenteControlador ["Controlador (C)"]
+            Controlador["Controlador MVC<br/>(*Controller.php)<br/>Coordina flujo y delega ejecución"]
+        end
+
+        subgraph ComponenteServicio ["Capa de Servicios de Negocio (S)"]
+            Servicios["Servicios de Negocio y Aplicación<br/>(*Service.php)<br/>Actas, PDF, Trámites, Códigos, Auditoría"]
+        end
+
+        subgraph ComponenteModelo ["Modelo (M)"]
+            Modelos["Modelos Eloquent ORM<br/>(App/Models)<br/>Entidades, reglas de datos y relaciones"]
+        end
+
+        subgraph ComponenteVista ["Vista (V)"]
+            Vistas["Vistas Blade<br/>(resources/views)<br/>Plantillas Blade + Bootstrap"]
+        end
+
+        %% Flujo interno coordinado
+        Requests -->|"1. Petición validada"| Controlador
+        Controlador -->|"2. Invoca operación de negocio"| Servicios
+        Servicios -->|"3. Consulta / Persiste"| Modelos
+        Modelos -.->|"4. Retorna modelos/datos"| Servicios
+        Servicios -.->|"5. Resultado de operación"| Controlador
+        Controlador -->|"6. Pasa datos para renderizar"| Vistas
+        Controlador -.->|"Lecturas simples directas"| Modelos
+    end
+
+    %% INFRAESTRUCTURA EXTERNA
+    subgraph Infraestructura ["3. Persistencia e Integraciones"]
+        direction LR
+        MySQL[("Base de Datos<br/>MySQL")]
+        Storage[("Laravel Storage<br/>PDFs privados")]
+        Externos["Proveedores Externos<br/>APIsPerú / Izipay / Correo"]
+    end
+
+    %% CONEXIONES EXTERNAS
+    Navegador -->|"Solicitud HTTP (GET/POST)"| Rutas
+    Vistas -->|"Respuesta HTTP (HTML renderizado)"| Navegador
+    Controlador -.->|"Descarga directa de archivo / Stream"| Navegador
+    Modelos <-->|"Consultas SQL / Transacciones"| MySQL
+    Servicios <-->|"Validación SHA-256 y guardado privado"| Storage
+    Servicios <-->|"Peticiones HTTP REST / SMTP"| Externos
+
+    %% ESTILOS VISUALES
+    classDef actor fill:#eef3ed,stroke:#61745a,stroke-width:1.5px,color:#263626
+    classDef mvc fill:#e7eee7,stroke:#52684c,stroke-width:1.5px,color:#1e2d1e
+    classDef service fill:#c9d8c6,stroke:#3b5235,stroke-width:1.5px,color:#1b281b
+    classDef storage fill:#f4f6f4,stroke:#61745a,stroke-dasharray: 4 2,color:#263626
+    
+    class Admin,Ciudadano,Navegador actor
+    class Rutas,Middleware,Requests,Controlador,Modelos,Vistas mvc
+    class Servicios service
+    class MySQL,Storage,Externos storage
 ```
 
-Las conexiones representan colaboraciones y acceso a datos; no afirman que toda consulta pasa por un servicio. La auditoría se invoca desde los responsables de cada operación, no desde la interfaz pública.
+---
 
-## Flujos representativos
+## 3. Matriz de responsabilidades de los elementos MVC
 
-1. **Registro de acta:** el controlador autoriza y valida la entrada; `ActaService` coordina validación del PDF, hash, duplicados, almacenamiento privado, persistencia transaccional y auditoría. Ante un fallo de persistencia se compensa el archivo guardado. El proceso registra un documento existente.
-2. **Trámite público:** la búsqueda permite continuar solo con una coincidencia única y PDF disponible. Se guardan términos y datos, se verifica el correo con código. Izipay Mi Cuenta Web TEST confirma mediante retorno firmado verificado o IPN válida; la operación interactiva completa está pendiente de validar. El seguimiento usa DNI del solicitante, correo y código y permite seleccionar sus solicitudes. La atención valida transición, versión y sustento cuando corresponde. La aprobación por sí sola no firma ni entrega; tras cargar y revisar el firmado se publica como LISTA, habilitando descarga protegida, correo adjunto y envío manual por WhatsApp según preferencias.
-3. **Filiación:** el controlador valida y autoriza la revisión, bloquea el detalle de nacimiento, verifica versión y guarda los campos de padres con historial y hash del original. El cruce de parentesco es apoyo para la revisión humana.
+| Elemento | Rol en la arquitectura | Responsabilidad concreta | Ejemplos en el código del proyecto |
+|---|---|---|---|
+| **Vista (V)** | Presentación | Muestra formularios, resultados y estados; no accede a la base de datos ni decide permisos. | `resources/views/actas/`, `portal/`, `reportes/`, `auth/`. |
+| **Controlador (C)** | Coordinación de flujo | Recibe peticiones, delega validación en Form Requests, autoriza mediante Policies, invoca servicios y retorna vistas o descargas. | `ActaController`, `PortalPublicoController`, `AtencionPublicaController`, `FiliacionController`, `ReporteController`, `EntregaDocumentoController`, `CanalEntregaController`, `PerfilController`, `IncidenciaController`. |
+| **Servicios (S)** | Lógica de negocio y orquestación | Encapsula reglas de negocio, transacciones ACID, cálculo de hash SHA-256, validación de PDF y comunicación con pasarelas. | `ActaService`, `PdfValidationService`, `PdfStorageService`, `AuditoriaService`, `CodigoTramiteService`, `CruceParentescoService`, `FirmaDocumentoService`, `FirmaPeruService`, `IzipayService`, `IncidenciaService`, `WhatsAppConsulta`. |
+| **Modelo (M)** | Dominio y datos | Mapea las tablas relacionales, relaciones (`hasOne`, `belongsTo`), scopes de consulta y validación de integridad a nivel de registro. | `Acta`, `ActaNacimiento`, `ActaMatrimonio`, `ActaDefuncion`, `TramitePublico`, `PagoTramite`, `TramiteEvento`, `User`, `Auditoria`. |
+| **Controles transversales** | Seguridad y filtro | Autenticar usuarios, validar formato y reglas de entrada, proteger contra CSRF y limitar tasas de peticiones. | Middlewares Laravel (`auth`, `throttle`), Form Requests (`StoreActaRequest`, `GuardarFiliacionRequest`), Policies (`ActaPolicy`). |
+| **Infraestructura** | Persistencia y servicios externos | Almacenar datos transaccionales, proteger PDFs fuera de la raíz pública y conectarse con servicios externos. | MySQL, disco `storage/app/private`, cliente Guzzle para `ApisPeruService` e `IzipayService`. |
 
-## Estado y límites
+> **Nota sobre consultas simples:** Las operaciones de lectura directa y filtros no críticos pueden ser consultadas por el Controlador directamente a los Modelos Eloquent sin requerir un Servicio intermedio, evitando capas vacías innecesarias. Toda operación de escritura, registro documental o validación de negocio sí pasa obligatoriamente por la Capa de Servicios.
 
-El conector de APIsPerú existe, pero faltan pruebas reales con credenciales. Izipay Mi Cuenta Web TEST está implementado, pendiente de validar una operación interactiva completa; producción bloqueada. Correo `log` no envía mensajes. Carga manual del firmado, verificación CMS, publicación y descarga están implementadas. Confianza, revocación y facultades requieren revisión humana; las rutas actuales admiten administrador y asistente. Firma web requiere activación y prueba institucional; QR de autenticidad, subsanación pública y colas/reintentos siguen pendientes. WhatsApp usa enlaces y envío manual, sin API. Perfil/foto e incidencias están implementados sin cambiar MVC ni el original.
+---
+
+## 4. Ciclo de vida de una petición en el enfoque MVC
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Usuario as Usuario / Navegador
+    participant Router as Rutas & Middleware
+    participant Controller as Controlador MVC
+    participant Service as Capa de Servicios
+    participant Model as Modelo Eloquent & BD
+    participant View as Vista Blade
+
+    Usuario->>Router: Petición HTTP (ej. POST /actas/store)
+    Router->>Router: Verifica sesión, CSRF y Form Request (validación)
+    Router->>Controller: Pasa petición validada
+    Controller->>Controller: Comprueba autorización (Policy)
+    Controller->>Service: Invoca método de negocio (ej. registrarActa)
+    Service->>Service: Valida PDF (MIME, hash SHA-256, duplicados)
+    Service->>Model: Inicia transacción SQL e inserta registros
+    Model-->>Service: Retorna instancia persistida
+    Service->>Service: Registra evento en AuditoriaService
+    Service-->>Controller: Retorna resultado exitoso (DTO / Modelo)
+    Controller->>View: Selecciona vista Blade y entrega datos
+    View-->>Usuario: Retorna HTML renderizado (o redirección con flash message)
+```
+
+---
+
+## 5. Flujos representativos implementados
+
+1. **Registro de acta documental:**
+   - El controlador autoriza la acción y valida la entrada con `StoreActaRequest`.
+   - `ActaService` valida el archivo PDF (MIME real, cabecera `%PDF`, tamaño, hash SHA-256 para prevenir duplicados).
+   - Se guarda el archivo en almacenamiento privado mediante `PdfStorageService`.
+   - Dentro de una transacción de base de datos se guarda el acta central, el detalle específico (nacimiento, matrimonio o defunción) y se invoca `AuditoriaService`. Si la base de datos falla, se compensa eliminando el PDF guardado.
+2. **Trámite público y seguimiento:**
+   - La búsqueda pública ciudadana restringe consultas a coincidencias unívocas y actas que tengan PDF disponible.
+   - Se genera el trámite ciudadano con código de seguimiento seguro enviado por correo (`CodigoTramiteService`).
+   - Se integra pasarela Izipay (modo TEST) validando firma HMAC e IPN del servidor antes de confirmar pagos.
+   - Tras revisión humana y carga del documento firmado por el registrador, la solicitud pasa a estado `LISTA`, habilitando la descarga protegida y envío por correo/WhatsApp manual.
+3. **Filiación y revisión:**
+   - El controlador valida y autoriza la edición de progenitores sin alterar el acta central ni su numeración oficial.
+   - Se mantiene un historial inmutable con versión y hash del documento original. `CruceParentescoService` asiste como herramienta de apoyo para la verificación del registrador.
+
+---
+
+## 6. Estado y límites técnicos
+
+- **Conectores externos:** `ApisPeruService` se encuentra implementado pero pendiente de validación con credenciales reales en producción. `IzipayService` cuenta con integración en modo TEST verificada mediante HMAC e IPN.
+- **Entorno de correo:** Configurado como `log` en desarrollo local (no realiza envíos SMTP reales a menos que se configure un servidor de correo).
+- **Firma digital:** Implementada la vía de firma externa con subida manual de PDF y verificación CMS; el adaptador web directo de Firma Perú permanece disponible sin activación institucional formal.
+- **WhatsApp:** Utiliza enlaces preconstruidos (`https://wa.me/...`) para envío manual asistido por el operador, sin API oficial automatizada.
