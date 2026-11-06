@@ -16,74 +16,63 @@ Este enfoque desacopla la presentación visual, la coordinación de peticiones y
 
 ```mermaid
 flowchart TD
-    %% CLIENTES Y ENTRADA
-    subgraph Clientes ["1. Actores y Clientes"]
+    %% ACTORES Y CLIENTES
+    subgraph Clientes ["Actores y Clientes"]
         direction LR
         Admin["Personal Administrativo<br/>(Registrador / Asistente)"]
         Ciudadano["Solicitante Ciudadano<br/>(Público)"]
-        Navegador["Navegador Web<br/>(Cliente HTTP / Navegador)"]
+        Navegador["Navegador Web<br/>(Cliente HTTP)"]
         Admin --> Navegador
         Ciudadano --> Navegador
     end
 
     %% MONOLITO MVC
-    subgraph Monolito ["2. Aplicación Laravel · Enfoque MVC con Capa de Servicios"]
+    subgraph Monolito ["Aplicación Laravel · Enfoque MVC con Servicios"]
         direction TB
 
         subgraph FiltrosEntrada ["Filtros y Validación de Entrada"]
             direction LR
             Rutas["Rutas HTTP<br/>(routes/web.php)"]
             Middleware["Middleware<br/>(Auth, CSRF, Throttling)"]
-            Requests["Form Requests y Policies<br/>(Validación de reglas y permisos)"]
+            Requests["Form Requests y Policies<br/>(Validación y Permisos)"]
             Rutas --> Middleware --> Requests
         end
 
-        subgraph ComponenteControlador ["Controlador (C)"]
-            Controlador["Controlador MVC<br/>(*Controller.php)<br/>Coordina flujo y delega ejecución"]
-        end
+        Controlador["Controlador MVC (C)<br/>*Controller.php · Coordina flujo y autoriza"]
+        Servicios["Capa de Servicios (S)<br/>*Service.php · Lógica de negocio, PDF y transacciones"]
+        Modelos["Modelos Eloquent (M)<br/>App/Models · Entidades relacionales y persistencia"]
+        Vistas["Vistas Blade (V)<br/>resources/views · Plantillas Blade + Bootstrap"]
 
-        subgraph ComponenteServicio ["Capa de Servicios de Negocio (S)"]
-            Servicios["Servicios de Negocio y Aplicación<br/>(*Service.php)<br/>Actas, PDF, Trámites, Códigos, Auditoría"]
-        end
-
-        subgraph ComponenteModelo ["Modelo (M)"]
-            Modelos["Modelos Eloquent ORM<br/>(App/Models)<br/>Entidades, reglas de datos y relaciones"]
-        end
-
-        subgraph ComponenteVista ["Vista (V)"]
-            Vistas["Vistas Blade<br/>(resources/views)<br/>Plantillas Blade + Bootstrap"]
-        end
-
-        %% Flujo interno coordinado
+        %% FLUJO MVC NUMERADO Y COMPACTO
         Requests -->|"1. Petición validada"| Controlador
-        Controlador -->|"2. Invoca operación de negocio"| Servicios
-        Servicios -->|"3. Consulta / Persiste"| Modelos
-        Modelos -.->|"4. Retorna modelos/datos"| Servicios
+        Controlador -->|"2. Invoca servicio"| Servicios
+        Servicios -->|"3. Consulta / Guarda"| Modelos
+        Modelos -.->|"4. Retorna modelos"| Servicios
         Servicios -.->|"5. Resultado de operación"| Controlador
-        Controlador -->|"6. Pasa datos para renderizar"| Vistas
+        Controlador -->|"6. Pasa datos a vista"| Vistas
         Controlador -.->|"Lecturas simples directas"| Modelos
     end
 
     %% INFRAESTRUCTURA EXTERNA
-    subgraph Infraestructura ["3. Persistencia e Integraciones"]
+    subgraph Infraestructura ["Persistencia e Infraestructura Externa"]
         direction LR
         MySQL[("Base de Datos<br/>MySQL")]
-        Storage[("Laravel Storage<br/>PDFs privados")]
-        Externos["Proveedores Externos<br/>APIsPerú / Izipay / Correo"]
+        Storage[("Disco Privado<br/>PDFs privados")]
+        Externos["Proveedores Externos<br/>APIsPerú / Izipay TEST / SMTP"]
     end
 
     %% CONEXIONES EXTERNAS
     Navegador -->|"Solicitud HTTP (GET/POST)"| Rutas
     Vistas -->|"Respuesta HTTP (HTML renderizado)"| Navegador
-    Controlador -.->|"Descarga directa de archivo / Stream"| Navegador
-    Modelos <-->|"Consultas SQL / Transacciones"| MySQL
+    Controlador -.->|"Descarga directa de archivo"| Navegador
+    Modelos <-->|"SQL / Transacciones"| MySQL
     Servicios <-->|"Validación SHA-256 y guardado privado"| Storage
-    Servicios <-->|"Peticiones HTTP REST / SMTP"| Externos
+    Servicios <-->|"REST API / Webhooks"| Externos
 
     %% ESTILOS VISUALES
-    classDef actor fill:#eef3ed,stroke:#61745a,stroke-width:1.5px,color:#263626
-    classDef mvc fill:#e7eee7,stroke:#52684c,stroke-width:1.5px,color:#1e2d1e
-    classDef service fill:#c9d8c6,stroke:#3b5235,stroke-width:1.5px,color:#1b281b
+    classDef actor fill:#eef3ed,stroke:#61745a,color:#263626
+    classDef mvc fill:#e7eee7,stroke:#52684c,color:#1e2d1e
+    classDef service fill:#c9d8c6,stroke:#3b5235,color:#1b281b
     classDef storage fill:#f4f6f4,stroke:#61745a,stroke-dasharray: 4 2,color:#263626
     
     class Admin,Ciudadano,Navegador actor

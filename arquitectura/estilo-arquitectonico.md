@@ -26,110 +26,86 @@ El sistema del Registro Civil adopta el estilo arquitectónico **Monolítico Mod
 
 ```mermaid
 flowchart TD
-    %% ACTORES EXTERNOS
+    %% ACTORES
     subgraph Actores ["Actores del Sistema"]
         direction LR
         Admin["Personal Administrativo<br/>(Registrador / Asistente)"]
         Ciudadano["Ciudadano Solicitante<br/>(Público sin cuenta)"]
     end
 
-    %% FRONTERA DEL MONOLITO
-    subgraph Monolito ["MONOLITO MODULAR POR CAPAS · Aplicación Laravel (1 Solo Despliegue)"]
+    %% MONOLITO MODULAR POR CAPAS
+    subgraph Monolito ["MONOLITO MODULAR POR CAPAS (Aplicación Laravel · Un solo despliegue)"]
         direction TB
 
-        %% CAPA 1: PRESENTACION
-        subgraph CapaPresentacion ["CAPA 1: PRESENTACIÓN (Blade Templates + Bootstrap)"]
+        subgraph Capa1 ["CAPA 1: PRESENTACIÓN (Blade Templates + Bootstrap)"]
             direction LR
-            UI_Actas["UI Actas<br/>Formularios y Listados"]
+            UI_Actas["UI Actas<br/>Formularios y Fichas"]
             UI_Filiacion["UI Filiación<br/>Revisión de Padres"]
-            UI_Tramite["UI Portal Público<br/>Búsqueda y Trámite"]
-            UI_Entrega["UI Entrega y Firma<br/>Carga y Publicación"]
-            UI_Seguridad["UI Seguridad<br/>Auth, Perfil, Reportes"]
+            UI_Tramite["UI Trámites<br/>Búsqueda y Pagos"]
+            UI_Entrega["UI Entrega<br/>Carga y Publicación"]
+            UI_Seguridad["UI Seguridad<br/>Login, Perfil, Reportes"]
         end
 
-        %% CAPA 2: CONTROL Y APLICACION
-        subgraph CapaControl ["CAPA 2: CONTROL Y APLICACIÓN (Rutas, Middleware, Form Requests y Controllers)"]
+        subgraph Capa2 ["CAPA 2: CONTROL Y APLICACIÓN (Rutas, Middleware, Controllers)"]
             direction LR
             C_Actas["ActaController<br/>PdfController"]
-            C_Filiacion["FiliacionController"]
+            C_Filiacion["FiliacionController<br/>GuardarFiliacionReq"]
             C_Tramite["PortalPublicoController<br/>IzipayController"]
             C_Entrega["EntregaDocController<br/>CanalEntregaController"]
             C_Seguridad["AuthController<br/>AuditoriaController"]
         end
 
-        %% CAPA 3: NEGOCIO Y DOMINIO (MODULOS FUNCIONALES)
-        subgraph CapaNegocio ["CAPA 3: NEGOCIO Y SERVICIOS (Lógica Modular del Dominio)"]
+        subgraph Capa3 ["CAPA 3: NEGOCIO Y SERVICIOS (Lógica Modular del Dominio)"]
             direction LR
-            subgraph ModActas ["MÓDULO ACTAS"]
-                S_Actas["ActaService<br/>PdfValidationService<br/>IncidenciaService"]
-            end
-            subgraph ModFiliacion ["MÓDULO FILIACIÓN"]
-                S_Filiacion["CruceParentescoService<br/>HistorialFiliacionService"]
-            end
-            subgraph ModTramite ["MÓDULO TRÁMITES"]
-                S_Tramite["CodigoTramiteService<br/>IzipayService<br/>ApisPeruService"]
-            end
-            subgraph ModEntrega ["MÓDULO ENTREGA"]
-                S_Entrega["FirmaDocumentoService<br/>PdfStorageService"]
-            end
-            subgraph ModSeguridad ["MÓDULO TRANSVERSAL"]
-                S_Seguridad["AuditoriaService<br/>Policies y Permisos"]
-            end
+            S_Actas["ActaService<br/>PdfValidationService"]
+            S_Filiacion["CruceParentescoService<br/>HistorialFiliacion"]
+            S_Tramite["CodigoTramiteService<br/>IzipayService / APIs"]
+            S_Entrega["FirmaDocumentoService<br/>WhatsAppConsulta"]
+            S_Seguridad["AuditoriaService<br/>Policies y Permisos"]
         end
 
-        %% CAPA 4: PERSISTENCIA E INFRAESTRUCTURA
-        subgraph CapaPersistencia ["CAPA 4: PERSISTENCIA E INFRAESTRUCTURA (Eloquent ORM & Storage)"]
+        subgraph Capa4 ["CAPA 4: PERSISTENCIA E INFRAESTRUCTURA (Eloquent ORM & Storage)"]
             direction LR
-            M_Actas["Modelos Actas<br/>Acta, Nacimiento, Matrimonio, Defuncion"]
-            M_Filiacion["Modelos Filiación<br/>DetalleNacimiento, HistorialCambios"]
-            M_Tramite["Modelos Trámites<br/>TramitePublico, PagoTramite"]
+            M_Actas["Modelos Actas<br/>Acta, Nacimiento, etc."]
+            M_Filiacion["Modelos Filiación<br/>Detalle, Historial"]
+            M_Tramite["Modelos Trámites<br/>TramitePublico, Pago"]
             M_Entrega["Modelos Entrega<br/>TramiteEvento, Entrega"]
             M_Seguridad["Modelos Seguridad<br/>User, Role, Auditoria"]
         end
 
-        %% FLUJO ENTRE CAPAS HORIZONTALES
-        CapaPresentacion -->|"Peticiones HTTP (POST/GET)"| CapaControl
-        
-        C_Actas --> S_Actas
-        C_Filiacion --> S_Filiacion
-        C_Tramite --> S_Tramite
-        C_Entrega --> S_Entrega
-        C_Seguridad --> S_Seguridad
-
-        S_Actas --> M_Actas
-        S_Filiacion --> M_Filiacion
-        S_Tramite --> M_Tramite
-        S_Entrega --> M_Entrega
-        S_Seguridad --> M_Seguridad
-
-        %% COLABORACION MODULAR TRANSVERSAL (Auditoria)
-        S_Actas -.->|"Trazabilidad"| S_Seguridad
-        S_Filiacion -.->|"Trazabilidad"| S_Seguridad
-        S_Tramite -.->|"Trazabilidad"| S_Seguridad
-        S_Entrega -.->|"Trazabilidad"| S_Seguridad
+        %% CONEXIONES VERTICALES ESTRICTAS (ALINEADAS POR COLUMNA)
+        UI_Actas --> C_Actas --> S_Actas --> M_Actas
+        UI_Filiacion --> C_Filiacion --> S_Filiacion --> M_Filiacion
+        UI_Tramite --> C_Tramite --> S_Tramite --> M_Tramite
+        UI_Entrega --> C_Entrega --> S_Entrega --> M_Entrega
+        UI_Seguridad --> C_Seguridad --> S_Seguridad --> M_Seguridad
     end
 
     %% INFRAESTRUCTURA EXTERNA
     subgraph Infraestructura ["Infraestructura y Servicios Externos"]
         direction LR
-        MySQL[("Base de Datos<br/>MySQL 8")]
+        BD[("Base de Datos<br/>MySQL 8")]
         Storage[("Disco Privado<br/>PDFs Originales / Firmados")]
         APIs["Servicios Externos<br/>APIsPerú / Izipay TEST / SMTP"]
     end
 
-    %% INTERACCION USUARIOS E INFRAESTRUCTURA
+    %% ENTRADA Y SALIDA COMPACTA
     Admin --> UI_Actas
     Admin --> UI_Filiacion
     Admin --> UI_Entrega
     Admin --> UI_Seguridad
     Ciudadano --> UI_Tramite
 
-    CapaPersistencia -->|"Mapeo Relacional SQL"| MySQL
-    S_Actas -->|"Guarda original"| Storage
-    S_Entrega -->|"Copia y lee firmado"| Storage
-    S_Tramite -->|"Llamadas REST / IPN"| APIs
+    M_Actas --> BD
+    M_Actas --> Storage
+    M_Filiacion --> BD
+    M_Tramite --> BD
+    M_Tramite --> APIs
+    M_Entrega --> BD
+    M_Entrega --> Storage
+    M_Seguridad --> BD
 
-    %% ESTILOS
+    %% ESTILOS VISUALES
     classDef actor fill:#eef3ed,stroke:#61745a,color:#263626
     classDef layerPres fill:#f7faf7,stroke:#8ca386,color:#263626
     classDef layerCtrl fill:#e8f0e7,stroke:#61745a,color:#263626
@@ -138,11 +114,11 @@ flowchart TD
     classDef external fill:#ffffff,stroke:#61745a,stroke-dasharray: 4 2,color:#263626
 
     class Admin,Ciudadano actor
-    class CapaPresentacion layerPres
-    class CapaControl layerCtrl
-    class CapaNegocio layerNeg
-    class CapaPersistencia layerPers
-    class MySQL,Storage,APIs external
+    class Capa1 layerPres
+    class Capa2 layerCtrl
+    class Capa3 layerNeg
+    class Capa4 layerPers
+    class BD,Storage,APIs external
 ```
 
 ---
