@@ -50,7 +50,7 @@ flowchart TD
             direction LR
             C_Actas["ActaController<br/>PdfController"]
             C_Filiacion["FiliacionController<br/>GuardarFiliacionReq"]
-            C_Tramite["PortalPublicoController<br/>IzipayController"]
+            C_Tramite["PortalPublicoController<br/>Controlador de pagos"]
             C_Entrega["EntregaDocController<br/>CanalEntregaController"]
             C_Seguridad["AuthController<br/>AuditoriaController"]
         end
@@ -59,7 +59,7 @@ flowchart TD
             direction LR
             S_Actas["ActaService<br/>PdfValidationService"]
             S_Filiacion["CruceParentescoService<br/>HistorialFiliacion"]
-            S_Tramite["CodigoTramiteService<br/>IzipayService / APIs"]
+            S_Tramite["CodigoTramiteService<br/>Mercado Pago / APIs"]
             S_Entrega["FirmaDocumentoService<br/>WhatsAppConsulta"]
             S_Seguridad["AuditoriaService<br/>Policies y Permisos"]
         end
@@ -86,7 +86,7 @@ flowchart TD
         direction LR
         BD[("Base de Datos<br/>MySQL 8")]
         Storage[("Disco Privado<br/>PDFs Originales / Firmados")]
-        APIs["Servicios Externos<br/>APIsPerú / Izipay TEST / SMTP"]
+        APIs["Servicios Externos<br/>APIsPerú / Mercado Pago sandbox / SMTP"]
     end
 
     %% ENTRADA Y SALIDA COMPACTA
@@ -129,8 +129,8 @@ flowchart TD
 |---|---|---|---|---|
 | **1. Archivo y Actas Registrales** | Vistas Blade de actas: `resources/views/actas/*` (listado, registro, fichas, incidencias). | `ActaController.php`, `PdfController.php`, `IncidenciaController.php`, `StoreActaRequest.php`. | `ActaService.php` (registro transaccional), `PdfValidationService.php` (hash SHA-256, cabecera), `IncidenciaService.php`. | Modelos: `Acta`, `ActaNacimiento`, `ActaMatrimonio`, `ActaDefuncion`, `Incidencia`. `PdfStorageService` (`storage/app/private/`). |
 | **2. Filiación y Parentesco** | Vistas de filiación: `resources/views/actas/filiacion.blade.php`. | `FiliacionController.php`, `GuardarFiliacionRequest.php`. | `CruceParentescoService.php` (asistencia analítica al registrador), control de versiones de filiación. | Modelo `ActaNacimiento`, tabla relacional de historial de revisiones de filiación. |
-| **3. Trámites Públicos y Pagos** | Portal ciudadano: `resources/views/portal/*` (búsqueda, formulario sin cuenta, seguimiento). | `PortalPublicoController.php`, `IzipayController.php`, `AtencionPublicaController.php`. | `CodigoTramiteService.php` (código de un solo uso), `IzipayService.php` (firma HMAC, retorno e IPN), `ApisPeruService.php`. | Modelos: `TramitePublico`, `PagoTramite`. Configuración en `config/portal.php`. |
-| **4. Firma Digital y Entrega** | Vistas de atención y entrega: `resources/views/entrega/*`. | `EntregaDocumentoController.php`, `CanalEntregaController.php`, `FirmaPeruController.php`. | `FirmaDocumentoService.php` (validación CMS de firma manual), `WhatsAppConsulta.php` (enlace manual asistido). | Modelos: `TramiteEvento`, copias firmadas en almacenamiento privado, logs de descarga autorizada. |
+| **3. Trámites Públicos y Pagos** | Portal ciudadano: `resources/views/portal/*` (búsqueda, formulario sin cuenta, seguimiento). | `PortalPublicoController.php`, controlador de pagos y `AtencionPublicaController.php`. | `CodigoTramiteService.php` (código de un solo uso), integración de Mercado Pago en sandbox, `ApisPeruService.php`. | Modelos: `TramitePublico`, `PagoTramite`. Configuración en `config/portal.php`. |
+| **4. Firma y Entrega** | Vistas de atención y entrega: `resources/views/entrega/*`. | `EntregaDocumentoController.php`, `CanalEntregaController.php`. | `FirmaDocumentoService.php` (validación CMS del PDF firmado externamente con PeruFirma), `WhatsAppConsulta.php` (enlace manual asistido). | Modelos: `TramiteEvento`, copias firmadas en almacenamiento privado, logs de descarga autorizada. |
 | **5. Seguridad y Auditoría (Transversal)** | Vistas de login, perfil y reportes: `resources/views/auth/*`, `reportes/*`. | `AuthController.php`, `PerfilController.php`, `ReporteController.php`, `AuditoriaController.php`. | `AuditoriaService.php` (trazabilidad de operaciones críticas), Policies de Laravel (`ActaPolicy.php`). | Modelos: `User`, `Role`, `Auditoria`, `PasswordResetToken`. Tablas de auditoría en MySQL. |
 
 ---
@@ -153,5 +153,5 @@ flowchart TD
 - **ADR-005 a ADR-008 (Gestión documental de actas):** Registro sin alterar originales, bloqueo de numeración oficial y control de duplicados por hash SHA-256.
 - **ADR-009 (Auditoría transversal):** Trazabilidad obligatoria de acciones administrativas y ciudadanas.
 - **ADR-013 y ADR-014 (Trámite sin cuentas y control de estados):** Proceso público desacoplado del acceso administrativo, con control estricto de transiciones (de `pendiente` a `LISTA`).
-- **ADR-015 y ADR-017 (Firma externa y entrega controlada):** Flujo de firma con DNIe fuera de la web, verificación CMS y descarga solo en estado `LISTA`.
-- **ADR-022 y ADR-023 (Pago Izipay y revisión de filiación):** Conector Izipay REST V4 en modo TEST y módulo de filiación con histórico inmutable.
+- **ADR-015 y ADR-017 (PeruFirma externa y entrega controlada):** Firma fuera del sistema, carga del PDF, verificación CMS y descarga solo en estado `LISTA`.
+- **ADR-022 y ADR-023 (Mercado Pago y revisión de filiación):** Pagos con Mercado Pago en sandbox y módulo de filiación con histórico inmutable.

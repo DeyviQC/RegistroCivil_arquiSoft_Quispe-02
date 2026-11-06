@@ -22,20 +22,20 @@ flowchart LR
     Administrador["Administrador / encargado"] -->|"Gestiona usuarios, archivo, auditoría y atención"| RC
     RC -->|"Códigos y recuperación según configuración"| Correo["Servicio de correo"]
     RC -->|"Contraste de datos: conector sin validación externa"| Datos["APIsPerú"]
-    RC -->|"Mi Cuenta Web TEST; validación interactiva pendiente"| Izipay["Izipay"]
-    RC -->|"Firma manual externa; adaptador web sin activar"| Firma["Solución compatible con DNIe"]
+    RC -->|"Pagos en sandbox"| MercadoPago["Mercado Pago"]
+    RC -->|"Firma manual externa y carga del PDF"| PeruFirma["PeruFirma"]
     RC -->|"Enlaces y envío manual; sin API"| WhatsApp["Servicio WhatsApp"]
 ```
 
-Las relaciones incluyen funciones locales implementadas; la firma web requiere activación y validación institucional y los pagos están limitados a pruebas. El lector DNIe es un dispositivo de apoyo de la solución de firma y no una persona usuaria. El correo `log` local no comunica con un proveedor externo.
+Las relaciones incluyen funciones locales implementadas; Mercado Pago se usa en sandbox, no para cobros reales de producción. La firma se realiza externamente con PeruFirma y luego se carga el PDF firmado. El correo `log` local no comunica con un proveedor externo.
 
 ## 3. Personas (usuarios)
 
 | Persona | Descripción | Qué hace en el sistema |
 |---|---|---|
-| Ciudadano / solicitante | Persona que inicia una solicitud de copia. | Inicia trámite sin cuenta, declara datos y vínculo y consulta solicitudes con DNI, correo y código. Elige canales y descarga el firmado publicado como LISTA; QR público pendiente. |
+| Ciudadano / solicitante | Persona que inicia una solicitud de copia. | Inicia trámite sin cuenta, declara datos y vínculo y consulta solicitudes con DNI, correo y código. Puede pagar en el entorno sandbox de Mercado Pago, elegir canales y descargar el firmado publicado como LISTA; QR público pendiente. |
 | Asistente | Personal municipal autorizado. | Registra actas existentes, revisa filiación, consulta archivo y reportes permitidos y atiende trámites; consulta incidencias y gestiona perfil. Puede cargar y publicar documentos firmados según las rutas internas actuales. |
-| Administrador / encargado | Responsable administrativo. | Gestiona cuentas y consulta auditoría, además de funciones del archivo. Puede cargar y publicar PDF firmados externamente. Firma Perú web requiere activación y validación institucional. |
+| Administrador / encargado | Responsable administrativo. | Gestiona cuentas y consulta auditoría, además de funciones del archivo. Puede cargar y publicar PDF firmados externamente con PeruFirma. |
 
 ## 4. Sistemas
 
@@ -44,8 +44,8 @@ Las relaciones incluyen funciones locales implementadas; la firma web requiere a
 | Registro Civil | Sistema en alcance | Archivo documental y atención del trámite público. | Equipo del proyecto. |
 | Servicio de correo | Externo | Transportar códigos, enlaces de recuperación y PDF firmado adjunto cuando el envío esté configurado y la entrega publicada. | Proveedor seleccionado para correo. |
 | APIsPerú | Externo | Contraste de DNI y nombres; no acredita identidad ni parentesco. | Proveedor externo. |
-| Izipay | Externo seleccionado | Mi Cuenta Web REST V4 en TEST, con formulario embebido y confirmación verificada; producción bloqueada. | Proveedor de pagos. |
-| Firma Perú / DNIe | Componente externo | Firma manual y carga verificada localmente; adaptador web sin activar ni validar de extremo a extremo. | Firma Perú; credenciales web institucionales requeridas. |
+| Mercado Pago | Externo seleccionado | Integración de pagos utilizada en entorno sandbox; no procesa cobros reales de producción. | Proveedor de pagos. |
+| PeruFirma | Componente externo | Firma manual externa; el PDF firmado se carga luego al sistema y se revisa antes de publicarlo. | Proveedor de firma digital. |
 | WhatsApp manual | Externo | Consultas y envío manual del documento mediante enlaces; sin API ni envío automático. | Servicio WhatsApp. |
 
 ## 5. Relaciones
@@ -56,8 +56,8 @@ Las relaciones incluyen funciones locales implementadas; la firma web requiere a
 | Asistente y administrador | Registro Civil | Operaciones autorizadas del archivo y atención. | — |
 | Registro Civil | Correo | Códigos, recuperación y PDF firmado adjunto según preferencias. | Transporte configurable; SMTP para envío real. |
 | Registro Civil | APIsPerú | Contraste de datos. | HTTPS. |
-| Registro Civil | Izipay | Pago Mi Cuenta Web TEST; retorno e IPN verificados. | HTTPS / REST V4 y formulario embebido. |
-| Registro Civil | Firma Perú / DNIe | Firma manual externa y carga posterior; web sin activar. | Intercambio manual de PDF; adaptador web existente, sujeto a credenciales. |
+| Registro Civil | Mercado Pago | Pagos en entorno sandbox. | Integración de pagos de Mercado Pago. |
+| Registro Civil | PeruFirma | Firma externa y carga posterior del PDF firmado. | Intercambio manual de PDF. |
 | Registro Civil | WhatsApp | Consulta y entrega manual. | Enlaces HTTPS wa.me; envío efectuado por la persona. |
 
 ## 6. Decisiones y supuestos
@@ -72,6 +72,6 @@ Las relaciones incluyen funciones locales implementadas; la firma web requiere a
 
 | Tema | Detalle |
 |---|---|
-| Izipay | Completar operación interactiva Mi Cuenta Web TEST, comprobar medios habilitados e IPN accesible; producción bloqueada. |
-| Firma y entrega | Validar operación institucional y firma web con credenciales; el flujo manual y descarga existen. Confianza, revocación y facultades requieren revisión humana; rutas actuales admiten ambos roles internos. |
+| Mercado Pago | Validar el flujo de pagos en sandbox; no habilitar cobros reales de producción sin la configuración y aprobación correspondientes. |
+| Firma y entrega | PeruFirma se usa fuera del sistema y luego se carga el PDF. Confianza, revocación y facultades requieren revisión humana; rutas actuales admiten ambos roles internos. |
 | Operación | Reglas municipales, correo real, publicación y respaldo operativo. |

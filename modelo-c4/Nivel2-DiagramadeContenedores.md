@@ -29,8 +29,8 @@ flowchart LR
     Usuario -->|"HTTP local / HTTPS previsto para publicación"| App
     App -->|"Transporte de correo configurable"| Correo["Correo; log local sin envío"]
     App -->|"HTTPS; validación externa pendiente"| API["APIsPerú"]
-    App -->|"REST V4 y retorno/IPN verificados en TEST"| Izipay["Izipay"]
-    App -->|"Firma manual externa; web sin activar"| Firma["Solución DNIe"]
+    App -->|"Pagos en sandbox"| MercadoPago["Mercado Pago"]
+    App -->|"Firma manual externa y carga del PDF"| PeruFirma["PeruFirma"]
 ```
 
 ## 3. Contenedores
@@ -52,8 +52,8 @@ El almacenamiento de archivos se representa como almacén lógico, no como servi
 | Aplicación | Almacenamiento privado | Guardar y servir PDF con autorización. | Operaciones de archivos mediante Storage. |
 | Aplicación | Correo | Códigos, recuperación y PDF firmado adjunto según preferencias. | Transporte configurable; `log` no envía. |
 | Aplicación | APIsPerú | Contraste desde servidor. | HTTPS. |
-| Aplicación | Izipay | Pagos TEST con formToken y confirmación verificada. | HTTPS / Mi Cuenta Web REST V4. |
-| Aplicación | Firma Perú / DNIe | Firma manual externa; adaptador web sin activar. | PDF manual; protocolo web existente pendiente de activación institucional. |
+| Aplicación | Mercado Pago | Pagos en entorno sandbox. | Integración de pagos de Mercado Pago. |
+| Aplicación | PeruFirma | Firma manual externa y carga del PDF firmado. | Intercambio manual de PDF. |
 
 ## 5. Decisiones arquitectónicas reflejadas
 
@@ -71,6 +71,6 @@ El almacenamiento de archivos se representa como almacén lógico, no como servi
 | Navegador → aplicación | Sesión y autorización del servidor; CSRF en formularios y límites de intentos según ruta. HTTPS público pendiente de despliegue. |
 | Aplicación → MySQL | Credenciales por entorno y datos del trámite cifrados por la aplicación. |
 | Aplicación → archivos | PDF privados entregados por rutas autorizadas. |
-| Aplicación → proveedores | Secretos en servidor, TLS verificado y validación de respuestas. Izipay TEST verifica retorno e IPN; producción y operación interactiva completa pendientes. El adaptador web de firma utiliza capacidades limitadas por intento y vencimiento. |
+| Aplicación → proveedores | Secretos en servidor, TLS verificado y validación de respuestas. Mercado Pago está en sandbox, no en producción. La firma con PeruFirma se realiza externamente y el PDF se carga luego al sistema. |
 
 La separación nube/municipalidad y sincronización permanecen pendientes y no se representan como contenedores operativos.

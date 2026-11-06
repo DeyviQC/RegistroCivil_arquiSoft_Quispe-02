@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Detallar las clases y colaboraciones del registro de un acta existente con PDF. Se describe el desarrollo actual, sin inventar clases para la integración Izipay pendiente.
+Detallar las clases y colaboraciones del registro de un acta existente con PDF. El diagrama se limita a ese flujo y no inventa clases para la integración de pagos Mercado Pago, que se documenta en el nivel de componentes.
 
 | Aspecto | Descripción |
 |---|---|

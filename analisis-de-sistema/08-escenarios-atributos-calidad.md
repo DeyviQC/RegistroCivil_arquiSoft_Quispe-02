@@ -20,13 +20,13 @@ Los escenarios concretan los [atributos de calidad](04-atributos-de-calidad.md).
 | Elemento | Descripción |
 |---|---|
 | Atributo de calidad | AC02 — Disponibilidad. |
-| Fuente | Proveedor de correo, contraste de datos o pasarela Izipay en modo de prueba. |
+| Fuente | Proveedor de correo, contraste de datos o Mercado Pago en sandbox. |
 | Estímulo | El proveedor no responde o devuelve un error. |
 | Condición | El solicitante está realizando una operación que depende del proveedor. |
 | Respuesta esperada | Se informa el fallo de forma controlada, sin confirmar pagos, aprobar trámites ni entregar documentos por ese error. |
 | Medida | Ninguno de los fallos simulados de la prueba debe confirmar un pago o habilitar una entrega. Horario de servicio y disponibilidad mensual objetivo por acordar. |
 | Verificación | Simular errores y tiempos de espera; comprobar respuesta y estados persistidos. |
-| Estado | Pendiente de ejecución de este escenario; la integración Izipay TEST existe y requiere validar una operación interactiva completa. |
+| Estado | Pendiente de ejecutar este escenario con fallos simulados en el entorno sandbox de Mercado Pago. |
 
 ## EQ-03. Escalabilidad: crecimiento del archivo
 

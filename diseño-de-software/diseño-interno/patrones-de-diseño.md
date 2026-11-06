@@ -18,7 +18,7 @@ Identificar patrones presentes en el desarrollo de Registro Civil y distinguirlo
 | Service Layer | Registro de actas y operaciones de apoyo. | Reunir coordinación y operaciones reutilizables fuera de la vista. | Servicios inyectados en controladores y otros servicios. | `ActaService.php`, `PdfValidationService.php`, `PdfStorageService.php`, `AuditoriaService.php`. |
 | Active Record | Persistencia y relaciones. | Representar registros y operaciones de base de datos mediante modelos. | Eloquent ORM. | `Acta.php`, `ActaNacimiento.php`, `TramitePublico.php`. |
 | Inyección de dependencias | Colaboración entre controlador y servicios. | Proporcionar colaboradores sin construirlos dentro de cada operación. | Constructor y contenedor de Laravel. | `ActaController.php`, `ActaService.php`. |
-| Adapter, como función de integración | Contraste APIsPerú, Izipay TEST y adaptador web Firma Perú. | Encapsular llamadas y traducir respuestas del proveedor. | Cliente HTTP y servicios concretos; firma web sin activar. | `ApisPeruService.php`, `IzipayService.php`, `FirmaPeruService.php`, `PortalHttpOptions.php`. |
+| Adapter, como función de integración | Contraste APIsPerú y pagos Mercado Pago en sandbox. | Encapsular llamadas y traducir respuestas del proveedor. | Cliente HTTP y servicios concretos. La firma con PeruFirma se realiza externamente y el PDF se carga manualmente. | `ApisPeruService.php`, `PortalHttpOptions.php` y la integración de pagos. |
 
 ## Cómo funciona cada patrón
 
@@ -38,7 +38,7 @@ Estas decisiones permiten localizar responsabilidades y probar operaciones concr
 
 | Patrón | Dónde se aplicaría | Cuándo |
 |---|---|---|
-| Adapter | Evolución de Izipay y Firma Perú web. | Adaptadores concretos ya existentes; futuras iteraciones deben validar operación interactiva y firma web institucional antes de habilitar producción. |
+| Adapter | Evolución de las integraciones con Mercado Pago y APIsPerú. | Revisar los adaptadores concretos antes de cambiar proveedores o habilitar producción; PeruFirma se usa fuera de la aplicación y no mediante una integración web. |
 | Observer / eventos y listeners | Avisos por cambios del trámite y entrega. | Si se decide separar suscriptores de los envíos actuales; el correo adjunto es síncrono y WhatsApp manual, sin afirmar que exista ese mecanismo de eventos. |
 
-El recorrido principal firma manualmente en Firma Perú y carga el PDF verificado; el adaptador web existe sin activar ni validar con credenciales institucionales. No se añaden patrones solo para reproducir los del marketplace.
+El recorrido principal firma manualmente con PeruFirma y luego carga el PDF verificado. No se añaden patrones solo para reproducir los del marketplace.

@@ -72,7 +72,7 @@ Estas rutas pertenecen al proyecto de desarrollo; este repositorio contiene su d
 
 ## 5. Colaboración con otros módulos
 
-Filiación revisa únicamente campos autorizados del detalle de nacimiento con versión e historial, manteniendo PDF y acta central. El listado de actas incorpora incidencias mediante IncidenciaService sin cambiar el registro descrito. El trámite público usa búsqueda controlada y revisión humana sin exponer el archivo. Reportes consultan actas y disponibilidad documental con sus propios filtros. La carga de PDF firmado externamente, comprobación CMS, publicación LISTA, descarga, correo adjunto y WhatsApp manual existen. El seguimiento usa DNI y correo con código y selección de solicitudes. Izipay Mi Cuenta Web TEST tiene conector y confirmación verificada; validación interactiva pendiente y producción bloqueada. Perfil/foto e incidencias ya existen; QR público y firma web activada siguen pendientes.
+Filiación revisa únicamente campos autorizados del detalle de nacimiento con versión e historial, manteniendo PDF y acta central. El listado de actas incorpora incidencias mediante IncidenciaService sin cambiar el registro descrito. El trámite público usa búsqueda controlada y revisión humana sin exponer el archivo. Reportes consultan actas y disponibilidad documental con sus propios filtros. La carga de PDF firmado externamente con PeruFirma, comprobación CMS, publicación LISTA, descarga, correo adjunto y WhatsApp manual existen. El seguimiento usa DNI y correo con código y selección de solicitudes. Mercado Pago se utiliza en sandbox, no para cobros reales de producción. Perfil/foto e incidencias ya existen; QR público sigue pendiente.
 
 ## 6. Correspondencia con el código
 

@@ -15,7 +15,7 @@ Explicar cómo las responsabilidades actuales se relacionan con SOLID y señalar
 | Principio | Dónde se aplica (capa) | Cómo se cumple en Registro Civil | Archivos |
 |---|---|---|---|
 | S · Responsabilidad única | Control, servicios y políticas. | Se separan recepción, validación documental, almacenamiento y auditoría. Es una aplicación parcial: algunos controladores y modelos reúnen más de una responsabilidad. | `ActaController.php`, `PdfValidationService.php`, `PdfStorageService.php`, `AuditoriaService.php`, `ActaPolicy.php`. |
-| O · Abierto/cerrado | Servicios e integraciones. | La separación de proveedores permite concentrar cambios, pero no se demuestra extensión sin modificar código: el registro distingue tipos mediante `match` y los conectores son concretos. | `ActaService.php`, `ApisPeruService.php`, `IzipayService.php`. |
+| O · Abierto/cerrado | Servicios e integraciones. | La separación de proveedores permite concentrar cambios, pero no se demuestra extensión sin modificar código: el registro distingue tipos mediante `match` y los conectores son concretos. | `ActaService.php`, `ApisPeruService.php` e integración de pagos Mercado Pago. |
 | L · Sustitución de Liskov | Herencia del framework. | Los modelos extienden Eloquent; `Acta` especializa la inserción. No hay implementaciones intercambiables propias que permitan afirmar cumplimiento general; debe comprobarse el comportamiento heredado. | `Acta.php` y modelos de detalle. |
 | I · Segregación de interfaces | Servicios. | Los servicios tienen operaciones enfocadas, pero no se identifica una familia de interfaces propias segregadas. No se crean contratos ficticios para justificar el principio. | `PdfValidationService.php`, `PdfStorageService.php`. |
 | D · Inversión de dependencias | Control y servicios. | Hay inyección de colaboradores concretos. El servicio usa Eloquent y facilidades Laravel, por lo que la inversión hacia abstracciones independientes es limitada. | Constructores de `ActaController.php`, `ActaService.php`. |
@@ -27,7 +27,7 @@ Explicar cómo las responsabilidades actuales se relacionan con SOLID y señalar
 | Cambia una validación PDF | La regla puede repetirse en formularios y controladores. | La comprobación documental se concentra en `PdfValidationService`. |
 | Cambia el nombre o destino del archivo | La operación de disco se dispersa. | `PdfStorageService` concentra el acceso al archivo. |
 | Cambia un permiso | La vista podría permitir una operación sin control del servidor. | Middleware y políticas aplican restricciones del lado del servidor. |
-| Se valida Izipay TEST | El proveedor podría quedar mezclado con la interfaz. | IzipayService encapsula REST V4; IzipayController verifica retorno/IPN. La prueba interactiva completa sigue pendiente. |
+| Se usa Mercado Pago en sandbox | La integración de pagos podría quedar mezclada con la interfaz o confundirse con cobros reales. | El proveedor se utiliza en entorno de pruebas; producción no está habilitada. |
 
 ## Relación con el enfoque y los patrones
 
