@@ -4,7 +4,7 @@
 |---|---|
 | Historias | HU01 |
 | Requisitos | RF06 |
-| Decisiones | ADR-013, ADR-021, ADR-027 |
+| Decisiones | ADR-013, ADR-021, ADR-027, ADR-031 |
 | Atributos | AC04 Seguridad y privacidad |
 | Estado | ✅ Implementado y probado |
 
@@ -35,7 +35,7 @@ su vínculo con el titular, y verifique su correo con un código antes de pagar.
 |---|---|
 | Presentación | `portal/buscar.blade.php`, `datos.blade.php`, `codigo.blade.php` |
 | Control | `PortalPublicoController@buscar/registrar/verificar/reenviar` |
-| Negocio | `BusquedaPublicaService`, `ApisPeruService`, `CodigoTramiteService`, `CruceParentescoService`, `DeclaracionSolicitud` |
+| Negocio | `BusquedaPublicaService`, `ContrastadorIdentidad` (implementado por `ApisPeruService`), `NombrePersona`, `CodigoTramiteService`, `CruceParentescoService`, `DeclaracionSolicitud` |
 | Datos | `tramites_publicos` (campo `datos` con `encrypted:array`, `dni_hash`, `otp_hash`) |
 
 ## Tareas técnicas

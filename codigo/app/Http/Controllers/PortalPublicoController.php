@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\ContrastadorIdentidad;
 use App\Models\Acta;
 use App\Models\TramitePublico;
 use App\Services\BusquedaPublicaService;
@@ -37,7 +38,7 @@ class PortalPublicoController extends Controller
         return view('portal.datos', compact('busqueda', 'autocompletar'));
     }
 
-    public function registrar(Request $request, CodigoTramiteService $codigos, \App\Services\ApisPeruService $dni)
+    public function registrar(Request $request, CodigoTramiteService $codigos, ContrastadorIdentidad $dni)
     {
         $busqueda = $this->busquedaActual($request);
         $datos = $request->validate(['dni' => ['required', 'regex:/^[0-9]{8}$/'], 'nombre' => ['required', 'string', 'max:200'], 'nacimiento' => ['required', 'date', 'before_or_equal:today'], 'verificador' => ['required', 'regex:/^[0-9]$/'], 'ubigeo' => ['nullable', 'regex:/^[0-9]{6}$/'], 'email' => ['required', 'email', 'max:255'], 'whatsapp' => ['nullable', 'regex:/^\+[1-9][0-9]{7,14}$/'], 'declaracion' => ['accepted']]);
@@ -49,8 +50,8 @@ class PortalPublicoController extends Controller
         $datos = array_merge($datos, $vinculo);
         try { $identidad = $dni->contrastar($datos); }
         catch (\RuntimeException $e) { throw ValidationException::withMessages(['dni' => 'La consulta DNI no está disponible. Inténtalo más tarde; no se ha generado ningún cobro.']); }
-        if ($identidad === 'NO_COINCIDE') throw ValidationException::withMessages(['dni' => 'Los datos no coinciden con la consulta. Revisa DNI, nombres y dígito verificador.']);
-        if ($identidad === 'SIN_RESULTADOS') throw ValidationException::withMessages(['dni' => 'El proveedor no devolvió resultados para los datos consultados. No se ha podido completar el contraste; no se ha generado una solicitud ni un cobro.']);
+        if ($identidad === ContrastadorIdentidad::NO_COINCIDE) throw ValidationException::withMessages(['dni' => 'Los datos no coinciden con la consulta. Revisa DNI, nombres y dígito verificador.']);
+        if ($identidad === ContrastadorIdentidad::SIN_RESULTADOS) throw ValidationException::withMessages(['dni' => 'El proveedor no devolvió resultados para los datos consultados. No se ha podido completar el contraste; no se ha generado una solicitud ni un cobro.']);
         $acta = Acta::findOrFail($busqueda['acta_id']);
         abort_unless($acta->estado === Acta::ESTADO_REGISTRADA && $acta->pdf_ruta && app(\App\Services\PdfStorageService::class)->existe($acta->pdf_ruta), 409);
         $datos['cruce_parentesco'] = app(\App\Services\CruceParentescoService::class)->comparar($acta, $datos);

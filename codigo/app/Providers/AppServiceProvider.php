@@ -16,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //
+        // Dependency inversion: the portal asks for the contract; swapping the provider is one line here.
+        $this->app->bind(\App\Contracts\ContrastadorIdentidad::class, \App\Services\ApisPeruService::class);
     }
 
     public function boot(): void

@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Acta;
-use Illuminate\Support\Str;
+use App\Support\NombrePersona;
 
 class BusquedaPublicaService
 {
@@ -23,17 +23,9 @@ class BusquedaPublicaService
         $ids = \Illuminate\Support\Facades\DB::table($tabla)->whereBetween($fecha, [$dia, $dia.' 23:59:59'])->pluck('acta_id');
         $candidatas = $ids->isEmpty() ? collect() : Acta::with($relacion)->whereIn('id', $ids)
             ->where('tipo', $datos['tipo'])->where('estado', Acta::ESTADO_REGISTRADA)->get();
-        $buscado = $this->normalizar($datos['titular']);
-        $coinciden = $candidatas->filter(fn ($acta) => $this->normalizar($acta->$relacion->apellido_nombre) === $buscado);
+        $coinciden = $candidatas->filter(fn ($acta) => NombrePersona::coinciden($acta->$relacion->apellido_nombre, $datos['titular']));
         if ($coinciden->count() !== 1) return null;
         $acta = $coinciden->first();
         return $acta->pdf_ruta && app(PdfStorageService::class)->existe($acta->pdf_ruta) ? $acta : null;
-    }
-
-    private function normalizar(string $nombre): string
-    {
-        $partes = preg_split('/[^A-Z0-9]+/', strtoupper(Str::ascii($nombre)), -1, PREG_SPLIT_NO_EMPTY);
-        sort($partes);
-        return implode(' ', $partes);
     }
 }
