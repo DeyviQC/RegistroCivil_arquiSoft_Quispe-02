@@ -74,4 +74,4 @@ Las relaciones incluyen funciones locales implementadas; Mercado Pago se usa en 
 |---|---|
 | Mercado Pago | Validar el flujo de pagos en sandbox; no habilitar cobros reales de producción sin la configuración y aprobación correspondientes. |
 | Firma y entrega | PeruFirma se usa fuera del sistema y luego se carga el PDF. Confianza, revocación y facultades requieren revisión humana; rutas actuales admiten ambos roles internos. |
-| Operación | Reglas municipales, correo real, publicación y respaldo operativo. |
+| Operación | Reglas municipales, correo real, publicación y prueba de restauración del respaldo (el respaldo diario ya existe). |

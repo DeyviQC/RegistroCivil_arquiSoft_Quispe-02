@@ -104,7 +104,7 @@ Los escenarios concretan los [atributos de calidad](04-atributos-de-calidad.md).
 | Respuesta esperada | Se recuperan relaciones, documentos y lectura de los datos cifrados sin depender de archivos perdidos. |
 | Medida | Verificar integridad de registros y hashes de la copia restaurada; tiempo máximo de recuperación y pérdida admisible por acordar. |
 | Verificación | Ejecutar restauración aislada y registrar tiempos, cobertura y comprobaciones. |
-| Estado | Procedimiento operativo y prueba de restauración pendientes. |
+| Estado | Respaldo diario implementado (`respaldo:crear`, recuperación de la clave con `respaldo:clave`); prueba de restauración aislada pendiente de ejecutar. |
 
 ## Resumen de escenarios
 

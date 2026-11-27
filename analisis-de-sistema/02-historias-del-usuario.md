@@ -9,7 +9,7 @@ Las historias describen el desarrollo actual y las funciones previstas. Los cone
 | HU03 | Como ciudadano, quiero elegir correo o WhatsApp como canales para recibir mi documento publicado; el correo adjunta el PDF y WhatsApp requiere envío manual. |
 | HU04 | Como ciudadano, quiero consultar el código o QR del documento para verificar su autenticidad. |
 | HU05 | Como asistente, quiero registrar actas existentes con su PDF para organizar el archivo municipal. |
-| HU06 | Como asistente, quiero revisar trámites para decidir su atención con sustento. |
+| HU06 | Como asistente, quiero revisar trámites para decidir su atención con sustento (aprobar, observar o rechazar), y que el ciudadano pueda responder una observación. |
 | HU07 | Como personal autorizado, quiero cargar el PDF firmado externamente con DNIe y revisar su evidencia antes de publicarlo, para conservar el original y entregar una versión firmada. |
 | HU08 | Como administrador, quiero gestionar cuentas y roles para controlar el acceso del personal; como personal autorizado, quiero actualizar mi perfil y foto dentro de mis permisos. |
 | HU09 | Como administrador, quiero consultar la auditoría para identificar quién realizó cada operación. |
@@ -21,4 +21,4 @@ Las historias describen el desarrollo actual y las funciones previstas. Los cone
 
 Las historias de seguridad, fidelidad del archivo y atención actual mantienen prioridad. La firma externa con PeruFirma y la carga manual del documento, publicación, descarga y canales ya tienen implementación local; deben distinguirse de la validación operativa y de la ampliación QR.
 
-HU04 sigue pendiente. HU03, HU07 y HU14 tienen implementación local con revisión de firma y publicación; WhatsApp es manual y el correo real depende de configuración. HU01 y HU06 incluyen pagos con Mercado Pago en sandbox; no se habilitan cobros reales de producción. APIsPerú requiere validación externa. La firma se realiza fuera del sistema con PeruFirma y el PDF firmado se carga para revisión. Las rutas de firma y publicación admiten administrador y asistente; no se atribuye exclusividad al administrador.
+HU04 sigue pendiente. HU07 permite además reutilizar la copia firmada vigente de un acta en solicitudes posteriores, sin firmar de nuevo. HU03, HU07 y HU14 tienen implementación local con revisión de firma y publicación; WhatsApp es manual y el correo real depende de configuración. HU01 y HU06 incluyen pagos con Mercado Pago en sandbox; no se habilitan cobros reales de producción. APIsPerú requiere validación externa. La firma se realiza fuera del sistema con PeruFirma y el PDF firmado se carga para revisión. Las rutas de firma y publicación admiten administrador y asistente; no se atribuye exclusividad al administrador.
