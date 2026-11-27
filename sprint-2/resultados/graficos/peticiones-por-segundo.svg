@@ -1,0 +1,64 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 400' width='760' height='400' role='img' aria-labelledby='t d'>
+<title id="t">Peticiones atendidas por segundo</title><desc id="d">Capacidad real del servidor en cada nivel (más es mejor)</desc>
+<style>
+  svg{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+  .fondo{fill:#fcfcfb}.t1{fill:#0b0b0b}.t2{fill:#52514e}.t3{fill:#898781}
+  .rejilla{stroke:#e1e0d9;stroke-width:1}.base{stroke:#c3c2b7;stroke-width:1}
+  .meta{stroke:#52514e;stroke-width:1.5;stroke-dasharray:6 4}
+  .s1{stroke:#2a78d6;fill:#2a78d6}.s2{stroke:#eb6834;fill:#eb6834}
+  .punto{stroke:#fcfcfb;stroke-width:2}
+  @media (prefers-color-scheme:dark){
+    .fondo{fill:#1a1a19}.t1{fill:#f0efec}.t2{fill:#c3c2b7}
+    .rejilla{stroke:#2c2c2a}.base{stroke:#383835}.meta{stroke:#c3c2b7}
+    .s1{stroke:#3987e5;fill:#3987e5}.s2{stroke:#d95926;fill:#d95926}.punto{stroke:#1a1a19}
+  }
+  polyline.linea{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}polyline.s2.linea{stroke-dasharray:5 4}
+</style>
+<rect class='fondo' width='760' height='400' rx='8'/>
+<text class='t1' x='64' y='30' font-size='17' font-weight='600'>Peticiones atendidas por segundo</text>
+<text class='t2' x='64' y='50' font-size='12.5'>Capacidad real del servidor en cada nivel (más es mejor)</text>
+<line class='s1' x1='64' y1='70' x2='86' y2='70' stroke-width='2'/>
+<circle class='s1 punto' cx='75' cy='70' r='4'/>
+<text class='t2' x='94' y='74' font-size='12'>Corrida final (con correcciones)</text>
+<line class='s2' x1='346.4' y1='70' x2='368.4' y2='70' stroke-width='2' stroke-dasharray='5 4'/>
+<circle class='s2 punto' cx='357.4' cy='70' r='4'/>
+<text class='t2' x='376.4' y='74' font-size='12'>Primera corrida</text>
+<line class='base' x1='64' y1='348' x2='610' y2='348'/>
+<text class='t3' x='56' y='352' font-size='11' text-anchor='end'>0</text>
+<line class='rejilla' x1='64' y1='296.8' x2='610' y2='296.8'/>
+<text class='t3' x='56' y='300.8' font-size='11' text-anchor='end'>20</text>
+<line class='rejilla' x1='64' y1='245.6' x2='610' y2='245.6'/>
+<text class='t3' x='56' y='249.6' font-size='11' text-anchor='end'>40</text>
+<line class='rejilla' x1='64' y1='194.4' x2='610' y2='194.4'/>
+<text class='t3' x='56' y='198.4' font-size='11' text-anchor='end'>60</text>
+<line class='rejilla' x1='64' y1='143.2' x2='610' y2='143.2'/>
+<text class='t3' x='56' y='147.2' font-size='11' text-anchor='end'>80</text>
+<line class='rejilla' x1='64' y1='92' x2='610' y2='92'/>
+<text class='t3' x='56' y='96' font-size='11' text-anchor='end'>100</text>
+<text class='t3' x='64' y='368' font-size='11' text-anchor='middle'>50</text>
+<text class='t3' x='155' y='368' font-size='11' text-anchor='middle'>100</text>
+<text class='t3' x='246' y='368' font-size='11' text-anchor='middle'>250</text>
+<text class='t3' x='337' y='368' font-size='11' text-anchor='middle'>500</text>
+<text class='t3' x='428' y='368' font-size='11' text-anchor='middle'>1 000</text>
+<text class='t3' x='519' y='368' font-size='11' text-anchor='middle'>1 500</text>
+<text class='t3' x='610' y='368' font-size='11' text-anchor='middle'>2 000</text>
+<text class='t3' x='337' y='390' font-size='11.5' text-anchor='middle'>Usuarios simultáneos</text>
+<polyline class='s2 linea' points='64,322.4 155,299.9 246,242.5 337,230 428,232.8 519,228.7 610,224.1'/>
+<circle class='s2 punto' cx='64' cy='322.4' r='4.5'><title>Primera corrida · 50 usuarios: 10,0 pet/s</title></circle>
+<circle class='s2 punto' cx='155' cy='299.9' r='4.5'><title>Primera corrida · 100 usuarios: 18,8 pet/s</title></circle>
+<circle class='s2 punto' cx='246' cy='242.5' r='4.5'><title>Primera corrida · 250 usuarios: 41,2 pet/s</title></circle>
+<circle class='s2 punto' cx='337' cy='230' r='4.5'><title>Primera corrida · 500 usuarios: 46,1 pet/s</title></circle>
+<circle class='s2 punto' cx='428' cy='232.8' r='4.5'><title>Primera corrida · 1 000 usuarios: 45,0 pet/s</title></circle>
+<circle class='s2 punto' cx='519' cy='228.7' r='4.5'><title>Primera corrida · 1 500 usuarios: 46,6 pet/s</title></circle>
+<circle class='s2 punto' cx='610' cy='224.1' r='4.5'><title>Primera corrida · 2 000 usuarios: 48,4 pet/s</title></circle>
+<text class='t2' x='618' y='228.1' font-size='11'>Primera 48,4 pet/s</text>
+<polyline class='s1 linea' points='64,322.7 155,300.4 246,237.9 337,207.2 428,159.1 519,102 610,117.9'/>
+<circle class='s1 punto' cx='64' cy='322.7' r='4.5'><title>Corrida final (con correcciones) · 50 usuarios: 9,9 pet/s</title></circle>
+<circle class='s1 punto' cx='155' cy='300.4' r='4.5'><title>Corrida final (con correcciones) · 100 usuarios: 18,6 pet/s</title></circle>
+<circle class='s1 punto' cx='246' cy='237.9' r='4.5'><title>Corrida final (con correcciones) · 250 usuarios: 43,0 pet/s</title></circle>
+<circle class='s1 punto' cx='337' cy='207.2' r='4.5'><title>Corrida final (con correcciones) · 500 usuarios: 55,0 pet/s</title></circle>
+<circle class='s1 punto' cx='428' cy='159.1' r='4.5'><title>Corrida final (con correcciones) · 1 000 usuarios: 73,8 pet/s</title></circle>
+<circle class='s1 punto' cx='519' cy='102' r='4.5'><title>Corrida final (con correcciones) · 1 500 usuarios: 96,1 pet/s</title></circle>
+<circle class='s1 punto' cx='610' cy='117.9' r='4.5'><title>Corrida final (con correcciones) · 2 000 usuarios: 89,9 pet/s</title></circle>
+<text class='t2' x='618' y='121.9' font-size='11'>Final 89,9 pet/s</text>
+</svg>
