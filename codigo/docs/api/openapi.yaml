@@ -1,0 +1,467 @@
+openapi: 3.0.3
+info:
+  title: API REST — Sistema Integral de Registro Civil
+  version: 1.0.0
+  description: |
+    API REST v1 del Registro Civil de la Municipalidad Distrital Andrés Avelino Cáceres Dorregaray.
+    Es una interfaz JSON sobre los mismos servicios del monolito Laravel (no es otro sistema).
+
+    **Autenticación del personal:** `POST /api/v1/auth/token` devuelve un token Bearer (Laravel Sanctum)
+    que caduca a las 8 horas. Enviarlo en la cabecera `Authorization: Bearer <token>`.
+
+    **Privacidad:** la API nunca devuelve PDF, rutas de almacenamiento, códigos de acceso del ciudadano,
+    correos ni DNI. La consulta pública solo indica si un acta está disponible.
+
+    **Errores:** siempre en JSON. 401 sin token o token vencido, 403 sin permiso, 404 inexistente,
+    409 conflicto de versión, 422 datos inválidos, 429 demasiados intentos.
+  contact:
+    name: Quispe Chavez Deyvi Aderly — IS-488 Arquitectura de Software (UNSCH)
+servers:
+  - url: /
+    description: Mismo servidor que sirve esta documentación
+tags:
+  - name: Sistema
+    description: Estado del servicio
+  - name: Consulta pública
+    description: Operaciones sin autenticación para la ciudadanía
+  - name: Autenticación
+    description: Tokens del personal municipal
+  - name: Actas
+    description: Archivo municipal (solo personal)
+  - name: Trámites
+    description: Solicitudes ciudadanas pagadas y su atención (solo personal)
+
+paths:
+  /api/v1/salud:
+    get:
+      tags: [Sistema]
+      summary: Estado del servicio
+      description: Comprueba la conexión con la base de datos y que el almacenamiento admite escritura. Útil para monitorear la disponibilidad.
+      operationId: salud
+      responses:
+        '200':
+          description: Todos los componentes funcionan
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Salud' }
+        '503':
+          description: Algún componente falla
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Salud' }
+
+  /api/v1/consultas/disponibilidad:
+    post:
+      tags: [Consulta pública]
+      summary: Consultar si un acta está disponible
+      description: |
+        Indica si existe una única acta registrada con su PDF que coincide con tipo, titular y fecha.
+        No devuelve ningún dato del archivo. Límite: 5 consultas por minuto.
+      operationId: consultarDisponibilidad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tipo, titular, fecha]
+              properties:
+                tipo: { $ref: '#/components/schemas/TipoActa' }
+                titular: { type: string, minLength: 5, maxLength: 200, example: 'Juan Pérez Quispe' }
+                fecha: { type: string, format: date, description: 'Fecha del hecho (no futura)', example: '2001-02-03' }
+      responses:
+        '200':
+          description: Resultado de la consulta
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [disponible, mensaje]
+                properties:
+                  disponible: { type: boolean }
+                  mensaje: { type: string }
+        '422': { $ref: '#/components/responses/DatosInvalidos' }
+        '429': { $ref: '#/components/responses/DemasiadosIntentos' }
+
+  /api/v1/auth/token:
+    post:
+      tags: [Autenticación]
+      summary: Obtener un token del personal
+      description: Solo para personal activo (administrador o asistente). Cinco intentos fallidos bloquean el usuario durante un minuto. Se audita.
+      operationId: emitirToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username: { type: string, maxLength: 255, example: asistente }
+                password: { type: string, format: password, maxLength: 255 }
+                dispositivo: { type: string, maxLength: 60, description: 'Nombre del cliente, por ejemplo postman', example: postman }
+      responses:
+        '201':
+          description: Token emitido
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [token, tipo, expira_en, usuario]
+                properties:
+                  token: { type: string, description: 'Mostrar una sola vez; enviarlo como Bearer' }
+                  tipo: { type: string, enum: [Bearer] }
+                  expira_en: { type: string, format: date-time }
+                  usuario: { $ref: '#/components/schemas/Usuario' }
+        '401':
+          description: Usuario o contraseña incorrectos
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '403':
+          description: Cuenta inactiva o sin rol del personal
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422': { $ref: '#/components/responses/DatosInvalidos' }
+        '429': { $ref: '#/components/responses/DemasiadosIntentos' }
+    delete:
+      tags: [Autenticación]
+      summary: Revocar el token actual (cerrar sesión)
+      operationId: revocarToken
+      security: [{ bearerAuth: [] }]
+      responses:
+        '204': { description: Token revocado }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+
+  /api/v1/auth/yo:
+    get:
+      tags: [Autenticación]
+      summary: Datos del usuario del token
+      operationId: usuarioActual
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200':
+          description: Usuario autenticado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  usuario: { $ref: '#/components/schemas/Usuario' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+
+  /api/v1/actas:
+    get:
+      tags: [Actas]
+      summary: Buscar actas del archivo
+      description: Resultados paginados de 15 en 15, ordenados por fecha del acta (más recientes primero).
+      operationId: listarActas
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: tipo, in: query, schema: { $ref: '#/components/schemas/TipoActa' } }
+        - { name: anio, in: query, schema: { type: integer, minimum: 1900, maximum: 2100 } }
+        - { name: numero_acta, in: query, description: 'Contiene el texto', schema: { type: string, maxLength: 20 } }
+        - { name: nombre, in: query, description: 'Parte del nombre del titular o contrayentes', schema: { type: string, minLength: 2, maxLength: 100 } }
+        - { name: dni, in: query, schema: { type: string, pattern: '^[0-9]{1,15}$' } }
+        - { name: fecha_desde, in: query, schema: { type: string, format: date } }
+        - { name: fecha_hasta, in: query, schema: { type: string, format: date } }
+        - { $ref: '#/components/parameters/Pagina' }
+      responses:
+        '200':
+          description: Página de actas
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data, links, meta]
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Acta' } }
+                  links: { $ref: '#/components/schemas/EnlacesPaginacion' }
+                  meta: { $ref: '#/components/schemas/MetaPaginacion' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+        '422': { $ref: '#/components/responses/DatosInvalidos' }
+
+  /api/v1/actas/{acta}:
+    get:
+      tags: [Actas]
+      summary: Detalle de un acta
+      operationId: verActa
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: acta, in: path, required: true, schema: { type: integer, minimum: 1 } }
+      responses:
+        '200':
+          description: Acta encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/ActaDetalle' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+        '404': { $ref: '#/components/responses/NoEncontrado' }
+
+  /api/v1/tramites:
+    get:
+      tags: [Trámites]
+      summary: Bandeja de solicitudes pagadas
+      description: Solo solicitudes con pago confirmado, de 15 en 15, más recientes primero.
+      operationId: listarTramites
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: estado, in: query, schema: { $ref: '#/components/schemas/EstadoTramite' } }
+        - { name: dni, in: query, description: 'DNI del solicitante (búsqueda exacta mediante índice cifrado)', schema: { type: string, pattern: '^[0-9]{8}$' } }
+        - { $ref: '#/components/parameters/Pagina' }
+      responses:
+        '200':
+          description: Página de solicitudes
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data, links, meta]
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Tramite' } }
+                  links: { $ref: '#/components/schemas/EnlacesPaginacion' }
+                  meta: { $ref: '#/components/schemas/MetaPaginacion' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+        '422': { $ref: '#/components/responses/DatosInvalidos' }
+
+  /api/v1/tramites/{tramite}:
+    get:
+      tags: [Trámites]
+      summary: Detalle de una solicitud pagada
+      operationId: verTramite
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { $ref: '#/components/parameters/IdTramite' }
+      responses:
+        '200':
+          description: Solicitud con su historial
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/TramiteDetalle' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+        '404': { $ref: '#/components/responses/NoEncontrado' }
+
+  /api/v1/tramites/{tramite}/decision:
+    post:
+      tags: [Trámites]
+      summary: Decidir una solicitud (aprobar, observar o rechazar)
+      description: |
+        Misma regla que el panel web (`DecisionTramiteService`). Enviar la `version` leída: si otra persona
+        decidió antes, responde 409 y no cambia nada. Observar o rechazar exige `mensaje`.
+        Aprobar a un tercero o a un menor exige `vinculo_revisado` y `sustento_revision`.
+      operationId: decidirTramite
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { $ref: '#/components/parameters/IdTramite' }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [estado, version]
+              properties:
+                estado: { type: string, enum: [APROBADA, OBSERVADA, RECHAZADA] }
+                mensaje: { type: string, maxLength: 2000, description: 'Obligatorio al observar o rechazar' }
+                version: { type: integer, description: 'Versión leída de la solicitud' }
+                vinculo_revisado: { type: boolean }
+                sustento_revision: { type: string, minLength: 10, maxLength: 1500 }
+            example: { estado: OBSERVADA, mensaje: 'Adjunta una copia legible de tu DNI.', version: 2 }
+      responses:
+        '200':
+          description: Decisión registrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string }
+                  data: { $ref: '#/components/schemas/TramiteDetalle' }
+        '401': { $ref: '#/components/responses/NoAutenticado' }
+        '403': { $ref: '#/components/responses/SinPermiso' }
+        '404': { $ref: '#/components/responses/NoEncontrado' }
+        '409':
+          description: La solicitud cambió desde que se leyó (otra decisión ganó)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorValidacion' }
+        '422': { $ref: '#/components/responses/DatosInvalidos' }
+        '429': { $ref: '#/components/responses/DemasiadosIntentos' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Token obtenido en POST /api/v1/auth/token
+
+  parameters:
+    Pagina:
+      name: page
+      in: query
+      schema: { type: integer, minimum: 1, default: 1 }
+    IdTramite:
+      name: tramite
+      in: path
+      required: true
+      schema: { type: integer, minimum: 1 }
+
+  responses:
+    NoAutenticado:
+      description: Falta el token, es inválido, fue revocado o venció
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    SinPermiso:
+      description: El usuario no tiene un rol del personal
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    NoEncontrado:
+      description: El recurso no existe
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    DatosInvalidos:
+      description: Los datos no cumplen las validaciones
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorValidacion' }
+    DemasiadosIntentos:
+      description: Se superó el límite de intentos
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+
+  schemas:
+    TipoActa:
+      type: string
+      enum: [NACIMIENTO, MATRIMONIO, DEFUNCION]
+    EstadoTramite:
+      type: string
+      enum: [PENDIENTE_PAGO, PENDIENTE, EN_REVISION, OBSERVADA, APROBADA, LISTA, RECHAZADA, VENCIDA]
+    Error:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string }
+    ErrorValidacion:
+      type: object
+      required: [message, errors]
+      properties:
+        message: { type: string }
+        errors:
+          type: object
+          additionalProperties: { type: array, items: { type: string } }
+    Salud:
+      type: object
+      required: [estado, componentes, fecha]
+      properties:
+        estado: { type: string, enum: [ok, degradado] }
+        componentes:
+          type: object
+          properties:
+            base_datos: { type: string, enum: [ok, error] }
+            almacenamiento: { type: string, enum: [ok, error] }
+        fecha: { type: string, format: date-time }
+    Usuario:
+      type: object
+      required: [id, nombre, username, rol]
+      properties:
+        id: { type: integer }
+        nombre: { type: string }
+        username: { type: string }
+        rol: { type: string, enum: [administrador, asistente] }
+    Acta:
+      type: object
+      required: [id, tipo, numero_acta, anio, estado, pdf_disponible]
+      properties:
+        id: { type: integer }
+        tipo: { $ref: '#/components/schemas/TipoActa' }
+        numero_acta: { type: string }
+        anio: { type: integer }
+        fecha_acta: { type: string, format: date, nullable: true }
+        estado: { type: string, enum: [BORRADOR, REGISTRADA, ANULADA] }
+        titular: { type: string, nullable: true }
+        ubicacion:
+          type: object
+          properties:
+            sobre: { type: string, nullable: true }
+            correlativo: { type: integer, nullable: true }
+            orden_tipo: { type: integer, nullable: true }
+        pdf_disponible: { type: boolean }
+        registrado_en: { type: string, format: date-time, nullable: true }
+    ActaDetalle:
+      allOf:
+        - $ref: '#/components/schemas/Acta'
+        - type: object
+          properties:
+            copia_firmada:
+              type: object
+              properties:
+                vigente: { type: boolean, description: 'Si se puede entregar sin firmar de nuevo' }
+                firmada_en: { type: string, format: date-time, nullable: true }
+                vence_en: { type: string, format: date-time, nullable: true }
+            registrado_por: { type: string, nullable: true }
+    Tramite:
+      type: object
+      required: [id, numero, estado, version]
+      properties:
+        id: { type: integer }
+        numero: { type: string, example: '000020' }
+        estado: { $ref: '#/components/schemas/EstadoTramite' }
+        estado_descripcion: { type: string }
+        version: { type: integer, description: 'Enviar en la decisión (control de concurrencia)' }
+        tipo_acta: { $ref: '#/components/schemas/TipoActa' }
+        titular: { type: string, nullable: true }
+        solicitante: { type: string, nullable: true }
+        relacion: { type: string, nullable: true }
+        pago:
+          type: object
+          nullable: true
+          properties:
+            estado: { type: string }
+            importe: { type: number, example: 10.3 }
+        creado_en: { type: string, format: date-time }
+    TramiteDetalle:
+      allOf:
+        - $ref: '#/components/schemas/Tramite'
+        - type: object
+          properties:
+            requiere_revision_vinculo: { type: boolean }
+            transiciones_permitidas: { type: array, items: { type: string } }
+            respuestas_del_ciudadano: { type: integer }
+            eventos:
+              type: array
+              items:
+                type: object
+                properties:
+                  estado: { type: string }
+                  mensaje: { type: string, nullable: true }
+                  fecha: { type: string, format: date-time }
+    EnlacesPaginacion:
+      type: object
+      properties:
+        first: { type: string, nullable: true }
+        last: { type: string, nullable: true }
+        prev: { type: string, nullable: true }
+        next: { type: string, nullable: true }
+    MetaPaginacion:
+      type: object
+      properties:
+        current_page: { type: integer }
+        last_page: { type: integer }
+        per_page: { type: integer }
+        total: { type: integer }

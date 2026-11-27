@@ -17,6 +17,7 @@
 | `diseño-de-software/` | Diseño interno, principios SOLID y patrones | 1 |
 | `modelo-c4/` | Diagramas C4 (contexto, contenedores, componentes, código) | 1 |
 | `codigo/` | Código fuente de la aplicación Laravel (primera versión funcional) | 2 |
+| `sprint-2/` | Entregables del Sprint 2: API REST y Swagger, especificaciones, análisis y evidencias de calidad | 2 |
 
 ## Ejecutar el código
 

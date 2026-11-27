@@ -1,0 +1,670 @@
+{
+  "info": {
+    "name": "Registro Civil · API REST v1 (pruebas funcionales)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Pruebas funcionales y de contrato de la API REST v1. Ejecutar en orden (Run collection) o con: newman run tests/api/registro-civil-api.postman_collection.json --env-var base=http://127.0.0.1:8010"
+  },
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://127.0.0.1:8010"
+    },
+    {
+      "key": "usuario",
+      "value": "asistente"
+    },
+    {
+      "key": "clave",
+      "value": "Asistente123!"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "acta_id",
+      "value": ""
+    },
+    {
+      "key": "tramite_id",
+      "value": ""
+    },
+    {
+      "key": "version",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Público",
+      "item": [
+        {
+          "name": "01 · Estado del servicio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('estado ok', () => pm.expect(b.estado).to.eql('ok'));",
+                  "pm.test('responde en menos de 2 s', () => pm.expect(pm.response.responseTime).to.be.below(2000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/salud"
+          }
+        },
+        {
+          "name": "02 · Disponibilidad: acta inexistente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('no disponible', () => pm.expect(b.disponible).to.eql(false));",
+                  "pm.test('no devuelve datos del archivo', () => pm.expect(Object.keys(b)).to.have.members(['disponible', 'mensaje']));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/consultas/disponibilidad",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"NACIMIENTO\",\n  \"titular\": \"Persona Que No Existe\",\n  \"fecha\": \"1999-09-09\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "03 · Disponibilidad: datos inválidos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 422', () => pm.response.to.have.status(422));",
+                  "const b = pm.response.json();",
+                  "pm.test('indica los campos con error', () => pm.expect(b.errors).to.have.keys(['tipo', 'titular', 'fecha']));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/consultas/disponibilidad",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"OTRO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Autenticación",
+      "item": [
+        {
+          "name": "04 · Token con contraseña incorrecta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/auth/token",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{usuario}}\",\n  \"password\": \"incorrecta\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "05 · Obtener token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 201', () => pm.response.to.have.status(201));",
+                  "const b = pm.response.json();",
+                  "pm.test('token Bearer con caducidad', () => { pm.expect(b.tipo).to.eql('Bearer'); pm.expect(b.expira_en).to.be.a('string'); });",
+                  "pm.collectionVariables.set('token', b.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/auth/token",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{usuario}}\",\n  \"password\": \"{{clave}}\",\n  \"dispositivo\": \"postman\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "06 · Usuario del token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('rol del personal', () => pm.expect(['administrador', 'asistente']).to.include(b.usuario.rol));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/auth/yo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Actas",
+      "item": [
+        {
+          "name": "07 · Listar actas (paginado)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('estructura paginada', () => { pm.expect(b.data).to.be.an('array'); pm.expect(b.meta).to.have.property('total'); pm.expect(b.links).to.have.property('next'); });",
+                  "pm.test('todas son de nacimiento', () => b.data.forEach(a => pm.expect(a.tipo).to.eql('NACIMIENTO')));",
+                  "pm.test('no expone datos privados', () => { const t = pm.response.text(); ['pdf_ruta', 'codigo', 'email', 'password', 'dni_hash', 'otp'].forEach(k => pm.expect(t).to.not.include('\"' + k + '\"')); });",
+                  "if (b.data.length) pm.collectionVariables.set('acta_id', b.data[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/actas?tipo=NACIMIENTO"
+          }
+        },
+        {
+          "name": "08 · Detalle de un acta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('incluye disponibilidad del PDF y copia firmada', () => { pm.expect(b.data).to.have.property('pdf_disponible'); pm.expect(b.data).to.have.property('copia_firmada'); });",
+                  "pm.test('no expone datos privados', () => { const t = pm.response.text(); ['pdf_ruta', 'codigo', 'email', 'password', 'dni_hash', 'otp'].forEach(k => pm.expect(t).to.not.include('\"' + k + '\"')); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/actas/{{acta_id}}"
+          }
+        },
+        {
+          "name": "09 · Acta inexistente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/actas/999999999"
+          }
+        },
+        {
+          "name": "10 · Filtro inválido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 422', () => pm.response.to.have.status(422));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/actas?tipo=OTRO"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Trámites",
+      "item": [
+        {
+          "name": "11 · Bandeja: pendientes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('solo pendientes y pagados', () => b.data.forEach(t => { pm.expect(t.estado).to.eql('PENDIENTE'); pm.expect(t.pago.estado).to.eql('PAGADO'); }));",
+                  "pm.test('no expone datos privados', () => { const t = pm.response.text(); ['pdf_ruta', 'codigo', 'email', 'password', 'dni_hash', 'otp'].forEach(k => pm.expect(t).to.not.include('\"' + k + '\"')); });",
+                  "pm.test('hay al menos uno para decidir', () => pm.expect(b.data.length).to.be.above(0));",
+                  "if (b.data.length) { pm.collectionVariables.set('tramite_id', b.data[0].id); pm.collectionVariables.set('version', b.data[0].version); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/tramites?estado=PENDIENTE"
+          }
+        },
+        {
+          "name": "12 · Detalle de un trámite",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('incluye historial y transiciones', () => { pm.expect(b.data.eventos).to.be.an('array'); pm.expect(b.data.transiciones_permitidas).to.include('APROBADA'); });",
+                  "pm.test('no expone datos privados', () => { const t = pm.response.text(); ['pdf_ruta', 'codigo', 'email', 'password', 'dni_hash', 'otp'].forEach(k => pm.expect(t).to.not.include('\"' + k + '\"')); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/tramites/{{tramite_id}}"
+          }
+        },
+        {
+          "name": "13 · Decidir sin motivo (observar)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 422', () => pm.response.to.have.status(422));",
+                  "const b = pm.response.json();",
+                  "pm.test('pide el motivo', () => pm.expect(b.errors).to.have.property('mensaje'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/tramites/{{tramite_id}}/decision",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"OBSERVADA\",\n  \"version\": \"{{version}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "14 · Observar la solicitud",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 200', () => pm.response.to.have.status(200));",
+                  "const b = pm.response.json();",
+                  "pm.test('queda observada y sube la versión', () => { pm.expect(b.data.estado).to.eql('OBSERVADA'); pm.expect(b.data.version).to.eql(Number(pm.collectionVariables.get('version')) + 1); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/tramites/{{tramite_id}}/decision",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"OBSERVADA\",\n  \"mensaje\": \"Adjunta una copia legible de tu DNI.\",\n  \"version\": \"{{version}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "15 · Decidir con versión desactualizada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 409', () => pm.response.to.have.status(409));",
+                  "const b = pm.response.json();",
+                  "pm.test('explica el conflicto', () => pm.expect(b.errors).to.have.property('version'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/tramites/{{tramite_id}}/decision",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"RECHAZADA\",\n  \"mensaje\": \"Prueba de conflicto de versión.\",\n  \"version\": \"{{version}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Seguridad",
+      "item": [
+        {
+          "name": "16 · Sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/v1/actas"
+          }
+        },
+        {
+          "name": "17 · Cerrar sesión (revocar token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 204', () => pm.response.to.have.status(204));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/auth/token"
+          }
+        },
+        {
+          "name": "18 · Token revocado ya no sirve",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('responde 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base}}/api/v1/auth/yo"
+          }
+        }
+      ]
+    }
+  ]
+}

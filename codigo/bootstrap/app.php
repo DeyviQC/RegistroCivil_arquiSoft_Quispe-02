@@ -28,6 +28,11 @@ return Application::configure(basePath: dirname(__DIR__))
             EnsureUserIsActive::class,
             \App\Http\Middleware\CabecerasSeguridad::class,
         ]);
+
+        // REST API: JSON first (before authentication can redirect) and the same security headers.
+        $middleware->api(prepend: [\App\Http\Middleware\ForzarRespuestaJson::class], append: [
+            \App\Http\Middleware\CabecerasSeguridad::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

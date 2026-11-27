@@ -62,6 +62,13 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
+// Documentación de la API REST v1: Swagger UI y el contrato OpenAPI que muestra.
+Route::view('/api/documentacion', 'api.documentacion')->name('api.documentacion');
+Route::get('/api/documentacion/openapi.yaml', fn () => response()->file(base_path('docs/api/openapi.yaml'), [
+    'Content-Type' => 'application/yaml; charset=UTF-8',
+    'Cache-Control' => 'no-cache',
+]))->name('api.documentacion.contrato');
+
 Route::get('/', function () {
     if (!auth()->check()) return redirect()->route('login');
     return redirect()->route('dashboard');

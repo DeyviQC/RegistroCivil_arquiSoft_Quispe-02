@@ -6,6 +6,16 @@ use App\Mail\EstadoTramiteMail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 
+/**
+ * History entry of a citizen request (state change and its message).
+ *
+ * @property int $id
+ * @property int $tramite_publico_id
+ * @property int|null $usuario_id
+ * @property string $estado
+ * @property string|null $mensaje
+ * @property \Illuminate\Support\Carbon|null $created_at
+ */
 class TramiteEvento extends Model
 {
     public $timestamps = false;

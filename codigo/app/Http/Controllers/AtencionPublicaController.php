@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DecidirTramiteRequest;
 use App\Models\TramitePublico;
-use App\Services\AuditoriaService;
+use App\Services\DecisionTramiteService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\ValidationException;
 
 class AtencionPublicaController extends Controller
 {
-    /** Default message shown to the citizen when the staff member does not write one. */
-    private const MENSAJES = [
-        'EN_REVISION' => 'La municipalidad está revisando tu solicitud.',
-        'APROBADA' => 'Tu solicitud fue aprobada. Estamos preparando tu acta firmada.',
-    ];
+    public function atender(DecidirTramiteRequest $request, TramitePublico $tramite, DecisionTramiteService $decision)
+    {
+        $decision->decidir($tramite, $request->validated(), $request->user());
+
+        return back()->with('exito', $request->validated('estado') === 'APROBADA'
+            ? 'Solicitud aprobada. Continúe con la firma del documento.'
+            : 'Respuesta enviada al ciudadano.');
+    }
 
     public function index(Request $request)
     {
@@ -49,38 +51,5 @@ class AtencionPublicaController extends Controller
             'Content-Type' => $tipo, 'Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff',
             'Content-Security-Policy' => "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; sandbox",
         ]);
-    }
-
-    public function atender(Request $request, TramitePublico $tramite, AuditoriaService $auditoria)
-    {
-        $datos = $request->validate([
-            'estado' => ['required', Rule::in(array_keys(TramitePublico::ESTADOS))],
-            // Only an observation or rejection needs a reason written by the staff member.
-            'mensaje' => ['nullable', 'required_if:estado,OBSERVADA,RECHAZADA', 'string', 'max:2000'],
-            'version' => ['required', 'integer'],
-        ], ['mensaje.required_if' => 'Escribe el motivo para que el ciudadano sepa qué hacer.']);
-        $datos['mensaje'] = trim((string) ($datos['mensaje'] ?? '')) ?: (self::MENSAJES[$datos['estado']] ?? 'Tu solicitud fue actualizada.');
-        DB::transaction(function () use ($tramite, $datos, $request, $auditoria) {
-            $actual = TramitePublico::lockForUpdate()->findOrFail($tramite->id);
-            if ($actual->version !== (int) $datos['version']) throw ValidationException::withMessages(['version' => 'La solicitud cambió. Recarga antes de decidir.']);
-            if ($actual->pago?->estado !== 'PAGADO' || !in_array($datos['estado'], TramitePublico::TRANSICIONES[$actual->estado] ?? [], true)) throw ValidationException::withMessages(['estado' => 'Cambio de estado no permitido.']);
-            if ($datos['estado'] === 'APROBADA' && $actual->requiereRevisionVinculo()) {
-                $revision = $request->validate([
-                    'vinculo_revisado' => ['accepted'],
-                    'sustento_revision' => ['required', 'string', 'min:10', 'max:1500'],
-                ]);
-                $actual->datos = array_merge($actual->datos, ['revision_vinculo' => [
-                    'usuario_id' => $request->user()->id,
-                    'revisado_at' => now()->toIso8601String(),
-                    'sustento' => $revision['sustento_revision'],
-                    'cruce_parentesco' => app(\App\Services\CruceParentescoService::class)->comparar($actual->acta, $actual->datos),
-                ]]);
-            }
-            $actual->transicionar($datos['estado'], $datos['mensaje'], $request->user()->id);
-            $auditoria->registrar('REVISAR_TRAMITE', 'Portal ciudadano', $actual->id, 'Estado: '.$datos['estado']);
-        });
-        return back()->with('exito', $datos['estado'] === 'APROBADA'
-            ? 'Solicitud aprobada. Continúe con la firma del documento.'
-            : 'Respuesta enviada al ciudadano.');
     }
 }
