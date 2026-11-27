@@ -1,0 +1,11 @@
+﻿php.exe : Note: Using configuration file 
+E:\Municipalidad\registro-civil-completofinal\registro-civil-desarrollo\phpstan.neon.
+En línea: 1 Carácter: 337
++ ... 'Continue'; & C:\Users\LOQ\.config\herd\bin\php84\php.exe vendor/bin/ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Note: Using con...o\phpstan.neon.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+ [OK] No errors                                                                                                        
+

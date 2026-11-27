@@ -1,0 +1,190 @@
+﻿
+   PASS  Tests\Feature\ActaDocumentoTest
+  ✓ sin dni exige excepcion y la guarda solo en nacimiento y defuncion                                           0.43s  
+  ✓ reporta los datos faltantes ademas del pdf en los tres tipos                                                 0.02s  
+  ✓ registro simple de los tres tipos con pdf                                                                    0.15s  
+
+   PASS  Tests\Feature\ActaTest
+  ✓ asistente puede crear acta de nacimiento con pdf valido                                                      0.04s  
+  ✓ no permite acta duplicada por numero anio tipo                                                               0.03s  
+  ✓ rechaza archivo que no es pdf                                                                                0.03s  
+  ✓ detecta pdf duplicado por hash                                                                               0.03s  
+  ✓ puede consultar un acta registrada                                                                           0.03s  
+  ✓ acta registrada no puede modificarse                                                                         0.03s  
+  ✓ acta registrada no puede eliminarse                                                                          0.03s  
+  ✓ puede visualizar el pdf del acta                                                                             0.04s  
+  ✓ puede buscar actas por numero                                                                                0.05s  
+
+   PASS  Tests\Feature\AuditoriaTest
+  ✓ el login queda registrado en auditoria                                                                       0.03s  
+  ✓ crear acta queda registrado en auditoria                                                                     0.03s  
+  ✓ solo administrador puede ver la auditoria                                                                    0.04s  
+
+   PASS  Tests\Feature\AuthTest
+  ✓ login correcto                                                                                               0.02s  
+  ✓ login incorrecto                                                                                             0.23s  
+  ✓ recordarme recupera la sesion mediante cookie y logout la revoca                                             0.03s  
+  ✓ sin recordarme no crea cookie persistente                                                                    0.02s  
+  ✓ usuario no autenticado es redirigido al login                                                                0.02s  
+  ✓ usuario inactivo no puede iniciar sesion                                                                     0.02s  
+
+   PASS  Tests\Feature\AvisosMantenimientoRespaldoTest
+  ✓ el ciudadano recibe un aviso en cola cuando el personal observa su solicitud                                 0.04s  
+  ✓ aprobar no exige mensaje pero observar o rechazar si                                                         0.04s  
+  ✓ el aviso no expone datos del acta y enlaza al seguimiento                                                    0.02s  
+  ✓ no se avisa en revision ni a correos sin verificar                                                           0.02s  
+  ✓ mantenimiento vence solo solicitudes sin ninguna orden de pago                                               0.03s  
+  ✓ respaldo copia los documentos privados de forma incremental                                                  0.95s  
+  ✓ respaldo rechaza un destino dentro de los documentos privados                                                0.02s  
+
+   PASS  Tests\Feature\BandejaManualTest
+  ✓ bandeja solo muestra pagados sin exponer uuid y filtra estado y numero                                       0.05s  
+  ✓ descarga manual prepara copia identica sin logo y actualiza version                                          0.05s  
+  ✓ descargar original varias veces no duplica archivos ni cambia la solicitud                                   0.04s  
+  ✓ subida directa sin descarga usa original y solo guarda el firmado                                            0.04s  
+  ✓ subida directa rechaza un documento ajeno sin guardarlo                                                      0.06s  
+
+   PASS  Tests\Feature\CanalEntregaTest
+  ✓ preferencias visibles al cargar firma y envios solo al publicar                                              0.07s  
+  ✓ solo la sesion verificada guarda los canales sin enviar documentos                                           0.08s  
+  ✓ envia solo el firmado publicado al correo verificado y evita doble envio                                     0.10s  
+  ✓ publicar envia el correo automaticamente si el ciudadano lo pidio                                            0.10s  
+
+   PASS  Tests\Feature\CopiaFirmadaTest
+  ✓ la primera firma queda en el acta y la siguiente solicitud se entrega sin firmar                             0.23s  
+  ✓ si el original cambia o la copia vence hay que firmar de nuevo                                               0.25s  
+  ✓ una copia con sello de la solicitud no se guarda en el acta                                                  0.13s  
+
+   PASS  Tests\Feature\CruceParentescoTest
+  ✓ compara solo el progenitor declarado y no expone sus datos                                                   0.09s  
+  ✓ sin resultados es distinto de fallo de servicio y nunca es contrastado                                       0.12s  
+
+   PASS  Tests\Feature\EndurecimientoTest
+  ✓ el dni se guarda como indice ciego y no en claro                                                             0.06s  
+  ✓ seguimiento encuentra por correo y dni del solicitante                                                       0.09s  
+  ✓ la bandeja filtra por dni                                                                                    0.10s  
+  ✓ solo el personal puede entrar al panel                                                                       0.05s  
+  ✓ las pasarelas retiradas ya no reciben notificaciones                                                         0.06s  
+  ✓ verificacion del sistema detecta configuracion insegura                                                      0.04s  
+
+   PASS  Tests\Feature\EntregaDocumentoTest
+  ✓ bloquea preparacion sin aprobacion o sin pago y version obsoleta                                             0.15s  
+  ✓ flujo carga revision y descarga con correo verificado                                                        0.28s  
+  ✓ rechaza archivo sin firma y no habilita descarga de otra solicitud                                           0.11s  
+  ✓ integridad rechaza documento distinto o modificado                                                           0.05s  
+
+   PASS  Tests\Feature\FiliacionTest
+  ✓ actualiza solo filiacion con historial y no sobrescribe version antigua                                      0.13s  
+  ✓ nuevo nacimiento exige revisar los cuatro campos de padres                                                   0.04s  
+
+   PASS  Tests\Feature\FirmaPeruTest
+  ✓ no finge firma ni habilita boton sin credenciales                                                            0.10s  
+  ✓ parametros de un uso y pdf original sin tarjeta de preparacion                                               0.19s  
+  ✓ retorno automatico verifica y no publica ni acepta repeticiones                                              0.17s  
+  ✓ cancela o nuevo intento revoca las capacidades previas                                                       0.20s  
+  ✓ rechaza pdf sin firma y estado no autorizado                                                                 0.16s  
+  ✓ no envia secretos a un endpoint no oficial                                                                   0.10s  
+
+   PASS  Tests\Feature\IncidenciaTest
+  ✓ reune historicos y fichas sin pdf sin duplicar y filtra por situacion                                        0.20s  
+  ✓ adjuntar original resuelve el aviso y conserva el antecedente                                                0.16s  
+  ✓ documentos privados y detalles requieren permiso y no admiten rutas externas                                 0.14s  
+
+   PASS  Tests\Feature\MejorasFlujoTest
+  ✓ las transiciones no permitidas se rechazan en un solo lugar                                                  0.06s  
+  ✓ transicionar sube la version y registra el evento                                                            0.06s  
+  ✓ el personal aprueba directo sin iniciar revision y ve plantillas                                             0.08s  
+  ✓ una decision con version desactualizada se rechaza sin cambiar nada                                          0.11s  
+  ✓ sin pagar el pago aparece primero                                                                            0.07s  
+  ✓ tras pagar se pide elegir la entrega arriba una sola vez                                                     0.08s  
+  ✓ enlace directo del correo abre la solicitud y caduca                                                         0.08s  
+  ✓ el correo de aviso incluye el enlace directo                                                                 0.06s  
+  ✓ acceso vencido redirige al seguimiento y post sigue prohibido                                                0.07s  
+
+   PASS  Tests\Feature\MercadoPagoTest
+  ✓ crea checkout de prueba y reutiliza una sola orden sin enviar datos personales                               0.10s  
+  ✓ bloquea sesion vencida identidad proveedor anterior y configuracion productiva                               2.86s  
+  ✓ webhook valida firma y confirma una sola vez                                                                 0.10s  
+  ✓ rechaza importe moneda cuenta produccion y reembolso aunque este firmado                                     0.09s  
+  ✓ retorno no confia en status y no confirma otra solicitud                                                     0.10s  
+  ✓ comprobar confirma un pago aprobado sin webhook ni tunel                                                     0.10s  
+  ✓ comprobar informa rechazo y no confirma pagos de otra referencia                                             0.06s  
+  ✓ retorno sin sesion confirma con mercado pago y envia al seguimiento                                          0.06s  
+  ✓ reintenta con la misma referencia y nunca redirige a url ajena                                               0.09s  
+  ✓ acepta app usr solo tras comprobar vendedor de prueba peruano                                                0.09s  
+  ✓ app usr de cuenta real o de otro vendedor no crea checkout                                                   0.13s  
+
+   PASS  Tests\Feature\NumeracionHistoricaTest
+  ✓ sobre historico con 31 matrimonios conserva su numero                                                        0.07s  
+  ✓ historicos conservan orden y sobre sin retroceder la secuencia                                               0.07s  
+
+   PASS  Tests\Feature\PagoLimiteTest
+  ✓ el flujo previo no bloquea el pago y los intentos repetidos si se limitan                                    0.13s  
+  ✓ un fallo al crear el checkout permite reintentar con la misma referencia                                     0.09s  
+
+   PASS  Tests\Feature\PasswordRecoveryTest
+  ✓ asistente no recibe correo ni puede usar un token                                                            0.10s  
+  ✓ token deja de funcionar si la cuenta pierde el rol administrador                                             0.07s  
+  ✓ recuperacion completa y token de un solo uso                                                                 0.30s  
+  ✓ cuentas inexistentes o desactivadas no reciben enlaces                                                       0.08s  
+  ✓ rechaza token vencido y confirmacion incorrecta                                                              0.29s  
+
+   PASS  Tests\Feature\PerfilInterfazTest
+  ✓ perfil no permite escalar permisos ni editar otro usuario                                                    0.09s  
+  ✓ foto privada solo actualiza el perfil propio y se puede quitar                                               0.10s  
+  ✓ rechaza archivos invalidos y administrador necesita clave actual                                             0.10s  
+
+   PASS  Tests\Feature\PortalHttpOptionsTest
+  ✓ verifica tls por defecto y no sigue redirecciones                                                            0.06s  
+  ✓ utiliza el bundle configurado                                                                                0.05s  
+  ✓ un bundle ausente bloquea la conexion                                                                        0.04s  
+
+   PASS  Tests\Feature\PortalPublicoTest
+  ✓ busqueda no cobra ni expone el archivo y conserva aceptacion                                                 0.12s  
+  ✓ codigo un solo uso caducidad e intentos                                                                      0.11s  
+  ✓ padre de menor puede pagar pero no aprobarse sin revision del vinculo                                        0.14s  
+  ✓ indicar titular no evade revision si el acta es de un menor                                                  0.08s  
+
+   PASS  Tests\Feature\PruebasCargaTest
+  ✓ los limites siguen activos sin la clave de carga                                                             0.08s  
+  ✓ la clave de carga omite el limite fuera de produccion                                                        0.09s  
+  ✓ en produccion o sin clave configurada no hay excepcion                                                       0.07s  
+
+   PASS  Tests\Feature\ReporteTest
+  ✓ filtros resumen pendientes y exportaciones                                                                   2.77s  
+
+   PASS  Tests\Feature\RespuestaObservacionTest
+  ✓ el ciudadano ve la observacion y responde con un documento                                                   1.48s  
+  ✓ el personal ve la respuesta y abre el adjunto                                                                0.13s  
+  ✓ un rechazo muestra el motivo al ciudadano                                                                    0.10s  
+
+   PASS  Tests\Feature\SeguimientoCiudadanoTest
+  ✓ consulta sin referencia verifica correo y limita la lista y la seleccion                                     0.17s  
+  ✓ datos desconocidos no revelan si existen solicitudes                                                         0.05s  
+
+   PASS  Tests\Feature\UsuarioTest
+  ✓ asistente no puede gestionar usuarios                                                                        0.06s  
+  ✓ administrador puede gestionar usuarios                                                                       0.10s  
+  ✓ administrador puede crear usuario                                                                            0.07s  
+  ✓ asistente no puede acceder a auditoria                                                                       0.07s  
+  ✓ administrador no puede desactivarse ni quitarse el rol desde editar                                          0.08s  
+  ✓ administrador puede desactivar a otro usuario desde editar                                                   0.07s  
+  ✓ api interna acepta la sesion web del personal                                                                0.07s  
+
+   PASS  Tests\Feature\WhatsAppConsultaTest
+  ✓ despues del pago ofrece chat solo con numero de solicitud y sin enviar nada                                  0.09s  
+  ✓ no ofrece whatsapp antes de confirmar el pago ni abre el seguimiento sin verificar                           0.07s  
+  ✓ omite el boton si falta el numero o el formato es invalido                                                   0.11s  
+
+   PASS  Tests\Feature\YapeOrdersTest
+  ✓ confirma solo orden verificada y no envia datos del ciudadano                                                1.55s  
+  ✓ no permite celular real ni sesion ajena ni otro checkout                                                     1.35s  
+  ✓ orden con importe incorrecto no confirma ni se recrea                                                        4.27s  
+  ✓ rechazo no aprueba y permite reintentar con yape o tarjeta                                                   0.12s  
+  ✓ cuenta productiva no envia token ni orden                                                                    0.08s  
+  ✓ tras un timeout reenvia con la misma clave de idempotencia                                                   0.10s  
+  ✓ saldo insuficiente 402 al crear no traba la solicitud                                                        0.09s  
+
+  Tests:    128 passed (1349 assertions)
+  Duration: 26.74s
+

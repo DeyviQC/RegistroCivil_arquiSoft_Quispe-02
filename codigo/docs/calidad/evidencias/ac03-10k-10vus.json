@@ -1,0 +1,230 @@
+{
+    "metrics": {
+        "data_received": {
+            "count": 20044959,
+            "rate": 164250.16783234474
+        },
+        "http_req_receiving": {
+            "avg": 4.597825224685448,
+            "min": 0,
+            "med": 4.0139,
+            "p(90)": 9.069040000000001,
+            "p(95)": 10.871579999999994,
+            "max": 33.7927
+        },
+        "http_req_duration{operacion:busqueda_publica}": {
+            "p(90)": 241.4880799999998,
+            "p(95)": 363.76266499999946,
+            "max": 762.4999,
+            "avg": 146.30339625850343,
+            "min": 58.1611,
+            "med": 115.01395,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "http_req_duration{operacion:seguimiento}": {
+            "avg": 286.903143707483,
+            "min": 32.0259,
+            "med": 123.32955000000001,
+            "p(90)": 641.4552900000004,
+            "p(95)": 785.960345,
+            "max": 1691.8137,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "http_req_duration{operacion:busqueda_archivo}": {
+            "max": 1135.9843,
+            "avg": 295.2828268595042,
+            "min": 110.4326,
+            "med": 267.72164999999995,
+            "p(90)": 470.8659400000001,
+            "p(95)": 596.556275,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 1669,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 10
+        },
+        "http_reqs": {
+            "count": 1669,
+            "rate": 13.675933690469677
+        },
+        "http_req_sending": {
+            "avg": 0.0944400838825644,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0.5578799999999999,
+            "max": 16.7836
+        },
+        "http_req_waiting": {
+            "min": 27.4806,
+            "med": 124.615,
+            "p(90)": 497.01826000000005,
+            "p(95)": 613.5688399999996,
+            "max": 1683.9292,
+            "avg": 209.3541582983823
+        },
+        "data_sent": {
+            "count": 1575819,
+            "rate": 12912.400330846156
+        },
+        "http_req_connecting": {
+            "avg": 0.004436309167165969,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 1.3077
+        },
+        "iteration_duration": {
+            "avg": 2916.4652026506024,
+            "min": 2240.1156,
+            "med": 2844.2706,
+            "p(90)": 3457.38462,
+            "p(95)": 3829.18563,
+            "max": 5896.6432
+        },
+        "checks": {
+            "passes": 1663,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_tls_handshaking": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0
+        },
+        "vus_max": {
+            "min": 10,
+            "max": 10,
+            "value": 10
+        },
+        "http_req_duration{operacion:bandeja}": {
+            "med": 143.0477,
+            "p(90)": 234.60891,
+            "p(95)": 288.8325,
+            "max": 535.8669,
+            "avg": 156.31587355371894,
+            "min": 62.9465,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        },
+        "iterations": {
+            "count": 415,
+            "rate": 3.40054672351403
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 500.24514000000005,
+            "p(95)": 617.0834399999997,
+            "max": 1691.8137,
+            "avg": 214.0464236069504,
+            "min": 32.0259,
+            "med": 128.7936
+        },
+        "http_req_blocked": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 23.0652,
+            "avg": 0.08857938885560217,
+            "min": 0,
+            "med": 0
+        },
+        "http_req_duration": {
+            "max": 1691.8137,
+            "avg": 214.0464236069504,
+            "min": 32.0259,
+            "med": 128.7936,
+            "p(90)": 500.24514000000005,
+            "p(95)": 617.0834399999997
+        }
+    },
+    "root_group": {
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+            "portada 200": {
+                "id": "d96d3c14b7309de32f2c37da19022cce",
+                "passes": 294,
+                "fails": 0,
+                "name": "portada 200",
+                "path": "::portada 200"
+            },
+            "búsqueda encuentra el acta": {
+                "id": "83c702a61c32ed3b3a86e4d2e78bdb17",
+                "passes": 294,
+                "fails": 0,
+                "name": "búsqueda encuentra el acta",
+                "path": "::búsqueda encuentra el acta"
+            },
+            "login correcto": {
+                "name": "login correcto",
+                "path": "::login correcto",
+                "id": "1e0e6956dfb53d0f112e203b033aafca",
+                "passes": 3,
+                "fails": 0
+            },
+            "seguimiento 200": {
+                "name": "seguimiento 200",
+                "path": "::seguimiento 200",
+                "id": "3a9ed06b10dd828ced9c30066729d770",
+                "passes": 294,
+                "fails": 0
+            },
+            "archivo por nombre 200": {
+                "fails": 0,
+                "name": "archivo por nombre 200",
+                "path": "::archivo por nombre 200",
+                "id": "27b9ec28bdcd766f1e4214500f035744",
+                "passes": 121
+            },
+            "seguimiento pide código": {
+                "passes": 294,
+                "fails": 0,
+                "name": "seguimiento pide código",
+                "path": "::seguimiento pide código",
+                "id": "a29c6347192a3e74e22907b05364bd4a"
+            },
+            "archivo encuentra el número": {
+                "name": "archivo encuentra el número",
+                "path": "::archivo encuentra el número",
+                "id": "ecd062e3d99ed88f295ec0ce492a91a2",
+                "passes": 121,
+                "fails": 0
+            },
+            "bandeja 200": {
+                "path": "::bandeja 200",
+                "id": "bb0247c97155868712e3ee3d0334789f",
+                "passes": 121,
+                "fails": 0,
+                "name": "bandeja 200"
+            },
+            "bandeja por DNI 200": {
+                "id": "7e4231631c2ea22bff7cdfdd7e416c6d",
+                "passes": 121,
+                "fails": 0,
+                "name": "bandeja por DNI 200",
+                "path": "::bandeja por DNI 200"
+            }
+        },
+        "name": ""
+    }
+}

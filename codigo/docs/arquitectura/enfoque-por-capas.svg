@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100"><rect width="1600" height="1100" fill="#f6f5ef"/>
+<text x="80" y="65" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="700" fill="#3f4d2a" text-anchor="start">REGISTRO CIVIL MUNICIPAL  /  ENFOQUE</text>
+<text x="80" y="137" font-family="Segoe UI,Arial,sans-serif" font-size="49" font-weight="700" fill="#253020" text-anchor="start">Arquitectura por capas</text>
+<text x="80" y="183" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="400" fill="#657061" text-anchor="start">Organización actual: MVC de Laravel, servicios y políticas de autorización.</text>
+<rect x="180" y="245" width="1240" height="140" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<rect x="204" y="269" width="90" height="90" rx="14" fill="#edf2e6" stroke="#edf2e6" stroke-width="2"/>
+<text x="249" y="321" font-family="Segoe UI,Arial,sans-serif" font-size="31" font-weight="700" fill="#3f4d2a" text-anchor="middle">01</text>
+<text x="325" y="285" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#3f4d2a" text-anchor="start">PRESENTACIÓN</text>
+<text x="325" y="325" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#273128" text-anchor="start">Vistas Blade + Bootstrap</text>
+<text x="325" y="362" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="start">Formularios, búsqueda, fichas y reportes</text>
+<path d="M800 390 L800 423" stroke="#3f4d2a" stroke-width="4"/><polygon points="800,423 791,409 809,409" fill="#3f4d2a"/>
+<rect x="180" y="430" width="1240" height="140" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<rect x="204" y="454" width="90" height="90" rx="14" fill="#edf2e6" stroke="#edf2e6" stroke-width="2"/>
+<text x="249" y="506" font-family="Segoe UI,Arial,sans-serif" font-size="31" font-weight="700" fill="#3f4d2a" text-anchor="middle">02</text>
+<text x="325" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#3f4d2a" text-anchor="start">CONTROL DE SOLICITUDES</text>
+<text x="325" y="510" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#273128" text-anchor="start">Controladores + Form Requests + Middleware</text>
+<text x="325" y="547" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="start">Reciben peticiones, validan datos y controlan el acceso</text>
+<path d="M800 575 L800 608" stroke="#3f4d2a" stroke-width="4"/><polygon points="800,608 791,594 809,594" fill="#3f4d2a"/>
+<rect x="180" y="615" width="1240" height="140" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<rect x="204" y="639" width="90" height="90" rx="14" fill="#edf2e6" stroke="#edf2e6" stroke-width="2"/>
+<text x="249" y="691" font-family="Segoe UI,Arial,sans-serif" font-size="31" font-weight="700" fill="#3f4d2a" text-anchor="middle">03</text>
+<text x="325" y="655" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#3f4d2a" text-anchor="start">LÓGICA DE APLICACIÓN</text>
+<text x="325" y="695" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#273128" text-anchor="start">Servicios + Políticas</text>
+<text x="325" y="732" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="start">Registro de actas, numeración, PDF, auditoría y permisos</text>
+<path d="M800 760 L800 793" stroke="#3f4d2a" stroke-width="4"/><polygon points="800,793 791,779 809,779" fill="#3f4d2a"/>
+<rect x="180" y="800" width="1240" height="140" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<rect x="204" y="824" width="90" height="90" rx="14" fill="#edf2e6" stroke="#edf2e6" stroke-width="2"/>
+<text x="249" y="876" font-family="Segoe UI,Arial,sans-serif" font-size="31" font-weight="700" fill="#3f4d2a" text-anchor="middle">04</text>
+<text x="325" y="840" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" fill="#3f4d2a" text-anchor="start">PERSISTENCIA</text>
+<text x="325" y="880" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#273128" text-anchor="start">Modelos Eloquent + Laravel Storage</text>
+<text x="325" y="917" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="start">Datos en MySQL y documentos en almacenamiento privado</text>
+<text x="800" y="1044" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="400" fill="#657061" text-anchor="middle">Los servicios utilizan directamente Laravel y Eloquent.</text></svg>

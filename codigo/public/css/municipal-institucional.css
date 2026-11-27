@@ -1,0 +1,82 @@
+/* Municipal service layout inspired by the organization of the Renaper portal. */
+.municipal-institucional{--gov-green:#3f4d2a;--gov-dark:#2c3620;--gov-gray:#eff1ec;--gov-line:#d8ddd2;--gov-ink:#252d22;background:#fff;color:var(--gov-ink);font-family:Arial,'Segoe UI',sans-serif}
+.municipal-institucional h1,.municipal-institucional h2,.municipal-institucional h3,.municipal-institucional h4{color:var(--gov-ink);font-family:Arial,'Segoe UI',sans-serif;letter-spacing:-.02em}
+.municipal-institucional .btn{border-radius:5px;box-shadow:none;min-height:44px;font-size:14px;font-weight:600;padding:11px 19px}
+.municipal-institucional .btn-primary,.municipal-institucional .btn-success{background:var(--gov-green);border-color:var(--gov-green);color:white}
+.municipal-institucional .btn-primary:hover,.municipal-institucional .btn-success:hover{background:var(--gov-dark);border-color:var(--gov-dark)}
+.municipal-institucional .btn-outline-success,.municipal-institucional .btn-outline-primary{color:var(--gov-green);border-color:var(--gov-green);background:white}
+.municipal-institucional .btn-outline-success:hover,.municipal-institucional .btn-outline-primary:hover{background:#edf1e8;color:var(--gov-dark)}
+.municipal-institucional .form-control,.municipal-institucional .form-select{border:1px solid #a4ae9b;border-radius:4px;box-shadow:none;min-height:46px;font-size:16px;background:white}
+.municipal-institucional .form-control:focus,.municipal-institucional .form-select:focus{border-color:#526739;box-shadow:0 0 0 3px #647f4029}
+.municipal-institucional .form-check-input:checked{background-color:var(--gov-green);border-color:var(--gov-green)}
+.municipal-institucional a:focus-visible,.municipal-institucional button:focus-visible,.municipal-institucional summary:focus-visible{outline:3px solid #768a52;outline-offset:4px}
+.municipal-institucional .card,.municipal-institucional .ui-clear .card{border:1px solid var(--gov-line);border-radius:5px;box-shadow:none}
+.municipal-institucional .card-header,.municipal-institucional .ui-clear .card-header{background:#f4f6f1;border-radius:4px 4px 0 0;border-color:var(--gov-line)}
+.municipal-institucional .alert{border-radius:4px;box-shadow:none;line-height:1.65}
+/* Citizen service */
+.municipal-institucional.portal-body .portal-topline{background:#f1f3ed;color:#414d36;font-size:10px;letter-spacing:.035em;border-bottom:1px solid var(--gov-line)}
+.municipal-institucional.portal-body .portal-topline-service{color:#59684b}
+.municipal-institucional.portal-body.portal-home-page{background:#fff}
+.municipal-institucional.portal-body.portal-home-page .portal-home .home-search{background:#fff}
+.municipal-institucional.portal-body .portal-header{background:#fff;box-shadow:none;border-bottom:3px solid #9aa38d}
+.municipal-institucional.portal-body .portal-header-inner{padding-top:20px;padding-bottom:20px}
+.municipal-institucional.portal-body .portal-brand strong{font-family:Georgia,serif;font-size:29px;font-weight:700;letter-spacing:-.7px;color:#354327}
+.municipal-institucional .brand-dot{display:none}
+.municipal-institucional.portal-body .portal-brand-kicker{font-size:10px;color:#5c6950;letter-spacing:.09em}
+.municipal-institucional.portal-body .portal-nav{gap:25px}
+.municipal-institucional.portal-body .portal-nav a{background:white;border:0;border-radius:0;box-shadow:none;padding:12px 0;min-width:0;border-bottom:2px solid transparent}
+.municipal-institucional.portal-body .portal-nav a[aria-current=page]{border-bottom-color:#52683a;background:white}
+.municipal-institucional.portal-body .portal-nav a strong{font-size:14px;font-weight:600;color:#354327}
+.municipal-institucional.portal-body .portal-nav .nav-icon,.municipal-institucional.portal-body .portal-nav .nav-arrow,.municipal-institucional.portal-body .portal-nav a small{display:none}
+.municipal-institucional .gov-container{width:min(1144px,calc(100% - 56px));margin:0 auto}
+.municipal-institucional .gov-intro{background:var(--gov-green);color:white;margin:0 calc(50% - 50vw);padding:0 0 45px}
+.municipal-institucional .gov-breadcrumb{font-size:12px;color:#e1e7d9;line-height:1.8;padding:18px 0 23px;margin-bottom:15px;border-bottom:1px solid #ffffff25}
+.municipal-institucional .gov-breadcrumb span{margin:0 9px;color:#bac6ab}
+.municipal-institucional .gov-intro h1{font-family:Georgia,serif;font-weight:700;font-size:48px;letter-spacing:-.025em;color:white;margin:0 0 16px;line-height:1.15}
+.municipal-institucional .gov-intro p{max-width:870px;font-size:19px;line-height:1.65;margin:0;color:#f4f7ef}
+.municipal-institucional .gov-shortcuts{background:#e3e8dd;margin:0 calc(50% - 50vw);padding:29px 0}
+.municipal-institucional .gov-shortcuts>.gov-container{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.municipal-institucional .gov-shortcuts a{color:#2e3e22;font-size:16px;line-height:1.6;text-decoration:underline;text-underline-offset:4px;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:5px 0}
+.municipal-institucional.portal-body.portal-home-page .home-process-band{background:#f7f8f5;border-bottom:1px solid var(--gov-line)}
+.municipal-institucional.portal-body.portal-home-page .home-process-band .portal-steps{padding-top:21px;padding-bottom:21px}
+.municipal-institucional .home-process-band .portal-step strong{font-size:13px}.municipal-institucional .home-process-band .portal-step small{font-size:11px;color:#59664e}
+.municipal-institucional.portal-body.portal-home-page .portal-home .home-search{padding-top:46px;padding-bottom:60px}
+.municipal-institucional.portal-body .home-search>.portal-section-title{font-family:Georgia,serif;font-size:34px;letter-spacing:-.5px;font-weight:700;color:#26371e}
+.municipal-institucional.portal-body .home-search>.portal-section-note{font-size:16px;color:#535e4c}
+.municipal-institucional.portal-body .home-search .portal-type-inner{border-radius:4px;background:white;border:1px solid #b7c2ab;box-shadow:none;min-height:125px;padding:22px}
+.municipal-institucional.portal-body .home-search .portal-type-icon{border-radius:3px;background:#3f4d2a;color:#fff;box-shadow:none;width:48px;height:52px}
+.municipal-institucional.portal-body .home-search .portal-type strong{font-size:18px;color:#354327}
+.municipal-institucional.portal-body .home-search .portal-type small{font-size:12px;line-height:1.6;color:#59664e}
+.municipal-institucional.portal-body .home-search .portal-type input:checked+.portal-type-inner{background:#f1f5eb;border-color:#526a37;box-shadow:0 0 0 2px #526a37}
+.municipal-institucional.portal-body .home-search .portal-form-layout>.card{border-radius:4px;box-shadow:none;border:1px solid var(--gov-line)}
+.municipal-institucional.portal-body .home-search .portal-aside{background:#f1f3ed;color:#344329;border:1px solid var(--gov-line);border-radius:4px;box-shadow:none;padding:28px;scroll-margin-top:24px}
+.municipal-institucional.portal-body .home-search .portal-aside h3{color:#354327;font-size:18px}.municipal-institucional.portal-body .home-search .portal-aside p{color:#536148;font-size:14px;line-height:1.7}
+.municipal-institucional.portal-body .home-search .portal-aside>i{color:#3f4d2a;background:transparent;border:0}.municipal-institucional.portal-body .home-search .portal-aside .price{font-size:36px;color:#3f4d2a}.municipal-institucional.portal-body .home-search .portal-aside .price small{color:#59664e}
+.municipal-institucional.portal-body .home-search .portal-aside a.text-success{color:#354327!important;text-decoration:underline}
+.municipal-institucional .citizen-banner{background:var(--gov-green);border-radius:4px;box-shadow:none;padding:30px 34px;border:0;color:white}
+.municipal-institucional .citizen-banner h1{color:white;font-size:34px;font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.municipal-institucional .citizen-banner p{color:#eef2e7;font-size:15px;line-height:1.7}.municipal-institucional .citizen-banner .citizen-eyebrow{color:#d4dfc8}
+.municipal-institucional .citizen-status-grid{gap:26px;align-items:start}.municipal-institucional .citizen-status-grid .card-body{padding:28px}
+.municipal-institucional .citizen-eyebrow{letter-spacing:.08em;color:#536d3b;font-size:11px}
+.municipal-institucional.portal-body .portal-footer{background:#f1f3ed;border-top:1px solid var(--gov-line);color:#3f4d2a}
+.municipal-institucional .footer-main{gap:60px;padding-top:35px;padding-bottom:30px}
+.municipal-institucional .footer-main h2{font:700 23px/1.3 Georgia,serif;color:#354327;letter-spacing:-.3px}
+.municipal-institucional .footer-kicker{color:#5b6b4d;font-size:10px;letter-spacing:.08em}
+.municipal-institucional .footer-main p,.municipal-institucional .footer-main nav>a{color:#44543a;font-size:13px;line-height:1.7}
+.municipal-institucional .footer-main nav>a{border-color:#ccd5c3;text-decoration:underline;text-underline-offset:3px}.municipal-institucional .footer-main nav>a:hover{color:#192b0b}
+.municipal-institucional .footer-bottom{border-color:#ccd5c3;color:#5b6850;font-size:11px}
+/* Administrative screens use the same service hierarchy, with denser controls. */
+.municipal-institucional .contenido-app{background:#f5f6f2}.municipal-institucional .sidebar-municipal{background:#354327;box-shadow:none;border-right:1px solid #546144}
+.municipal-institucional .sidebar-municipal .nav-link{border-radius:4px;font-size:14px}.municipal-institucional .sidebar-municipal .nav-link.active{background:#ffffff20;box-shadow:none;border-left:3px solid #c7d5b5}
+.municipal-institucional .header-municipal{background:white;border-bottom:1px solid var(--gov-line);box-shadow:none}.municipal-institucional .header-municipal h5{font-size:17px;font-weight:600}
+.municipal-institucional .profile-box{background:transparent;border:0;box-shadow:none}.municipal-institucional .profile-name{font-size:13px}.municipal-institucional .profile-role{font-size:10px}
+.municipal-institucional .desk-inbox-heading h1,.municipal-institucional .review-header h1{font-size:32px;font-weight:700;letter-spacing:-.7px}
+.municipal-institucional .desk-summary a,.municipal-institucional .desk-list,.municipal-institucional .review-panel{border-radius:4px;border-color:var(--gov-line);box-shadow:none}
+.municipal-institucional .desk-summary a{border-top:3px solid #6b8046}.municipal-institucional .desk-summary strong{font-size:28px}
+.municipal-institucional .desk-table th{background:#eef1e8;color:#475b36;font-size:11px;padding-top:16px;padding-bottom:16px}
+.municipal-institucional .desk-state,.municipal-institucional .review-status{border-radius:3px}
+.municipal-institucional .review-panel h2{font-size:19px;font-weight:700}.municipal-institucional .review-decision{border-top:4px solid #6b8046}.municipal-institucional .review-callout{border-radius:4px}
+.municipal-institucional .ui-clear{color:#283522}.municipal-institucional .ui-clear .form-label{color:#354327}
+.municipal-institucional .review-columns{gap:26px}.municipal-institucional .review-data dd{line-height:1.6}
+@media(max-width:800px){.municipal-institucional .gov-intro h1{font-size:39px}.municipal-institucional .gov-intro p{font-size:17px}.municipal-institucional .gov-shortcuts>.gov-container{grid-template-columns:1fr;gap:14px}.municipal-institucional .gov-shortcuts{padding:20px 0}.municipal-institucional .gov-shortcuts a{padding:8px 0}.municipal-institucional .gov-container{width:calc(100% - 40px)}.municipal-institucional .review-columns{grid-template-columns:1fr}.municipal-institucional.portal-body .portal-nav{gap:15px}.municipal-institucional.portal-body .portal-nav a strong{font-size:12px}}
+@media(max-width:550px){.municipal-institucional .gov-breadcrumb{font-size:11px}.municipal-institucional .gov-intro{padding-bottom:30px}.municipal-institucional .gov-intro h1{font-size:34px}.municipal-institucional .gov-intro p{font-size:16px}.municipal-institucional.portal-body .home-search .portal-type-inner{padding:16px 7px;min-height:145px}.municipal-institucional.portal-body .home-search .portal-type strong{font-size:14px}.municipal-institucional.portal-body .home-search .portal-type small{font-size:10px}.municipal-institucional .citizen-banner{padding:25px 22px}.municipal-institucional .citizen-banner h1{font-size:28px}.municipal-institucional .footer-main{gap:25px}.municipal-institucional .citizen-status-grid .card-body{padding:22px}}

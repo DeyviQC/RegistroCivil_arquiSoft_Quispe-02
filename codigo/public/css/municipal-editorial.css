@@ -1,0 +1,84 @@
+/* Visual reference: EQ Women. Municipal palette and service content remain local. */
+body.municipal-editorial{--ed-paper:#fffefa;--ed-canvas:#f6f5ef;--ed-line:#dcded4;--ed-green:#3f4d2a;--ed-ink:#293427;--ed-muted:#687064;background:var(--ed-canvas);color:var(--ed-ink)}
+.municipal-editorial h1,.municipal-editorial .desk-inbox-heading h1,.municipal-editorial .review-header h1,.municipal-editorial .citizen-banner h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.04em;line-height:1.12;color:var(--ed-ink)}
+.municipal-editorial .btn{border-radius:3px;box-shadow:none;font-size:13px;font-weight:600;letter-spacing:.015em;padding:12px 18px;min-height:43px}
+.municipal-editorial .btn-primary,.municipal-editorial .btn-success{background:var(--ed-green);border-color:var(--ed-green);color:#fff}
+.municipal-editorial .btn-primary:hover,.municipal-editorial .btn-success:hover{background:#2c3620;border-color:#2c3620;color:#fff}
+.municipal-editorial .btn-outline-success,.municipal-editorial .btn-outline-primary{color:var(--ed-green);border-color:#7d886c;background:transparent}
+.municipal-editorial .btn-outline-success:hover,.municipal-editorial .btn-outline-primary:hover{background:#eef0e7;color:#293427}
+.municipal-editorial .form-control,.municipal-editorial .form-select{border:1px solid #ccd1c3;border-radius:3px;background:#fffefa;box-shadow:none;min-height:44px;font-size:14px;color:var(--ed-ink)}
+.municipal-editorial .form-control:focus,.municipal-editorial .form-select:focus{border-color:#66774e;box-shadow:0 0 0 3px #66774e21}
+.municipal-editorial .form-check-input:checked{background-color:var(--ed-green);border-color:var(--ed-green)}
+.municipal-editorial .form-label{font-size:13px;font-weight:500;color:#4d5a43}
+.municipal-editorial .card{border:1px solid var(--ed-line);border-radius:4px;box-shadow:none;background:var(--ed-paper)}
+.municipal-editorial .card-header{background:transparent;border-bottom:1px solid var(--ed-line);border-radius:0}
+.municipal-editorial .alert{border-radius:3px;box-shadow:none;font-size:14px;line-height:1.65}
+.municipal-editorial a:focus-visible,.municipal-editorial button:focus-visible,.municipal-editorial summary:focus-visible{outline:3px solid #7b8d64;outline-offset:4px}
+/* Internal desk */
+.municipal-editorial .sidebar-municipal{background:#354327;box-shadow:none;border-right:1px solid #536044}
+.municipal-editorial .sidebar-municipal .nav-link{border-radius:3px;font-size:13px;padding:12px 13px;font-weight:400}
+.municipal-editorial .sidebar-municipal .nav-link.active{background:#ffffff17;border-left:2px solid #d8e1c8;box-shadow:none}
+.municipal-editorial .header-municipal{background:var(--ed-paper);box-shadow:none;border-bottom:1px solid var(--ed-line);min-height:86px}
+.municipal-editorial .header-municipal h5{font-size:14px;font-weight:500;letter-spacing:.02em}
+.municipal-editorial .profile-box{border:0;background:transparent;box-shadow:none;padding:0}
+.municipal-editorial .profile-avatar{width:36px;height:36px;font-size:14px;background:#5a6d40}
+.municipal-editorial .profile-name{font-size:12px}.municipal-editorial .profile-role{font-size:10px;letter-spacing:.08em}
+.municipal-editorial .profile-action{display:none}
+.municipal-editorial main.ui-clear{padding:36px!important}
+.municipal-editorial .desk-inbox,.municipal-editorial .review-workspace{max-width:1220px}
+.municipal-editorial .desk-inbox-heading{margin:8px 0 32px;align-items:end}
+.municipal-editorial .desk-inbox-heading h1,.municipal-editorial .review-header h1{font-size:42px;margin-bottom:12px}
+.municipal-editorial .desk-inbox-heading p,.municipal-editorial .review-kicker{font-size:10px;letter-spacing:.16em;color:#6b785c}
+.municipal-editorial .desk-inbox-heading>div>span{font-size:13px;line-height:1.7}
+.municipal-editorial .desk-summary{gap:0;border-top:1px solid var(--ed-line);border-bottom:1px solid var(--ed-line);margin-bottom:30px}
+.municipal-editorial .desk-summary a{border:0;border-right:1px solid var(--ed-line);background:transparent;border-radius:0;padding:22px 24px;color:#647158}
+.municipal-editorial .desk-summary a:last-child{border-right:0}.municipal-editorial .desk-summary a:hover{background:#eceee4}
+.municipal-editorial .desk-summary strong{font:400 32px Georgia,serif;color:#3f4d2a}
+.municipal-editorial .desk-list{border-radius:3px;border-color:var(--ed-line);box-shadow:none;background:var(--ed-paper)}
+.municipal-editorial .desk-filters{background:transparent;padding:24px;border-color:var(--ed-line)}
+.municipal-editorial .desk-table th{background:#f1f2e9;color:#647158;letter-spacing:.1em;font-size:10px;border-color:var(--ed-line);padding:16px 22px}
+.municipal-editorial .desk-table td{padding:23px 22px;border-color:#e6e8dd}
+.municipal-editorial .desk-state{border-radius:2px;background:transparent;border:1px solid currentColor;font-size:11px;padding:6px 9px}
+.municipal-editorial .desk-action .btn{border-radius:2px;padding:9px 16px}
+.municipal-editorial .review-header{padding-bottom:24px;border-color:var(--ed-line)}
+.municipal-editorial .review-facts{padding:22px 0 28px;font-size:12px}
+.municipal-editorial .review-columns{grid-template-columns:minmax(0,1.4fr) minmax(350px,1fr);gap:30px}
+.municipal-editorial .review-panel{border-radius:3px;padding:28px;background:var(--ed-paper);border-color:var(--ed-line);box-shadow:none;margin-bottom:20px}
+.municipal-editorial .review-panel h2{font:400 25px Georgia,serif;letter-spacing:-.025em;margin-bottom:22px}
+.municipal-editorial .review-panel h3{font-size:14px;line-height:1.5}
+.municipal-editorial .review-data dt{font-size:11px;letter-spacing:.02em;color:#76806d;margin-bottom:7px}
+.municipal-editorial .review-data dd{font-size:14px;font-weight:400;line-height:1.6}
+.municipal-editorial .review-data .review-person{font-size:17px;font-weight:500}
+.municipal-editorial .review-decision{border-top:2px solid #6b8046}
+.municipal-editorial .review-status{background:#edf0e5;border:1px solid #cbd2bc;border-radius:2px;font-size:11px;font-weight:500}
+.municipal-editorial .review-note{background:#f4f5ed;border-left:2px solid #a3ad8e}
+.municipal-editorial .review-callout{border-radius:2px}
+.municipal-editorial .review-disclosure{padding:21px 28px}
+.municipal-editorial .manual-step-number{border-radius:2px;background:#eff0e6;font:400 21px Georgia,serif;color:#5c7041}
+.municipal-editorial .review-secondary-link{text-align:left;text-decoration:underline;text-underline-offset:5px;font-size:12px}
+/* Citizen portal: an understated header and editorial content hierarchy. */
+.municipal-editorial.portal-body .portal-header{background:var(--ed-paper);box-shadow:none;border-bottom:1px solid var(--ed-line)}
+.municipal-editorial.portal-body .portal-header-inner{padding-top:19px;padding-bottom:19px}
+.municipal-editorial.portal-body .portal-brand strong{font-family:Georgia,serif;font-size:29px;font-weight:400;letter-spacing:-.8px}
+.municipal-editorial.portal-body .portal-brand-kicker{letter-spacing:.15em;font-size:9px}
+.municipal-editorial.portal-body .portal-nav{gap:28px}
+.municipal-editorial.portal-body .portal-nav a{border:0;border-radius:0;background:transparent;box-shadow:none;padding:12px 0;min-width:0;border-bottom:1px solid transparent}
+.municipal-editorial.portal-body .portal-nav a[aria-current=page]{background:transparent;border-bottom-color:#74825c}
+.municipal-editorial.portal-body .portal-nav a strong{font-size:13px;font-weight:500}
+.municipal-editorial.portal-body .portal-nav a small,.municipal-editorial.portal-body .portal-nav .nav-icon,.municipal-editorial.portal-body .portal-nav .nav-arrow{display:none}
+.municipal-editorial .citizen-banner{background:transparent;border:0;border-bottom:1px solid var(--ed-line);border-radius:0;box-shadow:none;padding:20px 0 30px;margin-bottom:30px;color:var(--ed-ink)}
+.municipal-editorial .citizen-banner h1{font-size:46px;margin-top:15px}
+.municipal-editorial .citizen-banner p{font-size:14px;color:var(--ed-muted);max-width:650px;line-height:1.8}
+.municipal-editorial .citizen-eyebrow{color:#697955;font-size:10px;letter-spacing:.14em}
+.municipal-editorial .citizen-status-grid{gap:28px;align-items:start}
+.municipal-editorial .citizen-status-grid .card-body{padding:30px}
+.municipal-editorial .citizen-status-grid h2{font:400 26px Georgia,serif}
+.municipal-editorial .citizen-status-label{border-radius:2px;box-shadow:none}
+.municipal-editorial .citizen-price{font-family:Georgia,serif;font-weight:400;color:#3f4d2a}
+.municipal-editorial.portal-body .portal-footer{background:#354327;border-top:1px solid #657254}
+.municipal-editorial .footer-main h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.025em}
+.municipal-editorial.portal-body .home-search .portal-section-title{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em}
+.municipal-editorial.portal-body .home-search .portal-type-inner,.municipal-editorial.portal-body .home-search .portal-form-layout>.card,.municipal-editorial.portal-body .home-search .portal-aside{border-radius:3px;box-shadow:none}
+@media(max-width:1000px){.municipal-editorial .review-columns{grid-template-columns:1fr}.municipal-editorial .review-columns>aside{grid-row:auto}.municipal-editorial main.ui-clear{padding:24px!important}}
+@media(max-width:700px){.municipal-editorial main.ui-clear{padding:20px 14px!important}.municipal-editorial .desk-inbox-heading h1,.municipal-editorial .review-header h1{font-size:34px}.municipal-editorial .review-panel{padding:22px}.municipal-editorial .desk-summary a{padding:16px 12px}.municipal-editorial .desk-table td{padding:0}.municipal-editorial .desk-summary strong{font-size:27px}.municipal-editorial .citizen-banner h1{font-size:36px}.municipal-editorial .citizen-status-grid .card-body{padding:22px}.municipal-editorial.portal-body .portal-nav{gap:20px}.municipal-editorial .header-municipal{gap:12px}.municipal-editorial .profile-name{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.municipal-editorial *{scroll-behavior:auto!important}}

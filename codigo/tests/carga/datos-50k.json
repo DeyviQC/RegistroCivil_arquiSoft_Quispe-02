@@ -1,0 +1,5406 @@
+{
+    "busquedas": [
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI CHAVEZ, CESAR VALERIA Y CONDORI SULCARAY, LUIS SANDRA",
+            "fecha": "1966-09-16",
+            "numero": "S00010011",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS BELITO, RAUL JOSE",
+            "fecha": "2016-04-03",
+            "numero": "S00010025",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ MENDOZA, ANA DAVID",
+            "fecha": "2005-11-04",
+            "numero": "S00010039",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS PALOMINO, JUAN VICTOR",
+            "fecha": "1962-03-15",
+            "numero": "S00010049",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO SANCHEZ, ANA ANGEL Y QUISPE ALCA, LUIS VALERIA",
+            "fecha": "2013-06-08",
+            "numero": "S00010053",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI FLORES, ROSA FIORELLA Y PARIONA SANCHEZ, CARMEN LUCIA",
+            "fecha": "1998-06-02",
+            "numero": "S00010065",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ ARONES, DIEGO NANCY",
+            "fecha": "1978-09-13",
+            "numero": "S00010076",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO VARGAS, ANA JUAN",
+            "fecha": "2022-01-07",
+            "numero": "S00010078",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA RAMOS, SONIA CARLOS",
+            "fecha": "1985-02-01",
+            "numero": "S00010079",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARRIAZO CANCHO, PILAR LUCIA",
+            "fecha": "2004-02-20",
+            "numero": "S00010082",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES CANCHARI, HUGO DAVID",
+            "fecha": "1989-01-04",
+            "numero": "S00010093",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MALLQUI RAMOS, GLADYS JORGE",
+            "fecha": "1963-09-05",
+            "numero": "S00010096",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES MAMANI, DAVID RAUL",
+            "fecha": "1989-06-05",
+            "numero": "S00010100",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES ARONES, ELENA LUCIA Y HUAMAN TORRES, DAVID VICTOR",
+            "fecha": "2017-03-27",
+            "numero": "S00010131",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAMAN FLORES, DAVID NORMA",
+            "fecha": "2015-07-12",
+            "numero": "S00010132",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CASTRO CASTRO, IVAN KATHERINE",
+            "fecha": "1982-05-03",
+            "numero": "S00010139",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES CANCHARI, YOLANDA VALERIA",
+            "fecha": "2000-03-02",
+            "numero": "S00010141",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "RAMOS ARONES, PILAR CARMEN Y ALCA GARRIAZO, CARMEN WILBER",
+            "fecha": "2021-01-21",
+            "numero": "S00010146",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA CANCHO, GLADYS SAUL Y SULCARAY ROJAS, ANA MARIA",
+            "fecha": "1951-10-09",
+            "numero": "S00010155",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA BELITO, ANA IVAN",
+            "fecha": "1954-08-28",
+            "numero": "S00010169",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO OCHOA, PEDRO CARMEN",
+            "fecha": "1952-05-17",
+            "numero": "S00010184",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA GARRIAZO, EDWIN GLADYS",
+            "fecha": "1956-07-23",
+            "numero": "S00010201",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA VILCA, PILAR MILAGROS",
+            "fecha": "2017-02-02",
+            "numero": "S00010204",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO YUPANQUI, LUIS PILAR",
+            "fecha": "1969-05-31",
+            "numero": "S00010220",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS HUAMAN, ROCIO SONIA Y GUTIERREZ QUISPE, LUCIA HUGO",
+            "fecha": "1989-10-30",
+            "numero": "S00010224",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES CASTRO, VICTOR NANCY",
+            "fecha": "1979-05-14",
+            "numero": "S00010237",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "OCHOA VILCA, FIORELLA HUGO Y MENDOZA LAPA, KATHERINE MILAGROS",
+            "fecha": "2015-06-28",
+            "numero": "S00010239",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN YUPANQUI, JORGE VICTOR",
+            "fecha": "2007-05-24",
+            "numero": "S00010259",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS MENDOZA, MIGUEL HUGO Y MAMANI CHAVEZ, DAVID ANA",
+            "fecha": "1999-09-16",
+            "numero": "S00010263",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES PALOMINO, RAUL FIORELLA",
+            "fecha": "1955-02-18",
+            "numero": "S00010280",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI QUISPE, NORMA ROSA",
+            "fecha": "2013-10-04",
+            "numero": "S00010303",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA RAMOS, KATHERINE ROCIO",
+            "fecha": "1996-01-30",
+            "numero": "S00010304",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TAIPE OCHOA, MILAGROS PEDRO",
+            "fecha": "1998-11-12",
+            "numero": "S00010309",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA RAMOS, ROSA JORGE",
+            "fecha": "2021-05-11",
+            "numero": "S00010313",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA ALCA, KATHERINE MARTHA",
+            "fecha": "1950-10-01",
+            "numero": "S00010316",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO CASTRO, PEDRO MIGUEL Y MAMANI QUISPE, GLADYS PEDRO",
+            "fecha": "1972-02-16",
+            "numero": "S00010320",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MALLQUI ALCA, JOSE NANCY Y TORRES VILCA, EDWIN DIEGO",
+            "fecha": "1979-03-24",
+            "numero": "S00010326",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA PRADO, JORGE NANCY",
+            "fecha": "1976-08-16",
+            "numero": "S00010330",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS CANCHO, ANGEL PILAR",
+            "fecha": "1998-08-28",
+            "numero": "S00010334",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO CCORAHUA, VICTOR EDWIN",
+            "fecha": "1984-07-01",
+            "numero": "S00010346",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAYTA ALCA, JUAN VICTOR",
+            "fecha": "2006-09-23",
+            "numero": "S00010351",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI GARCIA, VALERIA FIORELLA",
+            "fecha": "1951-02-21",
+            "numero": "S00010358",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHARI OCHOA, MARIA SANDRA Y GUTIERREZ YUPANQUI, PEDRO SANDRA",
+            "fecha": "1973-12-26",
+            "numero": "S00010359",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA PARIONA, LUCIA MIGUEL",
+            "fecha": "1984-06-12",
+            "numero": "S00010366",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA VILCA, ANA JORGE Y MAMANI TORRES, JORGE MARTHA",
+            "fecha": "1960-07-31",
+            "numero": "S00010368",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHO CANCHARI, ELENA FIORELLA",
+            "fecha": "2025-11-16",
+            "numero": "S00010382",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ ALCA, IVAN ANA",
+            "fecha": "1999-05-28",
+            "numero": "S00010402",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI HUAYTA, FIORELLA ROSA",
+            "fecha": "2015-05-23",
+            "numero": "S00010420",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA CONDORI, PEDRO ELENA Y ARONES GARCIA, JORGE ROSA",
+            "fecha": "2009-07-15",
+            "numero": "S00010422",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA VARGAS, CESAR YOLANDA",
+            "fecha": "2008-09-09",
+            "numero": "S00010427",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "RAMOS TAIPE, JORGE CARMEN Y PARIONA CASTRO, LUCIA NANCY",
+            "fecha": "1975-02-13",
+            "numero": "S00010431",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA CANCHARI, ROCIO ELENA",
+            "fecha": "1973-07-04",
+            "numero": "S00010445",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ROJAS LAPA, ANA MILAGROS",
+            "fecha": "1957-02-26",
+            "numero": "S00010447",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "YUPANQUI CONDORI, RAUL ANA",
+            "fecha": "2000-02-19",
+            "numero": "S00010456",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES GARRIAZO, MARIA LUIS",
+            "fecha": "2004-07-17",
+            "numero": "S00010462",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO ROJAS, JUAN ROSA",
+            "fecha": "2015-03-16",
+            "numero": "S00010475",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS YUPANQUI, DAVID EDWIN Y GUTIERREZ CCORAHUA, JORGE EDWIN",
+            "fecha": "1965-11-02",
+            "numero": "S00010494",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA CANCHO, MARTHA FREDY",
+            "fecha": "1991-01-26",
+            "numero": "S00010495",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA CHAVEZ, NORMA ROCIO",
+            "fecha": "2013-10-05",
+            "numero": "S00010510",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SULCARAY OCHOA, SAUL HUGO",
+            "fecha": "1965-01-14",
+            "numero": "S00010514",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO MAMANI, SONIA SANDRA",
+            "fecha": "1967-08-07",
+            "numero": "S00010516",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA PRADO, MIGUEL SONIA",
+            "fecha": "1974-05-09",
+            "numero": "S00010519",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA MENDOZA, CARMEN MILAGROS",
+            "fecha": "1998-03-30",
+            "numero": "S00010520",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI ALCA, ROSA RAUL",
+            "fecha": "1995-09-22",
+            "numero": "S00010538",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO YUPANQUI, ROCIO FIORELLA",
+            "fecha": "1980-12-28",
+            "numero": "S00010543",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA RAMOS, CESAR JORGE Y VILCA ALCA, ELENA VALERIA",
+            "fecha": "1990-07-18",
+            "numero": "S00010554",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "FLORES CANCHO, JORGE ROCIO",
+            "fecha": "2007-05-16",
+            "numero": "S00010555",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES RAMOS, KATHERINE SAUL",
+            "fecha": "2015-02-11",
+            "numero": "S00010565",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI GARCIA, VICTOR MARIA Y VILCA FLORES, SAUL MARIA",
+            "fecha": "1996-07-11",
+            "numero": "S00010569",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO GARCIA, WILBER FREDY",
+            "fecha": "2006-07-11",
+            "numero": "S00010585",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA FLORES, NORMA WILBER",
+            "fecha": "1992-04-22",
+            "numero": "S00010598",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA YUPANQUI, RAUL NORMA",
+            "fecha": "1968-05-18",
+            "numero": "S00010634",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO TORRES, MARTHA LUIS",
+            "fecha": "1974-12-29",
+            "numero": "S00010636",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TAIPE CCORAHUA, YOLANDA MARIA Y HUAMAN OCHOA, CARLOS ANA",
+            "fecha": "1956-12-23",
+            "numero": "S00010662",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "RAMOS LAPA, JOSE PEDRO",
+            "fecha": "1975-12-04",
+            "numero": "S00010666",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TAIPE PRADO, YOLANDA LUCIA",
+            "fecha": "1994-05-04",
+            "numero": "S00010669",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA FLORES, JORGE IVAN",
+            "fecha": "2005-05-20",
+            "numero": "S00010699",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA BELITO, CARLOS VICTOR",
+            "fecha": "1963-08-14",
+            "numero": "S00010700",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ SANCHEZ, HUGO SONIA",
+            "fecha": "2023-04-23",
+            "numero": "S00010702",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES CANCHARI, FREDY GLADYS Y MENDOZA VARGAS, ELENA HUGO",
+            "fecha": "1984-04-21",
+            "numero": "S00010707",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MAMANI CONDORI, LUIS PILAR Y SULCARAY GARCIA, CARLOS NANCY",
+            "fecha": "1971-04-06",
+            "numero": "S00010713",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA CONDORI, ROCIO VICTOR",
+            "fecha": "1964-04-13",
+            "numero": "S00010735",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "QUISPE PRADO, SAUL WILBER Y CANCHO ALCA, ROCIO FIORELLA",
+            "fecha": "1961-09-17",
+            "numero": "S00010743",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "LAPA CCORAHUA, ANGEL EDWIN",
+            "fecha": "1954-12-25",
+            "numero": "S00010750",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI CANCHO, LUIS ROCIO",
+            "fecha": "1972-01-09",
+            "numero": "S00010753",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO FLORES, JORGE JORGE",
+            "fecha": "1977-06-10",
+            "numero": "S00010757",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY VILCA, MIGUEL GLADYS Y TORRES MAMANI, JORGE ROCIO",
+            "fecha": "1996-12-08",
+            "numero": "S00010758",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ CHAVEZ, MIGUEL MIGUEL",
+            "fecha": "1985-08-07",
+            "numero": "S00010766",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ CCORAHUA, ANA WILBER Y MAMANI ROJAS, JOSE ELENA",
+            "fecha": "2006-09-26",
+            "numero": "S00010767",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO CONDORI, SAUL MARTHA",
+            "fecha": "1993-10-23",
+            "numero": "S00010778",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TAIPE VILCA, MILAGROS JUAN Y ARONES TORRES, CARMEN DAVID",
+            "fecha": "2013-12-07",
+            "numero": "S00010782",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA ALCA, SONIA FIORELLA Y HUAYTA CONDORI, NORMA SONIA",
+            "fecha": "2010-03-23",
+            "numero": "S00010794",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS TORRES, DAVID RAUL",
+            "fecha": "1974-03-03",
+            "numero": "S00010802",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY CANCHO, LUCIA JORGE Y LAPA FLORES, CARMEN IVAN",
+            "fecha": "1977-11-12",
+            "numero": "S00010803",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA PARIONA, EDWIN ANGEL",
+            "fecha": "2024-01-17",
+            "numero": "S00010820",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI GARCIA, PILAR CARMEN",
+            "fecha": "1992-06-08",
+            "numero": "S00010829",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA YUPANQUI, SONIA FIORELLA Y ROJAS PRADO, SONIA DAVID",
+            "fecha": "1981-11-24",
+            "numero": "S00010842",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE RAMOS, PILAR LUCIA",
+            "fecha": "1969-05-26",
+            "numero": "S00010855",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MALLQUI OCHOA, RAUL MIGUEL Y SANCHEZ RAMOS, ROSA SANDRA",
+            "fecha": "1953-01-02",
+            "numero": "S00010863",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ HUAYTA, DIEGO LUCIA Y LAPA RAMOS, ANA LUIS",
+            "fecha": "1995-03-13",
+            "numero": "S00010878",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHARI MAMANI, CARLOS JOSE Y VARGAS SANCHEZ, RAUL WILBER",
+            "fecha": "1977-08-11",
+            "numero": "S00010887",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS MAMANI, KATHERINE VALERIA Y CCORAHUA VILCA, KATHERINE DIEGO",
+            "fecha": "1980-09-15",
+            "numero": "S00010890",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ ALCA, CESAR SAUL Y CANCHO PRADO, CESAR DAVID",
+            "fecha": "1988-12-15",
+            "numero": "S00010899",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI CANCHARI, CARLOS IVAN",
+            "fecha": "2006-07-10",
+            "numero": "S00010907",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS YUPANQUI, PEDRO DIEGO",
+            "fecha": "1975-05-14",
+            "numero": "S00010916",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CONDORI PRADO, RAUL PILAR",
+            "fecha": "1976-01-12",
+            "numero": "S00010922",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS CANCHARI, GLADYS FIORELLA",
+            "fecha": "1970-12-05",
+            "numero": "S00010928",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA TORRES, RAUL MARTHA",
+            "fecha": "1951-11-27",
+            "numero": "S00010931",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA QUISPE, DAVID HUGO",
+            "fecha": "1985-04-02",
+            "numero": "S00010943",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ HUAYTA, CARLOS HUGO Y LAPA QUISPE, JOSE MARTHA",
+            "fecha": "1994-04-09",
+            "numero": "S00010947",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA TORRES, VICTOR MARIA",
+            "fecha": "2008-06-01",
+            "numero": "S00010955",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS MAMANI, PILAR MILAGROS",
+            "fecha": "1989-09-20",
+            "numero": "S00010976",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES OCHOA, DAVID EDWIN",
+            "fecha": "2013-11-12",
+            "numero": "S00010978",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA CCORAHUA, LUIS ELENA Y ALCA TAIPE, WILBER GLADYS",
+            "fecha": "2001-12-26",
+            "numero": "S00010989",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS SULCARAY, WILBER MIGUEL Y ALCA PARIONA, ROCIO WILBER",
+            "fecha": "1980-09-28",
+            "numero": "S00010995",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TORRES QUISPE, EDWIN DIEGO Y SULCARAY CHAVEZ, MILAGROS GLADYS",
+            "fecha": "2024-07-01",
+            "numero": "S00011007",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHO FLORES, VALERIA VICTOR Y PRADO ARONES, JOSE ELENA",
+            "fecha": "1973-03-02",
+            "numero": "S00011019",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO ROJAS, LUIS SANDRA",
+            "fecha": "1982-06-30",
+            "numero": "S00011021",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA MAMANI, PEDRO FREDY",
+            "fecha": "2025-11-29",
+            "numero": "S00011026",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA FLORES, JUAN ANA Y GUTIERREZ MALLQUI, CESAR RAUL",
+            "fecha": "1974-12-06",
+            "numero": "S00011037",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAMAN FLORES, SONIA JOSE",
+            "fecha": "1995-06-20",
+            "numero": "S00011041",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI GARCIA, WILBER CARMEN",
+            "fecha": "1952-10-25",
+            "numero": "S00011044",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA SANCHEZ, MARIA YOLANDA",
+            "fecha": "2014-06-08",
+            "numero": "S00011051",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA LAPA, JOSE RAUL Y GUTIERREZ ALCA, ANA JOSE",
+            "fecha": "1974-06-10",
+            "numero": "S00011055",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA CHAVEZ, SAUL NORMA",
+            "fecha": "1968-03-24",
+            "numero": "S00011056",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI QUISPE, LUIS IVAN",
+            "fecha": "1972-04-15",
+            "numero": "S00011059",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA HUAMAN, SANDRA JORGE Y CONDORI SULCARAY, MARIA SANDRA",
+            "fecha": "1997-07-21",
+            "numero": "S00011070",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ MENDOZA, EDWIN CESAR",
+            "fecha": "1955-05-03",
+            "numero": "S00011074",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI ALCA, LUCIA SONIA",
+            "fecha": "1996-05-23",
+            "numero": "S00011084",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES HUAYTA, MIGUEL JUAN Y QUISPE TAIPE, PEDRO FIORELLA",
+            "fecha": "2017-05-10",
+            "numero": "S00011088",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ARONES TORRES, SANDRA PEDRO Y MENDOZA BELITO, CARMEN WILBER",
+            "fecha": "2014-02-06",
+            "numero": "S00011094",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO CANCHO, VICTOR MIGUEL",
+            "fecha": "1967-04-26",
+            "numero": "S00011098",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA BELITO, MIGUEL ANGEL",
+            "fecha": "1998-09-27",
+            "numero": "S00011108",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA SULCARAY, ANGEL KATHERINE",
+            "fecha": "1989-04-07",
+            "numero": "S00011117",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO ARONES, JUAN LUCIA Y HUAMAN CHAVEZ, SONIA NORMA",
+            "fecha": "2025-05-07",
+            "numero": "S00011118",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO FLORES, ROCIO FIORELLA Y HUAMAN CCORAHUA, MILAGROS MIGUEL",
+            "fecha": "2009-07-06",
+            "numero": "S00011169",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES PALOMINO, CARMEN FREDY",
+            "fecha": "2019-05-17",
+            "numero": "S00011182",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ VILCA, PILAR GLADYS Y TORRES CANCHARI, DIEGO DAVID",
+            "fecha": "1961-10-26",
+            "numero": "S00011214",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO OCHOA, YOLANDA JUAN",
+            "fecha": "2013-06-28",
+            "numero": "S00011215",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MALLQUI HUAMAN, ANGEL ROSA",
+            "fecha": "1965-07-01",
+            "numero": "S00011221",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA BELITO, SANDRA NANCY Y VARGAS LAPA, PILAR NORMA",
+            "fecha": "1980-10-04",
+            "numero": "S00011226",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES ROJAS, PILAR ANA",
+            "fecha": "2011-10-02",
+            "numero": "S00011243",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI RAMOS, FIORELLA SANDRA",
+            "fecha": "1993-12-30",
+            "numero": "S00011251",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS SULCARAY, EDWIN PEDRO Y VARGAS PALOMINO, JOSE PEDRO",
+            "fecha": "1951-09-02",
+            "numero": "S00011259",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO ALCA, WILBER IVAN",
+            "fecha": "1967-08-16",
+            "numero": "S00011267",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CCORAHUA PRADO, VICTOR SAUL Y GARRIAZO OCHOA, SANDRA DAVID",
+            "fecha": "1986-08-31",
+            "numero": "S00011268",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "OCHOA SULCARAY, PEDRO JORGE",
+            "fecha": "1955-08-19",
+            "numero": "S00011276",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES TORRES, MIGUEL CESAR",
+            "fecha": "2016-09-15",
+            "numero": "S00011282",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES MENDOZA, ANGEL GLADYS Y HUAYTA SANCHEZ, NORMA ANA",
+            "fecha": "1983-06-16",
+            "numero": "S00011283",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO CASTRO, MARTHA FREDY Y ALCA RAMOS, LUIS PEDRO",
+            "fecha": "1989-07-20",
+            "numero": "S00011289",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI PALOMINO, JUAN FIORELLA",
+            "fecha": "1992-05-06",
+            "numero": "S00011290",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO CONDORI, PEDRO ROCIO",
+            "fecha": "1974-12-20",
+            "numero": "S00011293",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "QUISPE QUISPE, GLADYS VALERIA Y FLORES PARIONA, SAUL PEDRO",
+            "fecha": "2019-02-12",
+            "numero": "S00011295",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "RAMOS GARRIAZO, CESAR GLADYS",
+            "fecha": "1962-07-21",
+            "numero": "S00011296",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TAIPE GUTIERREZ, LUCIA IVAN Y SANCHEZ HUAYTA, MARTHA CARMEN",
+            "fecha": "1958-08-06",
+            "numero": "S00011307",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "FLORES SULCARAY, MARIA FREDY",
+            "fecha": "2014-07-26",
+            "numero": "S00011311",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ TAIPE, KATHERINE PILAR Y CASTRO HUAMAN, KATHERINE MARTHA",
+            "fecha": "2007-01-29",
+            "numero": "S00011322",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA QUISPE, ELENA JOSE",
+            "fecha": "1957-11-27",
+            "numero": "S00011323",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA HUAMAN, SANDRA PILAR Y RAMOS CONDORI, NORMA SANDRA",
+            "fecha": "1983-08-24",
+            "numero": "S00011334",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA ARONES, MARTHA RAUL",
+            "fecha": "1967-09-30",
+            "numero": "S00011348",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI CCORAHUA, JOSE YOLANDA",
+            "fecha": "1951-01-29",
+            "numero": "S00011354",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI GARRIAZO, VICTOR MARTHA",
+            "fecha": "2014-05-20",
+            "numero": "S00011357",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES SANCHEZ, NORMA JOSE",
+            "fecha": "1962-12-26",
+            "numero": "S00011404",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA ROJAS, FIORELLA GLADYS",
+            "fecha": "1991-08-21",
+            "numero": "S00011408",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "LAPA CANCHO, JORGE LUCIA",
+            "fecha": "1979-10-30",
+            "numero": "S00011419",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SANCHEZ CONDORI, MARTHA MIGUEL",
+            "fecha": "2009-04-18",
+            "numero": "S00011440",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA SANCHEZ, VALERIA JORGE Y GARCIA GARRIAZO, KATHERINE KATHERINE",
+            "fecha": "1953-05-15",
+            "numero": "S00011457",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CONDORI SULCARAY, GLADYS ROCIO",
+            "fecha": "1982-12-20",
+            "numero": "S00011465",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS MALLQUI, JOSE JOSE",
+            "fecha": "2003-11-22",
+            "numero": "S00011498",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES SANCHEZ, ANA JUAN",
+            "fecha": "1978-11-30",
+            "numero": "S00011503",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA ROJAS, DIEGO CARMEN",
+            "fecha": "1966-10-10",
+            "numero": "S00011509",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES PARIONA, ELENA SONIA",
+            "fecha": "2013-10-26",
+            "numero": "S00011522",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA MALLQUI, GLADYS SANDRA",
+            "fecha": "1967-03-28",
+            "numero": "S00011527",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA GUTIERREZ, GLADYS FREDY",
+            "fecha": "2021-10-22",
+            "numero": "S00011542",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES BELITO, JUAN ROSA",
+            "fecha": "2015-09-23",
+            "numero": "S00011546",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHARI CHAVEZ, DIEGO YOLANDA",
+            "fecha": "1997-01-31",
+            "numero": "S00011555",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO YUPANQUI, ROCIO PILAR",
+            "fecha": "1953-01-24",
+            "numero": "S00011567",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "OCHOA SULCARAY, YOLANDA SANDRA",
+            "fecha": "1959-07-04",
+            "numero": "S00011573",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO FLORES, IVAN EDWIN Y HUAMAN PALOMINO, SONIA SONIA",
+            "fecha": "2025-02-16",
+            "numero": "S00011577",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO PALOMINO, PEDRO ANGEL",
+            "fecha": "1965-01-18",
+            "numero": "S00011582",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA ARONES, PEDRO ANA Y LAPA ROJAS, VICTOR NANCY",
+            "fecha": "2006-06-08",
+            "numero": "S00011583",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PRADO BELITO, IVAN DIEGO Y RAMOS QUISPE, IVAN JORGE",
+            "fecha": "1996-06-06",
+            "numero": "S00011589",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA ALCA, DIEGO CESAR",
+            "fecha": "2014-12-26",
+            "numero": "S00011591",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI LAPA, PILAR PEDRO",
+            "fecha": "1971-05-25",
+            "numero": "S00011594",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CCORAHUA HUAYTA, MILAGROS JORGE Y CANCHO CONDORI, KATHERINE ROSA",
+            "fecha": "2007-04-22",
+            "numero": "S00011595",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MALLQUI CCORAHUA, VALERIA KATHERINE Y GARCIA MALLQUI, RAUL WILBER",
+            "fecha": "1988-05-29",
+            "numero": "S00011619",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PRADO CCORAHUA, ANGEL MILAGROS Y HUAYTA GARCIA, KATHERINE FIORELLA",
+            "fecha": "2025-01-07",
+            "numero": "S00011640",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA MAMANI, EDWIN RAUL",
+            "fecha": "1979-05-21",
+            "numero": "S00011642",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS GARCIA, NORMA JUAN",
+            "fecha": "1977-07-31",
+            "numero": "S00011654",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TAIPE MAMANI, SONIA LUIS",
+            "fecha": "1977-11-20",
+            "numero": "S00011659",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ HUAMAN, KATHERINE LUCIA",
+            "fecha": "1956-12-25",
+            "numero": "S00011663",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI HUAMAN, WILBER ELENA",
+            "fecha": "1960-08-06",
+            "numero": "S00011693",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SULCARAY GARCIA, JORGE LUCIA",
+            "fecha": "2015-03-01",
+            "numero": "S00011699",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA YUPANQUI, GLADYS RAUL",
+            "fecha": "1964-07-16",
+            "numero": "S00011702",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MALLQUI BELITO, HUGO DIEGO Y QUISPE OCHOA, SANDRA RAUL",
+            "fecha": "2020-04-18",
+            "numero": "S00011703",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS BELITO, SANDRA ANGEL",
+            "fecha": "1981-07-31",
+            "numero": "S00011720",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA HUAYTA, SAUL MIGUEL",
+            "fecha": "1971-12-29",
+            "numero": "S00011735",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA CANCHO, RAUL CARLOS Y HUAYTA PALOMINO, CESAR PEDRO",
+            "fecha": "2001-12-27",
+            "numero": "S00011736",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "LAPA MENDOZA, WILBER MARIA",
+            "fecha": "2003-09-24",
+            "numero": "S00011737",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI VILCA, RAUL IVAN",
+            "fecha": "2017-04-24",
+            "numero": "S00011740",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES YUPANQUI, ANA WILBER Y CASTRO PRADO, JOSE CARLOS",
+            "fecha": "1968-01-29",
+            "numero": "S00011742",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHARI ALCA, JOSE NORMA",
+            "fecha": "1971-12-08",
+            "numero": "S00011744",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES SULCARAY, LUIS SAUL Y PARIONA MENDOZA, YOLANDA FIORELLA",
+            "fecha": "1959-07-23",
+            "numero": "S00011754",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY QUISPE, NORMA DAVID",
+            "fecha": "1979-06-16",
+            "numero": "S00011755",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA CASTRO, CARMEN JORGE",
+            "fecha": "2017-03-11",
+            "numero": "S00011758",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA MENDOZA, CARMEN NORMA",
+            "fecha": "2006-12-03",
+            "numero": "S00011777",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO PARIONA, MIGUEL YOLANDA",
+            "fecha": "1959-03-28",
+            "numero": "S00011782",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE LAPA, MARIA DIEGO",
+            "fecha": "1964-05-11",
+            "numero": "S00011785",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA QUISPE, SAUL ANGEL Y BELITO BELITO, ELENA HUGO",
+            "fecha": "1973-02-09",
+            "numero": "S00011787",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI VILCA, CESAR ROSA",
+            "fecha": "1982-07-29",
+            "numero": "S00011792",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ VILCA, SANDRA DIEGO",
+            "fecha": "1969-02-19",
+            "numero": "S00011795",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "QUISPE CANCHO, MARIA MARIA Y PARIONA MENDOZA, HUGO FREDY",
+            "fecha": "1960-08-30",
+            "numero": "S00011814",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES GUTIERREZ, MIGUEL RAUL Y HUAMAN PRADO, ELENA MARTHA",
+            "fecha": "1997-05-11",
+            "numero": "S00011820",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS CASTRO, SAUL LUCIA Y HUAMAN LAPA, MARIA DIEGO",
+            "fecha": "1994-01-19",
+            "numero": "S00011829",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "QUISPE HUAMAN, VICTOR YOLANDA",
+            "fecha": "1951-01-23",
+            "numero": "S00011840",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO SULCARAY, KATHERINE VALERIA",
+            "fecha": "1952-06-26",
+            "numero": "S00011843",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS GARCIA, CARMEN RAUL",
+            "fecha": "2015-02-14",
+            "numero": "S00011849",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES HUAYTA, VALERIA SAUL",
+            "fecha": "2021-10-09",
+            "numero": "S00011858",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA VILCA, DIEGO VICTOR Y ALCA CCORAHUA, MIGUEL MARTHA",
+            "fecha": "1981-12-29",
+            "numero": "S00011868",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA MENDOZA, ROCIO SONIA",
+            "fecha": "2013-01-10",
+            "numero": "S00011878",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES HUAMAN, DAVID SAUL",
+            "fecha": "1975-08-18",
+            "numero": "S00011890",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA FLORES, IVAN JOSE Y MENDOZA PARIONA, ANA CARMEN",
+            "fecha": "1993-04-25",
+            "numero": "S00011901",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA ALCA, JORGE ANGEL",
+            "fecha": "1965-04-30",
+            "numero": "S00011905",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA VARGAS, GLADYS PEDRO",
+            "fecha": "2016-04-16",
+            "numero": "S00011912",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES RAMOS, SANDRA KATHERINE",
+            "fecha": "2020-04-10",
+            "numero": "S00011944",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN MAMANI, NORMA ANA Y SULCARAY QUISPE, SONIA VICTOR",
+            "fecha": "1950-01-19",
+            "numero": "S00011946",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ MAMANI, FREDY JORGE Y CCORAHUA ALCA, JOSE MIGUEL",
+            "fecha": "1971-11-17",
+            "numero": "S00011958",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO YUPANQUI, KATHERINE WILBER",
+            "fecha": "2021-09-20",
+            "numero": "S00011959",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "OCHOA GUTIERREZ, ELENA WILBER",
+            "fecha": "1988-05-04",
+            "numero": "S00011963",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO HUAMAN, ELENA PILAR",
+            "fecha": "2023-05-26",
+            "numero": "S00011965",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI PRADO, FIORELLA NORMA",
+            "fecha": "1965-06-23",
+            "numero": "S00011975",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "TORRES QUISPE, JORGE MARTHA",
+            "fecha": "1950-06-02",
+            "numero": "S00012002",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "RAMOS ALCA, CARMEN SONIA",
+            "fecha": "2025-09-23",
+            "numero": "S00012019",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ MENDOZA, MARIA NANCY",
+            "fecha": "2006-03-17",
+            "numero": "S00012022",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA PRADO, MILAGROS DIEGO Y TAIPE MAMANI, SONIA MARTHA",
+            "fecha": "1978-10-12",
+            "numero": "S00012027",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES YUPANQUI, ROCIO CARLOS",
+            "fecha": "2006-04-09",
+            "numero": "S00012050",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI HUAMAN, MARTHA FREDY",
+            "fecha": "1984-06-14",
+            "numero": "S00012061",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES TORRES, KATHERINE ELENA",
+            "fecha": "1997-04-20",
+            "numero": "S00012064",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ROJAS TAIPE, SONIA DAVID",
+            "fecha": "1962-12-22",
+            "numero": "S00012094",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ PALOMINO, RAUL NANCY",
+            "fecha": "1965-01-21",
+            "numero": "S00012097",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MAMANI GUTIERREZ, JUAN FREDY Y FLORES TORRES, ROCIO ANA",
+            "fecha": "1961-02-13",
+            "numero": "S00012099",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ CANCHO, LUIS IVAN",
+            "fecha": "1997-04-09",
+            "numero": "S00012104",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ GARRIAZO, VALERIA IVAN Y FLORES OCHOA, CESAR JOSE",
+            "fecha": "1985-04-14",
+            "numero": "S00012108",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ MALLQUI, ELENA YOLANDA",
+            "fecha": "1964-05-21",
+            "numero": "S00012118",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CASTRO PARIONA, MILAGROS FIORELLA",
+            "fecha": "2002-01-12",
+            "numero": "S00012124",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA ROJAS, YOLANDA CARMEN Y CANCHARI YUPANQUI, ELENA PILAR",
+            "fecha": "2017-05-23",
+            "numero": "S00012141",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CASTRO GUTIERREZ, ROCIO DIEGO",
+            "fecha": "1969-07-18",
+            "numero": "S00012158",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA ARONES, FIORELLA SAUL",
+            "fecha": "1980-07-30",
+            "numero": "S00012167",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA TORRES, LUIS LUIS Y PALOMINO PALOMINO, FIORELLA RAUL",
+            "fecha": "1952-02-25",
+            "numero": "S00012180",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA CCORAHUA, HUGO KATHERINE",
+            "fecha": "1971-01-05",
+            "numero": "S00012208",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO GUTIERREZ, MIGUEL FIORELLA",
+            "fecha": "1953-11-19",
+            "numero": "S00012211",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY LAPA, CESAR JORGE",
+            "fecha": "2014-09-18",
+            "numero": "S00012217",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI VILCA, FIORELLA RAUL",
+            "fecha": "1972-02-15",
+            "numero": "S00012220",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA SULCARAY, ELENA MIGUEL",
+            "fecha": "1982-11-27",
+            "numero": "S00012248",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ MAMANI, VICTOR SANDRA",
+            "fecha": "1988-09-18",
+            "numero": "S00012250",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA CHAVEZ, IVAN GLADYS",
+            "fecha": "1972-04-06",
+            "numero": "S00012251",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS ARONES, YOLANDA EDWIN",
+            "fecha": "2018-02-17",
+            "numero": "S00012260",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SULCARAY ALCA, MILAGROS WILBER",
+            "fecha": "1963-08-09",
+            "numero": "S00012272",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI HUAYTA, PEDRO MIGUEL",
+            "fecha": "1979-12-14",
+            "numero": "S00012283",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CASTRO CANCHO, JUAN DAVID",
+            "fecha": "1976-09-03",
+            "numero": "S00012286",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS MENDOZA, DAVID DIEGO",
+            "fecha": "1978-08-14",
+            "numero": "S00012302",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ GUTIERREZ, RAUL KATHERINE Y PARIONA PRADO, EDWIN MARIA",
+            "fecha": "1972-09-21",
+            "numero": "S00012303",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO YUPANQUI, LUCIA ANA",
+            "fecha": "2013-06-28",
+            "numero": "S00012311",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA MALLQUI, LUIS MARTHA Y VARGAS HUAMAN, LUCIA GLADYS",
+            "fecha": "1976-05-07",
+            "numero": "S00012312",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ARONES VILCA, JUAN GLADYS",
+            "fecha": "2001-06-04",
+            "numero": "S00012313",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ GARCIA, ROSA ROCIO Y CHAVEZ PALOMINO, YOLANDA JORGE",
+            "fecha": "2020-03-28",
+            "numero": "S00012339",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ PRADO, DIEGO ROCIO",
+            "fecha": "1995-09-12",
+            "numero": "S00012362",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA MALLQUI, ANGEL WILBER",
+            "fecha": "2018-03-26",
+            "numero": "S00012385",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS VARGAS, WILBER MILAGROS",
+            "fecha": "2017-12-05",
+            "numero": "S00012389",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI CCORAHUA, EDWIN MARIA",
+            "fecha": "2000-04-18",
+            "numero": "S00012401",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS SULCARAY, LUIS DAVID",
+            "fecha": "1958-10-04",
+            "numero": "S00012407",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO MENDOZA, DIEGO ROCIO",
+            "fecha": "2015-01-28",
+            "numero": "S00012410",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SANCHEZ MENDOZA, FREDY VICTOR",
+            "fecha": "2021-07-31",
+            "numero": "S00012460",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS TORRES, SONIA CARLOS",
+            "fecha": "2010-12-19",
+            "numero": "S00012461",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY YUPANQUI, KATHERINE MIGUEL",
+            "fecha": "1997-09-25",
+            "numero": "S00012466",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PALOMINO CONDORI, MARTHA VICTOR",
+            "fecha": "1959-04-28",
+            "numero": "S00012484",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO GUTIERREZ, DIEGO SANDRA Y SULCARAY VILCA, EDWIN WILBER",
+            "fecha": "2017-06-09",
+            "numero": "S00012489",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA CONDORI, DIEGO LUCIA",
+            "fecha": "1953-08-07",
+            "numero": "S00012496",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "QUISPE LAPA, MILAGROS JORGE",
+            "fecha": "1966-12-21",
+            "numero": "S00012500",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO BELITO, PEDRO HUGO Y HUAYTA LAPA, SAUL CARLOS",
+            "fecha": "1954-12-05",
+            "numero": "S00012504",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES CHAVEZ, MARTHA SONIA",
+            "fecha": "1994-02-28",
+            "numero": "S00012521",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES ROJAS, HUGO MARTHA",
+            "fecha": "1970-07-05",
+            "numero": "S00012527",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA CHAVEZ, ELENA NORMA",
+            "fecha": "1973-06-12",
+            "numero": "S00012529",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA VARGAS, IVAN HUGO",
+            "fecha": "1964-12-07",
+            "numero": "S00012533",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ GARCIA, GLADYS PEDRO",
+            "fecha": "1956-09-01",
+            "numero": "S00012556",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PARIONA PRADO, NORMA ROCIO",
+            "fecha": "1953-08-15",
+            "numero": "S00012571",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ CHAVEZ, ANA CARLOS Y TAIPE BELITO, EDWIN ROSA",
+            "fecha": "2005-10-26",
+            "numero": "S00012573",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAYTA BELITO, SAUL RAUL",
+            "fecha": "1973-03-16",
+            "numero": "S00012586",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VARGAS ALCA, ROCIO WILBER",
+            "fecha": "1990-06-21",
+            "numero": "S00012598",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO LAPA, IVAN YOLANDA",
+            "fecha": "1968-04-10",
+            "numero": "S00012604",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS PRADO, KATHERINE NORMA",
+            "fecha": "1978-08-30",
+            "numero": "S00012608",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "QUISPE YUPANQUI, RAUL GLADYS Y SULCARAY CANCHO, HUGO CESAR",
+            "fecha": "2011-09-20",
+            "numero": "S00012618",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA PRADO, JORGE DAVID",
+            "fecha": "1970-10-04",
+            "numero": "S00012652",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA HUAYTA, DAVID VALERIA Y HUAYTA ARONES, DAVID SANDRA",
+            "fecha": "1970-01-07",
+            "numero": "S00012660",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA CCORAHUA, VICTOR MARTHA Y PRADO PRADO, LUCIA GLADYS",
+            "fecha": "1964-07-23",
+            "numero": "S00012672",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO CANCHARI, VICTOR LUCIA",
+            "fecha": "1986-02-24",
+            "numero": "S00012685",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ARONES VARGAS, FREDY WILBER Y CHAVEZ TORRES, ANA FREDY",
+            "fecha": "1976-09-25",
+            "numero": "S00012702",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA OCHOA, DIEGO SANDRA Y CONDORI HUAMAN, VALERIA JORGE",
+            "fecha": "1979-03-29",
+            "numero": "S00012705",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TORRES GUTIERREZ, CARMEN ANA Y ARONES FLORES, ELENA MARTHA",
+            "fecha": "2004-01-20",
+            "numero": "S00012717",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARRIAZO CONDORI, MARTHA MARIA",
+            "fecha": "2022-02-27",
+            "numero": "S00012719",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VARGAS HUAYTA, LUCIA EDWIN Y CANCHARI SULCARAY, VICTOR KATHERINE",
+            "fecha": "1972-06-08",
+            "numero": "S00012723",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI CHAVEZ, LUIS KATHERINE",
+            "fecha": "1984-06-11",
+            "numero": "S00012724",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "TORRES SULCARAY, FREDY ANGEL",
+            "fecha": "1990-11-08",
+            "numero": "S00012731",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SULCARAY MAMANI, ROSA KATHERINE",
+            "fecha": "2011-07-31",
+            "numero": "S00012761",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHO VARGAS, RAUL SANDRA Y ARONES GARRIAZO, JUAN PILAR",
+            "fecha": "1988-02-22",
+            "numero": "S00012771",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA LAPA, NORMA JORGE Y MAMANI PARIONA, ANA MILAGROS",
+            "fecha": "1963-09-05",
+            "numero": "S00012783",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA CCORAHUA, LUIS GLADYS",
+            "fecha": "2017-10-25",
+            "numero": "S00012788",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA VILCA, EDWIN NORMA",
+            "fecha": "1999-09-06",
+            "numero": "S00012790",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES CHAVEZ, SAUL WILBER",
+            "fecha": "2008-02-21",
+            "numero": "S00012794",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI GARRIAZO, JOSE ANGEL Y GARRIAZO GARCIA, SAUL PILAR",
+            "fecha": "1950-04-14",
+            "numero": "S00012801",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO MENDOZA, MARTHA SAUL Y CANCHO MENDOZA, YOLANDA NORMA",
+            "fecha": "2011-10-16",
+            "numero": "S00012804",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN MALLQUI, DIEGO GLADYS Y PALOMINO OCHOA, FIORELLA CESAR",
+            "fecha": "2020-01-11",
+            "numero": "S00012831",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO LAPA, KATHERINE ANGEL",
+            "fecha": "1952-10-15",
+            "numero": "S00012833",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS MALLQUI, JUAN SANDRA Y ROJAS ARONES, SANDRA VALERIA",
+            "fecha": "1995-07-20",
+            "numero": "S00012852",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO CONDORI, CARMEN CARLOS Y LAPA ALCA, WILBER FREDY",
+            "fecha": "1965-10-15",
+            "numero": "S00012864",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAYTA CASTRO, RAUL MARIA",
+            "fecha": "1985-03-27",
+            "numero": "S00012871",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA OCHOA, IVAN MILAGROS",
+            "fecha": "1999-11-17",
+            "numero": "S00012896",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "YUPANQUI BELITO, SANDRA CARLOS",
+            "fecha": "1996-08-07",
+            "numero": "S00012901",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "QUISPE VILCA, FIORELLA ROSA",
+            "fecha": "1967-10-08",
+            "numero": "S00012911",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO MAMANI, ANGEL DIEGO Y ARONES PALOMINO, ANGEL NORMA",
+            "fecha": "1963-04-14",
+            "numero": "S00012915",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA VARGAS, ELENA GLADYS",
+            "fecha": "1968-01-09",
+            "numero": "S00012938",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA ARONES, JORGE LUIS",
+            "fecha": "1988-03-11",
+            "numero": "S00012944",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CASTRO QUISPE, RAUL VICTOR",
+            "fecha": "2003-11-06",
+            "numero": "S00012989",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ OCHOA, CARMEN PEDRO",
+            "fecha": "1995-08-06",
+            "numero": "S00012992",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN ROJAS, PEDRO MARIA Y GARRIAZO SULCARAY, JOSE NORMA",
+            "fecha": "1979-01-17",
+            "numero": "S00012996",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY TAIPE, ROSA VALERIA Y CASTRO GARCIA, SONIA MILAGROS",
+            "fecha": "1978-07-03",
+            "numero": "S00013011",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI QUISPE, SAUL IVAN",
+            "fecha": "1998-01-24",
+            "numero": "S00013033",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA SULCARAY, KATHERINE HUGO Y ARONES OCHOA, CESAR SONIA",
+            "fecha": "1981-06-28",
+            "numero": "S00013041",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY ROJAS, CESAR NORMA",
+            "fecha": "2020-06-30",
+            "numero": "S00013045",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "FLORES PALOMINO, MIGUEL MILAGROS",
+            "fecha": "1999-10-21",
+            "numero": "S00013057",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PRADO FLORES, ROSA ROSA Y VILCA PALOMINO, CARLOS ANGEL",
+            "fecha": "1979-07-10",
+            "numero": "S00013065",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHO BELITO, JOSE CARMEN Y HUAYTA CANCHARI, NORMA ELENA",
+            "fecha": "2005-06-08",
+            "numero": "S00013068",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES QUISPE, JOSE PILAR Y PRADO FLORES, CESAR FREDY",
+            "fecha": "1969-05-16",
+            "numero": "S00013083",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO PRADO, VALERIA LUIS Y CASTRO TAIPE, FREDY FREDY",
+            "fecha": "1972-02-13",
+            "numero": "S00013086",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE ALCA, IVAN JOSE",
+            "fecha": "2003-05-01",
+            "numero": "S00013087",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES BELITO, CARMEN SONIA Y CASTRO VILCA, SONIA GLADYS",
+            "fecha": "1976-09-23",
+            "numero": "S00013098",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI CASTRO, LUCIA CARMEN",
+            "fecha": "2011-01-25",
+            "numero": "S00013136",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ BELITO, WILBER ANGEL",
+            "fecha": "1953-01-15",
+            "numero": "S00013151",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA LAPA, LUCIA ROCIO Y PALOMINO FLORES, YOLANDA DAVID",
+            "fecha": "1987-05-25",
+            "numero": "S00013203",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA CONDORI, WILBER CARLOS",
+            "fecha": "2007-11-25",
+            "numero": "S00013207",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI PALOMINO, MIGUEL LUCIA",
+            "fecha": "1965-04-03",
+            "numero": "S00013208",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA ROJAS, IVAN SANDRA Y CASTRO LAPA, SAUL FIORELLA",
+            "fecha": "1976-08-10",
+            "numero": "S00013212",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA PALOMINO, DIEGO RAUL Y MENDOZA HUAYTA, CARMEN ROSA",
+            "fecha": "1973-08-14",
+            "numero": "S00013215",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ HUAMAN, PEDRO SANDRA",
+            "fecha": "2011-06-13",
+            "numero": "S00013223",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHO GARCIA, ROSA GLADYS",
+            "fecha": "1989-01-19",
+            "numero": "S00013250",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO HUAMAN, JORGE SANDRA",
+            "fecha": "1983-04-15",
+            "numero": "S00013253",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PALOMINO VARGAS, JORGE LUIS",
+            "fecha": "1993-01-31",
+            "numero": "S00013270",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "TORRES QUISPE, JUAN YOLANDA",
+            "fecha": "1960-04-18",
+            "numero": "S00013289",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "QUISPE BELITO, CESAR LUIS Y MENDOZA QUISPE, HUGO LUCIA",
+            "fecha": "1989-05-09",
+            "numero": "S00013302",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA MENDOZA, YOLANDA ANA",
+            "fecha": "1968-03-07",
+            "numero": "S00013309",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA CASTRO, PILAR MARTHA",
+            "fecha": "2005-01-26",
+            "numero": "S00013325",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI CONDORI, WILBER SANDRA",
+            "fecha": "2002-09-16",
+            "numero": "S00013334",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "YUPANQUI VILCA, WILBER HUGO",
+            "fecha": "1982-01-08",
+            "numero": "S00013336",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "BELITO ALCA, NANCY JORGE Y CANCHARI ARONES, VALERIA VALERIA",
+            "fecha": "2013-06-06",
+            "numero": "S00013338",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA CONDORI, ANA FREDY",
+            "fecha": "1959-11-13",
+            "numero": "S00013355",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO OCHOA, ANA ANGEL Y ALCA PALOMINO, KATHERINE LUIS",
+            "fecha": "2025-01-28",
+            "numero": "S00013365",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI TAIPE, ANA ELENA",
+            "fecha": "1950-09-02",
+            "numero": "S00013366",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA ALCA, ROCIO MILAGROS",
+            "fecha": "1989-02-21",
+            "numero": "S00013370",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ CHAVEZ, JUAN VICTOR Y PALOMINO CASTRO, FREDY HUGO",
+            "fecha": "1979-12-31",
+            "numero": "S00013377",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "QUISPE MAMANI, MIGUEL MARIA",
+            "fecha": "1987-11-10",
+            "numero": "S00013382",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ LAPA, LUCIA LUCIA Y HUAYTA PALOMINO, LUIS EDWIN",
+            "fecha": "1956-07-08",
+            "numero": "S00013383",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "BELITO MENDOZA, CESAR WILBER Y GARCIA HUAYTA, VALERIA EDWIN",
+            "fecha": "1956-11-06",
+            "numero": "S00013389",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "LAPA ALCA, RAUL LUCIA",
+            "fecha": "2010-05-17",
+            "numero": "S00013393",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MENDOZA BELITO, HUGO MARIA",
+            "fecha": "1974-09-24",
+            "numero": "S00013406",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CCORAHUA SANCHEZ, EDWIN SONIA Y VILCA PALOMINO, GLADYS MILAGROS",
+            "fecha": "2025-09-08",
+            "numero": "S00013413",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ CONDORI, DAVID SAUL",
+            "fecha": "2005-09-13",
+            "numero": "S00013427",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY RAMOS, SONIA SANDRA Y CHAVEZ PALOMINO, SAUL ANA",
+            "fecha": "1970-11-23",
+            "numero": "S00013446",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MALLQUI SANCHEZ, EDWIN NORMA",
+            "fecha": "2005-01-24",
+            "numero": "S00013447",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHARI ARONES, RAUL ROCIO Y CCORAHUA CANCHARI, VALERIA NORMA",
+            "fecha": "1970-08-16",
+            "numero": "S00013452",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ARONES LAPA, EDWIN ROCIO",
+            "fecha": "1954-10-05",
+            "numero": "S00013454",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CCORAHUA CHAVEZ, PEDRO MILAGROS Y PALOMINO TAIPE, JUAN MIGUEL",
+            "fecha": "1999-11-27",
+            "numero": "S00013473",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MENDOZA OCHOA, CARLOS PILAR",
+            "fecha": "1975-06-17",
+            "numero": "S00013475",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ HUAMAN, FIORELLA JOSE",
+            "fecha": "1972-12-05",
+            "numero": "S00013483",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "OCHOA TORRES, HUGO HUGO Y CASTRO HUAMAN, IVAN IVAN",
+            "fecha": "1982-12-22",
+            "numero": "S00013485",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS VARGAS, CESAR PEDRO",
+            "fecha": "1959-01-22",
+            "numero": "S00013511",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA CANCHARI, VICTOR WILBER",
+            "fecha": "1993-09-26",
+            "numero": "S00013519",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI HUAMAN, GLADYS JUAN Y CHAVEZ PRADO, SAUL CARLOS",
+            "fecha": "1998-08-16",
+            "numero": "S00013527",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI QUISPE, MIGUEL CARLOS",
+            "fecha": "1980-01-11",
+            "numero": "S00013528",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES ALCA, VICTOR ANA Y YUPANQUI CHAVEZ, WILBER JUAN",
+            "fecha": "1979-10-29",
+            "numero": "S00013539",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ CANCHARI, ANGEL KATHERINE",
+            "fecha": "2004-01-07",
+            "numero": "S00013541",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA TORRES, VALERIA SAUL",
+            "fecha": "1973-02-12",
+            "numero": "S00013546",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA VILCA, VICTOR JUAN",
+            "fecha": "1959-03-19",
+            "numero": "S00013552",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI PALOMINO, JORGE CESAR Y YUPANQUI ALCA, IVAN JOSE",
+            "fecha": "2003-12-09",
+            "numero": "S00013578",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI HUAYTA, IVAN PILAR",
+            "fecha": "2019-09-19",
+            "numero": "S00013586",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARCIA CHAVEZ, PEDRO HUGO",
+            "fecha": "1990-10-01",
+            "numero": "S00013595",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS ALCA, LUCIA SONIA",
+            "fecha": "1993-01-10",
+            "numero": "S00013601",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI VILCA, JORGE ROCIO",
+            "fecha": "2001-04-14",
+            "numero": "S00013603",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN GUTIERREZ, CARLOS RAUL Y MALLQUI VILCA, DIEGO SAUL",
+            "fecha": "1954-04-28",
+            "numero": "S00013638",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO CANCHARI, GLADYS LUCIA Y ARONES QUISPE, CARLOS CARMEN",
+            "fecha": "1958-06-11",
+            "numero": "S00013641",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO OCHOA, FREDY PILAR",
+            "fecha": "1955-01-28",
+            "numero": "S00013645",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA SULCARAY, LUIS HUGO",
+            "fecha": "1973-11-20",
+            "numero": "S00013678",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ CCORAHUA, PILAR VICTOR Y PALOMINO MENDOZA, WILBER YOLANDA",
+            "fecha": "1973-02-22",
+            "numero": "S00013680",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PRADO QUISPE, CESAR ROCIO",
+            "fecha": "1994-11-03",
+            "numero": "S00013693",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI ROJAS, NANCY PILAR",
+            "fecha": "1966-07-25",
+            "numero": "S00013696",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SULCARAY CASTRO, IVAN HUGO",
+            "fecha": "2025-05-01",
+            "numero": "S00013724",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI CHAVEZ, JORGE VALERIA",
+            "fecha": "1980-06-06",
+            "numero": "S00013733",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA VILCA, VALERIA JUAN",
+            "fecha": "2010-02-01",
+            "numero": "S00013753",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA PARIONA, FREDY FREDY",
+            "fecha": "2019-01-19",
+            "numero": "S00013754",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA MALLQUI, LUIS VICTOR",
+            "fecha": "1971-01-23",
+            "numero": "S00013765",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA GARRIAZO, EDWIN NANCY",
+            "fecha": "2008-05-17",
+            "numero": "S00013777",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CONDORI HUAMAN, CESAR ROCIO",
+            "fecha": "1983-03-19",
+            "numero": "S00013796",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TORRES HUAYTA, JOSE ROCIO Y CANCHARI TAIPE, JUAN HUGO",
+            "fecha": "1963-11-06",
+            "numero": "S00013806",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN CONDORI, KATHERINE CESAR",
+            "fecha": "1981-06-17",
+            "numero": "S00013820",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO MALLQUI, MIGUEL MIGUEL",
+            "fecha": "1954-08-24",
+            "numero": "S00013840",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MALLQUI MENDOZA, CARLOS SONIA",
+            "fecha": "1976-07-29",
+            "numero": "S00013873",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE MALLQUI, JUAN DAVID",
+            "fecha": "1970-01-24",
+            "numero": "S00013879",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ GUTIERREZ, DAVID KATHERINE",
+            "fecha": "2015-11-17",
+            "numero": "S00013892",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA VARGAS, ROCIO NANCY Y TORRES VARGAS, HUGO MILAGROS",
+            "fecha": "1957-07-05",
+            "numero": "S00013893",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ MAMANI, NORMA SAUL",
+            "fecha": "2006-04-26",
+            "numero": "S00013919",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ OCHOA, ROSA DIEGO Y MALLQUI SULCARAY, MILAGROS LUCIA",
+            "fecha": "1959-06-01",
+            "numero": "S00013932",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA MALLQUI, CESAR MARTHA",
+            "fecha": "1958-11-06",
+            "numero": "S00013937",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA FLORES, ROSA DAVID",
+            "fecha": "2014-01-25",
+            "numero": "S00013939",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MALLQUI SANCHEZ, PILAR MARTHA",
+            "fecha": "1974-12-13",
+            "numero": "S00013957",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO RAMOS, SAUL NORMA",
+            "fecha": "2001-02-11",
+            "numero": "S00013975",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PRADO GUTIERREZ, ROCIO IVAN Y GARRIAZO CHAVEZ, LUCIA FIORELLA",
+            "fecha": "1964-07-02",
+            "numero": "S00013980",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY FLORES, CARLOS SAUL Y PRADO CONDORI, NANCY PILAR",
+            "fecha": "1961-08-22",
+            "numero": "S00014001",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE ARONES, MIGUEL KATHERINE",
+            "fecha": "1999-03-13",
+            "numero": "S00014002",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA PRADO, LUIS MILAGROS Y BELITO MALLQUI, VICTOR MIGUEL",
+            "fecha": "1973-10-09",
+            "numero": "S00014004",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAYTA CANCHARI, KATHERINE LUIS",
+            "fecha": "2017-08-21",
+            "numero": "S00014014",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA PALOMINO, ANGEL MIGUEL",
+            "fecha": "1973-10-31",
+            "numero": "S00014015",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHO PALOMINO, ROCIO LUCIA",
+            "fecha": "1969-08-23",
+            "numero": "S00014051",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA MENDOZA, ELENA GLADYS",
+            "fecha": "1970-07-21",
+            "numero": "S00014063",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SANCHEZ TORRES, EDWIN FIORELLA",
+            "fecha": "1995-08-31",
+            "numero": "S00014068",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA CANCHO, ROSA JORGE",
+            "fecha": "1973-01-29",
+            "numero": "S00014072",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TORRES HUAYTA, MARIA LUCIA Y QUISPE TAIPE, MILAGROS SONIA",
+            "fecha": "1954-06-05",
+            "numero": "S00014082",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS OCHOA, FIORELLA ELENA Y CONDORI MENDOZA, SONIA MIGUEL",
+            "fecha": "1958-03-16",
+            "numero": "S00014088",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ GARCIA, MARIA ANA Y CCORAHUA BELITO, JORGE VALERIA",
+            "fecha": "2024-01-16",
+            "numero": "S00014094",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES OCHOA, MARTHA PEDRO",
+            "fecha": "2011-02-03",
+            "numero": "S00014095",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ HUAYTA, ANA NANCY",
+            "fecha": "1999-12-24",
+            "numero": "S00014098",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "TORRES RAMOS, MARTHA WILBER",
+            "fecha": "1979-12-22",
+            "numero": "S00014132",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO HUAYTA, KATHERINE JOSE",
+            "fecha": "2000-09-24",
+            "numero": "S00014152",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ HUAYTA, FREDY ELENA",
+            "fecha": "1985-11-04",
+            "numero": "S00014159",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO CANCHO, LUCIA ELENA",
+            "fecha": "1982-05-17",
+            "numero": "S00014162",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY SULCARAY, DIEGO DAVID",
+            "fecha": "1968-07-09",
+            "numero": "S00014212",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MENDOZA MENDOZA, KATHERINE MIGUEL",
+            "fecha": "1972-12-29",
+            "numero": "S00014219",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MAMANI HUAMAN, LUCIA MARTHA",
+            "fecha": "1985-04-02",
+            "numero": "S00014231",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES MAMANI, ANGEL MARIA",
+            "fecha": "1975-08-16",
+            "numero": "S00014246",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN MAMANI, EDWIN MARIA Y TAIPE PALOMINO, CARLOS RAUL",
+            "fecha": "2010-09-15",
+            "numero": "S00014253",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ SANCHEZ, YOLANDA MARTHA Y CANCHO VILCA, ANA CARLOS",
+            "fecha": "1996-07-12",
+            "numero": "S00014259",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "RAMOS YUPANQUI, MILAGROS FIORELLA Y FLORES PARIONA, VALERIA WILBER",
+            "fecha": "1998-06-17",
+            "numero": "S00014265",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHO MAMANI, YOLANDA MARIA",
+            "fecha": "2016-07-23",
+            "numero": "S00014266",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ GARCIA, SAUL RAUL",
+            "fecha": "1969-09-15",
+            "numero": "S00014276",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS LAPA, CESAR CARLOS",
+            "fecha": "2005-03-18",
+            "numero": "S00014279",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA HUAMAN, JORGE CARLOS",
+            "fecha": "2022-02-11",
+            "numero": "S00014287",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA HUAMAN, HUGO MARTHA",
+            "fecha": "1990-09-02",
+            "numero": "S00014288",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PALOMINO CCORAHUA, RAUL ANGEL",
+            "fecha": "1986-06-01",
+            "numero": "S00014308",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ MAMANI, MARTHA ROSA",
+            "fecha": "1984-01-09",
+            "numero": "S00014314",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS YUPANQUI, LUCIA IVAN",
+            "fecha": "1953-01-07",
+            "numero": "S00014324",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA RAMOS, IVAN MARTHA Y CASTRO CCORAHUA, CARMEN CARMEN",
+            "fecha": "2003-12-09",
+            "numero": "S00014331",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GUTIERREZ TAIPE, DAVID WILBER",
+            "fecha": "2024-01-30",
+            "numero": "S00014342",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA PALOMINO, DIEGO JUAN Y VILCA HUAYTA, JOSE NORMA",
+            "fecha": "1954-08-29",
+            "numero": "S00014349",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA VARGAS, LUCIA MARTHA Y HUAMAN VARGAS, SONIA DIEGO",
+            "fecha": "1956-05-14",
+            "numero": "S00014352",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN HUAYTA, FREDY VALERIA",
+            "fecha": "2008-11-01",
+            "numero": "S00014357",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAYTA HUAYTA, ROCIO VALERIA",
+            "fecha": "1967-05-24",
+            "numero": "S00014365",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA FLORES, VICTOR MIGUEL Y YUPANQUI SANCHEZ, CARLOS CESAR",
+            "fecha": "1963-05-09",
+            "numero": "S00014367",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA HUAMAN, VICTOR NANCY Y CHAVEZ HUAYTA, HUGO SAUL",
+            "fecha": "2024-01-11",
+            "numero": "S00014376",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA HUAYTA, SONIA IVAN",
+            "fecha": "1956-11-19",
+            "numero": "S00014377",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI PRADO, VICTOR CARLOS",
+            "fecha": "1996-02-16",
+            "numero": "S00014381",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI CONDORI, GLADYS JUAN Y HUAYTA CASTRO, PILAR CARLOS",
+            "fecha": "1958-12-01",
+            "numero": "S00014400",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA CHAVEZ, PILAR HUGO Y MENDOZA SULCARAY, MILAGROS NORMA",
+            "fecha": "1996-09-17",
+            "numero": "S00014409",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PALOMINO CASTRO, MIGUEL SANDRA",
+            "fecha": "1978-02-06",
+            "numero": "S00014411",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MALLQUI ALCA, ANGEL EDWIN Y ROJAS HUAMAN, MIGUEL HUGO",
+            "fecha": "1986-10-24",
+            "numero": "S00014418",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA CHAVEZ, MIGUEL JOSE Y MENDOZA VARGAS, ROSA ROSA",
+            "fecha": "1991-10-29",
+            "numero": "S00014424",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN LAPA, RAUL FREDY",
+            "fecha": "1967-12-10",
+            "numero": "S00014429",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CASTRO MAMANI, JUAN VICTOR",
+            "fecha": "1971-06-26",
+            "numero": "S00014435",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA CHAVEZ, VALERIA KATHERINE Y YUPANQUI ARONES, JORGE SONIA",
+            "fecha": "2007-09-30",
+            "numero": "S00014463",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MENDOZA GARRIAZO, DAVID ELENA Y LAPA CANCHARI, RAUL ELENA",
+            "fecha": "1999-07-20",
+            "numero": "S00014481",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA MALLQUI, LUIS DIEGO",
+            "fecha": "1998-08-14",
+            "numero": "S00014485",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA ALCA, ANGEL VALERIA",
+            "fecha": "2024-05-11",
+            "numero": "S00014486",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS PRADO, IVAN SAUL",
+            "fecha": "2015-06-06",
+            "numero": "S00014498",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "OCHOA HUAYTA, WILBER KATHERINE",
+            "fecha": "2006-06-01",
+            "numero": "S00014500",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ALCA CONDORI, JOSE FREDY",
+            "fecha": "2021-04-05",
+            "numero": "S00014504",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA FLORES, EDWIN IVAN",
+            "fecha": "1984-08-02",
+            "numero": "S00014506",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO RAMOS, GLADYS DIEGO",
+            "fecha": "1958-02-13",
+            "numero": "S00014507",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN CONDORI, ROSA IVAN",
+            "fecha": "1990-06-03",
+            "numero": "S00014516",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI MENDOZA, JUAN JUAN",
+            "fecha": "2005-09-11",
+            "numero": "S00014522",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA ROJAS, WILBER SAUL",
+            "fecha": "1961-03-18",
+            "numero": "S00014537",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS GARCIA, SANDRA IVAN",
+            "fecha": "1969-09-27",
+            "numero": "S00014549",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA ALCA, HUGO FIORELLA Y MALLQUI LAPA, MIGUEL SANDRA",
+            "fecha": "2017-08-05",
+            "numero": "S00014550",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ GUTIERREZ, FREDY ROSA",
+            "fecha": "2004-06-18",
+            "numero": "S00014560",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VILCA HUAYTA, RAUL DIEGO",
+            "fecha": "1971-01-10",
+            "numero": "S00014561",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PRADO FLORES, IVAN MARIA Y CCORAHUA GUTIERREZ, CARLOS NANCY",
+            "fecha": "1981-01-11",
+            "numero": "S00014562",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ TAIPE, MIGUEL SANDRA Y TORRES HUAMAN, MARTHA ROSA",
+            "fecha": "1962-10-26",
+            "numero": "S00014589",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHO MENDOZA, VALERIA DAVID",
+            "fecha": "1963-01-24",
+            "numero": "S00014600",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "TAIPE VILCA, SAUL MILAGROS",
+            "fecha": "1955-07-06",
+            "numero": "S00014612",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHO MAMANI, LUIS VICTOR",
+            "fecha": "2008-01-22",
+            "numero": "S00014633",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA PRADO, SAUL WILBER Y ARONES ALCA, NORMA CARMEN",
+            "fecha": "2004-10-17",
+            "numero": "S00014640",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA VILCA, HUGO JORGE Y SANCHEZ VILCA, NORMA SAUL",
+            "fecha": "2010-05-09",
+            "numero": "S00014646",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARRIAZO CANCHARI, ELENA LUIS",
+            "fecha": "2023-04-25",
+            "numero": "S00014666",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS ROJAS, SAUL SONIA",
+            "fecha": "1961-12-15",
+            "numero": "S00014678",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES PARIONA, FIORELLA JUAN",
+            "fecha": "1997-05-29",
+            "numero": "S00014680",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA RAMOS, LUIS VALERIA",
+            "fecha": "1956-01-13",
+            "numero": "S00014701",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARRIAZO GARCIA, WILBER DIEGO",
+            "fecha": "1967-12-13",
+            "numero": "S00014702",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "RAMOS GUTIERREZ, MIGUEL SAUL Y GARCIA PALOMINO, CESAR JORGE",
+            "fecha": "2025-07-12",
+            "numero": "S00014724",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "VILCA PRADO, KATHERINE PEDRO Y HUAYTA ARONES, CARMEN CARLOS",
+            "fecha": "2005-02-14",
+            "numero": "S00014745",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "BELITO CANCHO, GLADYS JORGE",
+            "fecha": "2013-11-29",
+            "numero": "S00014747",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CASTRO HUAMAN, DIEGO CESAR Y MAMANI PRADO, NANCY LUCIA",
+            "fecha": "2002-10-08",
+            "numero": "S00014763",
+            "nombre": "CASTRO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO ALCA, YOLANDA KATHERINE Y BELITO LAPA, WILBER VALERIA",
+            "fecha": "1963-04-24",
+            "numero": "S00014781",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA SULCARAY, ROCIO CESAR",
+            "fecha": "1994-01-01",
+            "numero": "S00014788",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA ALCA, RAUL CARLOS",
+            "fecha": "1994-05-16",
+            "numero": "S00014810",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "RAMOS HUAMAN, DAVID LUIS",
+            "fecha": "1955-04-25",
+            "numero": "S00014812",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA GUTIERREZ, DIEGO DIEGO",
+            "fecha": "1984-03-28",
+            "numero": "S00014834",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "OCHOA PRADO, NORMA NANCY Y VILCA TAIPE, ELENA HUGO",
+            "fecha": "1994-04-30",
+            "numero": "S00014838",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TORRES QUISPE, VALERIA LUCIA Y FLORES YUPANQUI, YOLANDA KATHERINE",
+            "fecha": "2024-07-27",
+            "numero": "S00014841",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TAIPE GARCIA, ANA SONIA Y GARCIA CANCHARI, ROCIO MARTHA",
+            "fecha": "2001-09-20",
+            "numero": "S00014844",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SANCHEZ CHAVEZ, LUIS NORMA",
+            "fecha": "1971-06-17",
+            "numero": "S00014869",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TORRES ROJAS, FIORELLA GLADYS",
+            "fecha": "1978-09-17",
+            "numero": "S00014875",
+            "nombre": "TORRES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHARI QUISPE, CARLOS ROCIO Y GARRIAZO CHAVEZ, MILAGROS WILBER",
+            "fecha": "1964-01-18",
+            "numero": "S00014880",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO TAIPE, JOSE RAUL Y TORRES CANCHARI, JORGE CARLOS",
+            "fecha": "2011-04-19",
+            "numero": "S00014883",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "LAPA LAPA, MILAGROS SONIA Y CONDORI CANCHARI, JUAN SAUL",
+            "fecha": "2012-09-24",
+            "numero": "S00014889",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MENDOZA SANCHEZ, FIORELLA FREDY",
+            "fecha": "1992-10-25",
+            "numero": "S00014905",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA MALLQUI, JORGE ROSA",
+            "fecha": "1986-01-01",
+            "numero": "S00014914",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA ROJAS, ROCIO ANA",
+            "fecha": "1970-11-09",
+            "numero": "S00014944",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PALOMINO PALOMINO, ROSA ELENA Y MENDOZA CANCHO, RAUL SONIA",
+            "fecha": "1979-03-12",
+            "numero": "S00014958",
+            "nombre": "PALOMINO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA QUISPE, ANGEL YOLANDA",
+            "fecha": "2024-04-15",
+            "numero": "S00014963",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CONDORI GARCIA, YOLANDA LUIS",
+            "fecha": "1954-11-27",
+            "numero": "S00014966",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SULCARAY LAPA, SONIA FIORELLA",
+            "fecha": "2009-12-12",
+            "numero": "S00015010",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GUTIERREZ CANCHARI, FIORELLA CARLOS",
+            "fecha": "2012-07-06",
+            "numero": "S00015022",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ALCA MALLQUI, NORMA ANA",
+            "fecha": "1956-06-23",
+            "numero": "S00015034",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "VARGAS MAMANI, HUGO JORGE",
+            "fecha": "1961-11-02",
+            "numero": "S00015071",
+            "nombre": "VARGAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE CANCHARI, SANDRA YOLANDA",
+            "fecha": "1953-07-14",
+            "numero": "S00015073",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SANCHEZ GUTIERREZ, IVAN JOSE Y HUAYTA GARRIAZO, RAUL DIEGO",
+            "fecha": "1952-07-04",
+            "numero": "S00015075",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "MAMANI OCHOA, JOSE NORMA",
+            "fecha": "2001-11-12",
+            "numero": "S00015085",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ROJAS CCORAHUA, MARTHA DAVID",
+            "fecha": "2020-06-19",
+            "numero": "S00015088",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI FLORES, CESAR MARTHA",
+            "fecha": "1958-03-07",
+            "numero": "S00015095",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI VILCA, NANCY KATHERINE",
+            "fecha": "1997-04-23",
+            "numero": "S00015100",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA CASTRO, NORMA JORGE",
+            "fecha": "1954-03-26",
+            "numero": "S00015104",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GUTIERREZ ROJAS, CARMEN SANDRA Y PARIONA PARIONA, WILBER CARMEN",
+            "fecha": "1956-09-21",
+            "numero": "S00015105",
+            "nombre": "GUTIERREZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAMAN CHAVEZ, ANA SONIA",
+            "fecha": "2005-11-09",
+            "numero": "S00015151",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAMAN TORRES, KATHERINE YOLANDA",
+            "fecha": "1959-07-10",
+            "numero": "S00015152",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN MENDOZA, MARIA CESAR Y ALCA TAIPE, YOLANDA CESAR",
+            "fecha": "1970-09-27",
+            "numero": "S00015156",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "TAIPE ROJAS, PILAR KATHERINE",
+            "fecha": "1989-02-24",
+            "numero": "S00015169",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO GARCIA, VICTOR FREDY",
+            "fecha": "2005-12-09",
+            "numero": "S00015173",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CANCHARI CASTRO, NORMA HUGO",
+            "fecha": "1956-07-18",
+            "numero": "S00015178",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI HUAYTA, ROCIO YOLANDA Y QUISPE SULCARAY, EDWIN ELENA",
+            "fecha": "1994-02-04",
+            "numero": "S00015189",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CCORAHUA ROJAS, SAUL JORGE",
+            "fecha": "1971-08-14",
+            "numero": "S00015209",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "ROJAS TORRES, ROCIO ROSA",
+            "fecha": "1997-11-24",
+            "numero": "S00015215",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "SULCARAY CHAVEZ, EDWIN NANCY Y PALOMINO OCHOA, VICTOR YOLANDA",
+            "fecha": "1990-06-04",
+            "numero": "S00015216",
+            "nombre": "SULCARAY"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI YUPANQUI, LUIS SAUL Y RAMOS VILCA, CARLOS JOSE",
+            "fecha": "1960-07-23",
+            "numero": "S00015222",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS CCORAHUA, DAVID EDWIN Y GUTIERREZ CANCHO, VALERIA PILAR",
+            "fecha": "1982-10-17",
+            "numero": "S00015240",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ARONES CCORAHUA, GLADYS SANDRA Y GARRIAZO YUPANQUI, ELENA VALERIA",
+            "fecha": "2025-08-14",
+            "numero": "S00015255",
+            "nombre": "ARONES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS SANCHEZ, ANA JORGE",
+            "fecha": "2006-01-08",
+            "numero": "S00015257",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARCIA YUPANQUI, ANA LUCIA",
+            "fecha": "1970-10-10",
+            "numero": "S00015262",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ MAMANI, SONIA SAUL",
+            "fecha": "1984-04-15",
+            "numero": "S00015265",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ALCA VILCA, CARMEN MARTHA Y PALOMINO FLORES, JORGE EDWIN",
+            "fecha": "1994-11-27",
+            "numero": "S00015270",
+            "nombre": "ALCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "BELITO FLORES, LUIS MARIA",
+            "fecha": "2004-01-10",
+            "numero": "S00015271",
+            "nombre": "BELITO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "OCHOA QUISPE, ROSA MILAGROS Y MALLQUI VARGAS, ROSA LUCIA",
+            "fecha": "2004-05-24",
+            "numero": "S00015276",
+            "nombre": "OCHOA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ PRADO, JOSE JUAN",
+            "fecha": "1981-07-10",
+            "numero": "S00015278",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "ROJAS FLORES, DAVID FREDY",
+            "fecha": "2018-07-16",
+            "numero": "S00015280",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA ARONES, EDWIN CARLOS Y YUPANQUI PARIONA, SONIA SAUL",
+            "fecha": "1954-04-14",
+            "numero": "S00015288",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI MAMANI, FREDY ROCIO",
+            "fecha": "2014-06-15",
+            "numero": "S00015295",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CHAVEZ PARIONA, JORGE DIEGO",
+            "fecha": "1951-01-07",
+            "numero": "S00015299",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA ALCA, EDWIN ANA Y CANCHO BELITO, NORMA MILAGROS",
+            "fecha": "1967-07-30",
+            "numero": "S00015300",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ YUPANQUI, KATHERINE NORMA Y GUTIERREZ YUPANQUI, PEDRO JOSE",
+            "fecha": "1957-03-04",
+            "numero": "S00015306",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "VILCA CANCHARI, DAVID RAUL",
+            "fecha": "1952-07-22",
+            "numero": "S00015307",
+            "nombre": "VILCA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI YUPANQUI, DAVID WILBER",
+            "fecha": "1951-10-25",
+            "numero": "S00015313",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "TAIPE YUPANQUI, ELENA MARTHA Y BELITO VARGAS, DIEGO YOLANDA",
+            "fecha": "1968-02-04",
+            "numero": "S00015315",
+            "nombre": "TAIPE"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA RAMOS, MARTHA NORMA",
+            "fecha": "2019-04-10",
+            "numero": "S00015329",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "RAMOS CONDORI, JOSE KATHERINE",
+            "fecha": "1973-03-16",
+            "numero": "S00015352",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA CCORAHUA, DIEGO PILAR",
+            "fecha": "1968-06-03",
+            "numero": "S00015356",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "YUPANQUI VILCA, EDWIN RAUL Y MAMANI CCORAHUA, WILBER SONIA",
+            "fecha": "1965-02-27",
+            "numero": "S00015363",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CCORAHUA RAMOS, SANDRA SAUL Y TAIPE GARRIAZO, ROSA IVAN",
+            "fecha": "1998-06-03",
+            "numero": "S00015366",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAMAN OCHOA, EDWIN NANCY",
+            "fecha": "1964-11-08",
+            "numero": "S00015370",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA CHAVEZ, WILBER LUCIA",
+            "fecha": "1997-10-07",
+            "numero": "S00015371",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "GARCIA BELITO, LUIS WILBER",
+            "fecha": "1995-06-01",
+            "numero": "S00015380",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "ROJAS GARRIAZO, YOLANDA SONIA Y CONDORI OCHOA, MARTHA EDWIN",
+            "fecha": "1964-06-01",
+            "numero": "S00015381",
+            "nombre": "ROJAS"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CHAVEZ CCORAHUA, PEDRO MILAGROS",
+            "fecha": "1963-12-30",
+            "numero": "S00015406",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PRADO SULCARAY, KATHERINE EDWIN",
+            "fecha": "1966-04-19",
+            "numero": "S00015407",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "HUAMAN BELITO, VALERIA LUIS",
+            "fecha": "2007-02-13",
+            "numero": "S00015412",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MALLQUI YUPANQUI, ROCIO RAUL",
+            "fecha": "1987-05-16",
+            "numero": "S00015425",
+            "nombre": "MALLQUI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAMAN MAMANI, IVAN PILAR Y CANCHO MALLQUI, VICTOR YOLANDA",
+            "fecha": "2000-03-19",
+            "numero": "S00015426",
+            "nombre": "HUAMAN"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI MAMANI, KATHERINE CARLOS Y RAMOS MALLQUI, LUIS IVAN",
+            "fecha": "1958-10-20",
+            "numero": "S00015438",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CONDORI MENDOZA, JORGE ANGEL Y HUAYTA GARRIAZO, ELENA ROSA",
+            "fecha": "1992-06-21",
+            "numero": "S00015444",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "CANCHARI PARIONA, YOLANDA CARMEN",
+            "fecha": "1984-10-15",
+            "numero": "S00015449",
+            "nombre": "CANCHARI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "HUAYTA PALOMINO, ROCIO IVAN",
+            "fecha": "1975-11-02",
+            "numero": "S00015452",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "RAMOS MAMANI, MILAGROS JORGE Y YUPANQUI CONDORI, ROSA FIORELLA",
+            "fecha": "1994-10-09",
+            "numero": "S00015453",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "YUPANQUI GARRIAZO, SAUL MARIA",
+            "fecha": "1993-03-19",
+            "numero": "S00015461",
+            "nombre": "YUPANQUI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "SANCHEZ CASTRO, ROCIO CESAR",
+            "fecha": "2001-02-23",
+            "numero": "S00015475",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CANCHO SULCARAY, GLADYS FREDY Y TAIPE PRADO, ANA MIGUEL",
+            "fecha": "1982-03-07",
+            "numero": "S00015483",
+            "nombre": "CANCHO"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES TAIPE, JORGE MIGUEL",
+            "fecha": "1959-01-17",
+            "numero": "S00015488",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "FLORES ALCA, IVAN DIEGO",
+            "fecha": "2017-11-14",
+            "numero": "S00015494",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "LAPA ROJAS, FREDY SAUL",
+            "fecha": "1959-08-29",
+            "numero": "S00015503",
+            "nombre": "LAPA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "SANCHEZ ROJAS, RAUL MARIA",
+            "fecha": "1968-07-26",
+            "numero": "S00015506",
+            "nombre": "SANCHEZ"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "CHAVEZ HUAYTA, IVAN JUAN Y GARCIA CHAVEZ, NORMA NORMA",
+            "fecha": "1966-06-01",
+            "numero": "S00015534",
+            "nombre": "CHAVEZ"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "FLORES OCHOA, SONIA FIORELLA",
+            "fecha": "2002-07-29",
+            "numero": "S00015556",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "FLORES PALOMINO, CESAR NORMA Y TORRES CCORAHUA, CARMEN SANDRA",
+            "fecha": "1968-02-11",
+            "numero": "S00015570",
+            "nombre": "FLORES"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "MENDOZA MALLQUI, CARMEN CARMEN",
+            "fecha": "2017-09-12",
+            "numero": "S00015593",
+            "nombre": "MENDOZA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PARIONA MALLQUI, MARTHA JUAN",
+            "fecha": "1956-08-08",
+            "numero": "S00015637",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "HUAYTA MALLQUI, NORMA YOLANDA Y HUAMAN CCORAHUA, LUCIA JUAN",
+            "fecha": "1991-06-13",
+            "numero": "S00015648",
+            "nombre": "HUAYTA"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CONDORI VILCA, JORGE VICTOR",
+            "fecha": "1978-09-13",
+            "numero": "S00015652",
+            "nombre": "CONDORI"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "PRADO PRADO, ELENA PILAR",
+            "fecha": "1969-03-13",
+            "numero": "S00015658",
+            "nombre": "PRADO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "CCORAHUA HUAMAN, CARMEN IVAN",
+            "fecha": "2017-09-22",
+            "numero": "S00015661",
+            "nombre": "CCORAHUA"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "PARIONA CCORAHUA, IVAN GLADYS",
+            "fecha": "1975-04-29",
+            "numero": "S00015662",
+            "nombre": "PARIONA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARCIA YUPANQUI, LUCIA LUIS Y GARRIAZO ALCA, CARMEN VALERIA",
+            "fecha": "2003-02-02",
+            "numero": "S00015672",
+            "nombre": "GARCIA"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "GARRIAZO CANCHARI, JUAN ANA Y VARGAS SANCHEZ, MARIA CESAR",
+            "fecha": "1999-01-06",
+            "numero": "S00015678",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "QUISPE PRADO, PEDRO YOLANDA",
+            "fecha": "2008-10-15",
+            "numero": "S00015682",
+            "nombre": "QUISPE"
+        },
+        {
+            "tipo": "DEFUNCION",
+            "titular": "GARRIAZO QUISPE, HUGO PILAR",
+            "fecha": "1973-09-11",
+            "numero": "S00015688",
+            "nombre": "GARRIAZO"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "MAMANI ARONES, FREDY CESAR Y MAMANI CHAVEZ, ANA ANGEL",
+            "fecha": "1981-06-30",
+            "numero": "S00015693",
+            "nombre": "MAMANI"
+        },
+        {
+            "tipo": "NACIMIENTO",
+            "titular": "RAMOS ARONES, EDWIN CARLOS",
+            "fecha": "1964-06-30",
+            "numero": "S00015698",
+            "nombre": "RAMOS"
+        },
+        {
+            "tipo": "MATRIMONIO",
+            "titular": "PARIONA VARGAS, DAVID RAUL Y CONDORI RAMOS, VALERIA HUGO",
+            "fecha": "1977-12-30",
+            "numero": "S00015708",
+            "nombre": "PARIONA"
+        }
+    ],
+    "seguimiento": [
+        {
+            "dni": "74065895",
+            "email": "carga0@example.test"
+        },
+        {
+            "dni": "48634428",
+            "email": "carga1@example.test"
+        },
+        {
+            "dni": "69315940",
+            "email": "carga2@example.test"
+        },
+        {
+            "dni": "36518464",
+            "email": "carga3@example.test"
+        },
+        {
+            "dni": "25244790",
+            "email": "carga4@example.test"
+        },
+        {
+            "dni": "36877407",
+            "email": "carga5@example.test"
+        },
+        {
+            "dni": "14152743",
+            "email": "carga6@example.test"
+        },
+        {
+            "dni": "73569640",
+            "email": "carga7@example.test"
+        },
+        {
+            "dni": "15681365",
+            "email": "carga8@example.test"
+        },
+        {
+            "dni": "43421939",
+            "email": "carga9@example.test"
+        },
+        {
+            "dni": "20788009",
+            "email": "carga10@example.test"
+        },
+        {
+            "dni": "17286785",
+            "email": "carga11@example.test"
+        },
+        {
+            "dni": "65865863",
+            "email": "carga12@example.test"
+        },
+        {
+            "dni": "59831276",
+            "email": "carga13@example.test"
+        },
+        {
+            "dni": "20753331",
+            "email": "carga14@example.test"
+        },
+        {
+            "dni": "54264076",
+            "email": "carga15@example.test"
+        },
+        {
+            "dni": "26890426",
+            "email": "carga16@example.test"
+        },
+        {
+            "dni": "12254188",
+            "email": "carga17@example.test"
+        },
+        {
+            "dni": "79616669",
+            "email": "carga18@example.test"
+        },
+        {
+            "dni": "40831115",
+            "email": "carga19@example.test"
+        },
+        {
+            "dni": "35748714",
+            "email": "carga20@example.test"
+        },
+        {
+            "dni": "26578661",
+            "email": "carga21@example.test"
+        },
+        {
+            "dni": "35246590",
+            "email": "carga22@example.test"
+        },
+        {
+            "dni": "66601314",
+            "email": "carga23@example.test"
+        },
+        {
+            "dni": "25102546",
+            "email": "carga24@example.test"
+        },
+        {
+            "dni": "15864591",
+            "email": "carga25@example.test"
+        },
+        {
+            "dni": "24930787",
+            "email": "carga26@example.test"
+        },
+        {
+            "dni": "52863654",
+            "email": "carga27@example.test"
+        },
+        {
+            "dni": "15626477",
+            "email": "carga28@example.test"
+        },
+        {
+            "dni": "53487718",
+            "email": "carga29@example.test"
+        },
+        {
+            "dni": "63369776",
+            "email": "carga30@example.test"
+        },
+        {
+            "dni": "57426173",
+            "email": "carga31@example.test"
+        },
+        {
+            "dni": "73832817",
+            "email": "carga32@example.test"
+        },
+        {
+            "dni": "15800533",
+            "email": "carga33@example.test"
+        },
+        {
+            "dni": "77259780",
+            "email": "carga34@example.test"
+        },
+        {
+            "dni": "25763328",
+            "email": "carga35@example.test"
+        },
+        {
+            "dni": "68445380",
+            "email": "carga36@example.test"
+        },
+        {
+            "dni": "56416000",
+            "email": "carga37@example.test"
+        },
+        {
+            "dni": "68649454",
+            "email": "carga38@example.test"
+        },
+        {
+            "dni": "17609842",
+            "email": "carga39@example.test"
+        },
+        {
+            "dni": "18411245",
+            "email": "carga40@example.test"
+        },
+        {
+            "dni": "57237822",
+            "email": "carga41@example.test"
+        },
+        {
+            "dni": "60827954",
+            "email": "carga42@example.test"
+        },
+        {
+            "dni": "65449720",
+            "email": "carga43@example.test"
+        },
+        {
+            "dni": "50018296",
+            "email": "carga44@example.test"
+        },
+        {
+            "dni": "55261106",
+            "email": "carga45@example.test"
+        },
+        {
+            "dni": "33372268",
+            "email": "carga46@example.test"
+        },
+        {
+            "dni": "62402990",
+            "email": "carga47@example.test"
+        },
+        {
+            "dni": "62060812",
+            "email": "carga48@example.test"
+        },
+        {
+            "dni": "79568874",
+            "email": "carga49@example.test"
+        },
+        {
+            "dni": "12613086",
+            "email": "carga50@example.test"
+        },
+        {
+            "dni": "76796078",
+            "email": "carga51@example.test"
+        },
+        {
+            "dni": "28719306",
+            "email": "carga52@example.test"
+        },
+        {
+            "dni": "72509180",
+            "email": "carga53@example.test"
+        },
+        {
+            "dni": "15517498",
+            "email": "carga54@example.test"
+        },
+        {
+            "dni": "76742650",
+            "email": "carga55@example.test"
+        },
+        {
+            "dni": "48936307",
+            "email": "carga56@example.test"
+        },
+        {
+            "dni": "23864264",
+            "email": "carga57@example.test"
+        },
+        {
+            "dni": "31971320",
+            "email": "carga58@example.test"
+        },
+        {
+            "dni": "28899217",
+            "email": "carga59@example.test"
+        },
+        {
+            "dni": "48317717",
+            "email": "carga60@example.test"
+        },
+        {
+            "dni": "46632595",
+            "email": "carga61@example.test"
+        },
+        {
+            "dni": "66034510",
+            "email": "carga62@example.test"
+        },
+        {
+            "dni": "53642664",
+            "email": "carga63@example.test"
+        },
+        {
+            "dni": "20767724",
+            "email": "carga64@example.test"
+        },
+        {
+            "dni": "19861635",
+            "email": "carga65@example.test"
+        },
+        {
+            "dni": "33301556",
+            "email": "carga66@example.test"
+        },
+        {
+            "dni": "40096093",
+            "email": "carga67@example.test"
+        },
+        {
+            "dni": "43559877",
+            "email": "carga68@example.test"
+        },
+        {
+            "dni": "78886011",
+            "email": "carga69@example.test"
+        },
+        {
+            "dni": "60090294",
+            "email": "carga70@example.test"
+        },
+        {
+            "dni": "71605463",
+            "email": "carga71@example.test"
+        },
+        {
+            "dni": "18872038",
+            "email": "carga72@example.test"
+        },
+        {
+            "dni": "71498852",
+            "email": "carga73@example.test"
+        },
+        {
+            "dni": "52131680",
+            "email": "carga74@example.test"
+        },
+        {
+            "dni": "23958986",
+            "email": "carga75@example.test"
+        },
+        {
+            "dni": "47599342",
+            "email": "carga76@example.test"
+        },
+        {
+            "dni": "20576363",
+            "email": "carga77@example.test"
+        },
+        {
+            "dni": "76886774",
+            "email": "carga78@example.test"
+        },
+        {
+            "dni": "30068635",
+            "email": "carga79@example.test"
+        },
+        {
+            "dni": "39206757",
+            "email": "carga80@example.test"
+        },
+        {
+            "dni": "14045502",
+            "email": "carga81@example.test"
+        },
+        {
+            "dni": "18984930",
+            "email": "carga82@example.test"
+        },
+        {
+            "dni": "75692679",
+            "email": "carga83@example.test"
+        },
+        {
+            "dni": "10825700",
+            "email": "carga84@example.test"
+        },
+        {
+            "dni": "38464665",
+            "email": "carga85@example.test"
+        },
+        {
+            "dni": "78101815",
+            "email": "carga86@example.test"
+        },
+        {
+            "dni": "66683335",
+            "email": "carga87@example.test"
+        },
+        {
+            "dni": "69174610",
+            "email": "carga88@example.test"
+        },
+        {
+            "dni": "53547531",
+            "email": "carga89@example.test"
+        },
+        {
+            "dni": "25884432",
+            "email": "carga90@example.test"
+        },
+        {
+            "dni": "44683549",
+            "email": "carga91@example.test"
+        },
+        {
+            "dni": "17615521",
+            "email": "carga92@example.test"
+        },
+        {
+            "dni": "72955905",
+            "email": "carga93@example.test"
+        },
+        {
+            "dni": "57169995",
+            "email": "carga94@example.test"
+        },
+        {
+            "dni": "11951511",
+            "email": "carga95@example.test"
+        },
+        {
+            "dni": "34899865",
+            "email": "carga96@example.test"
+        },
+        {
+            "dni": "75914245",
+            "email": "carga97@example.test"
+        },
+        {
+            "dni": "17600268",
+            "email": "carga98@example.test"
+        },
+        {
+            "dni": "13037628",
+            "email": "carga99@example.test"
+        },
+        {
+            "dni": "72246385",
+            "email": "carga100@example.test"
+        },
+        {
+            "dni": "38222803",
+            "email": "carga101@example.test"
+        },
+        {
+            "dni": "67952829",
+            "email": "carga102@example.test"
+        },
+        {
+            "dni": "27375904",
+            "email": "carga103@example.test"
+        },
+        {
+            "dni": "30711747",
+            "email": "carga104@example.test"
+        },
+        {
+            "dni": "13329494",
+            "email": "carga105@example.test"
+        },
+        {
+            "dni": "69019553",
+            "email": "carga106@example.test"
+        },
+        {
+            "dni": "69851804",
+            "email": "carga107@example.test"
+        },
+        {
+            "dni": "54147959",
+            "email": "carga108@example.test"
+        },
+        {
+            "dni": "68725965",
+            "email": "carga109@example.test"
+        },
+        {
+            "dni": "10292638",
+            "email": "carga110@example.test"
+        },
+        {
+            "dni": "52620881",
+            "email": "carga111@example.test"
+        },
+        {
+            "dni": "18667748",
+            "email": "carga112@example.test"
+        },
+        {
+            "dni": "13359605",
+            "email": "carga113@example.test"
+        },
+        {
+            "dni": "10478382",
+            "email": "carga114@example.test"
+        },
+        {
+            "dni": "66373540",
+            "email": "carga115@example.test"
+        },
+        {
+            "dni": "25547959",
+            "email": "carga116@example.test"
+        },
+        {
+            "dni": "18293570",
+            "email": "carga117@example.test"
+        },
+        {
+            "dni": "24359862",
+            "email": "carga118@example.test"
+        },
+        {
+            "dni": "10685464",
+            "email": "carga119@example.test"
+        },
+        {
+            "dni": "34358915",
+            "email": "carga120@example.test"
+        },
+        {
+            "dni": "60001510",
+            "email": "carga121@example.test"
+        },
+        {
+            "dni": "56536083",
+            "email": "carga122@example.test"
+        },
+        {
+            "dni": "55190502",
+            "email": "carga123@example.test"
+        },
+        {
+            "dni": "25251365",
+            "email": "carga124@example.test"
+        },
+        {
+            "dni": "40995218",
+            "email": "carga125@example.test"
+        },
+        {
+            "dni": "48486401",
+            "email": "carga126@example.test"
+        },
+        {
+            "dni": "54550674",
+            "email": "carga127@example.test"
+        },
+        {
+            "dni": "30761295",
+            "email": "carga128@example.test"
+        },
+        {
+            "dni": "29928940",
+            "email": "carga129@example.test"
+        },
+        {
+            "dni": "53572443",
+            "email": "carga130@example.test"
+        },
+        {
+            "dni": "36658857",
+            "email": "carga131@example.test"
+        },
+        {
+            "dni": "37530696",
+            "email": "carga132@example.test"
+        },
+        {
+            "dni": "55877380",
+            "email": "carga133@example.test"
+        },
+        {
+            "dni": "18430771",
+            "email": "carga134@example.test"
+        },
+        {
+            "dni": "50778415",
+            "email": "carga135@example.test"
+        },
+        {
+            "dni": "34781100",
+            "email": "carga136@example.test"
+        },
+        {
+            "dni": "11943296",
+            "email": "carga137@example.test"
+        },
+        {
+            "dni": "68450097",
+            "email": "carga138@example.test"
+        },
+        {
+            "dni": "28427216",
+            "email": "carga139@example.test"
+        },
+        {
+            "dni": "58085566",
+            "email": "carga140@example.test"
+        },
+        {
+            "dni": "61195026",
+            "email": "carga141@example.test"
+        },
+        {
+            "dni": "71164356",
+            "email": "carga142@example.test"
+        },
+        {
+            "dni": "17198577",
+            "email": "carga143@example.test"
+        },
+        {
+            "dni": "50513013",
+            "email": "carga144@example.test"
+        },
+        {
+            "dni": "62532387",
+            "email": "carga145@example.test"
+        },
+        {
+            "dni": "72422442",
+            "email": "carga146@example.test"
+        },
+        {
+            "dni": "50929712",
+            "email": "carga147@example.test"
+        },
+        {
+            "dni": "25952626",
+            "email": "carga148@example.test"
+        },
+        {
+            "dni": "18904048",
+            "email": "carga149@example.test"
+        },
+        {
+            "dni": "38811835",
+            "email": "carga150@example.test"
+        },
+        {
+            "dni": "72676055",
+            "email": "carga151@example.test"
+        },
+        {
+            "dni": "57104938",
+            "email": "carga152@example.test"
+        },
+        {
+            "dni": "16862106",
+            "email": "carga153@example.test"
+        },
+        {
+            "dni": "39100800",
+            "email": "carga154@example.test"
+        },
+        {
+            "dni": "64425014",
+            "email": "carga155@example.test"
+        },
+        {
+            "dni": "19353103",
+            "email": "carga156@example.test"
+        },
+        {
+            "dni": "63373348",
+            "email": "carga157@example.test"
+        },
+        {
+            "dni": "54101647",
+            "email": "carga158@example.test"
+        },
+        {
+            "dni": "64886318",
+            "email": "carga159@example.test"
+        },
+        {
+            "dni": "74973228",
+            "email": "carga160@example.test"
+        },
+        {
+            "dni": "69288737",
+            "email": "carga161@example.test"
+        },
+        {
+            "dni": "71991439",
+            "email": "carga162@example.test"
+        },
+        {
+            "dni": "21092196",
+            "email": "carga163@example.test"
+        },
+        {
+            "dni": "56468702",
+            "email": "carga164@example.test"
+        },
+        {
+            "dni": "33419354",
+            "email": "carga165@example.test"
+        },
+        {
+            "dni": "40043187",
+            "email": "carga166@example.test"
+        },
+        {
+            "dni": "51287947",
+            "email": "carga167@example.test"
+        },
+        {
+            "dni": "34157927",
+            "email": "carga168@example.test"
+        },
+        {
+            "dni": "48080626",
+            "email": "carga169@example.test"
+        },
+        {
+            "dni": "23338497",
+            "email": "carga170@example.test"
+        },
+        {
+            "dni": "26358306",
+            "email": "carga171@example.test"
+        },
+        {
+            "dni": "39629265",
+            "email": "carga172@example.test"
+        },
+        {
+            "dni": "75624715",
+            "email": "carga173@example.test"
+        },
+        {
+            "dni": "77026392",
+            "email": "carga174@example.test"
+        },
+        {
+            "dni": "35455491",
+            "email": "carga175@example.test"
+        },
+        {
+            "dni": "73109885",
+            "email": "carga176@example.test"
+        },
+        {
+            "dni": "56057743",
+            "email": "carga177@example.test"
+        },
+        {
+            "dni": "26540385",
+            "email": "carga178@example.test"
+        },
+        {
+            "dni": "64119201",
+            "email": "carga179@example.test"
+        },
+        {
+            "dni": "29719318",
+            "email": "carga180@example.test"
+        },
+        {
+            "dni": "43435282",
+            "email": "carga181@example.test"
+        },
+        {
+            "dni": "43713698",
+            "email": "carga182@example.test"
+        },
+        {
+            "dni": "68672020",
+            "email": "carga183@example.test"
+        },
+        {
+            "dni": "36650454",
+            "email": "carga184@example.test"
+        },
+        {
+            "dni": "66536381",
+            "email": "carga185@example.test"
+        },
+        {
+            "dni": "36665956",
+            "email": "carga186@example.test"
+        },
+        {
+            "dni": "76951184",
+            "email": "carga187@example.test"
+        },
+        {
+            "dni": "60134544",
+            "email": "carga188@example.test"
+        },
+        {
+            "dni": "33404932",
+            "email": "carga189@example.test"
+        },
+        {
+            "dni": "41918201",
+            "email": "carga190@example.test"
+        },
+        {
+            "dni": "41032238",
+            "email": "carga191@example.test"
+        },
+        {
+            "dni": "15669593",
+            "email": "carga192@example.test"
+        },
+        {
+            "dni": "45955150",
+            "email": "carga193@example.test"
+        },
+        {
+            "dni": "34064218",
+            "email": "carga194@example.test"
+        },
+        {
+            "dni": "72236820",
+            "email": "carga195@example.test"
+        },
+        {
+            "dni": "16600786",
+            "email": "carga196@example.test"
+        },
+        {
+            "dni": "36430573",
+            "email": "carga197@example.test"
+        },
+        {
+            "dni": "53428021",
+            "email": "carga198@example.test"
+        },
+        {
+            "dni": "19271410",
+            "email": "carga199@example.test"
+        },
+        {
+            "dni": "38790515",
+            "email": "carga200@example.test"
+        },
+        {
+            "dni": "24414850",
+            "email": "carga201@example.test"
+        },
+        {
+            "dni": "77495407",
+            "email": "carga202@example.test"
+        },
+        {
+            "dni": "40708740",
+            "email": "carga203@example.test"
+        },
+        {
+            "dni": "40775925",
+            "email": "carga204@example.test"
+        },
+        {
+            "dni": "51459040",
+            "email": "carga205@example.test"
+        },
+        {
+            "dni": "63710321",
+            "email": "carga206@example.test"
+        },
+        {
+            "dni": "14054061",
+            "email": "carga207@example.test"
+        },
+        {
+            "dni": "78666977",
+            "email": "carga208@example.test"
+        },
+        {
+            "dni": "44733395",
+            "email": "carga209@example.test"
+        },
+        {
+            "dni": "56553090",
+            "email": "carga210@example.test"
+        },
+        {
+            "dni": "74115545",
+            "email": "carga211@example.test"
+        },
+        {
+            "dni": "52432671",
+            "email": "carga212@example.test"
+        },
+        {
+            "dni": "55264150",
+            "email": "carga213@example.test"
+        },
+        {
+            "dni": "51794402",
+            "email": "carga214@example.test"
+        },
+        {
+            "dni": "28221825",
+            "email": "carga215@example.test"
+        },
+        {
+            "dni": "68982339",
+            "email": "carga216@example.test"
+        },
+        {
+            "dni": "13784051",
+            "email": "carga217@example.test"
+        },
+        {
+            "dni": "57816771",
+            "email": "carga218@example.test"
+        },
+        {
+            "dni": "21224476",
+            "email": "carga219@example.test"
+        },
+        {
+            "dni": "19082278",
+            "email": "carga220@example.test"
+        },
+        {
+            "dni": "46594631",
+            "email": "carga221@example.test"
+        },
+        {
+            "dni": "32129588",
+            "email": "carga222@example.test"
+        },
+        {
+            "dni": "64825702",
+            "email": "carga223@example.test"
+        },
+        {
+            "dni": "59557580",
+            "email": "carga224@example.test"
+        },
+        {
+            "dni": "42556883",
+            "email": "carga225@example.test"
+        },
+        {
+            "dni": "73146918",
+            "email": "carga226@example.test"
+        },
+        {
+            "dni": "23893862",
+            "email": "carga227@example.test"
+        },
+        {
+            "dni": "51403182",
+            "email": "carga228@example.test"
+        },
+        {
+            "dni": "37846143",
+            "email": "carga229@example.test"
+        },
+        {
+            "dni": "53307890",
+            "email": "carga230@example.test"
+        },
+        {
+            "dni": "51297056",
+            "email": "carga231@example.test"
+        },
+        {
+            "dni": "35737511",
+            "email": "carga232@example.test"
+        },
+        {
+            "dni": "57859325",
+            "email": "carga233@example.test"
+        },
+        {
+            "dni": "38047746",
+            "email": "carga234@example.test"
+        },
+        {
+            "dni": "24996201",
+            "email": "carga235@example.test"
+        },
+        {
+            "dni": "39122212",
+            "email": "carga236@example.test"
+        },
+        {
+            "dni": "37565446",
+            "email": "carga237@example.test"
+        },
+        {
+            "dni": "54610484",
+            "email": "carga238@example.test"
+        },
+        {
+            "dni": "40241751",
+            "email": "carga239@example.test"
+        },
+        {
+            "dni": "46838273",
+            "email": "carga240@example.test"
+        },
+        {
+            "dni": "56841242",
+            "email": "carga241@example.test"
+        },
+        {
+            "dni": "74282378",
+            "email": "carga242@example.test"
+        },
+        {
+            "dni": "67434634",
+            "email": "carga243@example.test"
+        },
+        {
+            "dni": "49580677",
+            "email": "carga244@example.test"
+        },
+        {
+            "dni": "37509583",
+            "email": "carga245@example.test"
+        },
+        {
+            "dni": "37745129",
+            "email": "carga246@example.test"
+        },
+        {
+            "dni": "73195865",
+            "email": "carga247@example.test"
+        },
+        {
+            "dni": "23430171",
+            "email": "carga248@example.test"
+        },
+        {
+            "dni": "73505881",
+            "email": "carga249@example.test"
+        },
+        {
+            "dni": "32929414",
+            "email": "carga250@example.test"
+        },
+        {
+            "dni": "56649623",
+            "email": "carga251@example.test"
+        },
+        {
+            "dni": "67514907",
+            "email": "carga252@example.test"
+        },
+        {
+            "dni": "66167267",
+            "email": "carga253@example.test"
+        },
+        {
+            "dni": "54897075",
+            "email": "carga254@example.test"
+        },
+        {
+            "dni": "54711701",
+            "email": "carga255@example.test"
+        },
+        {
+            "dni": "72427293",
+            "email": "carga256@example.test"
+        },
+        {
+            "dni": "38275153",
+            "email": "carga257@example.test"
+        },
+        {
+            "dni": "79323504",
+            "email": "carga258@example.test"
+        },
+        {
+            "dni": "14256480",
+            "email": "carga259@example.test"
+        },
+        {
+            "dni": "60706011",
+            "email": "carga260@example.test"
+        },
+        {
+            "dni": "40584431",
+            "email": "carga261@example.test"
+        },
+        {
+            "dni": "44086958",
+            "email": "carga262@example.test"
+        },
+        {
+            "dni": "51129539",
+            "email": "carga263@example.test"
+        },
+        {
+            "dni": "37970242",
+            "email": "carga264@example.test"
+        },
+        {
+            "dni": "57906190",
+            "email": "carga265@example.test"
+        },
+        {
+            "dni": "39556873",
+            "email": "carga266@example.test"
+        },
+        {
+            "dni": "71651759",
+            "email": "carga267@example.test"
+        },
+        {
+            "dni": "72579081",
+            "email": "carga268@example.test"
+        },
+        {
+            "dni": "15545401",
+            "email": "carga269@example.test"
+        },
+        {
+            "dni": "70266889",
+            "email": "carga270@example.test"
+        },
+        {
+            "dni": "37510206",
+            "email": "carga271@example.test"
+        },
+        {
+            "dni": "50281191",
+            "email": "carga272@example.test"
+        },
+        {
+            "dni": "17433607",
+            "email": "carga273@example.test"
+        },
+        {
+            "dni": "63221369",
+            "email": "carga274@example.test"
+        },
+        {
+            "dni": "43207964",
+            "email": "carga275@example.test"
+        },
+        {
+            "dni": "18334508",
+            "email": "carga276@example.test"
+        },
+        {
+            "dni": "67626455",
+            "email": "carga277@example.test"
+        },
+        {
+            "dni": "65781355",
+            "email": "carga278@example.test"
+        },
+        {
+            "dni": "28139151",
+            "email": "carga279@example.test"
+        },
+        {
+            "dni": "59170230",
+            "email": "carga280@example.test"
+        },
+        {
+            "dni": "44434820",
+            "email": "carga281@example.test"
+        },
+        {
+            "dni": "12637952",
+            "email": "carga282@example.test"
+        },
+        {
+            "dni": "50628490",
+            "email": "carga283@example.test"
+        },
+        {
+            "dni": "58026571",
+            "email": "carga284@example.test"
+        },
+        {
+            "dni": "79035577",
+            "email": "carga285@example.test"
+        },
+        {
+            "dni": "31565615",
+            "email": "carga286@example.test"
+        },
+        {
+            "dni": "22270493",
+            "email": "carga287@example.test"
+        },
+        {
+            "dni": "75840176",
+            "email": "carga288@example.test"
+        },
+        {
+            "dni": "21337531",
+            "email": "carga289@example.test"
+        },
+        {
+            "dni": "34758533",
+            "email": "carga290@example.test"
+        },
+        {
+            "dni": "48726103",
+            "email": "carga291@example.test"
+        },
+        {
+            "dni": "22223307",
+            "email": "carga292@example.test"
+        },
+        {
+            "dni": "75638153",
+            "email": "carga293@example.test"
+        },
+        {
+            "dni": "75551564",
+            "email": "carga294@example.test"
+        },
+        {
+            "dni": "14081436",
+            "email": "carga295@example.test"
+        },
+        {
+            "dni": "11102491",
+            "email": "carga296@example.test"
+        },
+        {
+            "dni": "18540871",
+            "email": "carga297@example.test"
+        },
+        {
+            "dni": "22953871",
+            "email": "carga298@example.test"
+        },
+        {
+            "dni": "46819551",
+            "email": "carga299@example.test"
+        }
+    ]
+}

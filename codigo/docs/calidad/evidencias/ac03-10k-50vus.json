@@ -1,0 +1,230 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+            "portada 200": {
+                "name": "portada 200",
+                "path": "::portada 200",
+                "id": "d96d3c14b7309de32f2c37da19022cce",
+                "passes": 525,
+                "fails": 0
+            },
+            "búsqueda encuentra el acta": {
+                "name": "búsqueda encuentra el acta",
+                "path": "::búsqueda encuentra el acta",
+                "id": "83c702a61c32ed3b3a86e4d2e78bdb17",
+                "passes": 525,
+                "fails": 0
+            },
+            "login correcto": {
+                "fails": 0,
+                "name": "login correcto",
+                "path": "::login correcto",
+                "id": "1e0e6956dfb53d0f112e203b033aafca",
+                "passes": 15
+            },
+            "seguimiento 200": {
+                "fails": 0,
+                "name": "seguimiento 200",
+                "path": "::seguimiento 200",
+                "id": "3a9ed06b10dd828ced9c30066729d770",
+                "passes": 525
+            },
+            "archivo por nombre 200": {
+                "name": "archivo por nombre 200",
+                "path": "::archivo por nombre 200",
+                "id": "27b9ec28bdcd766f1e4214500f035744",
+                "passes": 210,
+                "fails": 0
+            },
+            "seguimiento pide código": {
+                "fails": 0,
+                "name": "seguimiento pide código",
+                "path": "::seguimiento pide código",
+                "id": "a29c6347192a3e74e22907b05364bd4a",
+                "passes": 525
+            },
+            "archivo encuentra el número": {
+                "path": "::archivo encuentra el número",
+                "id": "ecd062e3d99ed88f295ec0ce492a91a2",
+                "passes": 210,
+                "fails": 0,
+                "name": "archivo encuentra el número"
+            },
+            "bandeja 200": {
+                "fails": 0,
+                "name": "bandeja 200",
+                "path": "::bandeja 200",
+                "id": "bb0247c97155868712e3ee3d0334789f",
+                "passes": 210
+            },
+            "bandeja por DNI 200": {
+                "name": "bandeja por DNI 200",
+                "path": "::bandeja por DNI 200",
+                "id": "7e4231631c2ea22bff7cdfdd7e416c6d",
+                "passes": 210,
+                "fails": 0
+            }
+        }
+    },
+    "metrics": {
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 2985,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_waiting": {
+            "p(95)": 2756.1994399999985,
+            "max": 4155.3191,
+            "avg": 1545.4827939698525,
+            "min": 225.0816,
+            "med": 1412.8856,
+            "p(90)": 2516.83726
+        },
+        "data_sent": {
+            "count": 2796367,
+            "rate": 22444.392402476133
+        },
+        "http_req_duration": {
+            "med": 1419.6078,
+            "p(90)": 2519.41248,
+            "p(95)": 2760.7829399999996,
+            "max": 4163.4465,
+            "avg": 1550.8811786264646,
+            "min": 227.8997
+        },
+        "http_req_duration{operacion:busqueda_publica}": {
+            "med": 1290.2825,
+            "p(90)": 1776.2107,
+            "p(95)": 1924.70704,
+            "max": 2664.1637,
+            "avg": 1304.3603506666668,
+            "min": 529.3243,
+            "thresholds": {
+                "p(95)<1000": true
+            }
+        },
+        "http_reqs": {
+            "count": 2985,
+            "rate": 23.95841151086079
+        },
+        "http_req_receiving": {
+            "min": 0,
+            "med": 4.0356,
+            "p(90)": 11.47628,
+            "p(95)": 13.949159999999996,
+            "max": 342.034,
+            "avg": 5.256715812395312
+        },
+        "http_req_duration{operacion:seguimiento}": {
+            "avg": 1564.6544254285734,
+            "min": 227.8997,
+            "med": 1363.5389,
+            "p(90)": 2595.4675700000003,
+            "p(95)": 2879.6540999999997,
+            "max": 4163.4465,
+            "thresholds": {
+                "p(95)<1000": true
+            }
+        },
+        "iteration_duration": {
+            "p(95)": 9920.073799999998,
+            "max": 15377.7098,
+            "avg": 8383.093170476186,
+            "min": 5308.0718,
+            "med": 8313.8336,
+            "p(90)": 9323.8035
+        },
+        "vus_max": {
+            "value": 50,
+            "min": 50,
+            "max": 50
+        },
+        "iterations": {
+            "count": 735,
+            "rate": 5.899307356945622
+        },
+        "data_received": {
+            "count": 35456728,
+            "rate": 284585.219515129
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 1550.8811786264646,
+            "min": 227.8997,
+            "med": 1419.6078,
+            "p(90)": 2519.41248,
+            "p(95)": 2760.7829399999996,
+            "max": 4163.4465
+        },
+        "checks": {
+            "passes": 2955,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_sending": {
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0.88257999999999,
+            "max": 25.8356,
+            "avg": 0.14166884422110554
+        },
+        "http_req_duration{operacion:bandeja}": {
+            "avg": 1090.2307297619056,
+            "min": 448.8025,
+            "med": 998.5968499999999,
+            "p(90)": 1484.455600000001,
+            "p(95)": 1740.4410499999979,
+            "max": 3328.9847,
+            "thresholds": {
+                "p(95)<1000": true
+            }
+        },
+        "vus": {
+            "value": 18,
+            "min": 18,
+            "max": 50
+        },
+        "http_req_duration{operacion:busqueda_archivo}": {
+            "min": 834.5717,
+            "med": 2022.8982500000002,
+            "p(90)": 2871.4631500000005,
+            "p(95)": 3035.4933749999987,
+            "max": 3793.5574,
+            "avg": 2084.602432857144,
+            "thresholds": {
+                "p(95)<1000": true
+            }
+        },
+        "http_req_blocked": {
+            "avg": 0.784661139028476,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 87.3653
+        },
+        "http_req_connecting": {
+            "avg": 0.06118566164154104,
+            "min": 0,
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 6.7163
+        },
+        "http_req_tls_handshaking": {
+            "med": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "max": 0,
+            "avg": 0,
+            "min": 0
+        }
+    }
+}

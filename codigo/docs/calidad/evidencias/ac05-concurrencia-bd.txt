@@ -1,0 +1,5 @@
+﻿N.º 2: estado=APROBADA version=2 decisiones=1 evento=APROBADA auditorias=1
+N.º 8: estado=APROBADA version=2 decisiones=1 evento=APROBADA auditorias=1
+N.º 22: estado=APROBADA version=2 decisiones=1 evento=APROBADA auditorias=1
+N.º 30: estado=RECHAZADA version=2 decisiones=1 evento=RECHAZADA auditorias=1
+N.º 44: estado=APROBADA version=2 decisiones=1 evento=APROBADA auditorias=1

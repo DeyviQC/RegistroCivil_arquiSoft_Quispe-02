@@ -1,0 +1,1742 @@
+{
+  "info": {
+    "name": "AC04 · Matriz de autorización — Registro Civil",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Casos no autorizados que el sistema debe rechazar. Ejecutar con: newman run <archivo> --env-var base=http://registro-civil.test --env-var acta=<id> --env-var tramite=<id>"
+  },
+  "protocolProfileBehavior": {
+    "followRedirects": false
+  },
+  "variable": [
+    {
+      "key": "csrf",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Panel sin sesión",
+      "item": [
+        {
+          "name": "01 · Inicio del panel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/dashboard"
+          }
+        },
+        {
+          "name": "02 · Archivo de actas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/actas"
+          }
+        },
+        {
+          "name": "03 · PDF de un acta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/actas/{{acta}}/pdf"
+          }
+        },
+        {
+          "name": "04 · Copia firmada de un acta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/actas/{{acta}}/pdf-firmado"
+          }
+        },
+        {
+          "name": "05 · Gestión de usuarios",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/usuarios"
+          }
+        },
+        {
+          "name": "06 · Auditoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/auditoria"
+          }
+        },
+        {
+          "name": "07 · Reporte Excel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/reportes/excel"
+          }
+        },
+        {
+          "name": "08 · Bandeja de solicitudes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/atencion-ciudadana"
+          }
+        },
+        {
+          "name": "09 · Original para firmar de una solicitud",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/atencion-ciudadana/{{tramite}}/firma/original"
+          }
+        },
+        {
+          "name": "10 · API interna (JSON)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/api/actas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Portal ciudadano sin verificar",
+      "item": [
+        {
+          "name": "11 · Estado de una solicitud",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/seguimiento', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/seguimiento'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/estado"
+          }
+        },
+        {
+          "name": "12 · Descarga del acta firmada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/seguimiento', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/seguimiento'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/documento"
+          }
+        },
+        {
+          "name": "13 · Formulario de pago Yape",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/seguimiento', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/seguimiento'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/yape"
+          }
+        },
+        {
+          "name": "14 · Lista de mis solicitudes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/mis-solicitudes"
+          }
+        },
+        {
+          "name": "15 · Pantalla de código sin solicitud pendiente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/codigo"
+          }
+        },
+        {
+          "name": "16 · Enlace directo con firma falsa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/seguimiento', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/seguimiento'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/acceso/{{codigo}}?expires=9999999999&signature=falsa"
+          }
+        },
+        {
+          "name": "17 · …y no deja acceso tras el enlace falso",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/seguimiento', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/seguimiento'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite/estado"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Protección CSRF (formularios sin token)",
+      "item": [
+        {
+          "name": "18 · Responder observación sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 419', () => pm.response.to.have.status(419));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "respuesta",
+                  "value": "Prueba sin token CSRF"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/responder"
+          }
+        },
+        {
+          "name": "19 · Guardar canales sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 419', () => pm.response.to.have.status(419));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "correo",
+                  "value": "1"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/canales-entrega"
+          }
+        },
+        {
+          "name": "20 · Iniciar sesión sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 419', () => pm.response.to.have.status(419));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "asistente"
+                },
+                {
+                  "key": "password",
+                  "value": "x"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Archivos y rutas internas expuestas",
+      "item": [
+        {
+          "name": "21 · Archivo .env",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/.env"
+          }
+        },
+        {
+          "name": "22 · composer.json",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/composer.json"
+          }
+        },
+        {
+          "name": "23 · Log de Laravel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('no es 200', () => pm.expect(pm.response.code).to.not.eql(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/storage/logs/laravel.log"
+          }
+        },
+        {
+          "name": "24 · PDF privado por ruta directa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('no es 200', () => pm.expect(pm.response.code).to.not.eql(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/storage/private/carga/acta-sintetica.pdf"
+          }
+        },
+        {
+          "name": "25 · Webhook de pago con firma falsa",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 401', () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-signature",
+                "value": "ts=1,v1=falsa"
+              },
+              {
+                "key": "x-request-id",
+                "value": "prueba"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"type\":\"payment\",\"data\":{\"id\":\"123\"}}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base}}/pagos/mercadopago/notificacion?data.id=123"
+          }
+        },
+        {
+          "name": "26 · Webhook de pasarela retirada (Izipay)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base}}/pagos/izipay/notificacion"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Límites de intentos",
+      "item": [
+        {
+          "name": "27 · Abrir el portal (obtiene token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite"
+          }
+        },
+        {
+          "name": "28 · Búsqueda 1 de 5 permitida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "29 · Búsqueda 2 de 5 permitida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "30 · Búsqueda 3 de 5 permitida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "31 · Búsqueda 4 de 5 permitida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "32 · Búsqueda 5 de 5 permitida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "33 · Búsqueda 6: bloqueada",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 429', () => pm.response.to.have.status(429));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "terminos",
+                  "value": "1"
+                },
+                {
+                  "key": "tipo",
+                  "value": "NACIMIENTO"
+                },
+                {
+                  "key": "titular",
+                  "value": "Persona Inexistente"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2000-01-01"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/buscar"
+          }
+        },
+        {
+          "name": "34 · Abrir login (obtiene token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "35 · Contraseña incorrecta 1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "36 · Contraseña incorrecta 2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "37 · Contraseña incorrecta 3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "38 · Contraseña incorrecta 4",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "39 · Contraseña incorrecta 5",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "40 · Sexto intento de login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "usuario-de-prueba-inexistente"
+                },
+                {
+                  "key": "password",
+                  "value": "incorrecta"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "41 · …muestra el bloqueo por intentos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "pm.test('contiene «Demasiados intentos fallidos»', () => pm.expect(pm.response.text()).to.include('Demasiados intentos fallidos'));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Asistente intentando funciones de administrador",
+      "item": [
+        {
+          "name": "42 · Abrir login (obtiene token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "43 · Iniciar sesión como asistente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('no redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.not.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "username",
+                  "value": "asistente"
+                },
+                {
+                  "key": "password",
+                  "value": "Asistente123!"
+                }
+              ]
+            },
+            "url": "{{base}}/login"
+          }
+        },
+        {
+          "name": "44 · Control positivo: inicio del panel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/dashboard"
+          }
+        },
+        {
+          "name": "45 · Lista de usuarios",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/usuarios"
+          }
+        },
+        {
+          "name": "46 · Crear usuario (formulario)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/usuarios/create"
+          }
+        },
+        {
+          "name": "47 · Crear usuario (envío)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "name",
+                  "value": "Intruso"
+                },
+                {
+                  "key": "username",
+                  "value": "intruso"
+                },
+                {
+                  "key": "email",
+                  "value": "intruso@example.test"
+                },
+                {
+                  "key": "password",
+                  "value": "Clave-segura-123"
+                },
+                {
+                  "key": "password_confirmation",
+                  "value": "Clave-segura-123"
+                },
+                {
+                  "key": "role",
+                  "value": "administrador"
+                }
+              ]
+            },
+            "url": "{{base}}/usuarios"
+          }
+        },
+        {
+          "name": "48 · Auditoría",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/auditoria"
+          }
+        },
+        {
+          "name": "49 · Cerrar sesión",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                }
+              ]
+            },
+            "url": "{{base}}/logout"
+          }
+        },
+        {
+          "name": "50 · …la sesión cerrada ya no entra",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /login', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/login'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/dashboard"
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Ciudadano intentando ver una solicitud ajena",
+      "item": [
+        {
+          "name": "51 · Abrir el portal (obtiene token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', () => pm.response.to.have.status(200));",
+                  "const m = pm.response.text().match(/name=\"_token\" value=\"([^\"]+)\"/); if (m) pm.collectionVariables.set('csrf', m[1]);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": "{{base}}/tramite"
+          }
+        },
+        {
+          "name": "52 · Elegir una solicitud que no le pertenece",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "solicitud",
+                  "value": "{{tramite}}"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/seleccionar"
+          }
+        },
+        {
+          "name": "53 · Seguimiento con datos inexistentes: misma respuesta genérica",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 302', () => pm.response.to.have.status(302));",
+                  "pm.test('redirige a /tramite/codigo', () => pm.expect(pm.response.headers.get('Location') || '').to.include('/tramite/codigo'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "_token",
+                  "value": "{{csrf}}"
+                },
+                {
+                  "key": "dni",
+                  "value": "00000001"
+                },
+                {
+                  "key": "email",
+                  "value": "nadie@example.test"
+                }
+              ]
+            },
+            "url": "{{base}}/tramite/seguimiento"
+          }
+        }
+      ]
+    }
+  ]
+}

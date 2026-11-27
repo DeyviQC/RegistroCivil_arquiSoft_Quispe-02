@@ -1,0 +1,3 @@
+
+# Third-party assets: keep them byte-for-byte (their SRI hashes depend on it).
+public/vendor/** -text -diff

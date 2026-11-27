@@ -1,0 +1,16 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Static analysis (AC07 Maintainability). Level 5: types of arguments, return values and
+    # calls on known classes. Run: vendor/bin/phpstan analyse --memory-limit=1G
+    level: 5
+    paths:
+        - app/
+        - routes/
+        - database/migrations/
+    tmpDir: storage/framework/cache/phpstan
+    ignoreErrors:
+        # Defensive "?->" on values the schema guarantees (e.g. every request has an act).
+        # Harmless style, kept on purpose: a missing row must not become a fatal error.
+        - identifier: nullsafe.neverNull

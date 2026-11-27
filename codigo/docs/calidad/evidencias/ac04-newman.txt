@@ -1,0 +1,260 @@
+﻿newman
+
+AC04 · Matriz de autorización — Registro Civil
+
+□ 1. Panel sin sesión
+└ 01 · Inicio del panel
+  GET http://registro-civil.test/dashboard [302 Found, 1.57kB, 177ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 02 · Archivo de actas
+  GET http://registro-civil.test/actas [302 Found, 1.57kB, 96ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 03 · PDF de un acta
+  GET http://registro-civil.test/actas/1045/pdf [302 Found, 1.57kB, 99ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 04 · Copia firmada de un acta
+  GET http://registro-civil.test/actas/1045/pdf-firmado [302 Found, 1.57kB, 98ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 05 · Gestión de usuarios
+  GET http://registro-civil.test/usuarios [302 Found, 1.57kB, 101ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 06 · Auditoría
+  GET http://registro-civil.test/auditoria [302 Found, 1.57kB, 90ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 07 · Reporte Excel
+  GET http://registro-civil.test/reportes/excel [302 Found, 1.57kB, 90ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 08 · Bandeja de solicitudes
+  GET http://registro-civil.test/atencion-ciudadana [302 Found, 1.57kB, 74ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 09 · Original para firmar de una solicitud
+  GET http://registro-civil.test/atencion-ciudadana/1/firma/original [302 Found, 1.57kB, 89ms]
+  √  estado 302
+  √  redirige a /login
+
+└ 10 · API interna (JSON)
+  GET http://registro-civil.test/api/actas [401 Unauthorized, 769B, 87ms]
+  √  estado 401
+
+□ 2. Portal ciudadano sin verificar
+└ 11 · Estado de una solicitud
+  GET http://registro-civil.test/tramite/estado [302 Found, 1.64kB, 76ms]
+  √  estado 302
+  √  redirige a /tramite/seguimiento
+
+└ 12 · Descarga del acta firmada
+  GET http://registro-civil.test/tramite/documento [302 Found, 1.69kB, 80ms]
+  √  estado 302
+  √  redirige a /tramite/seguimiento
+
+└ 13 · Formulario de pago Yape
+  GET http://registro-civil.test/tramite/yape [302 Found, 1.64kB, 108ms]
+  √  estado 302
+  √  redirige a /tramite/seguimiento
+
+└ 14 · Lista de mis solicitudes
+  GET http://registro-civil.test/tramite/mis-solicitudes [403 Forbidden, 7.86kB, 115ms]
+  √  estado 403
+
+└ 15 · Pantalla de código sin solicitud pendiente
+  GET http://registro-civil.test/tramite/codigo [403 Forbidden, 7.86kB, 113ms]
+  √  estado 403
+
+└ 16 · Enlace directo con firma falsa
+  GET http://registro-civil.test/tramite/acceso/f688219b-887e-4bf7-8cd8-615d9f4d2194?expires=9999999999&signature=falsa [302 Found, 1.69kB, 92ms]
+  √  estado 302
+  √  redirige a /tramite/seguimiento
+
+└ 17 · …y no deja acceso tras el enlace falso
+  GET http://registro-civil.test/tramite/estado [302 Found, 1.64kB, 103ms]
+  √  estado 302
+  √  redirige a /tramite/seguimiento
+
+□ 3. Protección CSRF (formularios sin token)
+└ 18 · Responder observación sin token
+  POST http://registro-civil.test/tramite/responder [419 unknown status, 7.38kB, 115ms]
+  √  estado 419
+
+└ 19 · Guardar canales sin token
+  POST http://registro-civil.test/tramite/canales-entrega [419 unknown status, 7.38kB, 95ms]
+  √  estado 419
+
+└ 20 · Iniciar sesión sin token
+  POST http://registro-civil.test/login [419 unknown status, 7.38kB, 103ms]
+  √  estado 419
+
+□ 4. Archivos y rutas internas expuestas
+└ 21 · Archivo .env
+  GET http://registro-civil.test/.env [404 Not Found, 6.94kB, 83ms]
+  √  estado 404
+
+└ 22 · composer.json
+  GET http://registro-civil.test/composer.json [404 Not Found, 6.94kB, 105ms]
+  √  estado 404
+
+└ 23 · Log de Laravel
+  GET http://registro-civil.test/storage/logs/laravel.log [403 Forbidden, 6.94kB, 74ms]
+  √  no es 200
+
+└ 24 · PDF privado por ruta directa
+  GET http://registro-civil.test/storage/private/carga/acta-sintetica.pdf [403 Forbidden, 6.94kB, 85ms]
+  √  no es 200
+
+└ 25 · Webhook de pago con firma falsa
+  POST http://registro-civil.test/pagos/mercadopago/notificacion?data.id=123 [401 Unauthorized, 1.22kB, 111ms]
+  √  estado 401
+
+└ 26 · Webhook de pasarela retirada (Izipay)
+  POST http://registro-civil.test/pagos/izipay/notificacion [404 Not Found, 352B, 91ms]
+  √  estado 404
+
+□ 5. Límites de intentos
+└ 27 · Abrir el portal (obtiene token)
+  GET http://registro-civil.test/tramite [200 OK, 12.71kB, 83ms]
+  √  estado 200
+
+└ 28 · Búsqueda 1 de 5 permitida
+  POST http://registro-civil.test/tramite/buscar [302 Found, 1.63kB, 109ms]
+  √  estado 302
+
+└ 29 · Búsqueda 2 de 5 permitida
+  POST http://registro-civil.test/tramite/buscar [302 Found, 1.63kB, 134ms]
+  √  estado 302
+
+└ 30 · Búsqueda 3 de 5 permitida
+  POST http://registro-civil.test/tramite/buscar [302 Found, 1.63kB, 241ms]
+  √  estado 302
+
+└ 31 · Búsqueda 4 de 5 permitida
+  POST http://registro-civil.test/tramite/buscar [302 Found, 1.63kB, 120ms]
+  √  estado 302
+
+└ 32 · Búsqueda 5 de 5 permitida
+  POST http://registro-civil.test/tramite/buscar [302 Found, 1.63kB, 131ms]
+  √  estado 302
+
+└ 33 · Búsqueda 6: bloqueada
+  POST http://registro-civil.test/tramite/buscar [429 Too Many Requests, 7.93kB, 117ms]
+  √  estado 429
+
+└ 34 · Abrir login (obtiene token)
+  GET http://registro-civil.test/login [200 OK, 4.38kB, 128ms]
+  √  estado 200
+
+└ 35 · Contraseña incorrecta 1
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 359ms]
+  √  estado 302
+
+└ 36 · Contraseña incorrecta 2
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 329ms]
+  √  estado 302
+
+└ 37 · Contraseña incorrecta 3
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 336ms]
+  √  estado 302
+
+└ 38 · Contraseña incorrecta 4
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 333ms]
+  √  estado 302
+
+└ 39 · Contraseña incorrecta 5
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 404ms]
+  √  estado 302
+
+└ 40 · Sexto intento de login
+  POST http://registro-civil.test/login [302 Found, 1.57kB, 118ms]
+  √  estado 302
+
+└ 41 · …muestra el bloqueo por intentos
+  GET http://registro-civil.test/login [200 OK, 4.63kB, 122ms]
+  √  estado 200
+  √  contiene «Demasiados intentos fallidos»
+
+□ 6. Asistente intentando funciones de administrador
+└ 42 · Abrir login (obtiene token)
+  GET http://registro-civil.test/login [200 OK, 4.38kB, 71ms]
+  √  estado 200
+
+└ 43 · Iniciar sesión como asistente
+  POST http://registro-civil.test/login [302 Found, 1.72kB, 619ms]
+  √  estado 302
+  √  no redirige a /login
+
+└ 44 · Control positivo: inicio del panel
+  GET http://registro-civil.test/dashboard [200 OK, 28.31kB, 333ms]
+  √  estado 200
+
+└ 45 · Lista de usuarios
+  GET http://registro-civil.test/usuarios [403 Forbidden, 7.9kB, 135ms]
+  √  estado 403
+
+└ 46 · Crear usuario (formulario)
+  GET http://registro-civil.test/usuarios/create [403 Forbidden, 7.9kB, 93ms]
+  √  estado 403
+
+└ 47 · Crear usuario (envío)
+  POST http://registro-civil.test/usuarios [403 Forbidden, 7.9kB, 117ms]
+  √  estado 403
+
+└ 48 · Auditoría
+  GET http://registro-civil.test/auditoria [403 Forbidden, 7.9kB, 118ms]
+  √  estado 403
+
+└ 49 · Cerrar sesión
+  POST http://registro-civil.test/logout [302 Found, 1.57kB, 184ms]
+  √  estado 302
+
+└ 50 · …la sesión cerrada ya no entra
+  GET http://registro-civil.test/dashboard [302 Found, 1.57kB, 110ms]
+  √  estado 302
+  √  redirige a /login
+
+□ 7. Ciudadano intentando ver una solicitud ajena
+└ 51 · Abrir el portal (obtiene token)
+  GET http://registro-civil.test/tramite [200 OK, 12.71kB, 113ms]
+  √  estado 200
+
+└ 52 · Elegir una solicitud que no le pertenece
+  POST http://registro-civil.test/tramite/seleccionar [403 Forbidden, 7.86kB, 132ms]
+  √  estado 403
+
+└ 53 · Seguimiento con datos inexistentes: misma respuesta genérica
+  POST http://registro-civil.test/tramite/seguimiento [302 Found, 1.66kB, 236ms]
+  √  estado 302
+  √  redirige a /tramite/codigo
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                 53 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                 53 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  0 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                 71 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 12.3s                                         │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 171.47kB (approx)                            │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 148ms [min: 71ms, max: 619ms, s.d.: 105ms] │
+└───────────────────────────────────────────────────────────────────┘

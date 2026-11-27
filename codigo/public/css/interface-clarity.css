@@ -1,0 +1,33 @@
+/* Shared screen layout, following the acta incidences page. */
+.contenido-app { min-width: 0; }
+.ui-clear { color: #162842; }
+.ui-clear .page-heading h1 { color: #102542; font-size: clamp(1.65rem, 2.5vw, 2rem); line-height: 1.25; }
+.ui-clear .page-heading p { max-width: 80ch; line-height: 1.65; }
+.ui-clear .text-muted { color: #586676 !important; }
+.ui-clear .card { border: 0; border-radius: 18px; box-shadow: 0 2px 5px rgba(22,40,66,.07); overflow: visible; }
+.ui-clear .card-body { padding: 22px; }
+.ui-clear .card-header { background: #fff; border-bottom: 1px solid #e1e6ec; padding: 15px 20px; border-radius: 18px 18px 0 0; }
+.ui-clear .card-footer { border-top: 1px solid #e1e6ec; padding: 14px 20px; border-radius: 0 0 18px 18px; }
+.ui-clear .form-label { color: #162842; font-size: 1rem; font-weight: 500; margin-bottom: 8px; }
+.ui-clear .form-control, .ui-clear .form-select { min-height: 46px; border-color: #d7dee7; border-radius: 9px; font-size: 1rem; padding: 10px 13px; }
+.ui-clear .form-control:focus, .ui-clear .form-select:focus { border-color: #6b8046; box-shadow: 0 0 0 3px rgba(107,128,70,.16); }
+.ui-clear input[type="file"].form-control { padding: 8px 12px; }
+.ui-clear .form-text { color: #586676; line-height: 1.6; }
+.ui-clear .btn { min-height: 42px; border-radius: 10px; padding: 9px 16px; font-weight: 500; }
+.ui-clear .btn-primary { font-weight: 600; }
+.ui-clear .btn-sm { min-height: 36px; padding: 6px 10px; font-size: .875rem; }
+.ui-clear .btn:focus-visible, .ui-clear a:focus-visible { outline: 3px solid #6b8046; outline-offset: 3px; }
+.ui-clear .table { color: #162842; --bs-table-color: #162842; --bs-table-border-color: #dce2ea; --bs-table-hover-bg: #f4f6ef; }
+.ui-clear .table th { padding: 17px 20px; font-weight: 600; background: #fff; --bs-table-bg: #fff; color: #162842; white-space: nowrap; }
+.ui-clear .table td { padding: 15px 20px; vertical-align: middle; line-height: 1.5; }
+.ui-clear .table td.text-end { white-space: nowrap; }
+.ui-clear .table caption { color: #586676; padding: 12px 20px; }
+.ui-clear .badge { line-height: 1.3; }
+.ui-clear .alert { border-radius: 12px; line-height: 1.65; }
+.ui-clear h2.h5, .ui-clear h5 { font-weight: 600; }
+@media (max-width: 767.98px) {
+    main.ui-clear { padding: 18px !important; }
+    .ui-clear .card-body { padding: 18px; }
+    .ui-clear .table th, .ui-clear .table td { padding: 12px 14px; }
+    .ui-clear .page-heading { margin-bottom: 20px !important; }
+}

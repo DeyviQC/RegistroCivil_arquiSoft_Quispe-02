@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100"><rect width="1600" height="1100" fill="#f6f5ef"/>
+<text x="80" y="65" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="700" fill="#3f4d2a" text-anchor="start">REGISTRO CIVIL MUNICIPAL  /  ESTILO</text>
+<text x="80" y="137" font-family="Segoe UI,Arial,sans-serif" font-size="49" font-weight="700" fill="#253020" text-anchor="start">Arquitectura monolítica</text>
+<text x="80" y="183" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="400" fill="#657061" text-anchor="start">Una aplicación Laravel reúne las funcionalidades y se despliega como una unidad.</text>
+<rect x="70" y="405" width="270" height="195" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<text x="205" y="460" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="700" fill="#273128" text-anchor="middle">Personal municipal</text>
+<text x="205" y="508" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="400" fill="#657061" text-anchor="middle">Administrador</text>
+<text x="205" y="549" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="400" fill="#657061" text-anchor="middle">Asistente</text>
+<path d="M342 501 L445 501" stroke="#3f4d2a" stroke-width="4"/><polygon points="445,501 431,492 431,510" fill="#3f4d2a"/>
+<text x="393" y="480" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" fill="#3f4d2a" text-anchor="middle">Web</text>
+<rect x="450" y="230" width="1080" height="570" rx="25" fill="white" stroke="#3f4d2a" stroke-width="2"/>
+<rect x="480" y="260" width="1020" height="82" rx="15" fill="#3f4d2a" stroke="#3f4d2a" stroke-width="2"/>
+<text x="990" y="310" font-family="Segoe UI,Arial,sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">UNA APLICACIÓN LARAVEL</text>
+<text x="990" y="389" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="400" fill="#657061" text-anchor="middle">Interfaz Blade · Controladores · Validaciones</text>
+<rect x="495" y="419" width="480" height="120" rx="15" fill="#edf2e6" stroke="#d7ddd0" stroke-width="2"/>
+<text x="735" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#3f4d2a" text-anchor="middle">Usuarios</text>
+<text x="735" y="510" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#657061" text-anchor="middle">Cuentas, roles y recuperación</text>
+<rect x="1005" y="419" width="480" height="120" rx="15" fill="#edf2e6" stroke="#d7ddd0" stroke-width="2"/>
+<text x="1245" y="470" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#3f4d2a" text-anchor="middle">Registro de actas</text>
+<text x="1245" y="510" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#657061" text-anchor="middle">Nacimiento, matrimonio y defunción</text>
+<rect x="495" y="570" width="480" height="120" rx="15" fill="#edf2e6" stroke="#d7ddd0" stroke-width="2"/>
+<text x="735" y="621" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#3f4d2a" text-anchor="middle">Auditoría</text>
+<text x="735" y="661" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#657061" text-anchor="middle">Historial de operaciones</text>
+<rect x="1005" y="570" width="480" height="120" rx="15" fill="#edf2e6" stroke="#d7ddd0" stroke-width="2"/>
+<text x="1245" y="621" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#3f4d2a" text-anchor="middle">Reportes</text>
+<text x="1245" y="661" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#657061" text-anchor="middle">Resumen, listado y sobres</text>
+<text x="990" y="764" font-family="Segoe UI,Arial,sans-serif" font-size="24" font-weight="400" fill="#657061" text-anchor="middle">Autenticación, servicios y políticas compartidos</text>
+<path d="M745 802 L745 875" stroke="#3f4d2a" stroke-width="4"/><polygon points="745,875 736,861 754,861" fill="#3f4d2a"/>
+<path d="M1230 802 L1230 875" stroke="#3f4d2a" stroke-width="4"/><polygon points="1230,875 1221,861 1239,861" fill="#3f4d2a"/>
+<rect x="500" y="881" width="475" height="132" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<text x="737" y="931" font-family="Segoe UI,Arial,sans-serif" font-size="30" font-weight="700" fill="#3f4d2a" text-anchor="middle">MySQL</text>
+<text x="737" y="971" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="middle">Usuarios, actas y auditoría</text>
+<rect x="1000" y="881" width="475" height="132" rx="20" fill="white" stroke="#d7ddd0" stroke-width="2"/>
+<text x="1237" y="930" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="700" fill="#3f4d2a" text-anchor="middle">Almacenamiento privado</text>
+<text x="1237" y="971" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="middle">PDF originales de las actas</text>
+<text x="800" y="1073" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="400" fill="#657061" text-anchor="middle">El acceso a datos y documentos está protegido por la aplicación.</text></svg>

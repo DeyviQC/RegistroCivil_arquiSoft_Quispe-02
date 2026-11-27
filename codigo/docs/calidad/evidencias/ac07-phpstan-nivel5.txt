@@ -1,0 +1,687 @@
+﻿php.exe : Note: Using configuration file 
+E:\Municipalidad\registro-civil-completofinal\registro-civil-desarrollo\phpstan.neon.
+En línea: 1 Carácter: 337
++ ... 'Continue'; & C:\Users\LOQ\.config\herd\bin\php84\php.exe vendor/bin/ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Note: Using con...o\phpstan.neon.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Instructions for interpreting errors
+---------
+
+Each error has an associated identifier, like `argument.type`
+or `return.missing`.
+
+Each error identifier has documentation at URL https://phpstan.org/error-identifiers/<identifier>
+This page contains code example, explanation why is this an error
+and instruction how to fix it.
+Before fixing the error, fetch the documentation page for its identifier.
+
+The error usually indicates a real bug or incorrect type in the code. Fix the underlying cause, do not just make the 
+error go away.
+Do not add `@phpstan-ignore` comments, `@phpstan-ignore-next-line` comments, or baseline entries to suppress the error.
+Do not use assert() or inline @var PHPDoc tag to override PHPStan's inferred type.
+Do not add type casts just to silence errors.
+Do not widen parameter or return types just to make the error go away.
+ ------ ---------------------------------------- 
+  Line   app\Console\Commands\CrearRespaldo.php  
+ ------ ---------------------------------------- 
+  36     Right side of && is always true.        
+         🪪  booleanAnd.rightAlwaysTrue          
+ ------ ---------------------------------------- 
+
+ ------ ------------------------------------------------------------------ 
+  Line   app\Console\Commands\MantenimientoTramites.php                    
+ ------ ------------------------------------------------------------------ 
+  23     Relation 'pago' is not found in App\Models\TramitePublico model.  
+         🪪  larastan.relationExistence                                    
+ ------ ------------------------------------------------------------------ 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Console\Commands\RecuperarCopiasFirmadas.php                                                               
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  26     Relation 'acta' is not found in App\Models\TramitePublico model.                                               
+         🪪  larastan.relationExistence                                                                                 
+  29     Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  30     Access to an undefined property App\Models\TramitePublico::$acta.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  31     Offset 'firmado_ruta' on array{} in empty() does not exist.                                                    
+         🪪  empty.offset                                                                                               
+  31     Offset 'reutilizada' on array{} in empty() does not exist.                                                     
+         🪪  empty.offset                                                                                               
+  31     Offset 'revision' on array{} in empty() does not exist.                                                        
+         🪪  empty.offset                                                                                               
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  31     Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  32     Offset 'preparado_ruta' on array{} on left side of ?? does not exist.                                          
+         🪪  nullCoalesce.offset                                                                                        
+  33     Offset 'firmado_ruta' does not exist on array{}.                                                               
+         🪪  offsetAccess.notFound                                                                                      
+  33     Offset 'firmado_ruta' does not exist on array{}.                                                               
+         🪪  offsetAccess.notFound                                                                                      
+  33     Offset 'firmado_sha256' on array{} on left side of ?? does not exist.                                          
+         🪪  nullCoalesce.offset                                                                                        
+  36     Unreachable statement - code above always terminates.                                                          
+         🪪  deadCode.unreachable                                                                                       
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------- 
+  Line   app\Http\Controllers\ActaController.php                  
+ ------ --------------------------------------------------------- 
+  72     Match expression does not handle remaining value: mixed  
+         🪪  match.unhandled                                      
+ ------ --------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\AtencionPublicaController.php                                                             
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  24     Relation 'pago' is not found in App\Models\TramitePublico model.                                               
+         🪪  larastan.relationExistence                                                                                 
+  35     Relation 'acta' is not found in App\Models\TramitePublico model.                                               
+         🪪  larastan.relationExistence                                                                                 
+  35     Relation 'eventos' is not found in App\Models\TramitePublico model.                                            
+         🪪  larastan.relationExistence                                                                                 
+  35     Relation 'pago' is not found in App\Models\TramitePublico model.                                               
+         🪪  larastan.relationExistence                                                                                 
+  36     Access to an undefined property App\Models\TramitePublico::$acta.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  36     Parameter #2 $datos of method App\Services\CruceParentescoService::comparar() expects array, string given.     
+         🪪  argument.type                                                                                              
+  42     Offset 'subsanaciones' on string on left side of ?? does not exist.                                            
+         🪪  nullCoalesce.offset                                                                                        
+  43     Call to function abort_unless() with false and 404 will always evaluate to false.                              
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  43     Call to function is_string() with null will always evaluate to false.                                          
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  66     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  72     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  72     Property App\Models\TramitePublico::$datos (string) does not accept array<mixed, mixed>.                       
+         🪪  assign.propertyType                                                                                        
+  76     Access to an undefined property App\Models\TramitePublico::$acta.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  76     Parameter #2 $datos of method App\Services\CruceParentescoService::comparar() expects array, string given.     
+         🪪  argument.type                                                                                              
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\CanalEntregaController.php                                                                
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  18     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  19     Offset 'canales_entrega' on string on left side of ?? does not exist.                                          
+         🪪  nullCoalesce.offset                                                                                        
+  21     Offset 'whatsapp' on array{} on left side of ?? does not exist.                                                
+         🪪  nullCoalesce.offset                                                                                        
+  23     Offset 'numero' on array{} on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  24     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  39     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  41     Parameter #1 $boolean of function abort_unless expects bool, string|null given.                                
+         🪪  argument.type                                                                                              
+  42     Offset 'canales_entrega' on string on left side of ?? does not exist.                                          
+         🪪  nullCoalesce.offset                                                                                        
+  43     Offset 'correo' on array{} on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  44     Offset 'whatsapp_iniciado_at' on array{} on left side of ?? does not exist.                                    
+         🪪  nullCoalesce.offset                                                                                        
+  45     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  54     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  54     Call to function abort_unless() with false and 403 will always evaluate to false.                              
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  54     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  54     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  55     Offset 'canales_entrega' on string in empty() does not exist.                                                  
+         🪪  empty.offset                                                                                               
+  55     Offset 'entrega' on string in empty() does not exist.                                                          
+         🪪  empty.offset                                                                                               
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\EntregaDocumentoController.php                                                            
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  19     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  31     Offset 'entrega' on string in isset() does not exist.                                                          
+         🪪  isset.offset                                                                                               
+  36     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  53     Access to an undefined property App\Models\TramitePublico::$acta.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  54     Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  73     Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  74     Offset 'firmado_ruta' on array{} in isset() does not exist.                                                    
+         🪪  isset.offset                                                                                               
+  81     Offset 'preparado_ruta' on array{} in isset() does not exist.                                                  
+         🪪  isset.offset                                                                                               
+  81     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  83     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  83     Strict comparison using !== between null and null will always evaluate to false.                               
+         🪪  notIdentical.alwaysFalse                                                                                   
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  84     Offset 'preparado_sha256' on *NEVER* in isset() always exists and is not nullable.                             
+         🪪  isset.offset                                                                                               
+  94     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  107    Anonymous function has an unused use $audit.                                                                   
+         🪪  closure.unusedUse                                                                                          
+  110    Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  111    Offset 'integridad' on array{} on left side of ?? does not exist.                                              
+         🪪  nullCoalesce.offset                                                                                        
+  111    Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  111    Result of || is always true.                                                                                   
+         🪪  booleanOr.alwaysTrue                                                                                       
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  111    Strict comparison using !== between null and 'VERIFICADA' will always evaluate to true.                        
+         🪪  notIdentical.alwaysTrue                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  114    Unreachable statement - code above always terminates.                                                          
+         🪪  deadCode.unreachable                                                                                       
+  138    Offset 'entrega' on string in isset() does not exist.                                                          
+         🪪  isset.offset                                                                                               
+  156    Cannot call method toIso8601String() on string.                                                                
+         🪪  method.nonObject                                                                                           
+  158    Cannot call method format() on string.                                                                         
+         🪪  method.nonObject                                                                                           
+  161    Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  161    Property App\Models\TramitePublico::$datos (string) does not accept array<mixed, mixed>.                       
+         🪪  assign.propertyType                                                                                        
+  173    Method App\Http\Controllers\EntregaDocumentoController::guardarCopiaEnActa() is unused.                        
+         🪪  method.unused                                                                                              
+  214    Offset 'entrega' on string in isset() does not exist.                                                          
+         🪪  isset.offset                                                                                               
+  215    Cannot unset offset 'entrega' on string.                                                                       
+         🪪  unset.offset                                                                                               
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\FiliacionController.php                                             
+ ------ ----------------------------------------------------------------------------------------- 
+  25     Access to an undefined property Illuminate\Database\Eloquent\Model::$filiacion_version.  
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  32     Access to an undefined property Illuminate\Database\Eloquent\Model::$filiacion_version.  
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  32     Access to an undefined property Illuminate\Database\Eloquent\Model::$filiacion_version.  
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  34     Access to an undefined property Illuminate\Database\Eloquent\Model::$id.                 
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+ ------ ----------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\FirmaPeruController.php                                                                   
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  32     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  33     Offset 'entrega' on string in isset() does not exist.                                                          
+         🪪  isset.offset                                                                                               
+  39     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  39     Offset 'entrega' on string in isset() does not exist.                                                          
+         🪪  isset.offset                                                                                               
+  41     Access to an undefined property App\Models\TramitePublico::$acta.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  69     Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  80     Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  81     Offset non-falsy-string on array{} on left side of ?? does not exist.                                          
+         🪪  nullCoalesce.offset                                                                                        
+  82     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  82     Call to function abort_unless() with false and 403 will always evaluate to false.                              
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  82     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  82     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  82     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  83     Offset 'expira' on array{} on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  83     Offset 'intento' on array{} on left side of ?? does not exist.                                                 
+         🪪  nullCoalesce.offset                                                                                        
+  84     Call to function is_string() with '' will always evaluate to true.                                             
+         🪪  function.alreadyNarrowedType                                                                               
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  84     Offset 'estado' on array{} on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  84     Strict comparison using === between '' and 'INICIADA' will always evaluate to false.                           
+         🪪  identical.alwaysFalse                                                                                      
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  86     Offset 'usuario_id' on *NEVER* on left side of ?? always exists and is not nullable.                           
+         🪪  nullCoalesce.offset                                                                                        
+  101    Cannot assign offset 'entrega' to string.                                                                      
+         🪪  offsetAssign.dimType                                                                                       
+  111    Offset 'entrega' does not exist on string.                                                                     
+         🪪  offsetAccess.notFound                                                                                      
+  134    Offset 'entrega' does not exist on string.                                                                     
+         🪪  offsetAccess.notFound                                                                                      
+  147    Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  159    Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  160    Offset 'firmado_ruta' on array{} in isset() does not exist.                                                    
+         🪪  isset.offset                                                                                               
+  160    Offset 'integridad' on *NEVER* on left side of ?? always exists and is not nullable.                           
+         🪪  nullCoalesce.offset                                                                                        
+  160    Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  161    Offset 'firma_peru' on array{} on left side of ?? does not exist.                                              
+         🪪  nullCoalesce.offset                                                                                        
+  170    Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  171    Call to function abort_unless() with false and 403 will always evaluate to false.                              
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  171    Offset 'intento' on array{} on left side of ?? does not exist.                                                 
+         🪪  nullCoalesce.offset                                                                                        
+  171    Offset 'usuario_id' on array{} on left side of ?? does not exist.                                              
+         🪪  nullCoalesce.offset                                                                                        
+  171    Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  171    Strict comparison using === between null and int<0, max> will always evaluate to false.                        
+         🪪  identical.alwaysFalse                                                                                      
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  172    Offset 'estado' on array{} on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  172    Strict comparison using !== between '' and 'INICIADA' will always evaluate to true.                            
+         🪪  notIdentical.alwaysTrue                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  173    Unreachable statement - code above always terminates.                                                          
+         🪪  deadCode.unreachable                                                                                       
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\MercadoPagoController.php                                         
+ ------ --------------------------------------------------------------------------------------- 
+  28     Call to an undefined method Illuminate\Contracts\Cache\Repository::lock().             
+         🪪  method.notFound                                                                    
+  86     Access to an undefined property App\Models\TramitePublico::$pago.                      
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\PortalPublicoController.php                                                               
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  35     Access to an undefined property Illuminate\Database\Eloquent\Model::$fecha_nacimiento.                         
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  107    Relation 'eventos' is not found in App\Models\TramitePublico model.                                            
+         🪪  larastan.relationExistence                                                                                 
+  107    Relation 'pago' is not found in App\Models\TramitePublico model.                                               
+         🪪  larastan.relationExistence                                                                                 
+  130    Offset 'subsanaciones' on string on left side of ?? does not exist.                                            
+         🪪  nullCoalesce.offset                                                                                        
+  134    Parameter #1 ...$arrays of function array_merge expects array, string given.                                   
+         🪪  argument.type                                                                                              
+  134    Property App\Models\TramitePublico::$datos (string) does not accept array<mixed, mixed>.                       
+         🪪  assign.propertyType                                                                                        
+  171    Using nullsafe property access "?->codigo" on left side of ?? is unnecessary. Use -> instead.                  
+         🪪  nullsafe.neverNull                                                                                         
+  200    Offset 'entrega' on string on left side of ?? does not exist.                                                  
+         🪪  nullCoalesce.offset                                                                                        
+  201    Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  201    Call to function abort_unless() with false and 403 will always evaluate to false.                              
+         🪪  function.impossibleType                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  201    Offset 'firmado_ruta' on array{} in isset() does not exist.                                                    
+         🪪  isset.offset                                                                                               
+  201    Offset 'firmado_sha256' on array{} in isset() does not exist.                                                  
+         🪪  isset.offset                                                                                               
+  201    Offset 'revision' on array{} in isset() does not exist.                                                        
+         🪪  isset.offset                                                                                               
+  201    Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\ReporteController.php                                                              
+ ------ -------------------------------------------------------------------------------------------------------- 
+  30     Access to an undefined property Illuminate\Database\Eloquent\Model::$name.                              
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  30     Using nullsafe property access "?->name" on left side of ?? is unnecessary. Use -> instead.             
+         🪪  nullsafe.neverNull                                                                                  
+  35     Strict comparison using !== between mixed and null will always evaluate to true.                        
+         🪪  notIdentical.alwaysTrue                                                                             
+         💡  Type null has already been eliminated from mixed.                                                   
+  64     Access to an undefined property                                                                         
+         App\Models\ActaDefuncion|App\Models\ActaMatrimonio|App\Models\ActaNacimiento::$dni_no_consignado.       
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  64     Access to an undefined property Illuminate\Database\Eloquent\Model::$name.                              
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  64     Cannot call method format() on string.                                                                  
+         🪪  method.nonObject                                                                                    
+  64     Using nullsafe property access "?->apellido_nombre" on left side of ?? is unnecessary. Use -> instead.  
+         🪪  nullsafe.neverNull                                                                                  
+  64     Using nullsafe property access "?->dni" on left side of ?? is unnecessary. Use -> instead.              
+         🪪  nullsafe.neverNull                                                                                  
+  64     Using nullsafe property access "?->name" on left side of ?? is unnecessary. Use -> instead.             
+         🪪  nullsafe.neverNull                                                                                  
+ ------ -------------------------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------- 
+  Line   app\Http\Controllers\YapeOrdersController.php                               
+ ------ ---------------------------------------------------------------------------- 
+  39     Call to an undefined method Illuminate\Contracts\Cache\Repository::lock().  
+         🪪  method.notFound                                                         
+ ------ ---------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Http\Resources\ActaResource.php                                                    
+ ------ --------------------------------------------------------------------------------------- 
+  13     Access to an undefined property App\Http\Resources\ActaResource::$id.                  
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  14     Access to an undefined property App\Http\Resources\ActaResource::$codigo.              
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  15     Access to an undefined property App\Http\Resources\ActaResource::$numero_acta.         
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  16     Access to an undefined property App\Http\Resources\ActaResource::$orden_tipo.          
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  17     Access to an undefined property App\Http\Resources\ActaResource::$anio.                
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  18     Access to an undefined property App\Http\Resources\ActaResource::$tipo.                
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  19     Access to an undefined property App\Http\Resources\ActaResource::$fecha_acta.          
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  20     Access to an undefined property App\Http\Resources\ActaResource::$estado.              
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  21     Access to an undefined property App\Http\Resources\ActaResource::$usuario.             
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  22     Access to an undefined property App\Http\Resources\ActaResource::$created_at.          
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------------- 
+  Line   app\Models\Acta.php                                                                            
+ ------ ----------------------------------------------------------------------------------------------- 
+  63     Cannot call method lt() on string.                                                             
+         🪪  method.nonObject                                                                           
+  72     Cannot call method copy() on string.                                                           
+         🪪  method.nonObject                                                                           
+  125    Method App\Models\Acta::detalle() should return                                                
+         App\Models\ActaDefuncion|App\Models\ActaMatrimonio|App\Models\ActaNacimiento|null but returns  
+         Illuminate\Database\Eloquent\Model|null.                                                       
+         🪪  return.type                                                                                
+  128    Match arm comparison between 'DEFUNCION' and 'DEFUNCION' is always true.                       
+         🪪  match.alwaysTrue                                                                           
+         💡  Remove remaining cases below this one and this error will disappear too.                   
+ ------ ----------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Models\TramiteEvento.php                                                           
+ ------ --------------------------------------------------------------------------------------- 
+  25     Access to an undefined property App\Models\TramiteEvento::$tramite.                    
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Models\TramitePublico.php                                                                                  
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  49     Offset 'dni' on string on left side of ?? does not exist.                                                      
+         🪪  nullCoalesce.offset                                                                                        
+  57     Offset 'relacion' on string on left side of ?? does not exist.                                                 
+         🪪  nullCoalesce.offset                                                                                        
+  57     Strict comparison using !== between null and 'titular' will always evaluate to true.                           
+         🪪  notIdentical.alwaysTrue                                                                                    
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  58     Unreachable statement - code above always terminates.                                                          
+         🪪  deadCode.unreachable                                                                                       
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------- 
+  Line   app\Providers\AppServiceProvider.php                                                             
+ ------ ------------------------------------------------------------------------------------------------- 
+  51     Call to an undefined method Symfony\Component\Mailer\Transport\TransportInterface::getStream().  
+         🪪  method.notFound                                                                              
+ ------ ------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Services\AuditoriaService.php                                                                              
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  41     Using nullsafe method call on non-nullable type Illuminate\Http\Request. Use -> instead.                       
+         🪪  nullsafe.neverNull                                                                                         
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  42     Using nullsafe method call on non-nullable type Illuminate\Http\Request. Use -> instead.                       
+         🪪  nullsafe.neverNull                                                                                         
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------- 
+  Line   app\Services\BusquedaPublicaService.php                  
+ ------ --------------------------------------------------------- 
+  12     Match expression does not handle remaining value: mixed  
+         🪪  match.unhandled                                      
+ ------ --------------------------------------------------------- 
+
+ ------ ------------------------------------------ 
+  Line   app\Services\CodigoTramiteService.php     
+ ------ ------------------------------------------ 
+  19     Cannot call method gt() on string.        
+         🪪  method.nonObject                      
+  31     Cannot call method isFuture() on string.  
+         🪪  method.nonObject                      
+ ------ ------------------------------------------ 
+
+ ------ ----------------------------------------------------------------------------------------- 
+  Line   app\Services\CruceParentescoService.php                                                  
+ ------ ----------------------------------------------------------------------------------------- 
+  15     Access to an undefined property Illuminate\Database\Eloquent\Model::$filiacion_version.  
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  17     Access to an undefined property Illuminate\Database\Eloquent\Model::$madre_dni.          
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  17     Access to an undefined property Illuminate\Database\Eloquent\Model::$madre_dni_estado.   
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  17     Access to an undefined property Illuminate\Database\Eloquent\Model::$padre_dni.          
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+  17     Access to an undefined property Illuminate\Database\Eloquent\Model::$padre_dni_estado.   
+         🪪  property.notFound                                                                    
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property    
+ ------ ----------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  Line   app\Services\EnvioDocumentoCorreo.php                                                                          
+ ------ --------------------------------------------------------------------------------------------------------------- 
+  17     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  17     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  17     Result of && is always false.                                                                                  
+         🪪  booleanAnd.alwaysFalse                                                                                     
+         💡  Because the type is coming from a PHPDoc, you can turn off this check by setting treatPhpDocTypesAsCertain  
+         : false in your phpstan.neon.                                                                                  
+  18     Offset 'canales_entrega' on string in empty() does not exist.                                                  
+         🪪  empty.offset                                                                                               
+  19     Offset 'entrega' on string in empty() does not exist.                                                          
+         🪪  empty.offset                                                                                               
+  20     Offset 'entrega' on string in empty() does not exist.                                                          
+         🪪  empty.offset                                                                                               
+  33     Access to an undefined property App\Models\TramitePublico::$pago.                                              
+         🪪  property.notFound                                                                                          
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                          
+  35     Offset 'entrega' does not exist on string.                                                                     
+         🪪  offsetAccess.notFound                                                                                      
+  43     Cannot assign offset 'entrega' to string.                                                                      
+         🪪  offsetAssign.dimType                                                                                       
+ ------ --------------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Services\FirmaDocumentoService.php                                                 
+ ------ --------------------------------------------------------------------------------------- 
+  16     Access to an undefined property App\Models\TramitePublico::$acta.                      
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  27     Access to an undefined property App\Models\TramitePublico::$acta.                      
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------- 
+  Line   app\Services\IncidenciaService.php                                                                      
+ ------ -------------------------------------------------------------------------------------------------------- 
+  50     Access to an undefined property Illuminate\Database\Eloquent\Model::$apellido_nombre.                   
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  50     Access to an undefined property Illuminate\Database\Eloquent\Model::$apellido_nombre.                   
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  50     Access to an undefined property Illuminate\Database\Eloquent\Model::$nombre_completo.                   
+         🪪  property.notFound                                                                                   
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                   
+  50     Using nullsafe property access "?->apellido_nombre" on left side of ?? is unnecessary. Use -> instead.  
+         🪪  nullsafe.neverNull                                                                                  
+  50     Using nullsafe property access "?->apellido_nombre" on left side of ?? is unnecessary. Use -> instead.  
+         🪪  nullsafe.neverNull                                                                                  
+  50     Using nullsafe property access "?->nombre_completo" on left side of ?? is unnecessary. Use -> instead.  
+         🪪  nullsafe.neverNull                                                                                  
+ ------ -------------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Services\MercadoPagoService.php                                                    
+ ------ --------------------------------------------------------------------------------------- 
+  120    Access to an undefined property App\Models\PagoTramite::$tramite.                      
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app\Services\WhatsAppConsulta.php                                                      
+ ------ --------------------------------------------------------------------------------------- 
+  11     Access to an undefined property App\Models\TramitePublico::$pago.                      
+         🪪  property.notFound                                                                  
+         💡  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------- 
+  Line   database\migrations\2026_11_26_000023_add_busqueda_index_to_tramites_publicos.php  
+ ------ ----------------------------------------------------------------------------------- 
+  23     Offset 'dni' on string on left side of ?? does not exist.                          
+         🪪  nullCoalesce.offset                                                            
+ ------ ----------------------------------------------------------------------------------- 
+
+ [ERROR] Found 197 errors                                                                                              
+

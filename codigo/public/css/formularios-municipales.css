@@ -1,0 +1,38 @@
+/* Shared form hierarchy. State and dashboard colors retain their meanings. */
+.acta-questionnaire{border:0;padding:0;margin:0;min-width:0}
+.acta-choice-step{font-weight:600;color:#40534b;margin:12px 0 18px}
+.portal-client .acta-choice-grid .portal-type-inner{min-height:178px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;border:1px solid #aebcc2;box-shadow:0 5px 14px #21313d15;background:linear-gradient(135deg,#fff,#edf1f3)}
+.portal-client .acta-choice-grid .portal-type-icon{width:58px;height:58px;font-size:27px}
+.portal-client .acta-choice-grid .portal-type-inner strong{font-size:1.2rem}
+.portal-client .acta-choice-grid .portal-type-inner small{display:block;margin-top:8px;font-size:.85rem}
+.portal-client .acta-choice-grid .portal-type-check{display:none}
+.portal-client .acta-choice-grid input:focus-visible+.portal-type-inner{outline:3px solid #4f735f;outline-offset:4px}
+.portal-client .acta-choice-grid .portal-type:hover .portal-type-inner{border-color:#426b51;background:#e9f1ec;box-shadow:0 7px 18px #21313d20}
+.acta-selection-summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;margin:0 0 22px;border:1px solid #b6c6bc;border-left:4px solid #356448;border-radius:12px;background:linear-gradient(110deg,#f6f9f7,#e5eeea);scroll-margin-top:24px}
+.acta-selection-summary[hidden],#seleccion-tipo-acta[hidden],.acta-questionnaire[hidden]{display:none!important}
+.acta-selection-summary small{font-size:.7rem;letter-spacing:.08em;color:#54675d}
+.acta-selection-summary h3{font-size:1.25rem;margin:5px 0 0;color:#284c37}
+@media(max-width:575px){.portal-client .acta-choice-grid{grid-template-columns:1fr}.portal-client .acta-choice-grid .portal-type-inner{min-height:124px;flex-direction:row;text-align:left;justify-content:flex-start;padding:20px}.acta-selection-summary{align-items:flex-start;flex-direction:column}}
+:is(.municipal-system,.portal-client){--field-border:#aeb9bf;--field-silver:#f2f4f6;--field-text:#26363c}
+:is(.municipal-system,.portal-client) .form-label{font-weight:600;color:var(--field-text);font-size:.9rem;line-height:1.5;margin-bottom:.5rem}
+:is(.municipal-system,.portal-client) :is(.form-control,.form-select){border:1px solid var(--field-border);border-radius:8px;background-color:#fff;color:#24343c;min-height:44px;font-size:.94rem;line-height:1.5;box-shadow:inset 0 1px 2px #172a3506;transition:border-color .15s,box-shadow .15s}
+:is(.municipal-system,.portal-client) textarea.form-control{min-height:96px;resize:vertical}
+:is(.municipal-system,.portal-client) :is(.form-control,.form-select):focus{border-color:#4b6b59;box-shadow:0 0 0 3px #48665324;outline:none}
+:is(.municipal-system,.portal-client) :is(input,textarea)[readonly]{background:linear-gradient(135deg,#f5f7f8,#e8edf0);color:#4c5c66;border-color:#c6cfd5}
+:is(.municipal-system,.portal-client) :is(input,select,textarea):disabled{background-color:#edf0f2;color:#657079;opacity:1}
+:is(.municipal-system,.portal-client) :is(.form-control,.form-select)[aria-invalid="true"]{border-color:#a73740;box-shadow:0 0 0 2px #a7374015}
+:is(.municipal-system,.portal-client) :is(.form-text,.review-muted,.applicant-help){line-height:1.65}
+:is(.municipal-system,.portal-client) .field-required{display:inline-block;margin-left:6px;font-size:.68rem;font-weight:500;color:#596972;vertical-align:middle;letter-spacing:.01em}
+:is(.municipal-system,.portal-client) .form-check-input{border-color:#8d9d96;width:1.1em;height:1.1em;cursor:pointer}
+:is(.municipal-system,.portal-client) .form-check-label{line-height:1.6;cursor:pointer}
+:is(.municipal-system,.portal-client) .form-check-input:checked{background-color:#355e49;border-color:#355e49}
+:is(.municipal-system,.portal-client) :is(.card,.review-panel){border-color:#ccd4d9;border-radius:12px;box-shadow:0 5px 16px #21313d12,0 1px 3px #21313d0b}
+:is(.municipal-system,.portal-client) .table thead th{background:linear-gradient(#f4f6f8,#e8edf0);color:#3b4c56;border-bottom:1px solid #c6cfd5;font-weight:600}
+:is(.municipal-system,.portal-client) .btn-outline-secondary{border-color:#a5b1b9;color:#40515d;background:linear-gradient(#fff,#f1f4f6)}
+:is(.municipal-system,.portal-client) .btn-outline-secondary:hover{background:#e4e9ed;color:#23343d}
+:is(.municipal-system,.portal-client) .btn:focus-visible{outline:3px solid #748d80;outline-offset:3px}
+:is(.municipal-system,.portal-client) .btn[disabled]{opacity:.65;cursor:wait}
+:is(.municipal-system,.portal-client) form[aria-busy="true"]{cursor:progress}
+:is(.municipal-system,.portal-client) .workflow-next{padding:14px 18px;margin:0 0 22px;border:1px solid #c3cdd3;border-left:3px solid #59745f;border-radius:9px;background:linear-gradient(110deg,#f7f9fa,#e9eef0);color:#344c42;line-height:1.6}
+@media(max-width:575px){:is(.municipal-system,.portal-client) .form-label{font-size:.86rem}:is(.municipal-system,.portal-client) .field-required{font-size:.63rem}.municipal-system #formActa>.row.row-cols-3{--bs-gutter-x:.5rem}.municipal-system #formActa .btn-check+label{font-size:.76rem;padding-inline:4px!important}}
+@media(prefers-reduced-motion:reduce){:is(.municipal-system,.portal-client) :is(.form-control,.form-select){transition:none}}

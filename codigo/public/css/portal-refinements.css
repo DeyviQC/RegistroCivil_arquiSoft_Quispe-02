@@ -1,0 +1,57 @@
+/* Continuous institutional backdrop; keep the original photograph unaltered. */
+body.portal-body{background:radial-gradient(ellipse at 8% 10%,#cce4d43b,transparent 48%),radial-gradient(ellipse at 95% 38%,#d2dce44d,transparent 48%),linear-gradient(150deg,#eef4ef 0%,#f5f7f5 42%,#e9f0eb 100%);background-attachment:fixed}
+.portal-body .portal-header{background:linear-gradient(110deg,#fafcfbd9,#eef3f0d9 65%,#f5f8f6d9);border-bottom-color:#d0dcd5;box-shadow:0 3px 18px #294a3605}
+.portal-body .portal-header:after{height:1px;opacity:.65}
+.portal-body .portal-brand img{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none;object-fit:contain}
+.portal-body .portal-nav a[aria-current=page]{background:linear-gradient(135deg,#ffffffb3,#dfe8e2b3);border-color:#c8d5cc;box-shadow:0 3px 10px #28493208}
+.portal-body .portal-main{position:relative}
+.portal-home .portal-hero.home-photo-hero{min-height:0;border:0;box-shadow:0 18px 44px #153d2b1a}
+.portal-home .home-photo-hero>div:first-child{padding:36px 40px;max-width:650px;width:62%}
+.portal-home .home-photo-hero h1{font-size:clamp(33px,3.5vw,43px)}
+.portal-home .home-photo-hero .home-real-photo>img{object-fit:cover;object-position:center;image-rendering:auto;filter:none;transform:none}
+.portal-home .portal-hero.home-photo-hero:before{background:linear-gradient(90deg,#10382ff5 0%,#143d32ee 25%,#173f32b8 47%,#173c3233 70%,#0c30210a 100%)}
+.portal-home .portal-steps{background:transparent;border:0;border-radius:0;box-shadow:none;margin:0 10px 45px;padding:8px 0 23px;border-bottom:1px solid #c6d7cb}
+.portal-home .portal-step{background:transparent;border-color:#ccdacf;padding:17px 16px}
+.portal-home .home-search{position:relative;padding:8px 0}
+.portal-home .portal-type-inner{background:#ffffff73;border:1px solid #cad9cf;box-shadow:none;border-radius:15px;min-height:104px}
+.portal-home .portal-type:hover .portal-type-inner{background:#ffffffc9;box-shadow:0 8px 24px #284c390c}
+.portal-home .portal-type input:checked+.portal-type-inner{background:linear-gradient(130deg,#ffffffb8,#e1f0e6c9);box-shadow:0 0 0 1px #619674}
+.portal-home .portal-form-layout>.card{background:#ffffffa3;border:1px solid #dce6df;box-shadow:0 10px 28px #1e4a3010;backdrop-filter:blur(8px)}
+.portal-home .portal-aside{background:transparent;border:0;border-left:1px solid #c7d8cc;border-radius:0;box-shadow:none;padding:15px 0 15px 30px}
+.portal-home .portal-aside>i{background:#e3eee6;border-color:#c5d8cb;box-shadow:none}
+.portal-home .portal-aside hr{margin:23px 0;border-color:#b8cdbc}
+.portal-home .portal-submit{background:transparent;border-radius:0}
+.portal-body .portal-footer{background:linear-gradient(120deg,#dfeae2b3,#e7eee9b3);border-top:1px solid #cbd9cf}
+.portal-body .citizen-banner{background:radial-gradient(ellipse at right top,#ffffff20,transparent 60%),linear-gradient(110deg,#174738,#326e56);box-shadow:0 9px 26px #234f3214}
+.portal-body .citizen-code-art{background:transparent;border:0}
+.portal-body .portal-follow-help{background:#e2eee66b;border-color:#ccddd1}
+.wizard-summary{background:#ffffff80;box-shadow:none;border-color:#cdded2}
+.wizard-content .applicant-section{background:#ffffffd9!important;box-shadow:0 9px 28px #224b350c}
+@media(min-width:1150px){.portal-home .home-photo-hero>div:first-child{padding:38px 40px}.portal-home .portal-hero.home-photo-hero{min-height:0}}
+@media(max-width:1000px){.portal-home .home-photo-hero>div:first-child{width:76%;padding:32px}.portal-home .portal-hero.home-photo-hero{min-height:0}}
+@media(max-width:800px){.portal-home .portal-aside{border-left:0;border-top:1px solid #c7d8cc;padding:24px 4px 0}.portal-home .portal-steps{margin-left:0;margin-right:0}.portal-home .portal-step{padding:15px 12px}.portal-home .portal-type-inner{min-height:115px}}
+@media(max-width:650px){.portal-home .home-photo-hero>div:first-child{width:100%;padding:28px 24px}.portal-home .home-photo-hero h1{font-size:34px}.portal-home .portal-hero.home-photo-hero:before{background:linear-gradient(100deg,#123d32f2,#163f33de 70%,#14392ccb)}body.portal-body{background-attachment:scroll}}
+
+/* Edge-to-edge photographic entry, with a calm optional background movement. */
+.portal-body.portal-home-page .portal-main{max-width:none;width:100%;padding:0;margin:0;overflow:hidden}
+.portal-body.portal-home-page .portal-home{width:100%}
+.portal-body.portal-home-page .portal-hero.home-photo-hero{width:100%;border-radius:0;min-height:calc(100svh - 165px);min-height:max(570px,calc(100svh - 165px));margin:0;border:0;box-shadow:none;display:flex;align-items:center}
+.portal-body.portal-home-page .home-photo-hero>div:first-child{box-sizing:border-box;width:100%;max-width:1200px;margin:0 auto;padding:65px 28px;z-index:1}
+.portal-body.portal-home-page .home-photo-hero h1{font-size:clamp(40px,4.2vw,66px);max-width:760px;line-height:1.08;letter-spacing:-2px}
+.portal-body.portal-home-page .home-photo-hero .portal-eyebrow{font-size:12px;letter-spacing:2px;margin-bottom:23px}
+.portal-body.portal-home-page .home-photo-hero .portal-lead{font-size:16px;line-height:1.9;max-width:615px;margin-top:27px}
+.portal-body.portal-home-page .home-photo-hero .home-hero-actions{margin-top:34px;margin-bottom:29px;gap:28px}
+.portal-body.portal-home-page .home-photo-hero .home-start{font-size:14px;padding:18px 25px}
+.portal-body.portal-home-page .home-photo-hero .home-follow{font-size:14px}
+.portal-body.portal-home-page .home-photo-hero .portal-tags{gap:24px}
+.portal-body.portal-home-page .home-photo-hero .portal-tags>span{font-size:12px}
+.portal-body.portal-home-page .home-photo-hero .home-real-photo{z-index:-2}
+.portal-body.portal-home-page .home-photo-hero .home-real-photo>img{animation:district-pan 25s ease-in-out infinite alternate;transform-origin:60% 50%;object-position:center}
+.portal-body.portal-home-page .portal-hero.home-photo-hero:before{background:linear-gradient(90deg,#0c3027f2 0%,#11382de6 28%,#163d30ab 49%,#153a2b2b 76%,#0d2e2412 100%)}
+.portal-body.portal-home-page .portal-home>.portal-steps{width:calc(100% - 56px);max-width:1144px;margin:0 auto 38px;padding:16px 0 24px}
+.portal-body.portal-home-page .home-search{max-width:1200px;margin:0 auto;padding:12px 28px 65px}
+.portal-body.portal-home-page .portal-main>.alert{max-width:1144px;margin:18px auto}
+@keyframes district-pan{from{transform:scale(1.01) translateX(0)}to{transform:scale(1.075) translateX(-.5%)}}
+@media(max-width:800px){.portal-body.portal-home-page .portal-hero.home-photo-hero{min-height:calc(100svh - 180px)}.portal-body.portal-home-page .home-photo-hero>div:first-child{padding:48px 25px}.portal-body.portal-home-page .home-photo-hero h1{font-size:44px;max-width:600px}.portal-body.portal-home-page .home-photo-hero .portal-lead{font-size:14px;max-width:510px}.portal-body.portal-home-page .home-photo-hero .portal-tags{flex-wrap:wrap;gap:15px}.portal-body.portal-home-page .home-search{padding:8px 20px 45px}.portal-body.portal-home-page .portal-home>.portal-steps{width:calc(100% - 40px)}}
+@media(max-width:520px){.portal-body.portal-home-page .portal-hero.home-photo-hero{min-height:600px;min-height:max(560px,calc(100svh - 190px))}.portal-body.portal-home-page .home-photo-hero>div:first-child{padding:42px 22px}.portal-body.portal-home-page .home-photo-hero h1{font-size:39px;letter-spacing:-1.4px}.portal-body.portal-home-page .home-photo-hero .portal-eyebrow{font-size:10px;letter-spacing:1.5px}.portal-body.portal-home-page .home-photo-hero .portal-lead{font-size:13px}.portal-body.portal-home-page .home-photo-hero .home-hero-actions{gap:20px}.portal-body.portal-home-page .home-photo-hero .home-follow{font-size:12px}.portal-body.portal-home-page .home-photo-hero .home-start{font-size:12px;padding:15px 20px}.portal-body.portal-home-page .home-photo-hero .portal-tags>span{font-size:10px}.portal-body.portal-home-page .portal-hero.home-photo-hero:before{background:linear-gradient(90deg,#0c3027f0,#123c2ed9 65%,#133a2ca8)}}
+@media(prefers-reduced-motion:reduce){.portal-body.portal-home-page .home-photo-hero .home-real-photo>img{animation:none;transform:none}}

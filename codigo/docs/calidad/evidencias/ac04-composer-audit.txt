@@ -1,0 +1,8 @@
+﻿php.exe : You are running Composer with SSL/TLS protection disabled.
+En línea: 1 Carácter: 508
++ ... | Out-Null; & C:\Users\LOQ\.config\herd\bin\php84\php.exe -d "openssl ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (You are running...ction disabled.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+No security vulnerability advisories found.

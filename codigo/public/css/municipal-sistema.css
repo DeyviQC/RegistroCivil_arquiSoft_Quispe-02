@@ -1,0 +1,109 @@
+/* Municipal workspace: shared hierarchy, restrained green and silver surfaces. */
+.municipal-system{--ms-green:#3f5635;--ms-deep:#2c3d26;--ms-text:#29362d;--ms-muted:#64716a;--ms-line:#d8dfda;--ms-silver:#edf1ee;--bs-primary:#3f5635;background:#f0f3ef;color:var(--ms-text);font-family:'Segoe UI',Arial,sans-serif;font-size:14px}
+.municipal-system h1,.municipal-system h2,.municipal-system h3,.municipal-system h4,.municipal-system h5,.municipal-system h6,.municipal-system .btn,.municipal-system label,.municipal-system .form-control,.municipal-system .form-select,.municipal-system .nav-link{font-family:'Segoe UI',Arial,sans-serif}
+.municipal-system .contenido-app{background:#f0f3ef;min-width:0}
+.municipal-system .sidebar-municipal{width:264px;background:#33452c;border-right:1px solid #53634b;box-shadow:none;padding:20px 14px!important;flex-shrink:0}
+.municipal-system .sidebar-municipal>div.text-center{padding:3px 10px 17px;margin-bottom:12px!important;border-bottom:1px solid #ffffff20}
+.municipal-system .sidebar-municipal h6{font-size:11px;font-weight:600;letter-spacing:.08em;line-height:1.6}
+.municipal-system .sidebar-municipal small{font-size:11px;line-height:1.6}
+.municipal-system .sidebar-municipal .nav-link{font-size:13px;font-weight:400;line-height:1.5;padding:11px 12px;border-radius:7px;color:#e2e9df;border:1px solid transparent}
+.municipal-system .sidebar-municipal .nav-link:hover{background:#ffffff0d;color:#fff}
+.municipal-system .sidebar-municipal .nav-link.active{background:#ffffff19;border-color:#ffffff1a;box-shadow:inset 3px 0 #bccbb2;color:#fff;font-weight:600}
+.municipal-system .sidebar-municipal .nav-link i{font-size:16px;opacity:.9}
+.municipal-system .nav-section-label{font-size:9px;letter-spacing:.13em;font-weight:600;color:#b4c3aa;padding:17px 12px 5px;list-style:none}
+.municipal-system .header-municipal{background:#fff;border-bottom:1px solid var(--ms-line);box-shadow:none;min-height:78px;gap:18px}
+.municipal-system .header-municipal h5{font-size:16px;font-weight:600;color:#3f5635;letter-spacing:-.2px}
+.municipal-system .system-identity{display:flex;align-items:center;gap:12px;color:#3f5635;line-height:1.4}.municipal-system .system-identity>span{font-size:15px;font-weight:600}.municipal-system .system-identity>small{font-size:11px;color:#718268;border-left:1px solid #ccd7c6;padding-left:12px}
+.municipal-system .profile-box{border:0;background:transparent;box-shadow:none;padding:0;gap:10px!important}
+.municipal-system .profile-avatar{width:36px;height:36px;font-size:14px;background:linear-gradient(135deg,#60784d,#3e5534);border:1px solid #d4ddce;box-shadow:none}
+.municipal-system .profile-name{font-size:12px;color:#374d30}.municipal-system .profile-role{font-size:10px;letter-spacing:.08em;color:#718268}
+.municipal-system .profile-action{width:34px;height:34px;background:#eef2eb;color:#4e6740;border-radius:7px;text-decoration:none}
+.municipal-system main.ui-clear{padding:30px!important;color:var(--ms-text);max-width:1600px;margin:0 auto}
+.municipal-system .page-heading{padding-bottom:21px;border-bottom:1px solid var(--ms-line);margin-bottom:25px!important}
+.municipal-system .page-heading h1{font-size:29px;font-weight:650;letter-spacing:-.65px;line-height:1.25;color:#2f472c}
+.municipal-system .page-heading p{font-size:14px;line-height:1.7;color:#67776a!important;max-width:850px}
+.municipal-system .ui-clear .card{border:1px solid var(--ms-line)!important;border-radius:12px;box-shadow:0 4px 15px #243b2a12,0 1px 3px #243b2a09!important;background:#fff}
+.municipal-system .ui-clear .card-header{background:linear-gradient(110deg,#fff,#fafbf9)!important;border-bottom:1px solid #e1e6de;border-radius:11px 11px 0 0;padding:17px 22px;font-size:15px;color:#3d5434}
+.municipal-system .ui-clear .card-body{padding:24px}.municipal-system .ui-clear .card-footer{background:#f8faf7;border-color:var(--ms-line);border-radius:0 0 11px 11px;padding:16px 22px}
+.municipal-system .ui-clear h2.h5,.municipal-system .ui-clear h5{font-size:18px;font-weight:650;color:#38512f;line-height:1.4}
+.municipal-system .ui-clear .form-label{font-size:13px;font-weight:600;color:#405739;margin-bottom:7px;line-height:1.5}
+.municipal-system .ui-clear .form-control,.municipal-system .ui-clear .form-select{font-size:14px;min-height:44px;line-height:1.5;border:1px solid #bdcabe;border-radius:7px;padding:10px 12px;background:#fff;color:#304329;box-shadow:none}
+.municipal-system .ui-clear .form-control-sm,.municipal-system .ui-clear .form-select-sm{min-height:40px;font-size:13px;padding:9px 11px}
+.municipal-system .form-control::placeholder{color:#7d897b;opacity:1}
+.municipal-system .ui-clear .form-control:focus,.municipal-system .ui-clear .form-select:focus{border-color:#708a5c;box-shadow:0 0 0 3px #708a5c1c}
+.municipal-system .ui-clear input[readonly]{background:#f1f4ef;color:#66745d}
+.municipal-system .ui-clear .form-text,.municipal-system .ui-clear .text-muted{color:#66765f!important;line-height:1.65}
+.municipal-system .form-check-label{font-size:13px;line-height:1.7}.municipal-system .form-check-input:checked{background-color:#4b663d;border-color:#4b663d}
+.municipal-system .ui-clear .btn{min-height:42px;font-size:13px;font-weight:600;line-height:1.5;padding:10px 16px;border-radius:7px;box-shadow:none}
+.municipal-system .ui-clear .btn-sm{min-height:36px;padding:7px 11px;font-size:12px}
+.municipal-system .btn-primary,.municipal-system .btn-success{background:#3f5635;border-color:#3f5635;color:#fff}
+.municipal-system .btn-primary:hover,.municipal-system .btn-success:hover{background:#2f4526;border-color:#2f4526;color:#fff}
+.municipal-system .btn-outline-primary,.municipal-system .btn-outline-success{background:#fff;color:#465e3b;border-color:#8da180}
+.municipal-system .btn-outline-primary:hover,.municipal-system .btn-outline-success:hover{background:#edf2e8;color:#2e4424;border-color:#6d875e}
+.municipal-system .btn-outline-secondary{background:linear-gradient(135deg,#fff,#eff2ee);color:#617057;border-color:#bdcabc}
+.municipal-system .btn-outline-danger{background:#fff;border-color:#d9b8b3;color:#963f35}
+.municipal-system .btn-outline-danger:hover{background:#f9edeb;border-color:#b96b60;color:#813b32}
+.municipal-system .ui-clear .table{font-size:13px;--bs-table-color:#34442e;--bs-table-border-color:#e1e7de;--bs-table-hover-bg:#f5f8f2}
+.municipal-system .ui-clear .table th{padding:14px 18px;background:#f8faf6;--bs-table-bg:#f8faf6;font-size:11px;letter-spacing:.035em;font-weight:650;color:#576f49;vertical-align:middle;border-color:#dce4d5}
+.municipal-system .ui-clear .table td{padding:16px 18px;line-height:1.6;vertical-align:middle}
+.municipal-system .table-responsive{border-radius:0 0 11px 11px;scrollbar-color:#bdcabc #f2f5ee;scrollbar-width:thin}
+.municipal-system .ui-clear .badge{border-radius:5px;font-size:10px;font-weight:600;padding:6px 8px;line-height:1.4;letter-spacing:.015em;white-space:normal}
+.municipal-system .ui-clear .table .badge{white-space:nowrap}
+.municipal-system .ui-clear .table-responsive .table{min-width:660px}
+.municipal-system .ui-clear .dashboard-overview .table{min-width:580px}
+.municipal-system .ui-clear .dashboard-overview .table th,.municipal-system .ui-clear .dashboard-overview .table td{padding-left:12px;padding-right:12px}
+.municipal-system .ui-clear .certificado{border:1px solid #d4dece;border-radius:12px;box-shadow:0 3px 14px #2e432505;background:#fff;overflow:hidden}
+.municipal-system .ui-clear .certificado-encabezado{background:linear-gradient(120deg,#fff,#f8faf5);border-bottom:1px solid #dbe4d5;padding:25px}
+.municipal-system .ui-clear .certificado-encabezado h3{font-size:22px;color:#3d5731;letter-spacing:-.4px}
+.municipal-system .ui-clear .dato-label{font-size:12px;color:#708165;line-height:1.6}.municipal-system .ui-clear .dato-valor{font-size:15px;color:#30482a;line-height:1.65;overflow-wrap:anywhere}
+.municipal-system .sidebar-municipal{scrollbar-width:thin;scrollbar-color:#7a8c6c #33452c}
+.municipal-system .pdf-document-stage{overflow:auto;max-width:100%;background:#e8ede7!important}
+.municipal-system .profile-settings-section{border-top:1px solid #dce4d6;padding-top:22px;margin-top:22px}.municipal-system .profile-settings-section h3{font-size:16px;color:#3e5833;margin-bottom:18px;font-weight:650}.municipal-system .profile-access-data{display:flex;gap:40px;flex-wrap:wrap;margin-bottom:14px}.municipal-system .profile-access-data dt{font-size:12px;color:#718268;font-weight:400;margin-bottom:5px}.municipal-system .profile-access-data dd{font-size:14px;font-weight:600;color:#3d5433}.municipal-system .profile-settings details{background:#fafcf8;border:1px solid #d8e2cf;border-radius:8px;padding:15px 17px}.municipal-system .profile-settings summary{font-size:13px;color:#4e683e;cursor:pointer}
+.municipal-system .login-card .form-control:focus{border-color:#708a5c;box-shadow:0 0 0 3px #708a5c26}
+.municipal-system .ui-clear .text-bg-primary,.municipal-system .ui-clear .bg-primary{background:#eaf0e5!important;color:#4d693e!important}
+.municipal-system .ui-clear .text-bg-success,.municipal-system .ui-clear .bg-success{background:#e8f1e5!important;color:#456b38!important}
+.municipal-system .ui-clear .text-bg-warning,.municipal-system .ui-clear .bg-warning{background:#fbf3df!important;color:#826328!important}
+.municipal-system .ui-clear .text-bg-danger,.municipal-system .ui-clear .bg-danger{background:#f8eae7!important;color:#9c4b40!important}
+.municipal-system .ui-clear .text-bg-secondary{background:#ecefed!important;color:#657269!important}
+.municipal-system .ui-clear .text-primary{color:#506d40!important}
+.municipal-system .ui-clear .alert{font-size:13px;line-height:1.75;border-radius:8px;box-shadow:none;padding:15px 18px}
+.municipal-system .alert-success{background:#edf5e9;border-color:#d3e2ca;color:#49663d}.municipal-system .alert-warning{background:#fcf8ed;border-color:#e6d9b8;color:#7b6231}.municipal-system .alert-danger{background:#fcf0ed;border-color:#e4c8c0;color:#903f34}.municipal-system .alert-info{background:#f0f4f0;border-color:#d1dcd0;color:#526c47}
+.municipal-system .ui-clear .page-link{border-color:#d6e0d0;color:#4e683f;border-radius:5px;font-size:12px;padding:8px 12px}.municipal-system .ui-clear .page-item.active .page-link{background:#506d40;border-color:#506d40;color:#fff}
+.municipal-system .card-metric{position:relative;border-top:3px solid #9cad90!important;border-radius:10px!important}
+.municipal-system .card-metric .fs-2{font-size:32px!important;font-weight:650!important;line-height:1.2;margin-top:9px}
+.municipal-system .card-metric .card-body>.small{font-size:12px}.municipal-system .card-metric.text-white{background:#3f5635!important;border-top-color:#899d77!important}
+.municipal-system .ui-clear .metric-nacimiento{border-top-color:#5285bd!important;background:linear-gradient(120deg,#fff,#f0f5fb)}
+.municipal-system .ui-clear .metric-nacimiento .fs-2,.municipal-system .ui-clear .metric-nacimiento i{color:#356ba4!important}
+.municipal-system .ui-clear .metric-matrimonio{border-top-color:#599976!important;background:linear-gradient(120deg,#fff,#eff7f2)}
+.municipal-system .ui-clear .metric-matrimonio .fs-2,.municipal-system .ui-clear .metric-matrimonio i{color:#33815a!important}
+.municipal-system .ui-clear .metric-defuncion{border-top-color:#8c969f!important;background:linear-gradient(120deg,#fff,#f1f3f5)}
+.municipal-system .ui-clear .metric-defuncion .fs-2,.municipal-system .ui-clear .metric-defuncion i{color:#697782!important}
+.municipal-system .ui-clear .table .badge.text-bg-primary{background:#e8f0fa!important;color:#356ba4!important}
+.municipal-system .ui-clear .table .badge.text-bg-success{background:#e9f4ee!important;color:#337855!important}
+.municipal-system .ui-clear .table .badge.text-bg-secondary{background:#eceff2!important;color:#65737f!important}
+.municipal-system .dashboard-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.municipal-system .desk-inbox-heading h1,.municipal-system .review-header h1{font-size:29px;font-weight:650;letter-spacing:-.65px;color:#2f472c}
+.municipal-system .desk-summary a,.municipal-system .desk-list,.municipal-system .review-panel{border-radius:10px;border-color:var(--ms-line);box-shadow:none}
+.municipal-system .desk-summary a{border-top:2px solid #95a78a;padding:18px 20px}.municipal-system .desk-summary strong{font-size:27px;color:#4e683e}
+.municipal-system .desk-filters{background:#fbfcfa}.municipal-system .desk-table th{background:#f8faf5;font-size:10px;padding-top:15px;padding-bottom:15px;color:#647955}.municipal-system .desk-table td{padding-top:21px;padding-bottom:21px}
+.municipal-system .desk-state,.municipal-system .review-status{border-radius:5px;font-size:11px;font-weight:600}
+.municipal-system .review-panel{padding:25px}.municipal-system .review-panel h2{font-size:18px;font-weight:650;color:#3c5631}.municipal-system .review-panel h3{font-size:14px}.municipal-system .review-decision{border-top:3px solid #859d77}.municipal-system .review-data dt{font-size:12px;color:#74806e}.municipal-system .review-data dd{font-size:14px;line-height:1.65;font-weight:500}.municipal-system .review-callout{border-radius:7px}
+.municipal-system .review-workspace{font-size:14px}.municipal-system .review-muted{font-size:13px;color:#65755e;line-height:1.75}.municipal-system .review-secondary-link{font-size:13px;color:#566f48;text-underline-offset:4px}
+.municipal-system a:focus-visible,.municipal-system button:focus-visible,.municipal-system summary:focus-visible{outline:3px solid #8b9f79;outline-offset:3px}
+.municipal-system .skip-content{position:fixed;top:10px;left:12px;z-index:2000;padding:12px 18px;background:#fff;color:#334e26;border:2px solid #718a5c;border-radius:6px;transform:translateY(-160%)}
+.municipal-system .skip-content:focus{transform:none}
+.municipal-system .table-responsive:focus-visible{outline:3px solid #8b9f79;outline-offset:2px}
+.municipal-system .login-card{width:min(470px,calc(100% - 32px));border:1px solid #d4dfcf;border-top:4px solid #849c73;border-radius:14px;box-shadow:0 15px 50px #283f2210!important;background:#fff}
+.municipal-system.login-bg{background:radial-gradient(ellipse at top left,#e7eee0,transparent 65%),#f2f5ef;padding:26px 0}
+.municipal-system .login-card .card-body{padding:36px!important}.municipal-system .login-card h1{font-size:23px;letter-spacing:-.4px}.municipal-system .login-card h5{font-size:12px;letter-spacing:.065em;color:#486338}.municipal-system .login-card .form-control{min-height:46px;border-color:#bfcdb7;border-radius:7px;font-size:16px;padding:10px 12px}.municipal-system .login-card .form-label{font-size:13px;font-weight:600;color:#49623c}.municipal-system .login-card .btn-primary{min-height:46px;font-size:14px;border-radius:7px;font-weight:600}.municipal-system .login-card p{font-size:13px;line-height:1.7}.municipal-system .login-card a{color:#4c683d;font-size:13px}
+@media(min-width:992px){.municipal-system .contenido-app{margin-left:264px}.municipal-system .sidebar-municipal{position:fixed;inset:0 auto 0 0;overflow-y:auto;height:100dvh}.municipal-system .header-municipal{position:sticky;top:0;z-index:99}}
+@media(max-width:991.98px){.municipal-system .sidebar-municipal{width:264px}.municipal-system .contenido-app{margin-left:0}.municipal-system .header-municipal{padding:16px!important;min-height:76px;gap:12px}.municipal-system main.ui-clear{padding:22px!important}}
+@media(max-width:650px){.municipal-system .profile-box .text-start{display:none}.municipal-system .header-municipal h5{font-size:14px}.municipal-system main.ui-clear{padding:18px 14px!important}.municipal-system .page-heading h1,.municipal-system .review-header h1,.municipal-system .desk-inbox-heading h1{font-size:25px}.municipal-system .ui-clear .card-body{padding:19px}.municipal-system .ui-clear .table th,.municipal-system .ui-clear .table td{padding:12px}.municipal-system .review-panel{padding:19px}.municipal-system .login-card .card-body{padding:27px 23px!important}.municipal-system .dashboard-actions .btn{flex:1 1 auto}.municipal-system .desk-table td{padding:0}}
+@media(prefers-reduced-motion:reduce){.municipal-system *{scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:650px){.municipal-system .system-identity{gap:0}.municipal-system .system-identity>span{font-size:14px}.municipal-system .system-identity>small{display:none}}
+@media print{.municipal-system .sidebar-municipal,.municipal-system .header-municipal,.municipal-system .skip-content{display:none!important}.municipal-system .contenido-app{margin:0}.municipal-system main.ui-clear{max-width:none;padding:0!important}}
+
+/* Defined elevation for desk panels and data cards. */
+.municipal-system .desk-summary a,.municipal-system .desk-list,.municipal-system .review-panel{box-shadow:0 4px 14px #243b2a12,0 1px 3px #243b2a09}
+.municipal-system .header-municipal{box-shadow:0 2px 9px #243b2a0d}
+.municipal-system .login-card{box-shadow:0 12px 32px #283f2220,0 2px 6px #283f2210!important}

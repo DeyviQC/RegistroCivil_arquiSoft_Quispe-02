@@ -7,3 +7,29 @@
 - **Docente:** Lizbeth Jaico Quispe
 - **Institución:** Universidad Nacional de San Cristóbal de Huamanga (UNSCH)
 - **Caso de estudio:** Sistema de Gestión de Registro Civil
+
+## Estructura del repositorio
+
+| Carpeta | Contenido | Sprint |
+|---|---|---|
+| `analisis-de-sistema/` | Actores, historias de usuario, requisitos, atributos y escenarios de calidad, restricciones, drivers y ADR | 1 |
+| `arquitectura/` | Estilo (monolito modular por capas), enfoque (MVC con servicios), componentes | 1 |
+| `diseño-de-software/` | Diseño interno, principios SOLID y patrones | 1 |
+| `modelo-c4/` | Diagramas C4 (contexto, contenedores, componentes, código) | 1 |
+| `codigo/` | Código fuente de la aplicación Laravel (primera versión funcional) | 2 |
+
+## Ejecutar el código
+
+Requisitos: PHP 8.4, Composer y MySQL (o SQLite para las pruebas).
+
+```bash
+cd codigo
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan test        # pruebas automatizadas
+php artisan serve       # http://127.0.0.1:8000
+```
+
+Más detalle en [`codigo/README.md`](codigo/README.md) y [`codigo/DESARROLLO.md`](codigo/DESARROLLO.md).
