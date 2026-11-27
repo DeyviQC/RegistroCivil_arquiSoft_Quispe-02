@@ -1,0 +1,6 @@
+N.º 9912: estado=RECHAZADA version=2 decisiones=1 auditorias=1
+N.º 9918: estado=RECHAZADA version=2 decisiones=1 auditorias=1
+N.º 9919: estado=RECHAZADA version=2 decisiones=1 auditorias=1
+N.º 9925: estado=APROBADA version=2 decisiones=1 auditorias=1
+N.º 9926: estado=RECHAZADA version=2 decisiones=1 auditorias=1
+Avisos al ciudadano en cola: 5

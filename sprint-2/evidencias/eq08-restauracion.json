@@ -1,0 +1,234 @@
+﻿{
+    "fecha":  "2026-11-27T00:22:02",
+    "base_original":  "registro_civil_sprint2_prueba",
+    "base_restaurada":  "registro_civil_sprint2_prueba_restaurada",
+    "volcado":  {
+                    "archivo":  "mysql-20261127-002200.sql.gz",
+                    "tamano_kb":  86.3
+                },
+    "documentos_respaldados":  29,
+    "tiempos":  {
+                    "respaldo_s":  1,
+                    "base_de_datos_s":  0.9,
+                    "documentos_s":  0,
+                    "rto_s":  1,
+                    "verificacion_s":  0.3
+                },
+    "verificacion":  {
+                         "tablas":  {
+                                        "acta_defunciones":  {
+                                                                 "filas_original":  200,
+                                                                 "checksum_original":  "200910655",
+                                                                 "filas_restaurada":  200,
+                                                                 "checksum_restaurada":  "200910655",
+                                                                 "dato_de_negocio":  true,
+                                                                 "igual":  true
+                                                             },
+                                        "acta_matrimonios":  {
+                                                                 "filas_original":  200,
+                                                                 "checksum_original":  "3013001126",
+                                                                 "filas_restaurada":  200,
+                                                                 "checksum_restaurada":  "3013001126",
+                                                                 "dato_de_negocio":  true,
+                                                                 "igual":  true
+                                                             },
+                                        "acta_nacimientos":  {
+                                                                 "filas_original":  200,
+                                                                 "checksum_original":  "3959379401",
+                                                                 "filas_restaurada":  200,
+                                                                 "checksum_restaurada":  "3959379401",
+                                                                 "dato_de_negocio":  true,
+                                                                 "igual":  true
+                                                             },
+                                        "acta_secuencias":  {
+                                                                "filas_original":  3,
+                                                                "checksum_original":  "3126811376",
+                                                                "filas_restaurada":  3,
+                                                                "checksum_restaurada":  "3126811376",
+                                                                "dato_de_negocio":  true,
+                                                                "igual":  true
+                                                            },
+                                        "actas":  {
+                                                      "filas_original":  600,
+                                                      "checksum_original":  "3358224307",
+                                                      "filas_restaurada":  600,
+                                                      "checksum_restaurada":  "3358224307",
+                                                      "dato_de_negocio":  true,
+                                                      "igual":  true
+                                                  },
+                                        "auditoria":  {
+                                                          "filas_original":  10,
+                                                          "checksum_original":  "1418755912",
+                                                          "filas_restaurada":  10,
+                                                          "checksum_restaurada":  "1418755912",
+                                                          "dato_de_negocio":  true,
+                                                          "igual":  true
+                                                      },
+                                        "configuraciones":  {
+                                                                "filas_original":  0,
+                                                                "checksum_original":  "0",
+                                                                "filas_restaurada":  0,
+                                                                "checksum_restaurada":  "0",
+                                                                "dato_de_negocio":  true,
+                                                                "igual":  true
+                                                            },
+                                        "failed_jobs":  {
+                                                            "filas_original":  0,
+                                                            "checksum_original":  "0",
+                                                            "filas_restaurada":  0,
+                                                            "checksum_restaurada":  "0",
+                                                            "dato_de_negocio":  true,
+                                                            "igual":  true
+                                                        },
+                                        "filiacion_historial":  {
+                                                                    "filas_original":  0,
+                                                                    "checksum_original":  "0",
+                                                                    "filas_restaurada":  0,
+                                                                    "checksum_restaurada":  "0",
+                                                                    "dato_de_negocio":  true,
+                                                                    "igual":  true
+                                                                },
+                                        "job_batches":  {
+                                                            "filas_original":  0,
+                                                            "checksum_original":  "0",
+                                                            "filas_restaurada":  0,
+                                                            "checksum_restaurada":  "0",
+                                                            "dato_de_negocio":  true,
+                                                            "igual":  true
+                                                        },
+                                        "jobs":  {
+                                                     "filas_original":  0,
+                                                     "checksum_original":  "0",
+                                                     "filas_restaurada":  0,
+                                                     "checksum_restaurada":  "0",
+                                                     "dato_de_negocio":  false,
+                                                     "igual":  true
+                                                 },
+                                        "migrations":  {
+                                                           "filas_original":  26,
+                                                           "checksum_original":  "2637153940",
+                                                           "filas_restaurada":  26,
+                                                           "checksum_restaurada":  "2637153940",
+                                                           "dato_de_negocio":  true,
+                                                           "igual":  true
+                                                       },
+                                        "pagos_tramite":  {
+                                                              "filas_original":  60,
+                                                              "checksum_original":  "4072711700",
+                                                              "filas_restaurada":  60,
+                                                              "checksum_restaurada":  "4072711700",
+                                                              "dato_de_negocio":  true,
+                                                              "igual":  true
+                                                          },
+                                        "password_reset_tokens":  {
+                                                                      "filas_original":  0,
+                                                                      "checksum_original":  "0",
+                                                                      "filas_restaurada":  0,
+                                                                      "checksum_restaurada":  "0",
+                                                                      "dato_de_negocio":  true,
+                                                                      "igual":  true
+                                                                  },
+                                        "personal_access_tokens":  {
+                                                                       "filas_original":  1,
+                                                                       "checksum_original":  "1125195239",
+                                                                       "filas_restaurada":  1,
+                                                                       "checksum_restaurada":  "1125195239",
+                                                                       "dato_de_negocio":  true,
+                                                                       "igual":  true
+                                                                   },
+                                        "role_user":  {
+                                                          "filas_original":  2,
+                                                          "checksum_original":  "1082832518",
+                                                          "filas_restaurada":  2,
+                                                          "checksum_restaurada":  "1082832518",
+                                                          "dato_de_negocio":  true,
+                                                          "igual":  true
+                                                      },
+                                        "roles":  {
+                                                      "filas_original":  3,
+                                                      "checksum_original":  "3333727913",
+                                                      "filas_restaurada":  3,
+                                                      "checksum_restaurada":  "3333727913",
+                                                      "dato_de_negocio":  true,
+                                                      "igual":  true
+                                                  },
+                                        "sessions":  {
+                                                         "filas_original":  1,
+                                                         "checksum_original":  "1440020846",
+                                                         "filas_restaurada":  1,
+                                                         "checksum_restaurada":  "1440020846",
+                                                         "dato_de_negocio":  false,
+                                                         "igual":  true
+                                                     },
+                                        "solicitud_eventos":  {
+                                                                  "filas_original":  0,
+                                                                  "checksum_original":  "0",
+                                                                  "filas_restaurada":  0,
+                                                                  "checksum_restaurada":  "0",
+                                                                  "dato_de_negocio":  true,
+                                                                  "igual":  true
+                                                              },
+                                        "solicitudes":  {
+                                                            "filas_original":  0,
+                                                            "checksum_original":  "0",
+                                                            "filas_restaurada":  0,
+                                                            "checksum_restaurada":  "0",
+                                                            "dato_de_negocio":  true,
+                                                            "igual":  true
+                                                        },
+                                        "tramite_eventos":  {
+                                                                "filas_original":  3,
+                                                                "checksum_original":  "1954373332",
+                                                                "filas_restaurada":  3,
+                                                                "checksum_restaurada":  "1954373332",
+                                                                "dato_de_negocio":  true,
+                                                                "igual":  true
+                                                            },
+                                        "tramites_publicos":  {
+                                                                  "filas_original":  60,
+                                                                  "checksum_original":  "170050295",
+                                                                  "filas_restaurada":  60,
+                                                                  "checksum_restaurada":  "170050295",
+                                                                  "dato_de_negocio":  true,
+                                                                  "igual":  true
+                                                              },
+                                        "users":  {
+                                                      "filas_original":  2,
+                                                      "checksum_original":  "2424252501",
+                                                      "filas_restaurada":  2,
+                                                      "checksum_restaurada":  "2424252501",
+                                                      "dato_de_negocio":  true,
+                                                      "igual":  true
+                                                  }
+                                    },
+                         "archivos":  {
+                                          "revisados":  29,
+                                          "identicos":  29,
+                                          "faltan":  [
+
+                                                     ],
+                                          "distintos":  [
+
+                                                        ]
+                                      },
+                         "clave":  {
+                                       "recuperada":  true,
+                                       "coincide_con_la_original":  true,
+                                       "frase_incorrecta_rechazada":  true
+                                   },
+                         "datos_cifrados":  {
+                                                "solicitudes_descifradas":  60,
+                                                "fallidas":  0,
+                                                "con_dni":  60,
+                                                "indice_dni_correcto":  60
+                                            },
+                         "resumen_tablas":  {
+                                                "total":  23,
+                                                "identicas":  23,
+                                                "de_negocio":  21,
+                                                "de_negocio_identicas":  21
+                                            },
+                         "aprobado":  true
+                     },
+    "aprobado":  true
+}

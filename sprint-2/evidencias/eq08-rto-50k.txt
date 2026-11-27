@@ -1,0 +1,12 @@
+EQ-08 — tiempo de volcado y restauración con la base de carga (50 000 actas, 10 000 solicitudes)
+Fecha: 2026-11-27 · MySQL 9.7.1 local · mismo equipo que el resto de pruebas
+
+Volcado (mysqldump --single-transaction): 1.0 s · archivo SQL 30.8 MB
+Restauración en una base nueva: 11.2 s
+Filas actas: original 50000 · restaurada 50000
+Filas tramites_publicos: original 10000 · restaurada 10000
+CHECKSUM TABLE actas: 3806085124 = 3806085124
+CHECKSUM TABLE tramites_publicos: 1318205729 = 1318205729
+
+La verificación completa (clave, descifrado y documentos) se hizo con la base de pruebas del Sprint 2:
+ver eq08-restauracion.json. Esta medición solo estima el RTO con un volumen mayor de datos.

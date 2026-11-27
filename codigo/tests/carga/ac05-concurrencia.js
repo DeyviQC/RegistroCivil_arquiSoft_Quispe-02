@@ -23,10 +23,19 @@ export const options = {
     thresholds: { respuestas_inesperadas: ['count==0'] },
 };
 
-// Everyone fires at the same wall-clock instant, a few seconds after setup.
-export function setup() { return { inicio: Date.now() + 10000 }; }
-
 const token = (html) => (html.match(/name="_token" value="([^"]+)"/) || [])[1];
+
+// Everyone fires at the same wall-clock instant, a few seconds after setup.
+// One sequential visit first: on Windows, 50 processes compiling the same Blade view for the first time
+// collide when renaming the compiled file ("Acceso denegado"), which is unrelated to the decision rule.
+export function setup() {
+    const login = http.get(`${BASE}/login`, { headers: CABECERAS });
+    http.post(`${BASE}/login`, { _token: token(login.body), username: 'asistente', password: 'Asistente123!' }, { headers: CABECERAS });
+    http.get(`${BASE}/atencion-ciudadana`, { headers: CABECERAS });
+    http.get(`${BASE}/atencion-ciudadana/${TRAMITES[0]}`, { headers: CABECERAS });
+    http.cookieJar().clear(BASE);
+    return { inicio: Date.now() + 10000 };
+}
 
 export default function (data) {
     const tramite = TRAMITES[Math.floor((__VU - 1) / POR_TRAMITE)];
@@ -47,5 +56,9 @@ export default function (data) {
 
     if (/Solicitud aprobada|Respuesta enviada al ciudadano/.test(r.body)) aplicadas.add(1, { tramite });
     else if (/La solicitud cambió|Cambio de estado no permitido/.test(r.body)) rechazadas.add(1, { tramite });
-    else { inesperadas.add(1); console.warn(`respuesta inesperada tramite=${tramite} estado=${r.status}`); }
+    else {
+        inesperadas.add(1);
+        const titulo = ((r.body || '').match(/<title>([^<]*)<\/title>/) || [])[1];
+        console.warn(`respuesta inesperada tramite=${tramite} estado=${r.status} url=${r.url} titulo=${titulo}`);
+    }
 }

@@ -13,13 +13,18 @@ class CodigoTramiteService
 {
     public function enviar(TramitePublico $tramite): void
     {
+        $espera = fn () => ValidationException::withMessages(['codigo' => 'Espera un minuto antes de solicitar otro código.']);
+        $reciente = fn (?TramitePublico $t) => (bool) $t?->otp_enviado_at?->gt(now()->subMinute());
+        // Cheap check without a lock first, so repeated requests do not pay for bcrypt at all.
+        if ($reciente(TramitePublico::find($tramite->id))) throw $espera();
+        // bcrypt is slow by design; computing it while holding the row lock made every other request for
+        // the same person wait (measured in the EQ-01/EQ-03 load test). The lock now only covers the check and the write.
         $codigo = (string) random_int(100000, 999999);
-        DB::transaction(function () use ($tramite, $codigo) {
+        $hash = Hash::make($codigo);
+        DB::transaction(function () use ($tramite, $hash, $espera, $reciente) {
             $actual = TramitePublico::lockForUpdate()->findOrFail($tramite->id);
-            if ($actual->otp_enviado_at?->gt(now()->subMinute())) {
-                throw ValidationException::withMessages(['codigo' => 'Espera un minuto antes de solicitar otro código.']);
-            }
-            $actual->update(['otp_hash' => Hash::make($codigo), 'otp_expira_at' => now()->addMinutes(10), 'otp_enviado_at' => now(), 'otp_intentos' => 0]);
+            if ($reciente($actual)) throw $espera();
+            $actual->update(['otp_hash' => $hash, 'otp_expira_at' => now()->addMinutes(10), 'otp_enviado_at' => now(), 'otp_intentos' => 0]);
         });
         Mail::to($tramite->email)->send(new CodigoTramite($codigo, $tramite->codigo));
     }

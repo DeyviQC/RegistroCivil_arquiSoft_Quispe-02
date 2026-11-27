@@ -1,0 +1,79 @@
+﻿         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: E:\Municipalidad\RegistroCivil_arquiSoft_Quispe-02\codigo\tests\carga\eq-progresiva.js
+        output: -
+     scenarios: (100.00%) 2 scenarios, 2000 max VUs, 14m50s max duration (incl. graceful stop):
+              * ciudadano: Up to 1990 looping VUs for 14m20s over 15 stages (gracefulRampDown: 10s, exec: ciudadano, gracefulStop: 30s)
+              * personal: 10 looping VUs for 14m20s (exec: personal, gracefulStop: 30s)
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ↓ [ 100% ] 1340/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ↓ [ 100% ] 10 VUs         14m20s
+Nivel | Pet./s | p95 total | Búsqueda | Seguim. | Archivo | Bandeja | Fallidas | Meta p95 ≤ 2000 ms
+   50 |     10 |    421 ms |       91 |     485 |     442 |     176 |   0.00 % | cumple
+  100 |   18.8 |    568 ms |      128 |     639 |     533 |     207 |   0.12 % | cumple
+  250 |   41.2 |   2427 ms |     1195 |    2658 |    2403 |    1563 |   0.32 % | NO cumple
+  500 |   46.1 |   8644 ms |     7892 |    9019 |    3028 |    2868 |   7.70 % | NO cumple
+ 1000 |     45 |   8763 ms |     8202 |    8975 |    4008 |    3181 |   5.09 % | NO cumple
+ 1500 |   46.6 |   7699 ms |     7331 |    7877 |    5800 |    1252 |   4.27 % | NO cumple
+ 2000 |   48.4 |   7948 ms |     7390 |    8544 |    5390 |    6070 |   4.93 % | NO cumple
+  ✓ login correcto: 10 correctas, 0 fallidas
+  ✗ portada 200: 7848 correctas, 859 fallidas
+  ✗ archivo por nombre 200: 410 correctas, 3 fallidas
+  ✗ archivo encuentra el número: 412 correctas, 1 fallidas
+  ✗ búsqueda encuentra el acta: 7205 correctas, 475 fallidas
+  ✗ bandeja 200: 411 correctas, 2 fallidas
+  ✗ seguimiento 200: 7022 correctas, 429 fallidas
+  ✗ bandeja por DNI 200: 411 correctas, 2 fallidas
+  ✗ seguimiento pide código: 6324 correctas, 430 fallidas
+Total: 32970 peticiones · fallidas 8.79 % · verificaciones OK 93.18 % · VUs máx 2000
+ciudadano ✓ [ 100% ] 0000/1990 VUs  14m20s
+personal  ✓ [ 100% ] 10 VUs         14m20s
+'http_req_duration{etapa:n0250,operacion:busqueda_archivo}, http_req_duration{etapa:n0250,operacion:seguimiento}, 
+http_req_duration{etapa:n0250}, http_req_duration{etapa:n0500,operacion:bandeja}, 
+http_req_duration{etapa:n0500,operacion:busqueda_archivo}, http_req_duration{etapa:n0500,operacion:busqueda_publica}, 
+http_req_duration{etapa:n0500,operacion:seguimiento}, http_req_duration{etapa:n0500}, 
+http_req_duration{etapa:n1000,operacion:bandeja}, http_req_duration{etapa:n1000,operacion:busqueda_archivo}, 
+http_req_duration{etapa:n1000,operacion:busqueda_publica}, http_req_duration{etapa:n1000,operacion:seguimiento}, 
+http_req_duration{etapa:n1000}, http_req_duration{etapa:n1500,operacion:busqueda_archivo}, 
+http_req_duration{etapa:n1500,operacion:busqueda_publica}, http_req_duration{etapa:n1500,operacion:seguimiento}, 
+http_req_duration{etapa:n1500}, http_req_duration{etapa:n2000,operacion:bandeja}, 
+http_req_duration{etapa:n2000,operacion:busqueda_archivo}, http_req_duration{etapa:n2000,operacion:busqueda_publica}, 
+http_req_duration{etapa:n2000,operacion:seguimiento}, http_req_duration{etapa:n2000}, http_req_failed, 
+http_req_failed{etapa:n0500}, http_req_failed{etapa:n1000}, http_req_failed{etapa:n1500}, 
+http_req_failed{etapa:n2000}' have been crossed"
+
+
+Avisos de k6 omitidos (peticiones fallidas): conexión rechazada 2694 · conexión cerrada por el servidor 155 · EOF 48 · tiempo agotado 0

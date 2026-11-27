@@ -19,7 +19,7 @@
 | De contrato | Que `docs/api/openapi.yaml` y las rutas reales coincidan | PHPUnit + `symfony/yaml` | `ContratoOpenApiTest` |
 | De API de punta a punta | El sistema levantado responde como dice el contrato | Postman / Newman | `codigo/tests/api/registro-civil-api.postman_collection.json` |
 | Análisis estático | Tipos, firmas y llamadas inexistentes | PHPStan nivel 5 | `codigo/phpstan.neon` |
-| Atributos de calidad | Rendimiento, escalabilidad, concurrencia | k6 | `codigo/tests/carga` (documento de la Fase 7) |
+| Atributos de calidad | Rendimiento, escalabilidad, concurrencia | k6 | `codigo/tests/carga` · [06-atributos-de-calidad.md](06-atributos-de-calidad.md) |
 
 Reglas que siguen todas las pruebas:
 - Cada prueba parte de una base vacía (SQLite en memoria) y crea solo sus datos.

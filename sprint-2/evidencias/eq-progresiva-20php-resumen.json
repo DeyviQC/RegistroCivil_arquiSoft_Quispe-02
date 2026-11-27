@@ -1,0 +1,152 @@
+{
+  "meta_p95_ms": 2000,
+  "subida_s": 30,
+  "meseta_s": 90,
+  "personal": 10,
+  "niveles": [
+    {
+      "nivel": 50,
+      "peticiones": 897,
+      "por_segundo": 10,
+      "p95_ms": 421,
+      "mediana_ms": 69,
+      "fallidas": 0,
+      "p95_busqueda_publica": 91,
+      "p95_seguimiento": 485,
+      "p95_busqueda_archivo": 442,
+      "p95_bandeja": 176,
+      "cumple": true
+    },
+    {
+      "nivel": 100,
+      "peticiones": 1692,
+      "por_segundo": 18.8,
+      "p95_ms": 568,
+      "mediana_ms": 71,
+      "fallidas": 0.001182033096926714,
+      "p95_busqueda_publica": 128,
+      "p95_seguimiento": 639,
+      "p95_busqueda_archivo": 533,
+      "p95_bandeja": 207,
+      "cumple": true
+    },
+    {
+      "nivel": 250,
+      "peticiones": 3711,
+      "por_segundo": 41.2,
+      "p95_ms": 2427,
+      "mediana_ms": 298,
+      "fallidas": 0.0032336297493936943,
+      "p95_busqueda_publica": 1195,
+      "p95_seguimiento": 2658,
+      "p95_busqueda_archivo": 2403,
+      "p95_bandeja": 1563,
+      "cumple": false
+    },
+    {
+      "nivel": 500,
+      "peticiones": 4145,
+      "por_segundo": 46.1,
+      "p95_ms": 8644,
+      "mediana_ms": 5592,
+      "fallidas": 0.07696019300361882,
+      "p95_busqueda_publica": 7892,
+      "p95_seguimiento": 9019,
+      "p95_busqueda_archivo": 3028,
+      "p95_bandeja": 2868,
+      "cumple": false
+    },
+    {
+      "nivel": 1000,
+      "peticiones": 4048,
+      "por_segundo": 45,
+      "p95_ms": 8763,
+      "mediana_ms": 3591,
+      "fallidas": 0.050889328063241104,
+      "p95_busqueda_publica": 8202,
+      "p95_seguimiento": 8975,
+      "p95_busqueda_archivo": 4008,
+      "p95_bandeja": 3181,
+      "cumple": false
+    },
+    {
+      "nivel": 1500,
+      "peticiones": 4193,
+      "por_segundo": 46.6,
+      "p95_ms": 7699,
+      "mediana_ms": 4574,
+      "fallidas": 0.042690197948962554,
+      "p95_busqueda_publica": 7331,
+      "p95_seguimiento": 7877,
+      "p95_busqueda_archivo": 5800,
+      "p95_bandeja": 1252,
+      "cumple": false
+    },
+    {
+      "nivel": 2000,
+      "peticiones": 4358,
+      "por_segundo": 48.4,
+      "p95_ms": 7948,
+      "mediana_ms": 4586,
+      "fallidas": 0.049334557136301055,
+      "p95_busqueda_publica": 7390,
+      "p95_seguimiento": 8544,
+      "p95_busqueda_archivo": 5390,
+      "p95_bandeja": 6070,
+      "cumple": false
+    }
+  ],
+  "total": {
+    "peticiones": 32970,
+    "fallidas": 0.08786775856839552,
+    "verificaciones_ok": 0.9317604018106281,
+    "vus_max": 2000
+  },
+  "verificaciones": [
+    {
+      "nombre": "login correcto",
+      "ok": 10,
+      "fallos": 0
+    },
+    {
+      "nombre": "portada 200",
+      "ok": 7848,
+      "fallos": 859
+    },
+    {
+      "nombre": "archivo por nombre 200",
+      "ok": 410,
+      "fallos": 3
+    },
+    {
+      "nombre": "archivo encuentra el número",
+      "ok": 412,
+      "fallos": 1
+    },
+    {
+      "nombre": "búsqueda encuentra el acta",
+      "ok": 7205,
+      "fallos": 475
+    },
+    {
+      "nombre": "bandeja 200",
+      "ok": 411,
+      "fallos": 2
+    },
+    {
+      "nombre": "seguimiento 200",
+      "ok": 7022,
+      "fallos": 429
+    },
+    {
+      "nombre": "bandeja por DNI 200",
+      "ok": 411,
+      "fallos": 2
+    },
+    {
+      "nombre": "seguimiento pide código",
+      "ok": 6324,
+      "fallos": 430
+    }
+  ]
+}

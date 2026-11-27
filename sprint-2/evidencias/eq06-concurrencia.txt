@@ -1,0 +1,39 @@
+
+
+  █ THRESHOLDS 
+
+    respuestas_inesperadas
+    ✓ 'count==0' count=0
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 50      4.025449/s
+    checks_succeeded...: 100.00% 50 out of 50
+    checks_failed......: 0.00%   0 out of 50
+
+    ✓ solicitud abierta con su versión
+
+    CUSTOM
+    decisiones_aplicadas...........: 5      0.402545/s
+    decisiones_rechazadas..........: 45     3.622904/s
+    respuestas_inesperadas.........: 0      0/s
+
+    HTTP
+    http_req_duration..............: avg=1.3s   min=33.19ms med=832.74ms max=5.08s  p(90)=3.32s  p(95)=3.85s 
+      { expected_response:true }...: avg=1.3s   min=33.19ms med=832.74ms max=5.08s  p(90)=3.32s  p(95)=3.85s 
+    http_req_failed................: 0.00%  0 out of 305
+    http_reqs......................: 305    24.555237/s
+
+    EXECUTION
+    iteration_duration.............: avg=11.06s min=10.54s  med=11.07s   max=11.25s p(90)=11.18s p(95)=11.18s
+    iterations.....................: 50     4.025449/s
+    vus............................: 46     min=0        max=50
+    vus_max........................: 50     min=50       max=50
+
+    NETWORK
+    data_received..................: 3.5 MB 282 kB/s
+    data_sent......................: 254 kB 20 kB/s
+
+
+

@@ -1,0 +1,38 @@
+﻿http: server closed idle connection"
+http: server closed idle connection"
+http: server closed idle connection"
+http: server closed idle connection"
+http: server closed idle connection"
+
+Nivel | Pet./s | p95 total | Búsqueda | Seguim. | Archivo | Bandeja | Fallidas | Meta p95 ≤ 2000 ms
+   50 |    9.9 |    423 ms |       91 |     436 |     492 |     175 |   0.00 % | cumple
+  100 |   18.6 |    415 ms |      122 |     428 |     660 |     242 |   0.18 % | cumple
+  250 |     43 |    573 ms |      354 |     552 |    3483 |    1312 |   0.36 % | cumple
+  500 |     55 |   4592 ms |     4175 |    4654 |    8539 |    4914 |   3.21 % | NO cumple
+ 1000 |   73.8 |  10179 ms |    10138 |   10190 |   10915 |   10633 |  31.64 % | NO cumple
+ 1500 |   96.1 |  13577 ms |    11931 |   13137 |    9431 |   22342 |  28.49 % | NO cumple
+ 2000 |   89.9 |  12354 ms |    13393 |   12872 |   12408 |   13388 |  35.36 % | NO cumple
+  ✗ portada 200: 12013 correctas, 4843 fallidas
+  ✓ login correcto: 10 correctas, 0 fallidas
+  ✗ archivo por nombre 200: 331 correctas, 16 fallidas
+  ✗ archivo encuentra el número: 333 correctas, 14 fallidas
+  ✗ búsqueda encuentra el acta: 9466 correctas, 2547 fallidas
+  ✗ bandeja 200: 326 correctas, 21 fallidas
+  ✗ seguimiento 200: 9843 correctas, 1962 fallidas
+  ✗ bandeja por DNI 200: 337 correctas, 10 fallidas
+  ✗ seguimiento pide código: 7253 correctas, 2146 fallidas
+Total: 51491 peticiones · fallidas 22.45 % · verificaciones OK 77.54 % · VUs máx 2000
+'http_req_duration{etapa:n0250,operacion:busqueda_archivo}, http_req_duration{etapa:n0500,operacion:bandeja}, 
+http_req_duration{etapa:n0500,operacion:busqueda_archivo}, http_req_duration{etapa:n0500,operacion:busqueda_publica}, 
+http_req_duration{etapa:n0500,operacion:seguimiento}, http_req_duration{etapa:n0500}, 
+http_req_duration{etapa:n1000,operacion:bandeja}, http_req_duration{etapa:n1000,operacion:busqueda_archivo}, 
+http_req_duration{etapa:n1000,operacion:busqueda_publica}, http_req_duration{etapa:n1000,operacion:seguimiento}, 
+http_req_duration{etapa:n1000}, http_req_duration{etapa:n1500,operacion:bandeja}, 
+http_req_duration{etapa:n1500,operacion:busqueda_archivo}, http_req_duration{etapa:n1500,operacion:busqueda_publica}, 
+http_req_duration{etapa:n1500,operacion:seguimiento}, http_req_duration{etapa:n1500}, 
+http_req_duration{etapa:n2000,operacion:bandeja}, http_req_duration{etapa:n2000,operacion:busqueda_archivo}, 
+http_req_duration{etapa:n2000,operacion:busqueda_publica}, http_req_duration{etapa:n2000,operacion:seguimiento}, 
+http_req_duration{etapa:n2000}, http_req_failed, http_req_failed{etapa:n0500}, http_req_failed{etapa:n1000}, 
+http_req_failed{etapa:n1500}, http_req_failed{etapa:n2000}' have been crossed"
+
+Avisos de k6 omitidos (peticiones fallidas): conexión rechazada 6091 · conexión cerrada por el servidor 1693 · EOF 1666 · tiempo agotado (30 s) 8
