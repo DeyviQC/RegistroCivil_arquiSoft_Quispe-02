@@ -28,7 +28,7 @@ solicitud, **solo una** se aplica. Se verifica en SQLite **y en MySQL** (motor d
 
 Comprobado que la corrida en MySQL usó MySQL de verdad: la base `registro_civil_prueba` quedó con
 22 tablas y 25 migraciones aplicadas. Desde ahora **GitHub Actions ejecuta la suite en ambos motores**
-en cada cambio (`.github/workflows/tests.yml`).
+en cada cambio (`.github/workflows/ci.yml` en la raíz del repositorio).
 
 > Esto responde a la limitación del documento de atributos («las pruebas usan SQLite y no demuestran
 > funcionamiento en MySQL»): la misma suite pasa en MySQL.

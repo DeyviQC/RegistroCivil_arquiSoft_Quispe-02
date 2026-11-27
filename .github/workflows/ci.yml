@@ -1,0 +1,196 @@
+# Integración continua del Sistema Integral de Registro Civil (Sprint 2).
+# El código vive en codigo/: todos los pasos se ejecutan desde esa carpeta.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: codigo
+
+jobs:
+  pruebas:
+    name: PHPUnit (${{ matrix.base }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        # SQLite es rápido y mide la cobertura; MySQL es el motor real (AC05: la integridad debe cumplirse en ambos).
+        base: [sqlite, mysql]
+
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: registro_civil_prueba
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -proot" --health-interval=5s --health-timeout=5s --health-retries=20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo_sqlite, sqlite3, pdo_mysql, gd, zip, intl, fileinfo, openssl
+          coverage: ${{ matrix.base == 'sqlite' && 'pcov' || 'none' }}
+
+      - name: Configurar Python (preparación de PDFs para firma)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias de Python
+        run: pip install pypdf reportlab
+
+      - name: Caché de Composer
+        uses: actions/cache@v4
+        with:
+          path: codigo/vendor
+          key: composer-${{ runner.os }}-${{ hashFiles('codigo/composer.lock') }}
+
+      - name: Instalar dependencias de Composer
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Preparar entorno
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Pruebas en SQLite con cobertura
+        if: matrix.base == 'sqlite'
+        env:
+          FIRMA_PYTHON: python
+        run: vendor/bin/phpunit --coverage-clover cobertura/clover.xml --coverage-html cobertura/html --coverage-text --only-summary-for-coverage-text
+
+      - name: Exigir cobertura mínima (80 % de líneas)
+        if: matrix.base == 'sqlite'
+        run: php tests/cobertura-minima.php cobertura/clover.xml 80
+
+      - name: Publicar reporte de cobertura
+        if: matrix.base == 'sqlite' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura
+          path: codigo/cobertura
+          retention-days: 30
+
+      - name: Pruebas en MySQL
+        if: matrix.base == 'mysql'
+        env:
+          FIRMA_PYTHON: python
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: registro_civil_prueba
+          DB_USERNAME: root
+          DB_PASSWORD: root
+        run: php artisan test
+
+  calidad:
+    name: Análisis estático y dependencias
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo_sqlite, gd, zip, intl, fileinfo
+          coverage: none
+
+      - name: Caché de Composer
+        uses: actions/cache@v4
+        with:
+          path: codigo/vendor
+          key: composer-${{ runner.os }}-${{ hashFiles('codigo/composer.lock') }}
+
+      - name: Instalar dependencias de Composer
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHPStan nivel 5
+        run: vendor/bin/phpstan analyse --memory-limit=1G --no-progress
+
+      - name: Librerías sin vulnerabilidades conocidas (AC04)
+        run: composer audit --locked
+
+  api:
+    name: API REST con Postman/Newman
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo_sqlite, sqlite3, gd, zip, intl, fileinfo
+          coverage: none
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Caché de Composer
+        uses: actions/cache@v4
+        with:
+          path: codigo/vendor
+          key: composer-${{ runner.os }}-${{ hashFiles('codigo/composer.lock') }}
+
+      - name: Instalar dependencias
+        run: |
+          composer install --no-interaction --no-progress --prefer-dist
+          npm install -g newman newman-reporter-htmlextra
+
+      - name: Base de pruebas con datos sintéticos
+        run: |
+          # The .env file is the source of truth: "artisan serve" does not pass DB_* variables to its server.
+          BASE="$PWD/database/registro_civil_prueba.sqlite"
+          cp .env.example .env
+          sed -i -e "s|^DB_CONNECTION=.*|DB_CONNECTION=sqlite|" -e "s|^DB_DATABASE=.*|DB_DATABASE=$BASE|" \
+            -e "s|^QUEUE_CONNECTION=.*|QUEUE_CONNECTION=sync|" -e "s|^APP_URL=.*|APP_URL=http://127.0.0.1:8010|" .env
+          php artisan key:generate
+          touch "$BASE"
+          php artisan migrate --force
+          php artisan db:seed --force
+          php artisan pruebas:generar-datos --actas=300 --tramites=21 --exportar=storage/app/datos-ci.json
+
+      - name: Levantar el sistema
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8010 > storage/logs/servidor.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8010/api/v1/salud && exit 0; sleep 1; done
+          cat storage/logs/servidor.log; exit 1
+
+      - name: Ejecutar la colección (18 peticiones)
+        run: |
+          mkdir -p reportes
+          newman run tests/api/registro-civil-api.postman_collection.json \
+            --env-var base=http://127.0.0.1:8010 \
+            --reporters cli,htmlextra --reporter-htmlextra-export reportes/api-newman.html
+
+      - name: Publicar reporte de la API
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-newman
+          path: codigo/reportes
+          retention-days: 30

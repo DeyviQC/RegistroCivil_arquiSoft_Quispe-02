@@ -35,3 +35,8 @@ yarn-error.log
 # Configuración local del editor/Claude (rutas propias de esta laptop)
 /.claude/
 /scripts/windows/schedule-run.vbs
+
+# Reportes generados por las pruebas y el CI (se publican como artefactos, no se versionan).
+/cobertura/
+/reportes/
+/database/*.sqlite
