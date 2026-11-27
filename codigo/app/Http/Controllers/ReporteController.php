@@ -34,9 +34,9 @@ class ReporteController extends Controller
             foreach (['tipo', 'anio', 'sobre', 'correlativo', 'usuario_id'] as $campo) {
                 if (isset($f[$campo]) && $f[$campo] !== '') { $q->where($campo, $f[$campo]); }
             }
-            foreach (['fecha_desde' => '>=', 'fecha_hasta' => '<='] as $campo => $op) {
-                if (! empty($f[$campo])) { $q->whereDate('fecha_acta', $op, $f[$campo]); }
-            }
+            // Direct comparison on the DATE column uses its index; "before the next day" keeps the end date inclusive.
+            if (! empty($f['fecha_desde'])) { $q->where('fecha_acta', '>=', $f['fecha_desde']); }
+            if (! empty($f['fecha_hasta'])) { $q->where('fecha_acta', '<', \Carbon\Carbon::parse($f['fecha_hasta'])->addDay()->toDateString()); }
             if ($reporte === 'resumen') { $q->whereMonth('fecha_acta', $f['mes']); }
             $grupos = [];
             $cabeceras = ['Orden', 'N° acta', 'Tipo', 'Fecha registro', 'Apellidos y nombres', 'DNI', 'Sobre', 'Correlativo', 'PDF', 'Usuario'];

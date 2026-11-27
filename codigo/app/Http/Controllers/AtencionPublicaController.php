@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DecidirTramiteRequest;
 use App\Models\TramitePublico;
+use App\Services\CacheConsultas;
 use App\Services\DecisionTramiteService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -24,7 +25,9 @@ class AtencionPublicaController extends Controller
         $filtros = $request->validate(['estado' => ['nullable', Rule::in(array_keys(TramitePublico::ESTADOS))], 'solicitud' => 'nullable|integer|min:1|max:2147483647', 'dni' => ['nullable', 'regex:/^[0-9]{8}$/']],
             ['dni.regex' => 'El DNI debe tener 8 dígitos.']);
         $base = TramitePublico::whereHas('pago', fn ($q) => $q->where('estado', 'PAGADO'));
-        $resumen = (clone $base)->selectRaw('estado, COUNT(*) AS total')->groupBy('estado')->pluck('total', 'estado');
+        // Counting every paid request costs ~100 ms with 10 000 of them and no index removes it (Sprint 2, BD y caché).
+        $resumen = collect(CacheConsultas::recordar(CacheConsultas::BANDEJA,
+            fn () => (clone $base)->selectRaw('estado, COUNT(*) AS total')->groupBy('estado')->pluck('total', 'estado')->all()));
         $tramites = (clone $base)
             ->when($filtros['estado'] ?? null, fn ($q, $estado) => $q->where('estado', $estado))
             ->when($filtros['solicitud'] ?? null, fn ($q, $numero) => $q->where('id', $numero))

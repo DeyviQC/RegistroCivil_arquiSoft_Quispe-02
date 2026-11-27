@@ -63,6 +63,8 @@ class TramitePublico extends Model
         // A freshly created model may not carry the column default yet.
         $this->version = (int) ($this->version ?? static::whereKey($this->getKey())->value('version')) + 1;
         $this->save();
+        // Every state change goes through here, so this is the single place the inbox summary goes stale.
+        \App\Services\CacheConsultas::olvidar(\App\Services\CacheConsultas::BANDEJA);
         $crear = fn () => $this->eventos()->create(['usuario_id' => $usuarioId, 'estado' => $estado, 'mensaje' => $mensaje]);
         return $notificar ? $crear() : TramiteEvento::withoutEvents($crear);
     }

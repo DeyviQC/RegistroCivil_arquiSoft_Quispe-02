@@ -116,6 +116,8 @@ class GenerarDatosPrueba extends Command
         $destino = base_path((string) $this->option('exportar'));
         File::ensureDirectoryExists(dirname($destino));
         File::put($destino, json_encode(['busquedas' => $casos, 'seguimiento' => $seguimiento], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        // Bulk inserts skip model events: drop the cached panel and inbox summaries explicitly.
+        \App\Services\CacheConsultas::olvidar(\App\Services\CacheConsultas::PANEL, \App\Services\CacheConsultas::BANDEJA);
         $this->info('Listo. Actas totales: '.DB::table('actas')->count().' · solicitudes: '.DB::table('tramites_publicos')->count()
             .' · casos exportados a '.$this->option('exportar'));
         return self::SUCCESS;

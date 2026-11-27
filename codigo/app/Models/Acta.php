@@ -24,6 +24,14 @@ class Acta extends Model
 {
     use HasFactory;
 
+    protected static function booted(): void
+    {
+        // The panel counts acts by type and year; any write invalidates that cached summary.
+        $olvidar = fn () => \App\Services\CacheConsultas::olvidar(\App\Services\CacheConsultas::PANEL);
+        static::saved($olvidar);
+        static::deleted($olvidar);
+    }
+
     public const TIPO_NACIMIENTO = 'NACIMIENTO';
     public const TIPO_MATRIMONIO = 'MATRIMONIO';
     public const TIPO_DEFUNCION = 'DEFUNCION';

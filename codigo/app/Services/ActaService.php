@@ -240,10 +240,12 @@ class ActaService
             $query->where('correlativo', $filtros['correlativo']);
         }
         if (! empty($filtros['fecha_desde'])) {
-            $query->whereDate('fecha_acta', '>=', $filtros['fecha_desde']);
+            // fecha_acta is a DATE column: compare it directly so its index is used (DATE() forced a full scan).
+            $query->where('fecha_acta', '>=', \Illuminate\Support\Carbon::parse($filtros['fecha_desde'])->toDateString());
         }
         if (! empty($filtros['fecha_hasta'])) {
-            $query->whereDate('fecha_acta', '<=', $filtros['fecha_hasta']);
+            // "Before the next day" also matches drivers that store a time part (SQLite in the tests).
+            $query->where('fecha_acta', '<', \Illuminate\Support\Carbon::parse($filtros['fecha_hasta'])->addDay()->toDateString());
         }
         if (! empty($filtros['dni']) || ! empty($filtros['nombre'])) {
             $dni = $filtros['dni'] ?? null;
