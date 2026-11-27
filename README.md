@@ -10,7 +10,7 @@
 
 [![CI](https://github.com/DeyviQC/RegistroCivil_arquiSoft_Quispe-02/actions/workflows/ci.yml/badge.svg)](https://github.com/DeyviQC/RegistroCivil_arquiSoft_Quispe-02/actions/workflows/ci.yml)
 
-> **Resultados del Sprint 2:** [sprint-2/resultados](sprint-2/resultados/): 7 de 8 atributos de calidad
+> **Resultados del Sprint 2:** [sprint-2/resultados](sprint-2/resultados/): los 8 escenarios de calidad
 > cumplidos, con gráficos de carga hasta 2 000 usuarios, OWASP ZAP, concurrencia y restauración.
 
 ## Estructura del repositorio

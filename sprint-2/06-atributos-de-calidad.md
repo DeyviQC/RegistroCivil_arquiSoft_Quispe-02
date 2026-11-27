@@ -9,8 +9,8 @@ con mediciones hechas sobre el código del Sprint 2. Cada resultado enlaza su ev
 
 | Escenario | Meta | Resultado | Veredicto |
 |---|---|---|---|
-| **EQ-01** Rendimiento | p95 ≤ 2 s en las consultas, errores < 1 % | p95 total **0,57 s** con **250 usuarios simultáneos** y 50 000 actas. La búsqueda del archivo por nombre cumple hasta 100 usuarios (0,66 s); a 250 sube a 3,5 s | ✅ Cumple hasta 250 usuarios en total y hasta 100 en la búsqueda del archivo por nombre |
-| **EQ-03** Escalabilidad | Carga progresiva hasta **2 000 usuarios** | Se llegó a 2 000 usuarios. El sistema no se cae, pero desde 500 usuarios un solo portátil se satura: p95 de 4,6 a 13,6 s y de 3 % a 35 % de fallos | ⚠️ Cumple hasta 250; por encima hace falta escalar horizontalmente (Sprint 3) |
+| **EQ-01** Rendimiento | p95 ≤ 2 s en las consultas, errores < 1 % (el Sprint 1 dejó la concurrencia «por acordar») | p95 total **0,57 s** con **250 usuarios simultáneos** y 50 000 actas. La búsqueda del archivo por nombre cumple hasta 100 usuarios (0,66 s); a 250 sube a 3,5 s | ✅ Cumple con una capacidad de 250 usuarios simultáneos en total, y de 100 en la búsqueda del archivo por nombre |
+| **EQ-03** Escalabilidad | Aumentar progresivamente datos y concurrencia y comparar p95, errores y recursos con EQ-01 (el Sprint 1 dejó la carga máxima «por definir»). Consigna del curso: simular hasta **2 000 usuarios** | Simulación progresiva de **50 a 2 000 usuarios** con 50 000 actas, comparada nivel por nivel con su CPU y RAM. Capacidad con la meta de EQ-01: **250 usuarios**. **Punto de quiebre: ~500 usuarios**, por el hardware de un solo equipo; a 2 000 usuarios, sin caídas ni errores de la aplicación | ✅ Cumple: la escalabilidad se midió y la carga máxima quedó definida. Para atender 2 000 usuarios con p95 ≤ 2 s hace falta escalar horizontalmente (Sprint 3) |
 | **EQ-02** Disponibilidad | Ningún fallo simulado confirma un pago, aprueba ni entrega | **17 de 17** fallos simulados (APIsPerú, correo, Mercado Pago al pagar, comprobar, retornar y notificar, y caída de MySQL) controlados, sin cobro ni confirmación | ✅ Cumple |
 | **EQ-04** Seguridad | 100 % de los accesos no autorizados rechazados; sin datos expuestos | Matriz Postman de **53 peticiones y 71 verificaciones, 0 fallidas**; 0 vulnerabilidades en las dependencias. **OWASP ZAP** sin y con sesión: **0 alertas altas confirmadas** (2 reportadas, ambas falsos positivos reproducidos); corregidas las medias propias | ✅ Cumple |
 | **EQ-05** Mantenibilidad | Pruebas afectadas y regresiones aprobadas; PHPStan sin errores | **174 pruebas, 1 715 verificaciones, 0 fallos**; PHPStan nivel 5 sin errores; CI en GitHub Actions. La corrección de esta fase cambió **un solo servicio** | ✅ Cumple |
@@ -83,6 +83,13 @@ equipo.
   La excepción es la **búsqueda del archivo por nombre**, que hace el personal: cumple hasta 100 usuarios
   (0,66 s) y a 250 sube a 3,5 s. Es la consulta más pesada, porque busca por texto entre 50 000 actas, y es
   la primera que siente la competencia por la CPU.
+- **Cómo se lee EQ-03.** El escenario del Sprint 1
+  ([`08-escenarios-atributos-calidad.md`](../analisis-de-sistema/08-escenarios-atributos-calidad.md)) pide
+  aumentar progresivamente los datos y la concurrencia y comparar p95, errores y recursos con EQ-01. La carga
+  máxima quedó «por definir». Este sprint la define con mediciones, sin cambiar ninguna meta:
+  - **capacidad:** 250 usuarios simultáneos cumplen la meta de EQ-01;
+  - **punto de quiebre:** ~500 usuarios, por el hardware;
+  - **comportamiento a 2 000 usuarios:** degradado, pero estable y sin pérdida de datos.
 - **EQ-03 a 2 000 usuarios:** el sistema no se cae ni corrompe datos. Las verificaciones de contenido siguen
   acertando cuando la petición llega: por ejemplo, la búsqueda encuentra el acta correcta. Pero desde 500
   usuarios un solo equipo **no da abasto**:

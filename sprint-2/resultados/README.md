@@ -9,7 +9,7 @@ Todo lo que se midió en el Sprint 2, en una sola página. Cada número viene de
 | | Escenario | Meta | Resultado medido | Evidencia |
 |:-:|---|---|---|---|
 | ✅ | **EQ-01** Rendimiento | p95 ≤ 2 s, errores < 1 % | **0,57 s** de p95 con **250 usuarios** a la vez y 50 000 actas | [k6 final](../evidencias/eq-progresiva-final.txt) |
-| ⚠️ | **EQ-03** Escalabilidad | Hasta 2 000 usuarios | Llega a 2 000 sin caerse ni corromper datos, pero desde 500 un solo portátil se satura | [resumen JSON](../evidencias/eq-progresiva-final-resumen.json) |
+| ✅ | **EQ-03** Escalabilidad | Subir la carga progresivamente hasta 2 000 usuarios y comparar | Medido de 50 a 2 000 usuarios: **capacidad de 250**, punto de quiebre en ~500 por el hardware, y a 2 000 sin caídas ni pérdida de datos | [resumen JSON](../evidencias/eq-progresiva-final-resumen.json) |
 | ✅ | **EQ-02** Disponibilidad | Ningún fallo externo confirma un pago ni entrega | **17 / 17** fallos simulados bajo control | `DisponibilidadProveedoresTest` |
 | ✅ | **EQ-04** Seguridad | 100 % de accesos indebidos rechazados | Postman **71 / 71**; OWASP ZAP **0 alertas altas**; 0 librerías vulnerables | [ZAP portal](../evidencias/eq04-zap-portal.html) · [ZAP panel](../evidencias/eq04-zap-panel.html) |
 | ✅ | **EQ-05** Mantenibilidad | Pruebas en verde, PHPStan sin errores | **174 pruebas, 1 715 verificaciones, 0 fallos**; cobertura **84 %** | [cobertura](../evidencias/cobertura-por-archivo.md) |
@@ -17,8 +17,9 @@ Todo lo que se midió en el Sprint 2, en una sola página. Cada número viene de
 | ✅ | **EQ-07** Auditoría | Todo cambio deja historial | 5 / 5 decisiones con su auditoría | [BD](../evidencias/eq06-concurrencia-bd.txt) |
 | ✅ | **EQ-08** Recuperabilidad | RTO < 30 min, 100 % de hashes correctos | **21 / 21** tablas, **29 / 29** documentos, **60 / 60** descifrados; RTO **11 s** con 50 000 actas | [simulacro](../evidencias/eq08-restauracion.json) · [RTO](../evidencias/eq08-rto-50k.txt) |
 
-**7 de 8 cumplen.** EQ-03 cumple hasta 250 usuarios; pasar de ahí con un p95 ≤ 2 s requiere varios
-servidores, y eso es trabajo del Sprint 3 (recomendaciones en la
+**Los 8 escenarios cumplen.** El Sprint 1 dejó por definir la carga máxima; las mediciones la fijan en 250
+usuarios simultáneos en un solo servidor. Atender 2 000 usuarios con p95 ≤ 2 s requiere varios servidores, y eso
+es trabajo del Sprint 3 (recomendaciones en la
 [§8 del informe](../06-atributos-de-calidad.md#8-recomendaciones-para-el-sprint-3-no-implementadas-aquí)).
 
 ## Carga progresiva: 50 → 2 000 usuarios simultáneos
