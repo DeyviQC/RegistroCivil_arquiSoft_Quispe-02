@@ -1,0 +1,54 @@
+# EQ-04 / AC04 — OWASP ZAP automation plan: unauthenticated scan of the public portal and the login.
+#
+# Run against a TEST copy only (APP_DEBUG=false, PRUEBAS_CARGA_TOKEN empty, a dedicated database):
+# the active scan submits forms with attack payloads.
+#   $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jre-17.0.21.10002-hotspot"
+#   & "C:\Program Files\ZAP\Zed Attack Proxy\zap.bat" -cmd -autorun "<ruta>\tests\seguridad\zap-portal.yaml"
+# Change the URL below if the test server runs elsewhere. Reports are written to sprint-2/evidencias.
+env:
+  contexts:
+    - name: registro-civil
+      urls:
+        - http://127.0.0.1:8030/tramite
+        - http://127.0.0.1:8030/login
+      includePaths:
+        - "http://127.0.0.1:8030.*"
+      excludePaths:
+        # Logging out or a lost session would hide the rest of the site from the spider.
+        - "http://127.0.0.1:8030/logout.*"
+  parameters:
+    failOnError: true
+    progressToStdout: true
+jobs:
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+  - type: spider
+    parameters:
+      context: registro-civil
+      maxDuration: 5
+  - type: spiderAjax
+    parameters:
+      context: registro-civil
+      maxDuration: 5
+      browserId: htmlunit
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 10
+  - type: activeScan
+    parameters:
+      context: registro-civil
+      maxScanDurationInMins: 40
+      threadPerHost: 4
+  - type: report
+    parameters:
+      template: traditional-html
+      reportDir: ../../../sprint-2/evidencias
+      reportFile: eq04-zap-portal.html
+      reportTitle: "Registro Civil — OWASP ZAP (portal y login, sin sesión)"
+    risks: [high, medium, low, info]
+  - type: report
+    parameters:
+      template: traditional-json
+      reportDir: ../../../sprint-2/evidencias
+      reportFile: eq04-zap-portal.json

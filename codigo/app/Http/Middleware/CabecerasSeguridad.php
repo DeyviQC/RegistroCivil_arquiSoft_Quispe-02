@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Browser security headers for every web response (AC04).
+ * Browser security headers for every response (AC04). Registered as GLOBAL middleware: inside the "web"
+ * group it missed the responses produced before reaching it (404 for unknown URLs, 419 CSRF), which also
+ * kept "X-Powered-By: PHP/x.y" (found with OWASP ZAP in Sprint 2).
  *
  * The views still use inline scripts and style attributes, so the CSP allows
  * 'unsafe-inline' for them; it still blocks loading code from other sites,
@@ -26,6 +28,10 @@ class CabecerasSeguridad
         "frame-ancestors 'self'",
         "object-src 'none'",
         "base-uri 'self'",
+        // form-action has no default-src fallback (OWASP ZAP rule 10055). Browsers also apply it to the
+        // redirect chain after a form post, so the two external destinations reached that way are listed:
+        // the Mercado Pago checkout (its own redirects stay within its domains) and WhatsApp (wa.me → api.whatsapp.com).
+        "form-action 'self' https://*.mercadopago.com.pe https://*.mercadopago.com https://wa.me https://api.whatsapp.com",
     ];
 
     public function handle(Request $request, Closure $next): Response

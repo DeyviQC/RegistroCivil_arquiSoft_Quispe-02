@@ -12,8 +12,8 @@ con mediciones hechas sobre el código del Sprint 2. Cada resultado enlaza su ev
 | **EQ-01** Rendimiento | p95 ≤ 2 s en las consultas, errores < 1 % | p95 total **0,57 s** con **250 usuarios simultáneos** y 50 000 actas. La búsqueda del archivo por nombre cumple hasta 100 usuarios (0,66 s); a 250 sube a 3,5 s | ✅ Cumple hasta 250 usuarios en total y hasta 100 en la búsqueda del archivo por nombre |
 | **EQ-03** Escalabilidad | Carga progresiva hasta **2 000 usuarios** | Se llegó a 2 000 usuarios. El sistema no se cae, pero desde 500 usuarios un solo portátil se satura: p95 de 4,6 a 13,6 s y de 3 % a 35 % de fallos | ⚠️ Cumple hasta 250; por encima hace falta escalar horizontalmente (Sprint 3) |
 | **EQ-02** Disponibilidad | Ningún fallo simulado confirma un pago, aprueba ni entrega | **17 de 17** fallos simulados (APIsPerú, correo, Mercado Pago al pagar, comprobar, retornar y notificar, y caída de MySQL) controlados, sin cobro ni confirmación | ✅ Cumple |
-| **EQ-04** Seguridad | 100 % de los accesos no autorizados rechazados; sin datos expuestos | Matriz Postman de **53 peticiones y 71 verificaciones, 0 fallidas**; 0 vulnerabilidades en las dependencias; cabeceras de seguridad. Escaneo OWASP ZAP pendiente | ✅ Cumple (ZAP pendiente) |
-| **EQ-05** Mantenibilidad | Pruebas afectadas y regresiones aprobadas; PHPStan sin errores | **173 pruebas, 1 700 verificaciones, 0 fallos**; PHPStan nivel 5 sin errores; CI en GitHub Actions. La corrección de esta fase cambió **un solo servicio** | ✅ Cumple |
+| **EQ-04** Seguridad | 100 % de los accesos no autorizados rechazados; sin datos expuestos | Matriz Postman de **53 peticiones y 71 verificaciones, 0 fallidas**; 0 vulnerabilidades en las dependencias. **OWASP ZAP** sin y con sesión: **0 alertas altas confirmadas** (2 reportadas, ambas falsos positivos reproducidos); corregidas las medias propias | ✅ Cumple |
+| **EQ-05** Mantenibilidad | Pruebas afectadas y regresiones aprobadas; PHPStan sin errores | **174 pruebas, 1 715 verificaciones, 0 fallos**; PHPStan nivel 5 sin errores; CI en GitHub Actions. La corrección de esta fase cambió **un solo servicio** | ✅ Cumple |
 | **EQ-06** Integridad | Con decisiones simultáneas, solo una se aplica | 50 personas deciden en el mismo instante sobre 5 solicitudes: **5 aplicadas, 45 rechazadas, 0 inesperadas**. En MySQL hay una decisión, una versión y una auditoría por solicitud | ✅ Cumple |
 | **EQ-07** Auditoría | El 100 % de los cambios probados deja historial y auditoría | Pruebas de filiación y auditoría aprobadas; en EQ-06, 5 de 5 decisiones con su auditoría `REVISAR_TRAMITE` | ✅ Cumple |
 | **EQ-08** Recuperabilidad | RTO < 30 min, RPO ≤ 24 h, 100 % de hashes correctos | Restauración verificada: **21/21 tablas, 29/29 documentos (SHA-256), APP_KEY recuperada y 60/60 solicitudes descifradas**. RTO medido de **1 s** en la base de prueba y **11 s** con 50 000 actas; RPO ≤ 24 h | ✅ Cumple |
@@ -153,13 +153,13 @@ Detalle completo en [`codigo/docs/calidad/AC04-seguridad.md`](../codigo/docs/cal
 | Dependencias (`composer audit`) | **0 vulnerabilidades** ✅ (también en CI, en cada cambio) |
 | Cabeceras de seguridad, sin versión de PHP expuesta, errores sin trazas | ✅ (`EndurecimientoTest`) |
 | Datos personales cifrados en la base y DNI buscado por HMAC | ✅ |
-| Escaneo automático OWASP ZAP | ⏳ **Pendiente.** No se presenta resultado hasta ejecutarlo |
+| Escaneo automático OWASP ZAP 2.17 (portal sin sesión y panel con sesión, escaneo activo) | ✅ **0 alertas altas confirmadas.** Las 2 reportadas (inyección SQL y *Path Traversal*) se reprodujeron y son falsos positivos. Se corrigieron: cabeceras ausentes en 404/419 (middleware global), `form-action` en la CSP y la configuración de nginx. Tras 15 min de ataques con sesión, **ningún dato de negocio cambió** (`CHECKSUM TABLE`). Detalle: [AC04 §6](../codigo/docs/calidad/AC04-seguridad.md) · [`eq04-zap-portal.html`](evidencias/eq04-zap-portal.html) · [`eq04-zap-panel.html`](evidencias/eq04-zap-panel.html) |
 
 ## 5. EQ-05 Mantenibilidad
 
 | Indicador | Resultado |
 |---|---|
-| Pruebas automáticas | **173 pruebas, 1 700 verificaciones, 0 fallos**: 156 del cierre de la Fase 6 más las 17 de EQ-02 |
+| Pruebas automáticas | **174 pruebas, 1 715 verificaciones, 0 fallos**: 156 del cierre de la Fase 6, 17 de EQ-02 y 1 de las cabeceras encontradas con ZAP |
 | Cobertura | 84,15 % al cierre de la Fase 6; el mínimo del 80 % lo controla la CI ([`05-pruebas-cobertura-y-ci.md`](05-pruebas-cobertura-y-ci.md)) |
 | Análisis estático | PHPStan/Larastan nivel 5: **sin errores** |
 | Integración continua | GitHub Actions: pruebas en SQLite y MySQL, cobertura, PHPStan, auditoría y Newman |

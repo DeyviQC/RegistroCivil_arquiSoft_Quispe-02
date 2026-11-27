@@ -1,0 +1,71 @@
+# EQ-04 / AC04 — OWASP ZAP automation plan: scan of the staff panel WITH a session (role "asistente").
+#
+# TEST copy only (APP_DEBUG=false, dedicated database): the active scan submits forms, so it may create
+# or change records. Uses the seeded test user (database/seeders/UserSeeder.php).
+#   & "C:\Program Files\ZAP\Zed Attack Proxy\zap.bat" -cmd -port 8091 -autorun "<ruta>\tests\seguridad\zap-panel.yaml"
+# ZAP fills the Laravel CSRF field (_token) itself: it is in its default list of anti-CSRF token names.
+env:
+  contexts:
+    - name: panel
+      urls:
+        - http://127.0.0.1:8030/dashboard
+      includePaths:
+        - "http://127.0.0.1:8030.*"
+      excludePaths:
+        - "http://127.0.0.1:8030/logout.*"
+        - "http://127.0.0.1:8030/perfil.*"      # changing the password would lock the scan out
+        # Already scanned without a session (zap-portal.yaml). Attacking the login here would trip its
+        # limit of 5 failed attempts per minute and lock out the user the scan logs in with.
+        - "http://127.0.0.1:8030/login.*"
+        - "http://127.0.0.1:8030/recuperar-contrasena.*"
+      authentication:
+        method: form
+        parameters:
+          loginPageUrl: http://127.0.0.1:8030/login
+          loginRequestUrl: http://127.0.0.1:8030/login
+          # _token must be present so ZAP replaces it with a fresh one read from loginPageUrl.
+          loginRequestBody: "_token=x&username={%username%}&password={%password%}"
+        verification:
+          method: response
+          loggedInRegex: "Cerrar sesión"
+          loggedOutRegex: "name=\"password\""
+      sessionManagement:
+        method: cookie
+      users:
+        - name: asistente
+          credentials:
+            username: asistente
+            password: Asistente123!
+  parameters:
+    failOnError: true
+    progressToStdout: true
+jobs:
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+  - type: spider
+    parameters:
+      context: panel
+      user: asistente
+      maxDuration: 5
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 10
+  - type: activeScan
+    parameters:
+      context: panel
+      user: asistente
+      maxScanDurationInMins: 15
+      threadPerHost: 2
+  - type: report
+    parameters:
+      template: traditional-html
+      reportDir: ../../../sprint-2/evidencias
+      reportFile: eq04-zap-panel.html
+      reportTitle: "Registro Civil — OWASP ZAP (panel del personal, con sesión)"
+    risks: [high, medium, low, info]
+  - type: report
+    parameters:
+      template: traditional-json
+      reportDir: ../../../sprint-2/evidencias
+      reportFile: eq04-zap-panel.json

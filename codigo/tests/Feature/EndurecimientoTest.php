@@ -82,6 +82,19 @@ class EndurecimientoTest extends TestCase
         $this->get('https://localhost/tramite')->assertHeader('Strict-Transport-Security');
     }
 
+    /** OWASP ZAP (Sprint 2): responses produced before any route group used to go out without the headers. */
+    public function test_las_cabeceras_tambien_van_en_errores_fuera_de_las_rutas_y_limitan_los_formularios(): void
+    {
+        foreach ([$this->get('/no-existe.xml'), $this->getJson('/api/v1/no-existe')] as $r) {
+            $r->assertNotFound()->assertHeader('X-Frame-Options', 'SAMEORIGIN')->assertHeader('X-Content-Type-Options', 'nosniff')
+                ->assertHeaderMissing('X-Powered-By');
+            $this->assertStringContainsString("form-action 'self'", (string) $r->headers->get('Content-Security-Policy'));
+        }
+        // The only external places a form post may end up: the Mercado Pago checkout and WhatsApp.
+        $csp = $this->get(route('portal.inicio'))->headers->get('Content-Security-Policy');
+        $this->assertMatchesRegularExpression("/form-action 'self' https:\/\/\*\.mercadopago\.com\.pe https:\/\/\*\.mercadopago\.com https:\/\/wa\.me https:\/\/api\.whatsapp\.com(;|$)/", $csp);
+    }
+
     public function test_verificacion_del_sistema_detecta_configuracion_insegura(): void
     {
         config(['respaldo.frase' => null, 'queue.default' => 'sync']);

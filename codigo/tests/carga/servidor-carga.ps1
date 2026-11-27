@@ -62,6 +62,8 @@ http {
     # with them, ~1 400 per second.
     open_file_cache max=1000 inactive=60s;
     sendfile on;
+    # Found with OWASP ZAP: do not show the nginx version.
+    server_tokens off;
     keepalive_timeout 5;
     client_max_body_size 20M;
     upstream php {
@@ -72,7 +74,10 @@ $($servidores -join "`n")
         listen 127.0.0.1:$Puerto;
         root "$publico";
         index index.php;
-        location / { try_files `$uri `$uri/ /index.php?`$query_string; }
+        # Hidden files such as public/.htaccess are never served (ZAP: ".htaccess Information Leak").
+        location ~ /\.(?!well-known) { deny all; }
+        # Static files (CSS, JS, images) do not pass through Laravel, so nginx adds nosniff to them.
+        location / { add_header X-Content-Type-Options nosniff always; try_files `$uri `$uri/ /index.php?`$query_string; }
         location ~ \.php$ {
             include "$fastcgi";
             fastcgi_param SCRIPT_FILENAME `$document_root`$fastcgi_script_name;

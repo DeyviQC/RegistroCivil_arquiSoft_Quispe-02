@@ -91,8 +91,94 @@ de Blade (escape automático con `{{ }}`). Moverlos a archivos `.js` permitiría
 
 ## 6. Escaneo automático con OWASP ZAP
 
-*(pendiente: se completa al terminar el escaneo)*
+**Ejecución (Sprint 2, 27/11/2026):** OWASP ZAP 2.17.0 en modo automático, con dos planes versionados:
+
+| Plan | Qué escanea | Trabajos |
+|---|---|---|
+| [`tests/seguridad/zap-portal.yaml`](../../tests/seguridad/zap-portal.yaml) | Portal ciudadano y login, **sin sesión** | Araña, araña AJAX, escaneo pasivo y **activo** |
+| [`tests/seguridad/zap-panel.yaml`](../../tests/seguridad/zap-panel.yaml) | Panel del personal **con sesión** (rol asistente) | Araña, escaneo pasivo y **activo** (15 min) |
+
+**Condiciones del escaneo:**
+- Se escaneó una copia del código del Sprint 2 con `APP_DEBUG=false`, sin token de pruebas de carga
+  (límites de intentos activos), detrás de nginx.
+- La base fue un **clon** de la base de pruebas, porque el escaneo activo envía formularios con ataques.
+- En el plan con sesión, ZAP renueva solo el campo CSRF `_token`. Se comprobó que **sí inició sesión**:
+  1 `LOGIN` en la auditoría y 1 258 acciones del asistente (consultar actas, ver e imprimir PDF).
+
+### 6.1 Primer escaneo (sin sesión): hallazgos y correcciones
+
+Evidencia: [`eq04-zap-portal-antes.html`](../../../sprint-2/evidencias/eq04-zap-portal-antes.html).
+**0 alertas de riesgo alto.** Las medias y bajas se corrigieron así:
+
+| Alerta (riesgo) | Causa | Corrección |
+|---|---|---|
+| *CSP Header Not Set* y *X-Powered-By: PHP/8.4.25* (medio / bajo) en 404 de URL inexistentes y 419 sin token CSRF | `CabecerasSeguridad` estaba dentro del grupo `web`: lo que se responde antes de llegar a él salía sin cabeceras | Ahora es **middleware global** (`bootstrap/app.php`). Prueba: `EndurecimientoTest::test_las_cabeceras_tambien_van_en_errores_fuera_de_las_rutas_y_limitan_los_formularios` (falla sin la corrección) |
+| *CSP: Failure to Define Directive with No Fallback* (medio) | Faltaba `form-action`, que no hereda de `default-src` | `form-action 'self'` más los dos únicos destinos externos tras un formulario: el checkout de Mercado Pago (`*.mercadopago.com.pe`, `*.mercadopago.com`, por sus redirecciones internas) y WhatsApp (`wa.me` → `api.whatsapp.com`, comprobado). **Pendiente:** confirmar en el navegador, con un pago de prueba, que el checkout abre con la nueva política |
+| *.htaccess Information Leak* (medio) | nginx servía `public/.htaccess` | `location ~ /\.(?!well-known) { deny all; }` (403) |
+| *Server Leaks Version* (bajo) | nginx mostraba `nginx/1.25.2` | `server_tokens off` |
+| *X-Content-Type-Options Missing* (bajo) en CSS | Los estáticos no pasan por Laravel | `nosniff` en los estáticos desde nginx |
+
+Las tres correcciones de nginx están en [`tests/carga/servidor-carga.ps1`](../../tests/carga/servidor-carga.ps1) y
+son **requisito de la configuración del servidor del Sprint 3**.
+
+### 6.2 Resultado final
+
+Evidencias:
+- portal y login sin sesión: [`eq04-zap-portal.html`](../../../sprint-2/evidencias/eq04-zap-portal.html);
+- panel con sesión: [`eq04-zap-panel.html`](../../../sprint-2/evidencias/eq04-zap-panel.html);
+- los mismos resultados en `.json`.
+
+| Riesgo | Portal (sin sesión) | Panel (con sesión) |
+|---|---|---|
+| **Alto** | **0** | 1 → **falso positivo** (*Path Traversal*, confianza baja, §6.3) |
+| Medio | 3 (aceptadas, §6.4) | 3 (las mismas, aceptadas) |
+| Bajo | 3 (aceptadas) | 3 (aceptadas) |
+
+La alerta de inyección SQL apareció en el panel en un intento previo, cuando ZAP no había logrado iniciar
+sesión y atacó `/recuperar-contrasena`. En el plan final esa ruta y `/login` se excluyen del panel, porque ya se
+escanean sin sesión.
+
+**Integridad tras el ataque:** se compararon con `CHECKSUM TABLE` todas las tablas de la base escaneada contra
+la original. Solo cambiaron `auditoria`, donde quedaron registradas las propias acciones del escaneo, y
+`sessions`. **Ningún dato de negocio fue modificado** por 15 minutos de ataques con la sesión del asistente.
+
+### 6.3 Análisis de las alertas de riesgo alto (falsos positivos)
+
+**Inyección SQL en `POST /recuperar-contrasena`, campo `email` (confianza media).** ZAP envió
+`zaproxy@example.com`, `… AND 1=1 -- ` y `… OR 1=1 -- `, y vio respuestas distintas. Se reprodujo con las
+mismas tres peticiones:
+1. el correo válido recibe el aviso de que el correo no está configurado en local;
+2. `… AND 1=1 -- ` recibe **«El campo correo electrónico debe ser una dirección de correo válida»**: la regla
+   `email` de Laravel lo rechaza antes de cualquier consulta;
+3. la tercera petición recibe **429**, por el límite de 5 intentos por minuto.
+
+La diferencia la producen la validación y el límite de intentos, no la base de datos. Además, la consulta usa
+parámetros enlazados (`User::where('email', $email)`); no hay SQL armado con texto del usuario.
+
+**Path Traversal en `PATCH /actas/{id}/filiacion` (confianza baja).** ZAP envía como valor de cada campo el
+nombre del propio recurso (`filiacion`, `/filiacion`, `\filiacion`) y compara respuestas. `FiliacionController`
+no lee ni escribe archivos: valida con `GuardarFiliacionRequest` y guarda con Eloquent. En la base escaneada,
+`acta_nacimientos` tiene el **mismo checksum** que la original, `filiacion_historial` sigue vacío y no hay
+ninguna auditoría `COMPLETAR_FILIACION`. Ninguno de los 135 intentos cambió nada.
+
+### 6.4 Alertas aceptadas (riesgo medio y bajo)
+
+| Alerta | Por qué se acepta |
+|---|---|
+| CSP con `'unsafe-inline'` en scripts y estilos (medio) | Las vistas usan scripts en línea (limitación declarada en §4). La CSP igual bloquea código de otros dominios, los plugins y el enmarcado; el escape de Blade protege contra XSS. Mejora futura: mover los scripts a archivos `.js` |
+| *Sub Resource Integrity Missing* en Google Fonts (medio) | Google sirve un CSS distinto según el navegador, así que no admite un hash fijo. Alternativa futura: alojar las fuentes en el propio servidor |
+| Cookie `XSRF-TOKEN` sin `HttpOnly` (bajo) | Es intencional: el JavaScript de la página debe leerla para enviar el token CSRF. La cookie de sesión **sí** es `HttpOnly` |
+| *Timestamp Disclosure* (bajo) | Es la versión de los archivos CSS y JS (`?v=` fecha de modificación), sin información sensible |
+| *Big Redirect* (bajo) | Redirecciones de Laravel con una página mínima que incluye la URL de destino; no contienen datos |
 
 ## 7. Veredicto
 
-*(pendiente)*
+| Criterio | Resultado |
+|---|---|
+| 100 % de los casos no autorizados rechazados (matriz Postman) | ✅ 53 peticiones, 71 verificaciones, 0 fallidas |
+| OWASP ZAP sin alertas de riesgo **alto** | ✅ 0 confirmadas: las 2 alertas altas reportadas se analizaron y reprodujeron, y son falsos positivos (§6.3) |
+| Sin PDF, códigos ni datos personales en respuestas públicas | ✅ Matriz Postman y revisión de los informes de ZAP |
+| Librerías sin vulnerabilidades conocidas | ✅ `composer audit`: 0 |
+
+**AC04 cumple.** Queda la mejora futura de quitar `'unsafe-inline'` de la CSP, y las cabeceras de nginx pasan a
+ser requisito del despliegue (Sprint 3).

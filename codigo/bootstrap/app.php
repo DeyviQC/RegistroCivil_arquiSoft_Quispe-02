@@ -26,13 +26,13 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(append: [
             EnsureUserIsActive::class,
-            \App\Http\Middleware\CabecerasSeguridad::class,
         ]);
 
-        // REST API: JSON first (before authentication can redirect) and the same security headers.
-        $middleware->api(prepend: [\App\Http\Middleware\ForzarRespuestaJson::class], append: [
-            \App\Http\Middleware\CabecerasSeguridad::class,
-        ]);
+        // REST API: JSON first (before authentication can redirect).
+        $middleware->api(prepend: [\App\Http\Middleware\ForzarRespuestaJson::class]);
+
+        // Security headers on every response, including 404, 419 and 429 produced before any route group.
+        $middleware->append(\App\Http\Middleware\CabecerasSeguridad::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

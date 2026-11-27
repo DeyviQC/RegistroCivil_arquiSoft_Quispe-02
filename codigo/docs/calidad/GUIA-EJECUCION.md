@@ -74,10 +74,26 @@ Debe terminar con **71 assertions, 0 failed**. Para mostrarlo de forma visual: a
 
 > `php artisan cache:clear` antes de cada ejecución: reinicia los contadores de intentos.
 
-**c) OWASP ZAP (escaneo automático)** — mismo `.env` de AC04:
-- **Forma visual (recomendada para mostrar):** abre **ZAP** desde el menú Inicio → *Automated Scan* →
-  URL `http://registro-civil.test/tramite` → *Attack*. Al terminar, pestaña *Alerts*.
-  Repite con `http://registro-civil.test/` para el login. Exporta el informe: *Report → Generate Report*.
+**c) OWASP ZAP (escaneo automático)** — sobre una **copia de prueba** con `APP_DEBUG=false`, sin
+`PRUEBAS_CARGA_TOKEN` y con una base clonada: el escaneo activo envía formularios con ataques. La copia se
+levanta en el puerto 8030, que es el que usan los planes:
+```powershell
+powershell -ExecutionPolicy Bypass -File tests\carga\servidor-carga.ps1 -Raiz C:\ruta\copia\codigo -Trabajadores 6 -Puerto 8030 -PuertoFastCgi 9301
+```
+- **Forma visual (para mostrar en clase), con el mismo plan:** abre **ZAP** → pestaña **Automation**
+  (si no se ve: *View → Show Tab → Automation*) → **Load Plan…** → elige `tests\seguridad\zap-portal.yaml` →
+  **Run Plan**. Se ven los trabajos (araña, pasivo, activo) y al terminar las alertas en la pestaña *Alerts*. El
+  informe queda en `sprint-2\evidencias\eq04-zap-portal.html`. Repite con `zap-panel.yaml` para el panel con
+  sesión.
+- **Forma automática (sin ventana).** Usa otro puerto si el ZAP de escritorio está abierto, y guarda la sesión
+  de ZAP en un disco con espacio: el escaneo con sesión ocupa ~3 GB.
+  ```powershell
+  $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jre-17.0.21.10002-hotspot"
+  & "C:\Program Files\ZAP\Zed Attack Proxy\zap.bat" -cmd -port 8091 -dir E:\zap-temp -autorun "$PWD\tests\seguridad\zap-portal.yaml"
+  & "C:\Program Files\ZAP\Zed Attack Proxy\zap.bat" -cmd -port 8091 -dir E:\zap-temp -autorun "$PWD\tests\seguridad\zap-panel.yaml"
+  ```
+  Antes del plan con sesión, ejecuta `php artisan cache:clear` en la copia, para reiniciar los límites de intentos
+  del login.
 - **Si ZAP no abre** porque no encuentra Java, usa el Java 17 instalado:
   ```powershell
   $env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jre-17.0.21.10002-hotspot"
@@ -108,7 +124,9 @@ php vendor/bin/phpstan analyse --memory-limit=1G
 ```
 Debe decir **[OK] No errors**.
 
-## Pendientes
+## Estado
 
-- **AC02 Disponibilidad**, **AC06 Trazabilidad** y **AC08 Recuperabilidad**: aún no ejecutadas.
-- **AC04**: falta registrar el resultado de ZAP y el veredicto.
+Todos los atributos tienen resultado. **AC02**, **AC06** y **AC08**, la carga progresiva hasta 2 000 usuarios y
+la repetición de AC05 sobre el código del Sprint 2 están en
+[`sprint-2/06-atributos-de-calidad.md`](../../../sprint-2/06-atributos-de-calidad.md), con sus comandos
+(sección 9). El resultado de ZAP y el veredicto de **AC04** están en `AC04-seguridad.md`, §6 y §7.
